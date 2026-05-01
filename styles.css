@@ -1336,7 +1336,7 @@ img {
   }
 }
 
-.case-related h3 {
+.case-related > h3 {
   font-size: 11px;
   font-weight: 600;
   text-transform: uppercase;
