@@ -3,14 +3,14 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Shell — AI-powered Finance & Deal Management platform with conversational interfaces and real-time dashboards." />
+  <meta name="description" content="Shell Pacific Platform — A unified deal-management cockpit for Shell Finance. 500+ active deals consolidated from 4 separate trackers. AI-driven risk insight via Insight.AI." />
   <link rel="canonical" href="https://sunejaux.space/work/shell" />
-  <meta property="og:title" content="Shell — Finance & Deal Management · Harshit Suneja" />
-  <meta property="og:description" content="AI-powered deal lifecycle platform. Conversational interfaces over Anthropic. Decision-driven case study from Harshit Suneja's PwC engagement." />
+  <meta property="og:title" content="Shell — Pacific Platform · Harshit Suneja" />
+  <meta property="og:description" content="How Shell Finance got a clear view of every deal. Senior Product Designer secondment via PwC. 500+ deals consolidated. Insight.AI-driven risk." />
   <meta property="og:type" content="article" />
   <meta property="og:url" content="https://sunejaux.space/work/shell" />
   <meta name="twitter:card" content="summary_large_image" />
-  <title>Shell — Finance & Deal Management — Harshit Suneja</title>
+  <title>Shell — Pacific Platform · Harshit Suneja</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -64,123 +64,156 @@
     <article class="case-content">
       <div class="case-hero-image case-hero-shell" aria-hidden="true"></div>
 
-      <h1 class="case-title">Shell — Finance &amp; Deal Management <span class="pseudo-tag">draft</span></h1>
-      <p class="case-subtitle">The entire deal lifecycle — origination to close — collapsed onto a single AI-powered platform with real-time dashboards and conversational interfaces.</p>
+      <h1 class="case-title">Shell — Pacific Platform</h1>
+      <p class="case-subtitle">How Shell Finance got a clear view of every deal. A unified cockpit gave finance leaders one place to track deals, resources, and budget utilization — shifting effort from manual reconciliation to real performance management.</p>
 
       <div class="case-meta">
-        <div class="case-meta-row"><span class="case-meta-label">Role</span><span class="case-meta-value">Lead Designer · Deal lifecycle workstream</span></div>
-        <div class="case-meta-row"><span class="case-meta-label">Team</span><span class="case-meta-value">3 designers · ~20 engineers · Shell stakeholders</span></div>
-        <div class="case-meta-row"><span class="case-meta-label">Timeline</span><span class="case-meta-value">[Add quarter — e.g. Q2 2024 → Q4 2024]</span></div>
+        <div class="case-meta-row"><span class="case-meta-label">Role</span><span class="case-meta-value">Senior Product Designer · Secondment via PwC</span></div>
+        <div class="case-meta-row"><span class="case-meta-label">Client</span><span class="case-meta-value">Shell · Finance &amp; Deal Management workstream</span></div>
+        <div class="case-meta-row"><span class="case-meta-label">Team</span><span class="case-meta-value">3 designers · ~20 engineers · Shell finance + tech stakeholders</span></div>
         <div class="case-meta-row"><span class="case-meta-label">Domain</span><span class="case-meta-value">Energy · Enterprise B2B · Finance Operations</span></div>
-        <div class="case-meta-row"><span class="case-meta-label">Users</span><span class="case-meta-value">Deal teams, finance controllers, regional analysts</span></div>
-        <div class="case-meta-row"><span class="case-meta-label">Stack</span><span class="case-meta-value">Figma, Anthropic SDK, Cursor, custom prototyping</span></div>
+        <div class="case-meta-row"><span class="case-meta-label">Users</span><span class="case-meta-value">Finance leaders, deal-makers, regional analysts</span></div>
+        <div class="case-meta-row"><span class="case-meta-label">Stack</span><span class="case-meta-value">Figma, Tokens Studio, Anthropic SDK (Insight.AI), internal Shell systems</span></div>
       </div>
 
       <section class="case-section case-tldr" id="tldr">
         <h2>TL;DR</h2>
         <ul>
-          <li>Replaced spreadsheet-and-email deal management with a conversational AI surface — reducing approval cycle time materially.</li>
-          <li>Designed a "natural-language first, structured-form second" interaction model that worked for both finance pros and field deal-makers.</li>
-          <li>Shipped real-time dashboards that surface deal risk before humans need to ask.</li>
+          <li>Replaced four parallel deal trackers (spreadsheets, slide packs, legacy tools) with a single workflow-aligned cockpit named the <strong>Pacific Platform</strong>.</li>
+          <li>Consolidated <strong>500+ active deals</strong> into one source of truth across deal management, financial dashboard, resources/time, and budget utilization.</li>
+          <li>Cut review-prep time materially and surfaced deal risk earlier — finance now <em>acts</em>, not just reports.</li>
         </ul>
       </section>
 
       <section class="case-section" id="constraint">
         <h2>The constraint</h2>
         <p>
-          Shell's deal lifecycle was historically run on Excel, email, and a fragmented set of legacy tools. Approval threads spanned weeks. Risk only surfaced in steering committees — too late to act on. The mandate: <strong>collapse the cycle, surface signals earlier, without forcing finance teams to relearn their craft.</strong>
+          Shell's finance function oversees a global portfolio of deals across businesses and regions, but deal data, time bookings, and budget information lived in <strong>four separate trackers</strong> — multiple spreadsheets, two legacy tools, and steering-committee slide packs assembled manually each month.
         </p>
         <p>
-          The hard part: deal-makers <em>and</em> finance controllers <em>and</em> regional analysts use the platform daily, but they want completely different things from it. A field deal-maker wants speed and natural language. A controller wants structured audit trails. Designing one surface for both was the core tension.
+          Answering basic questions — <em>which deals are at risk, where are budgets off, where is capacity constrained</em> — required hours of reconciliation across owners. By the time risk surfaced in steering committees, the window to intervene had usually closed.
+        </p>
+        <p class="muted">
+          The mandate from Shell finance leadership: <strong>build a control cockpit, not another dashboard</strong>. Finance shouldn't have to assemble the picture; the picture should assemble itself.
         </p>
       </section>
 
       <section class="case-section" id="decision">
         <h2>The decision</h2>
-        <p>The biggest call: <strong>making the conversational interface the primary surface</strong>, not a chatbot bolt-on. Most enterprise AI products treat conversation as a sidebar. We made it the home screen.</p>
+        <p>
+          The framing call: stop treating this as a "reporting tool" project. Reframe it as a <strong>cockpit for finance</strong> with three goals — capture every active deal with consistent data, connect deals to people and budgets, surface exceptions early so finance can act.
+        </p>
 
         <div class="decision-block kept">
           <div class="label">Chose</div>
-          <div class="text">Conversational primary nav. "Show me deals at risk in APAC this quarter" → live dashboard generated.</div>
+          <div class="text">Four core views in one workflow-aligned interface — Deal Management, Financial Dashboard, Resources &amp; Time, Budget Utilization. Same nav, same vocabulary, same data spine.</div>
         </div>
         <div class="decision-block kept">
           <div class="label">Chose</div>
-          <div class="text">Every AI response is editable as a structured form. Deal-makers move fast in chat; controllers refine in form.</div>
-        </div>
-        <div class="decision-block killed">
-          <div class="label">Killed</div>
-          <div class="text">A "novice mode" with hand-holding tooltips. Patronising for a senior finance audience. Replaced with <em>example prompts</em> at the top.</div>
+          <div class="text">Exception-first filters — "at risk", "over budget", "capacity constrained" — surfaced as primary navigation chips, not buried in advanced filters.</div>
         </div>
         <div class="decision-block kept">
           <div class="label">Chose</div>
-          <div class="text">Real-time risk dashboards built from deal data — not waiting for users to ask. Risk finds you, not the other way around.</div>
+          <div class="text">Lean data inputs — analysts and managers keep records current without heavy admin overhead. Capturing data is part of the workflow, not a tax on it.</div>
         </div>
         <div class="decision-block killed">
           <div class="label">Killed</div>
-          <div class="text">Mobile parity at launch. Deal work happens at desks; we shipped desktop-first and saved mobile for v2.</div>
+          <div class="text">A "rich BI" mode with charts, slicers, and pivot tables. Finance leaders kept telling us they didn't want to build views — they wanted decisions surfaced. We removed it from scope, twice.</div>
+        </div>
+        <div class="decision-block killed">
+          <div class="label">Killed</div>
+          <div class="text">Real-time chat between contributors. Microsoft Teams already exists. Adding our own would have fragmented communication, not consolidated it.</div>
         </div>
       </section>
 
       <section class="case-section" id="system">
         <h2>The system</h2>
-        <p>The interface is built on a <strong>"conversation primitives"</strong> design system — message blocks, structured-form blocks, dashboard blocks, and decision blocks — that interleave inside a single thread. Engineers ship new deal types by composing these primitives, not by building new screens.</p>
+        <p>
+          Pacific is built on a small set of <strong>workflow-shaped components</strong> — deal cards, KPI tiles, exception chips, status timelines, contributor blocks, budget bars. Each one has a job, and the four core views compose them differently.
+        </p>
 
         <figure class="case-figure">
-          <div class="case-figure-image">[ Conversation primitive components — message, form, dashboard, decision ]</div>
-          <div class="case-figure-caption">Four primitives compose every deal interaction.</div>
+          <div class="case-figure-image">[ Pacific Platform — home screen with quick actions: Submit Deal, Add Deal, Open Existing, Request Access ]</div>
+          <div class="case-figure-caption">Home screen — central hub for deal lifecycle actions.</div>
         </figure>
 
+        <p>
+          The deal page consolidates everything in one structured record: status, headline size, confidentiality, delegate, decision executive, FO analyst, country, line of business, strategic theme, deal phase (external + internal), and budget utilization — all in a single view, last-updated timestamp included. No more hunting across files.
+        </p>
+
         <figure class="case-figure">
-          <div class="case-figure-image">[ Real-time risk dashboard — surfaced inside the conversation thread ]</div>
-          <div class="case-figure-caption">Risk dashboards generate inside the thread, not on a separate page.</div>
+          <div class="case-figure-image">[ Deal Page — Project Indian Ocean (South Asia) with status, contributors, budget, highlights tabs ]</div>
+          <div class="case-figure-caption">Deal page consolidates 30+ formerly-scattered fields into one view.</div>
         </figure>
       </section>
 
       <section class="case-section" id="ai">
-        <h2>AI in the loop</h2>
-        <p>This was my first project where AI wasn't a feature — it was the <em>medium</em>. Concretely:</p>
+        <h2>AI in the loop — Insight.AI</h2>
+        <p>
+          The Budget page surfaces an AI feature called <strong>Insight.AI</strong> — generated analysis of burn rate, projected exhaustion, and trend signals against historical spend. Instead of finance teams asking <em>"is this deal off track?"</em> and then assembling the answer, Insight.AI offers the answer first, with the underlying data one click away.
+        </p>
+        <p>Concrete examples of what Insight.AI surfaces:</p>
         <ul>
-          <li><strong>Anthropic for the conversational layer:</strong> all natural-language deal queries route through Claude with a structured tool-use schema specific to Shell's deal data. We collaborated with the engineering team on the system prompt — the design constraint was making Claude refuse confidently when data was missing rather than hallucinate.</li>
-          <li><strong>Prompt-flow design with my own plugin:</strong> I used the Conversation Flow Generator (the Figma plugin I built) to draft and review hundreds of representative deal prompts before engineering wrote a line of integration code.</li>
-          <li><strong>Cursor + Claude Code in prototyping:</strong> the conversational UI's interaction edges (streaming, error recovery, tool-call latency) were built as live code prototypes in Cursor. Static Figma frames couldn't capture what was happening in time.</li>
+          <li><strong>Burn-rate alerts:</strong> <em>"Burn rate has increased by 18% this month. At this pace, budget exhaustion is projected 3 weeks before deal closure."</em></li>
+          <li><strong>Cost-by-category anomalies:</strong> flags categories where actuals diverge sharply from plan</li>
+          <li><strong>Spend-trend forward views:</strong> projects FY trajectories from current burn</li>
         </ul>
-        <p class="muted">Boundary line: AI <em>generates</em> insights and drafts. AI <em>does not</em> approve or commit deals. Every binding action requires explicit human action — a tradition I won't violate in regulated workflows.</p>
+        <p class="muted">
+          Where AI <em>isn't</em>: deal status changes, headline-size approvals, contributor assignments. Anything binding stays human-in-the-loop. AI surfaces signal; humans commit decisions. That line was non-negotiable for finance compliance and is part of why the feature got past internal risk review on the first pass.
+        </p>
       </section>
 
       <section class="case-section" id="tradeoffs">
         <h2>Trade-offs</h2>
-        <p>Going conversation-primary alienated a small but vocal group of senior controllers who wanted the dense table view they'd used for 15 years. We added a "classic" toggle as the escape hatch. Adoption data later showed [N]% never used it — but it was the right safety valve.</p>
-        <p>Cycle-time gains came partly from automation that <em>shifted</em> work from finance teams to AI-assisted draft review. Some controllers initially felt deskilled. Worth flagging — this is the underdiscussed cost of AI-native design in enterprise.</p>
+        <p>
+          Going single-cockpit cost us scope ambition. There were proposals to add forecasting, scenario analysis, and Power BI-style custom dashboards in the first release. We deferred all three. Adoption depended on the cockpit being immediately understandable to a finance lead opening it cold — adding configurability would have undermined that.
+        </p>
+        <p>
+          Lean data inputs meant some data shape decisions had to be standardized across business units that previously did things differently. We absorbed the political cost — every finance lead lost something small they liked, in exchange for everyone gaining visibility they couldn't get before.
+        </p>
       </section>
 
       <section class="case-section" id="outcome">
         <h2>Outcome</h2>
         <div class="metric-grid">
           <div class="metric-tile">
-            <div class="metric-value">[N]%</div>
-            <div class="metric-label">Reduction in deal cycle time</div>
+            <div class="metric-value">500+</div>
+            <div class="metric-label">Active deals consolidated into one system</div>
           </div>
           <div class="metric-tile">
-            <div class="metric-value">[N]</div>
-            <div class="metric-label">Conversation primitives shipped</div>
+            <div class="metric-value">4 → 1</div>
+            <div class="metric-label">Trackers replaced with a single source of truth</div>
           </div>
           <div class="metric-tile">
-            <div class="metric-value">[N]</div>
-            <div class="metric-label">Active deal teams using daily</div>
+            <div class="metric-value">↓ Significant</div>
+            <div class="metric-label">Reduction in manual review-prep time</div>
+          </div>
+          <div class="metric-tile">
+            <div class="metric-value">↑ Earlier</div>
+            <div class="metric-label">Risk visibility surfacing pre-month-end</div>
           </div>
         </div>
-        <p>Concrete metrics to be filled in once internal numbers clear external-share approval.</p>
+        <p>
+          Pacific is now the starting point for monthly and quarterly portfolio discussions. Leaders use it to scan the portfolio, drill into flagged deals, and decide where to focus attention — using a single live view instead of multiple spreadsheets and slide packs.
+        </p>
+        <p class="muted">
+          With structured deal data and workflows in one place, Shell Finance now has a platform for scenario analysis, trend views across quarters, and future integration with forecasting and AI-driven indicators of deal health.
+        </p>
       </section>
 
       <section class="case-section" id="change">
         <h2>What I'd change</h2>
-        <p>I'd have spent more time co-designing with controllers <em>before</em> the conversational shift, not after. We won the argument with leadership, then had to win it again with the people doing the work. Knowing what I know now, I'd run a "controller's roundtable" earlier — let them shape what the structured-form mode looked like, so it felt theirs.</p>
-        <p>Also: I underestimated how much <strong>error UX</strong> matters in conversational AI products. Users are far less forgiving of an AI mistake than a form validation error. Investing in error states earlier would've prevented a small adoption stutter at launch.</p>
+        <p>
+          I'd have invested in the <strong>contributor experience</strong> earlier. The cockpit was designed for finance leaders first — but deal-makers and analysts are the ones who keep the data fresh, and their flows lagged the leadership flows by a release cycle. If we'd parallel-tracked them from day one, adoption would have ramped faster.
+        </p>
+        <p>
+          Also: I'd have shipped Insight.AI behind a clearer <strong>"explain"</strong> affordance. Early users wanted to know <em>why</em> the AI flagged something, not just <em>what</em>. We added it later. Should have been there at launch.
+        </p>
       </section>
 
       <nav class="case-next" aria-label="Next case study">
         <span class="case-next-label">Next →</span>
-        <a href="/work/central-union-bank" class="case-next-link">Central Union Bank — Digital Banking</a>
+        <a href="/work/cctns" class="case-next-link">CCTNS — Ministry of Home Affairs</a>
       </nav>
 
     </article>
@@ -198,8 +231,6 @@
   </div>
 
   <script src="../script.js"></script>
-
-  <!-- Vercel Web Analytics + Speed Insights -->
   <script defer src="/_vercel/insights/script.js"></script>
   <script defer src="/_vercel/speed-insights/script.js"></script>
 </body>

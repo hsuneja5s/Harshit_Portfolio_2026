@@ -3,14 +3,14 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="IndusInd Bank — Built a new design system from the ground up. Replaced fragmented mobile + web banking with one unified experience." />
+  <meta name="description" content="IndusInd Bank — INDIE. Shortening complex banking flows into few-step, error-proof journeys for both customers and internal users." />
   <link rel="canonical" href="https://sunejaux.space/work/indusind" />
-  <meta property="og:title" content="IndusInd Bank — Design System · Harshit Suneja" />
-  <meta property="og:description" content="Design system from the ground up. Unified mobile + web banking. ~85% component reuse. Decision-driven case study from Harshit Suneja's PwC engagement." />
+  <meta property="og:title" content="IndusInd Bank — INDIE · Harshit Suneja" />
+  <meta property="og:description" content="A UX overhaul that turned high-friction banking flows into clear, guided, error-proof journeys across mobile and web. Built by Harshit Suneja." />
   <meta property="og:type" content="article" />
   <meta property="og:url" content="https://sunejaux.space/work/indusind" />
   <meta name="twitter:card" content="summary_large_image" />
-  <title>IndusInd Bank — Design System — Harshit Suneja</title>
+  <title>IndusInd Bank — INDIE · Harshit Suneja</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -64,95 +64,119 @@
     <article class="case-content">
       <div class="case-hero-image case-hero-indusind" aria-hidden="true"></div>
 
-      <h1 class="case-title">IndusInd Bank — Design System <span class="pseudo-tag">draft</span></h1>
-      <p class="case-subtitle">A design system from the ground up — replacing a fragmented product experience across mobile and web with one unified banking application.</p>
+      <h1 class="case-title">IndusInd Bank — INDIE</h1>
+      <p class="case-subtitle">Shortening complex banking flows into few-step, error-proof journeys. A UX overhaul that streamlined high-friction workflows into clear, guided steps — for both customers and internal users.</p>
 
       <div class="case-meta">
-        <div class="case-meta-row"><span class="case-meta-label">Role</span><span class="case-meta-value">Design system lead · Architecture + governance</span></div>
+        <div class="case-meta-row"><span class="case-meta-label">Role</span><span class="case-meta-value">Product Designer · Customer-facing flows + design system support</span></div>
+        <div class="case-meta-row"><span class="case-meta-label">Brand</span><span class="case-meta-value">INDIE — IndusInd Bank's customer banking experience</span></div>
         <div class="case-meta-row"><span class="case-meta-label">Team</span><span class="case-meta-value">2 designers (system) · 6 designers (consumers) · ~40 engineers</span></div>
-        <div class="case-meta-row"><span class="case-meta-label">Timeline</span><span class="case-meta-value">[Add quarter — e.g. Q3 2024 → Present]</span></div>
+        <div class="case-meta-row"><span class="case-meta-label">Surfaces</span><span class="case-meta-value">Customer mobile · web banking · internal staff tools</span></div>
         <div class="case-meta-row"><span class="case-meta-label">Domain</span><span class="case-meta-value">Banking · Mobile + Web · Multi-platform</span></div>
-        <div class="case-meta-row"><span class="case-meta-label">Surfaces</span><span class="case-meta-value">Retail mobile · web banking · internal tools</span></div>
         <div class="case-meta-row"><span class="case-meta-label">Stack</span><span class="case-meta-value">Figma, Tokens Studio, Style Dictionary, Storybook, GitHub Actions</span></div>
       </div>
 
       <section class="case-section case-tldr" id="tldr">
         <h2>TL;DR</h2>
         <ul>
-          <li>Built a semantic-token-first design system from scratch — one source of truth for mobile, web, and internal tools.</li>
-          <li>Established governance + contribution model so the system survives without me. Engineers and designers ship new components without breaking consistency.</li>
-          <li>Replaced years of UI drift with a unified banking experience. Component reuse went from <em>nominal</em> to <strong>~85%</strong> across the app.</li>
+          <li>Compressed high-friction banking flows (account opening, business loan applications, cross-currency transfers) into <strong>few-step, error-proof journeys</strong> by collapsing decisions and pre-filling state.</li>
+          <li>Built and rolled out a unified design system underneath — same tokens, same components — across customer mobile, web, and internal staff tools.</li>
+          <li>Component reuse hit <strong>~85%</strong> across surfaces. Pending-action drift, the most common bug class on the legacy app, dropped sharply.</li>
         </ul>
       </section>
 
       <section class="case-section" id="constraint">
         <h2>The constraint</h2>
         <p>
-          IndusInd had years of organic product growth across multiple feature teams. Mobile and web had drifted apart. The same "transfer money" flow looked, behaved, and was named three different ways across surfaces. Customers noticed. So did regulators, who flagged inconsistency in disclosures.
+          IndusInd's customer experience had years of organic feature growth. Mobile and web had drifted apart. The same "transfer money" flow looked, behaved, and was named three different ways across surfaces. Customers noticed. So did regulators, who flagged inconsistency in disclosures.
         </p>
         <p>
-          The mandate: <strong>build a system that brings the surfaces together — without forking the migration into a multi-year nightmare</strong>. We had to ship the system <em>and</em> migrate consumers to it concurrently. No "freeze the product, build the system" luxury.
+          More urgent than the cosmetic issue: the high-friction flows. Applying for a business loan was a <strong>14-step process</strong> across multiple disconnected pages. Cross-currency transfers required customers to choose options they couldn't possibly understand without a banker on the phone. EMI handling and pending approvals piled up because customers didn't know what they needed to do next.
+        </p>
+        <p class="muted">
+          The mandate: <strong>shorten the journey, surface what needs attention, prevent errors before they happen</strong>. Without freezing the product to do it.
         </p>
       </section>
 
       <section class="case-section" id="decision">
         <h2>The decision</h2>
-        <p>The architectural call was <strong>semantic tokens, not literal tokens</strong> — even though semantic tokens cost more upfront. Banking has long surface-level requirements (dark mode, regional themes, white-label for partner banks) that literal tokens couldn't have absorbed.</p>
+        <p>
+          The core call: stop redesigning screens, start redesigning <strong>journeys</strong>. Every flow audit started with the same question — <em>"what's the minimum number of decisions a customer should make to complete this?"</em> — and worked backward from there.
+        </p>
 
         <div class="decision-block kept">
           <div class="label">Chose</div>
-          <div class="text">Semantic token architecture: background / content / border × primary / secondary / tertiary. Engineers theme by remapping a single layer.</div>
-        </div>
-        <div class="decision-block killed">
-          <div class="label">Killed</div>
-          <div class="text">Literal tokens (color-blue-500 etc.). Faster to ship, impossible to theme. Saying no early was the highest-leverage decision.</div>
+          <div class="text">A "Needs your attention" strip on the home dashboard — pending approvals, incomplete applications, EMIs due — surfacing exactly what blocks progress, with one-tap entry to resolve.</div>
         </div>
         <div class="decision-block kept">
           <div class="label">Chose</div>
-          <div class="text">Component-by-component migration with explicit "until consumed" deprecation tags. Old components kept working, but every new feature had to use the system.</div>
+          <div class="text">"At your fingertips" customisable shortcuts on home — Share QR, Scan &amp; Pay, Bill Pay, Apply for Business Loan — letting customers pin their own most-used actions.</div>
         </div>
         <div class="decision-block kept">
           <div class="label">Chose</div>
-          <div class="text">A contribution model where consumer designers can propose new components, but a small architecture committee reviews. Prevents drift without bottlenecking.</div>
+          <div class="text">Smart pre-fill from KYC + transaction history. Most form fields a customer would have to type are pre-populated and shown as confirmation chips, not blank inputs.</div>
+        </div>
+        <div class="decision-block kept">
+          <div class="label">Chose</div>
+          <div class="text">Semantic tokens — not literal — even though semantic cost more upfront. Banking has long surface-level requirements (dark mode, regional themes, white-label for partner products) that literal tokens couldn't have absorbed.</div>
         </div>
         <div class="decision-block killed">
           <div class="label">Killed</div>
-          <div class="text">A "lite" version of the system for non-banking surfaces. Adds maintenance burden, gives nothing back.</div>
+          <div class="text">A "wizard mode" with separate step-by-step screens for every complex flow. Tested with target users — felt patronising on the simple steps, confusing on the complex ones. Replaced with progressive disclosure inside one continuous frame.</div>
+        </div>
+        <div class="decision-block killed">
+          <div class="label">Killed</div>
+          <div class="text">A separate "Pro" surface for power users. Maintaining two surfaces is governance debt we weren't going to pay. Power-user affordances (saved beneficiaries, recent recipients, gesture shortcuts) are layered on top of the same surface.</div>
         </div>
       </section>
 
       <section class="case-section" id="system">
         <h2>The system</h2>
-        <p>Three layers, single source of truth: <strong>tokens</strong> in Tokens Studio (Figma) sync to <strong>Style Dictionary</strong> (CI/CD pipeline) which generates platform-specific outputs (CSS variables for web, XML for Android, JSON for React Native).</p>
+        <p>
+          The redesign is anchored on a <strong>journey-first component library</strong>. Each high-volume task type — transfer, pay bill, deposit, investment, loan application, dispute — gets one canonical flow composition. Engineers ship new tasks by extending the registry, not by designing new screens from scratch.
+        </p>
 
         <figure class="case-figure">
-          <div class="case-figure-image">[ Token pipeline diagram — Figma → Style Dictionary → platforms ]</div>
-          <div class="case-figure-caption">Token sync pipeline. Designers change a token in Figma; engineering picks up the diff via PR.</div>
+          <div class="case-figure-image">[ INDIE home — At-your-fingertips actions, Account Analytics, Recent Transactions, Needs-your-attention strip ]</div>
+          <div class="case-figure-caption">Home dashboard — at-fingertips actions, account analytics, attention-required signals.</div>
         </figure>
+
+        <p>
+          Three layers feed the system: <strong>tokens</strong> (Figma Variables via Tokens Studio) sync to <strong>Style Dictionary</strong> in CI/CD, which generates platform-specific outputs (CSS variables for web, XML for Android, JSON for React Native). Designers change a token in Figma → engineering picks up the diff in a PR.
+        </p>
 
         <figure class="case-figure">
-          <div class="case-figure-image">[ Component library overview — across mobile + web surfaces ]</div>
-          <div class="case-figure-caption">~120 components shipped to date. Each documented in Storybook with do/don't examples.</div>
+          <div class="case-figure-image">[ Mobile companion view — same dashboard restructured for handheld ]</div>
+          <div class="case-figure-caption">Same system on mobile — components compose differently, tokens stay the same.</div>
         </figure>
 
-        <p>The governance doc is short on purpose: <em>"any change that affects more than one team's UI is a system change."</em> That sentence has prevented more drift than any tooling we built.</p>
+        <p>
+          The governance doc is short on purpose: <em>"any change that affects more than one team's UI is a system change."</em> That sentence has prevented more drift than any tooling we built.
+        </p>
       </section>
 
       <section class="case-section" id="ai">
         <h2>AI in the loop</h2>
-        <p>This is the project where I built the AI Figma plugins that now sit in my plugin shelf. Each one was a real pain-killer first, a portable tool second.</p>
+        <p>This is the project where I started building tools to handle scale. Three concrete uses:</p>
         <ul>
-          <li><strong>Design System Validator:</strong> caught 100s of token-mismatch + structural breaks before they landed in PR. Built because manual review across 6 consumer designers wasn't scaling.</li>
-          <li><strong>CLAUDE.md Exporter:</strong> when engineers wanted to scaffold prototypes via Claude Code, they kept generating components that didn't match our tokens. The exporter packages our system as a single CLAUDE.md so Claude builds inside the system by default.</li>
-          <li><strong>Design System Generator:</strong> we forked it for the IndusInd internal-tools team — instead of waiting weeks for system support, they could spin up a token-aligned starter system for a new internal app in a day.</li>
+          <li><strong><a href="/plugins/design-system-validator" class="inline-link">Design System Validator</a>:</strong> caught hundreds of token-mismatch and structural breaks before they landed in PR. Built because manual review across 6 consumer designers wasn't scaling.</li>
+          <li><strong><a href="/plugins/claude-md-exporter" class="inline-link">CLAUDE.md Exporter</a>:</strong> when engineers wanted to scaffold prototypes via Claude Code, they kept generating components that didn't match our tokens. The exporter packages our system as a single CLAUDE.md so Claude Code builds inside the system by default.</li>
+          <li><strong><a href="/plugins/design-system-generator" class="inline-link">Design System Generator</a>:</strong> we forked it for the IndusInd internal-tools team — instead of waiting weeks for system support, they could spin up a token-aligned starter system for a new internal app in a day.</li>
         </ul>
         <p class="muted">Every plugin started as a <em>"I'm doing this manually 30 times a week"</em> moment. None were built as side projects in isolation; all were built for this team and the work itself.</p>
       </section>
 
       <section class="case-section" id="tradeoffs">
         <h2>Trade-offs</h2>
-        <p>Choosing semantic tokens cost us a quarter of upfront design + engineering work compared to literal. We absorbed it. Two years from now when dark mode lands in a week instead of a quarter, that bill will be paid back many times over.</p>
-        <p>Concurrent migration meant some features shipped during the transition were temporarily inconsistent — a "what's on the system" sticker on every Figma frame helped engineers know what they could trust. Imperfect, but better than freezing product velocity.</p>
+        <p>
+          Choosing semantic tokens cost us a quarter of upfront design + engineering work compared to literal. We absorbed it. Two years from now, when dark mode lands in a week instead of a quarter, that bill will pay itself back many times over.
+        </p>
+        <p>
+          Concurrent migration meant some features shipped during the transition were temporarily inconsistent — a "what's on the system" sticker on every Figma frame helped engineers know what they could trust. Imperfect, but better than freezing product velocity for six months.
+        </p>
+        <p>
+          Killing the wizard-mode meant some genuinely complex flows now ask customers to think a little more in a single step. We accepted it. The path-of-least-thinking is fewer steps with smart defaults — not more steps with hand-holding.
+        </p>
       </section>
 
       <section class="case-section" id="outcome">
@@ -163,30 +187,36 @@
             <div class="metric-label">Component reuse across mobile + web</div>
           </div>
           <div class="metric-tile">
-            <div class="metric-value">~120</div>
-            <div class="metric-label">Components shipped to production</div>
+            <div class="metric-value">↓ Sharp</div>
+            <div class="metric-label">Drop in pending-action drift (the legacy bug class)</div>
           </div>
           <div class="metric-tile">
-            <div class="metric-value">[N]%</div>
-            <div class="metric-label">Reduction in time-to-first-screen</div>
+            <div class="metric-value">↓ Steps</div>
+            <div class="metric-label">High-friction flows compressed (e.g., 14 → 6 steps for business loan)</div>
           </div>
           <div class="metric-tile">
             <div class="metric-value">3</div>
-            <div class="metric-label">AI Figma plugins shipped from this project</div>
+            <div class="metric-label">AI Figma plugins built and shipped from this engagement</div>
           </div>
         </div>
-        <p>The clearest outcome isn't on the metric tiles: <strong>the system survives without me.</strong> Designers who've never met me are shipping inside it. That's the bar.</p>
+        <p>
+          The clearest outcome isn't on the metric tiles: <strong>the system survives without me</strong>. Designers who've never met me are shipping inside it. That's the bar.
+        </p>
       </section>
 
       <section class="case-section" id="change">
         <h2>What I'd change</h2>
-        <p>I'd have written the <strong>governance doc on day one</strong>, not month three. We had drift across the team's outputs until we sat down and articulated "what counts as a system decision vs. a vertical decision." Cost us ~2 weeks of consolidation. The doc itself is six bullet points; writing it earlier would have been free.</p>
-        <p>And: I'd have invested in <strong>contribution tooling</strong> (PR templates, automated change-logs) sooner. We did them in month four. Done at month one, the contribution velocity would've been double.</p>
+        <p>
+          I'd have written the <strong>governance doc on day one</strong>, not month three. We had drift across the team's outputs until we sat down and articulated "what counts as a system decision vs. a vertical decision." Cost us ~2 weeks of consolidation. The doc itself is six bullet points; writing it earlier would have been free.
+        </p>
+        <p>
+          And: I'd have invested in <strong>contribution tooling</strong> (PR templates, automated changelogs, contribution rituals) sooner. We did them in month four. Done at month one, the contribution velocity would have been double.
+        </p>
       </section>
 
       <nav class="case-next" aria-label="Next case study">
-        <span class="case-next-label">Back to →</span>
-        <a href="/" class="case-next-link">All work</a>
+        <span class="case-next-label">Next →</span>
+        <a href="/work/torrent-patient-app" class="case-next-link">Torrent Diagnostic — Patient App</a>
       </nav>
 
     </article>
@@ -204,8 +234,6 @@
   </div>
 
   <script src="../script.js"></script>
-
-  <!-- Vercel Web Analytics + Speed Insights -->
   <script defer src="/_vercel/insights/script.js"></script>
   <script defer src="/_vercel/speed-insights/script.js"></script>
 </body>

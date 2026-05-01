@@ -3,14 +3,14 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Central Union Bank — Digital banking redesign. NPS jumped from 4.7 to 9.2, 30%+ shift to self-service." />
+  <meta name="description" content="CUB.ai — An AI banking assistant for Central Union Bank. Resolves routine queries and guides everyday tasks inside the bank's digital channels." />
   <link rel="canonical" href="https://sunejaux.space/work/central-union-bank" />
-  <meta property="og:title" content="Central Union Bank · Harshit Suneja" />
-  <meta property="og:description" content="Digital banking redesign — NPS 4.7 → 9.2, 30%+ self-service shift. Decision-driven case study from Harshit Suneja's PwC engagement." />
+  <meta property="og:title" content="Central Union Bank — CUB.ai · Harshit Suneja" />
+  <meta property="og:description" content="Designing an AI chatbot that could actually handle everyday banking. Conversational + design system + account management. Built by Harshit Suneja at PwC." />
   <meta property="og:type" content="article" />
   <meta property="og:url" content="https://sunejaux.space/work/central-union-bank" />
   <meta name="twitter:card" content="summary_large_image" />
-  <title>Central Union Bank — Harshit Suneja</title>
+  <title>Central Union Bank — CUB.ai · Harshit Suneja</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -64,92 +64,117 @@
     <article class="case-content">
       <div class="case-hero-image case-hero-cub" aria-hidden="true"></div>
 
-      <h1 class="case-title">Central Union Bank — Digital Banking <span class="pseudo-tag">draft</span></h1>
-      <p class="case-subtitle">Reimagined the bank's digital experience across conversational UX, investments, and doorstep services. NPS jumped from 4.7 to 9.2 in one release cycle.</p>
+      <h1 class="case-title">Central Union Bank — CUB.ai</h1>
+      <p class="case-subtitle">Designing an AI banking assistant that could actually handle everyday banking. Resolves routine queries and guides customers through common tasks — reducing call-center load and making self-service feel closer to a human conversation.</p>
 
       <div class="case-meta">
-        <div class="case-meta-row"><span class="case-meta-label">Role</span><span class="case-meta-value">Lead Designer · Customer-facing app</span></div>
+        <div class="case-meta-row"><span class="case-meta-label">Role</span><span class="case-meta-value">Senior Product Designer · UX Design + Design System</span></div>
+        <div class="case-meta-row"><span class="case-meta-label">Modules owned</span><span class="case-meta-value">Account Management · CUB.ai Chatbot · Design System</span></div>
         <div class="case-meta-row"><span class="case-meta-label">Team</span><span class="case-meta-value">3 designers · ~25 engineers · risk + compliance partners</span></div>
-        <div class="case-meta-row"><span class="case-meta-label">Timeline</span><span class="case-meta-value">[Add quarter — e.g. Q1 2024 → Q3 2024]</span></div>
         <div class="case-meta-row"><span class="case-meta-label">Domain</span><span class="case-meta-value">Banking · Retail · Regulated (RBI)</span></div>
         <div class="case-meta-row"><span class="case-meta-label">Users</span><span class="case-meta-value">Mass-market customers · skewing older demographic</span></div>
-        <div class="case-meta-row"><span class="case-meta-label">Stack</span><span class="case-meta-value">Figma, Tokens Studio, Lottie, internal core banking APIs</span></div>
+        <div class="case-meta-row"><span class="case-meta-label">Stack</span><span class="case-meta-value">Figma, Tokens Studio, conversational design patterns, internal AI/intent layer</span></div>
       </div>
 
       <section class="case-section case-tldr" id="tldr">
         <h2>TL;DR</h2>
         <ul>
-          <li>Lifted NPS from <strong>4.7 → 9.2</strong> in a single release cycle by reframing the app around conversational primary navigation.</li>
-          <li>Shifted <strong>30%+</strong> of customers from branch / call-centre to self-service for the highest-volume tasks.</li>
-          <li>Designed doorstep banking flows — from request to officer arrival — for a customer base that genuinely doesn't want to come to the branch.</li>
+          <li>Designed CUB.ai — an AI assistant inside the bank's app — that resolves the most common customer service requests without sending them to a call center.</li>
+          <li>Built on a quick-action chip model: <em>Banking Summary, Last 5 Transactions, Block Card, Transfer Money, Pay Bills, Find ATM, Download Statement, Report Fraud</em> — each backed by a specific intent + structured response.</li>
+          <li>Lifted NPS from <strong>4.7 → 9.2</strong> in a single release cycle and shifted <strong>30%+</strong> of customer interactions away from branch + call center.</li>
         </ul>
       </section>
 
       <section class="case-section" id="constraint">
         <h2>The constraint</h2>
         <p>
-          Central Union Bank's customer base skews older and trust-sensitive. The previous app was the worst kind of "modernised" — a screen-by-screen port of branch processes, full of regulatory disclaimers and dropdowns that no one used. NPS at 4.7 reflected what customers told us in interviews: <em>"the bank doesn't trust me to know what I want."</em>
+          Central Union Bank's customer base skews older and trust-sensitive. The previous app was the worst kind of "modernised" — a screen-by-screen port of branch processes, full of regulatory disclaimers and dropdowns no one used. NPS sat at 4.7. In interviews, customers told us: <em>"the bank doesn't trust me to know what I want."</em>
         </p>
         <p>
-          The constraint we couldn't move: <strong>RBI compliance for every flow</strong>. Every consent screen, every disclaimer, every two-factor confirmation — locked. We had to redesign experience around an immovable regulatory shell.
+          The constraint we couldn't move: <strong>RBI compliance for every flow</strong>. Every consent screen, every disclaimer, every two-factor confirmation — locked. We had to redesign experience around an immovable regulatory shell, while making the result feel less like a form gauntlet and more like a conversation.
+        </p>
+        <p class="muted">
+          Layered on top: an older audience who say <em>"I want to pay my son's college fees"</em>, not <em>"I want to perform a third-party fund transfer."</em> The product needed to meet customers in their language — not the bank's.
         </p>
       </section>
 
       <section class="case-section" id="decision">
         <h2>The decision</h2>
-        <p>The strategic call: stop modelling the app on branch processes. Model it on <strong>how customers describe what they want</strong>. They don't say "I want to perform a third-party fund transfer." They say "I want to pay my son's college fees." Conversational primary nav was the answer.</p>
+        <p>
+          The strategic call: stop modelling the app on branch processes. Model it on <strong>how customers describe what they want</strong>. Conversational primary surface (CUB.ai) backed by quick-action chips — for the long tail, fall through to structured forms. For the head — the 8 most-used tasks — chat handles end-to-end.
+        </p>
 
         <div class="decision-block kept">
           <div class="label">Chose</div>
-          <div class="text">Conversational home screen. "What do you want to do today?" with intelligent autocomplete trained on common phrasings.</div>
+          <div class="text">A chat-first AI assistant with quick-action chips for the top 8 tasks: Banking Summary, Last 5 Transactions, Block Card, Transfer Money, Pay Bills, Find ATM, Download Statement, Report Fraud.</div>
         </div>
         <div class="decision-block kept">
           <div class="label">Chose</div>
-          <div class="text">Doorstep banking as a first-class service surface. Three taps from home to officer-at-door request.</div>
+          <div class="text">Structured response cards inside the chat — when a customer asks for "Last 5 Transactions", they get a tabular response with merchant, amount, date, category. Not a paragraph.</div>
         </div>
         <div class="decision-block kept">
           <div class="label">Chose</div>
-          <div class="text">Investments tab with explanatory cards in regional languages. Demystifying mutual funds for first-time investors.</div>
+          <div class="text">A unified design system underneath. Account Management screens, the chatbot surface, and shared components share one token tree, one type scale, one accessibility baseline.</div>
         </div>
         <div class="decision-block killed">
           <div class="label">Killed</div>
-          <div class="text">Gamified savings goals. Tested with target users — felt patronising. They wanted respect, not stickers.</div>
+          <div class="text">Free-form open chat as the entry point. Tested with target users — they froze at the empty input field. Quick-action chips solved the cold-start problem and let conversation be the medium, not the prerequisite.</div>
         </div>
         <div class="decision-block killed">
           <div class="label">Killed</div>
-          <div class="text">A "Pro mode" for younger customers. Maintaining two surfaces was governance debt we weren't going to pay.</div>
+          <div class="text">Gamified savings goals + animated mascots. Tested with the older audience — felt patronising. Customers wanted respect, not stickers.</div>
         </div>
       </section>
 
       <section class="case-section" id="system">
         <h2>The system</h2>
-        <p>The redesign was anchored on a <strong>"task-first" component library</strong> — every task type (transfer, pay bill, deposit, investment, doorstep request, dispute) gets one canonical card composition. Engineers ship new tasks by adding to the registry, not by designing new screens.</p>
+        <p>
+          CUB.ai is composed from <strong>four conversational primitives</strong>: greeting messages, quick-action chips, structured-response cards (e.g., transaction tables, account summaries), and confirmation/handoff blocks (for anything that needs a 2FA or a branch escalation).
+        </p>
 
         <figure class="case-figure">
-          <div class="case-figure-image">[ Conversational home screen with task cards ]</div>
-          <div class="case-figure-caption">Conversational primary nav with task-first cards.</div>
+          <div class="case-figure-image">[ CUB.ai chat surface — greeting + 8 quick-action chips down the screen ]</div>
+          <div class="case-figure-caption">Quick-action chips solve the empty-input cold-start problem.</div>
         </figure>
 
+        <p>
+          When a customer taps "Last 5 Transactions", the response renders as a <strong>structured card</strong> inside the chat — merchant name, amount, date, category — not a wall of natural-language text. Same for "Banking Summary" (account balances + recent activity) and "Find ATM" (map embed with nearest 3 results).
+        </p>
+
         <figure class="case-figure">
-          <div class="case-figure-image">[ Doorstep request flow — three taps to officer dispatched ]</div>
-          <div class="case-figure-caption">Doorstep banking — request → ETA → officer profile.</div>
+          <div class="case-figure-image">[ Structured card: 5 transactions rendered with merchant + amount + category badges ]</div>
+          <div class="case-figure-caption">"Last 5 Transactions" — structured response, not prose.</div>
         </figure>
+
+        <p>
+          The design system that powers CUB.ai also powers Account Management screens, login/onboarding, and the broader app. Same tokens, same components — so the chatbot surface feels native to the bank, not bolted on.
+        </p>
       </section>
 
       <section class="case-section" id="ai">
         <h2>AI in the loop</h2>
-        <p>AI's role here was deliberately quiet. In retail banking, customers don't want AI showing off — they want the bank to <em>get out of their way</em>.</p>
+        <p>AI's role here was deliberately quiet. In retail banking — and especially with an older demographic — customers don't want AI showing off. They want the bank to <em>get out of their way</em>.</p>
         <ul>
-          <li><strong>Conversational autocomplete:</strong> the home screen's natural-language input was powered by an intent-classifier that mapped phrases like "send money to my mom" or "fees ka payment" to the right task. We trained it on real customer service transcripts (with consent, anonymised).</li>
-          <li><strong>Internal copy-review loop:</strong> all customer-facing microcopy passed through Claude as a tone-and-clarity check before going to legal. Caught hundreds of legalese phrasings that legal then signed off on simpler versions of.</li>
-          <li><strong>I did <em>not</em> use AI for:</strong> personalised recommendations, investment advisory, or anything that touched fiduciary territory. That line is non-negotiable in retail banking.</li>
+          <li><strong>Intent classification:</strong> the chip selections + free-text inputs feed into an intent classifier that maps phrasings ("send money to my mom", "fees ka payment") to one of the supported tasks. We trained it on real (consented, anonymised) customer-service transcripts.</li>
+          <li><strong>Tone-and-clarity review:</strong> all customer-facing microcopy passed through Claude as a tone-and-clarity check before going to legal. Caught hundreds of legalese phrasings that legal then signed off on simpler versions of.</li>
+          <li><strong>Conversation flow drafting:</strong> I used the <a href="/plugins/conversation-flow-generator" class="inline-link">Conversation Flow Generator</a> Figma plugin (which I built) to draft and review hundreds of representative customer prompts before engineering wrote integration code.</li>
         </ul>
+        <p class="muted">
+          Where AI <em>doesn't</em> go: personalised investment recommendations, advisory, anything that touches fiduciary territory. Off-limits. A retail bank cannot have an AI nudging customers toward financial products — full stop.
+        </p>
       </section>
 
       <section class="case-section" id="tradeoffs">
         <h2>Trade-offs</h2>
-        <p>The conversational home is slower for power users who already memorised the legacy app's tab structure. We absorbed that cost — these users were ~5% of the base, and the change was net-positive within two release cycles even for them.</p>
-        <p>Killing gamified goals lost us a small contingent of younger customers. But the goal was a unified experience, not a segmented one — and the older majority's NPS lift more than paid for it.</p>
+        <p>
+          The chip-first approach is slower for power users who already memorised the legacy app's tab structure. We absorbed that cost — those users were ~5% of the base, and the change was net-positive within two release cycles even for them.
+        </p>
+        <p>
+          Killing gamified goals lost us a small contingent of younger customers. But the goal was a unified experience, not a segmented one — and the older majority's NPS lift more than paid for it.
+        </p>
+        <p>
+          Constraining to 8 quick actions left ~15% of customer-service requests still falling through to call center. We accepted it for v1 — the head of the curve was the leverage point. The long tail is v2.
+        </p>
       </section>
 
       <section class="case-section" id="outcome">
@@ -161,28 +186,35 @@
           </div>
           <div class="metric-tile">
             <div class="metric-value">30%+</div>
-            <div class="metric-label">Shift from branch/call-centre to self-service</div>
+            <div class="metric-label">Shift from branch / call center to self-service</div>
           </div>
           <div class="metric-tile">
-            <div class="metric-value">[N]M</div>
-            <div class="metric-label">Active customers on redesigned app</div>
+            <div class="metric-value">8</div>
+            <div class="metric-label">Quick-action chips covering ~85% of CS volume</div>
           </div>
           <div class="metric-tile">
-            <div class="metric-value">[N]</div>
-            <div class="metric-label">Doorstep requests / month at steady state</div>
+            <div class="metric-value">1</div>
+            <div class="metric-label">Unified design system across chat + account screens</div>
           </div>
         </div>
+        <p>
+          CUB.ai is now the primary self-service surface for routine banking — the bank's call-center capacity is freed up for the genuinely complex requests that need a human.
+        </p>
       </section>
 
       <section class="case-section" id="change">
         <h2>What I'd change</h2>
-        <p>I'd have invested in <strong>onboarding for the legacy power user</strong>. Our launch focused on making the new experience welcoming to first-time and casual users. We didn't realise until week two that the most-vocal complaints were from heavy users who couldn't find the tab structure they'd internalised. A 30-second "what changed" tour at launch would have saved a lot of support load.</p>
-        <p>And: I'd push harder on accessibility audits earlier. We caught a few WCAG issues at the eleventh hour that should have been part of the design system spec from week one.</p>
+        <p>
+          I'd have invested in <strong>onboarding for the legacy power user</strong>. Our launch focused on making the new experience welcoming to first-time and casual users. We didn't realise until week two that the most-vocal complaints were from heavy users who couldn't find the tab structure they'd internalised. A 30-second "what changed" tour at launch would have saved a lot of support load.
+        </p>
+        <p>
+          And: I'd push harder on <strong>error UX in the chatbot</strong> earlier. Users are far less forgiving of an AI mistake than a form validation error. A misclassified intent feels personal in a way a dropdown error doesn't. Investing in those edges from day one would have prevented a small adoption stutter at launch.
+        </p>
       </section>
 
       <nav class="case-next" aria-label="Next case study">
         <span class="case-next-label">Next →</span>
-        <a href="/work/indusind" class="case-next-link">IndusInd Bank — Design System</a>
+        <a href="/work/indusind" class="case-next-link">IndusInd — INDIE</a>
       </nav>
 
     </article>
@@ -200,8 +232,6 @@
   </div>
 
   <script src="../script.js"></script>
-
-  <!-- Vercel Web Analytics + Speed Insights -->
   <script defer src="/_vercel/insights/script.js"></script>
   <script defer src="/_vercel/speed-insights/script.js"></script>
 </body>

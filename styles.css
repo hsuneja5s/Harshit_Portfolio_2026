@@ -364,6 +364,28 @@ img {
 [data-theme="dark"] .work-image-cub { background: linear-gradient(135deg, #14532d 0%, #064e3b 100%); opacity: 0.55; }
 [data-theme="dark"] .work-image-indusind { background: linear-gradient(135deg, #1e3a8a 0%, #312e81 100%); opacity: 0.55; }
 
+.work-image-torrent-patient {
+  background:
+    radial-gradient(circle at 30% 30%, #c4b5fd 0%, transparent 60%),
+    linear-gradient(135deg, #ede9fe 0%, #ddd6fe 100%);
+}
+
+.work-image-torrent-system {
+  background:
+    radial-gradient(circle at 70% 50%, #fda4af 0%, transparent 50%),
+    linear-gradient(135deg, #fce7f3 0%, #fbcfe8 100%);
+}
+
+.work-image-nykaa-adtech {
+  background:
+    radial-gradient(circle at 60% 40%, #f9a8d4 0%, transparent 60%),
+    linear-gradient(135deg, #fce7f3 0%, #ffe4e6 100%);
+}
+
+[data-theme="dark"] .work-image-torrent-patient { background: linear-gradient(135deg, #4c1d95 0%, #5b21b6 100%); opacity: 0.55; }
+[data-theme="dark"] .work-image-torrent-system  { background: linear-gradient(135deg, #831843 0%, #9d174d 100%); opacity: 0.55; }
+[data-theme="dark"] .work-image-nykaa-adtech    { background: linear-gradient(135deg, #831843 0%, #6b21a8 100%); opacity: 0.55; }
+
 /* ============================================
    PLAY & EXPERIMENTS
    ============================================ */

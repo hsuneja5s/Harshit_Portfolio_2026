@@ -3,14 +3,14 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="CCTNS — National policing platform for the Ministry of Home Affairs, India. Citizen services for 1.4B+." />
+  <meta name="description" content="CCTNS — National policing platform for the Ministry of Home Affairs, India. Citizen services for 1.4B+. Public NDA-safe overview by Harshit Suneja." />
   <link rel="canonical" href="https://sunejaux.space/work/cctns" />
   <meta property="og:title" content="CCTNS — Ministry of Home Affairs · Harshit Suneja" />
-  <meta property="og:description" content="National policing platform serving 1.4B+ Indians. Decision-driven case study from Harshit Suneja's PwC engagement." />
+  <meta property="og:description" content="National policing platform serving 1.4B+ Indians. Public overview — deeper case study available under NDA. Led by Harshit Suneja at PwC." />
   <meta property="og:type" content="article" />
   <meta property="og:url" content="https://sunejaux.space/work/cctns" />
   <meta name="twitter:card" content="summary_large_image" />
-  <title>CCTNS — Harshit Suneja</title>
+  <title>CCTNS — Ministry of Home Affairs · Harshit Suneja</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -21,7 +21,6 @@
 </head>
 <body>
 
-  <!-- HEADER (same as homepage) -->
   <header class="site-header">
     <div class="header-inner">
       <a href="/" class="identity" aria-label="Home">
@@ -47,8 +46,6 @@
   </header>
 
   <main class="case-layout">
-
-    <!-- LEFT NAV -->
     <aside class="case-nav">
       <a href="/" class="case-nav-back">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg>
@@ -62,72 +59,55 @@
       <a href="#tradeoffs">Trade-offs</a>
       <a href="#outcome">Outcome</a>
       <a href="#change">What I'd change</a>
+      <a href="#nda" style="color:var(--accent-green);font-weight:600;">Request full case →</a>
     </aside>
 
-    <!-- CONTENT -->
     <article class="case-content">
-
       <div class="case-hero-image case-hero-cctns" aria-hidden="true"></div>
 
-      <h1 class="case-title">CCTNS — Ministry of Home Affairs <span class="pseudo-tag">draft</span></h1>
+      <h1 class="case-title">CCTNS — Ministry of Home Affairs <span class="status-pill alpha">NDA-protected</span></h1>
       <p class="case-subtitle">A national policing platform connecting citizens, officers, and state machinery — designed for India's 1.4 billion. End-to-end FIR management, citizen services, and security operations on one stack.</p>
 
-      <!-- Metadata -->
-      <div class="case-meta">
-        <div class="case-meta-row">
-          <span class="case-meta-label">Role</span>
-          <span class="case-meta-value">Lead Designer · Mentoring 5 designers</span>
-        </div>
-        <div class="case-meta-row">
-          <span class="case-meta-label">Team</span>
-          <span class="case-meta-value">5 designers · ~30 engineers · PwC + MHA stakeholders</span>
-        </div>
-        <div class="case-meta-row">
-          <span class="case-meta-label">Timeline</span>
-          <span class="case-meta-value">Oct 2023 — Present</span>
-        </div>
-        <div class="case-meta-row">
-          <span class="case-meta-label">Domain</span>
-          <span class="case-meta-value">Government · Public Safety · National Scale</span>
-        </div>
-        <div class="case-meta-row">
-          <span class="case-meta-label">Reach</span>
-          <span class="case-meta-value">1.4B+ citizens (target) · ~2M officers</span>
-        </div>
-        <div class="case-meta-row">
-          <span class="case-meta-label">Stack</span>
-          <span class="case-meta-value">Figma, Tokens Studio, Storybook, Claude Code</span>
-        </div>
+      <div style="background: var(--background-subtle); border-radius: 12px; padding: 20px 24px; margin-bottom: 40px; border-left: 3px solid var(--accent-green);">
+        <p style="margin: 0; font-size: 14.5px; line-height: 1.55; color: var(--text-primary);">
+          <strong>Public overview only.</strong> This case study is under client NDA — UI screenshots, internal stakeholder details, state-specific data, and confidential decisions are redacted. The deeper case study with full artefacts is available on request to serious hiring managers under a brief mutual NDA. <a href="#nda" class="inline-link">Request access →</a>
+        </p>
       </div>
 
-      <!-- TL;DR -->
+      <div class="case-meta">
+        <div class="case-meta-row"><span class="case-meta-label">Role</span><span class="case-meta-value">Lead Designer · Mentoring a team of 5 designers</span></div>
+        <div class="case-meta-row"><span class="case-meta-label">Client</span><span class="case-meta-value">Ministry of Home Affairs · PwC engagement</span></div>
+        <div class="case-meta-row"><span class="case-meta-label">Team</span><span class="case-meta-value">5 designers · partner engineering team · MHA + state-level stakeholders</span></div>
+        <div class="case-meta-row"><span class="case-meta-label">Timeline</span><span class="case-meta-value">Oct 2023 — Present (multi-phase rollout)</span></div>
+        <div class="case-meta-row"><span class="case-meta-label">Domain</span><span class="case-meta-value">Government · Public Safety · National Scale · Regulated</span></div>
+        <div class="case-meta-row"><span class="case-meta-label">Reach</span><span class="case-meta-value">1.4B+ citizens (target population) · officers across 28 states + 8 UTs</span></div>
+      </div>
+
       <section class="case-section case-tldr" id="tldr">
         <h2>TL;DR</h2>
         <ul>
-          <li>Designed a single citizen-facing app spanning FIR filing, complaint tracking, and emergency services across 28 states + 8 UTs.</li>
-          <li>Built an officer dashboard architecture that consolidates fragmented state-level CCTNS instances into one consistent OS.</li>
-          <li>Led a team of 5 designers, established the design system + governance model, shipped the first pilot rollout in [N] states.</li>
+          <li>Leading design on a national policing platform spanning citizen services, officer dashboards, and FIR management — designed for India's full citizen base.</li>
+          <li>Reframed a fragmented multi-state experience into <strong>one citizen surface</strong> with state-specific logic in the backend — abstracted variance without papering over it.</li>
+          <li>Established design system, governance model, and AI-assisted workflows for the team. Mentoring 5 designers across the engagement.</li>
         </ul>
       </section>
 
-      <!-- The Constraint -->
       <section class="case-section" id="constraint">
         <h2>The constraint</h2>
         <p>
-          Designing for India's full citizen base means designing for <strong>extreme variance</strong> at every axis — language, literacy, device, bandwidth, trust. A user could be a metro lawyer filing online from an iPhone, or a rural farmer dictating a complaint in Marathi over a 2G connection at a village outpost.
+          Designing for India's full citizen base means designing for <strong>extreme variance</strong> at every axis — language, literacy, device, bandwidth, trust. A user could be a metro lawyer filing online from an iPhone, or a rural farmer dictating a complaint over a 2G connection at a village outpost.
         </p>
         <p>
-          Layered on top: <strong>28 state police forces</strong>, each with their own legacy systems, terminology, and political ownership. Any UI we built would be vetoed if it didn't respect state-specific workflows. And being a Ministry of Home Affairs project, every screen had to clear security, accessibility (RPwD Act), and data-localisation review.
+          Layered on top: a federation of state police forces, each with their own legacy systems, terminology, and political ownership. Any UI we built had to respect state-specific workflows. And being a Ministry of Home Affairs project, every screen had to clear security review, accessibility (RPwD Act), and data-localisation review.
         </p>
         <p class="muted">
-          Six languages at launch (Hindi, English + 4 regional). Offline-first by default. Officers without smartphones using browser kiosks. Citizens whose first contact with government services is this app.
+          Six languages at launch. Offline-first by default. Citizens whose first contact with government services is this app. The bar for clarity was not "can a designer use this" — it was "can my grandmother in a village use this."
         </p>
       </section>
 
-      <!-- The Decision -->
       <section class="case-section" id="decision">
         <h2>The decision</h2>
-        <p>The core call was whether to build <em>one citizen experience</em> that abstracts state differences, or a <em>federated experience</em> where each state customises. We picked the first — at significant political cost — because anything else would replicate the existing fragmentation that made CCTNS a problem in the first place.</p>
+        <p>The core call was whether to build <em>one citizen experience</em> that abstracts state differences, or a <em>federated experience</em> where each state customises. We picked the first — at significant political cost — because anything else would replicate the existing fragmentation that made the problem worth solving in the first place.</p>
 
         <div class="decision-block kept">
           <div class="label">Chose</div>
@@ -135,60 +115,58 @@
         </div>
         <div class="decision-block killed">
           <div class="label">Killed</div>
-          <div class="text">Per-state UI templating. Dropped because it would've calcified state silos forever.</div>
+          <div class="text">Per-state UI templating. Dropped because it would have calcified state silos forever.</div>
         </div>
         <div class="decision-block kept">
           <div class="label">Chose</div>
-          <div class="text">Voice-first citizen flows for low-literacy users, not as an "accessibility feature" but as the primary path.</div>
+          <div class="text">Voice-first citizen flows for low-literacy users — designed as the primary path, not framed as an "accessibility feature."</div>
         </div>
         <div class="decision-block kept">
           <div class="label">Chose</div>
-          <div class="text">A mentorship model where each junior designer owned one citizen vertical (FIR, missing person, women's safety, traffic, cyber).</div>
+          <div class="text">A mentorship model where each junior designer owned one citizen vertical end-to-end. Ownership before scale.</div>
         </div>
         <div class="decision-block killed">
           <div class="label">Killed</div>
-          <div class="text">Real-time officer-citizen chat. Compliance review couldn't approve unfiltered messaging on a national platform.</div>
+          <div class="text">Real-time chat between citizens and officers on the platform. Compliance review couldn't approve unfiltered messaging on a national platform — replaced with structured request/response flows.</div>
         </div>
       </section>
 
-      <!-- The System -->
       <section class="case-section" id="system">
         <h2>The system</h2>
         <p>The platform's backbone is a <strong>three-tier design system</strong> — semantic tokens at the core, vertical-specific component variants in the middle, state-customisation slots at the surface. This lets us ship one citizen app while letting states adapt language, terminology, and minor flow steps without forking the codebase.</p>
 
         <figure class="case-figure">
-          <div class="case-figure-image">[ Token architecture diagram — 3-tier system ]</div>
-          <div class="case-figure-caption">Three-tier token architecture: core / vertical / state-customisable.</div>
+          <div class="case-figure-image">[ Architecture diagram redacted under NDA — available in full case study ]</div>
+          <div class="case-figure-caption">Three-tier token architecture: core / vertical / state-customisable. (Diagram redacted.)</div>
         </figure>
 
-        <p>Component scope at launch: <strong>~80 components, 5 verticals, 6 languages</strong>, all wired through Tokens Studio with an automated pipeline into Storybook for engineers.</p>
+        <p>
+          Component scope at launch covers the full citizen + officer flow surface, all wired through Tokens Studio with an automated pipeline into the engineering team's Storybook.
+        </p>
 
         <figure class="case-figure">
-          <div class="case-figure-image">[ Citizen app screens — FIR flow, voice intake, status tracker ]</div>
-          <div class="case-figure-caption">Citizen flows — file, track, follow-up. Voice-first by default.</div>
+          <div class="case-figure-image">[ Citizen flow screens redacted — available in full case study ]</div>
+          <div class="case-figure-caption">Citizen flows — file, track, follow-up. (Screens redacted under NDA.)</div>
         </figure>
       </section>
 
-      <!-- AI in the Loop -->
       <section class="case-section" id="ai">
         <h2>AI in the loop</h2>
         <p>This project is where I started leaning hard into AI-assisted design workflows. Three concrete uses:</p>
         <ul>
-          <li><strong>Conversation flow generation:</strong> drafting voice-first flows in Hindi + 4 regional languages would've taken weeks of per-language work. I built (and later open-sourced) a Figma plugin that uses Anthropic's models to generate localised flow variants from a single English source.</li>
-          <li><strong>System validation:</strong> with 80+ components × 6 languages × 5 verticals, manual review of token usage was untenable. The Design System Validator plugin I built flags structural breaks before engineering handoff — caught ~40% of issues that would've otherwise reached PR review.</li>
-          <li><strong>Claude Code for prototyping:</strong> citizen flows that needed real-time interaction (kiosk mode, voice playback) were prototyped in code, not Figma. The CLAUDE.md Exporter plugin lets Claude Code build those prototypes inside our system tokens automatically.</li>
+          <li><strong>Multilingual flow generation:</strong> drafting voice-first flows in 6 languages would have taken weeks of per-language work. I built (and now use across PwC engagements) a Figma plugin — <a href="/plugins/conversation-flow-generator" class="inline-link">Conversation Flow Generator</a> — that uses Anthropic's models to generate localised flow variants from a single English source.</li>
+          <li><strong>System validation at scale:</strong> with the component count, language matrix, and vertical count we had, manual review of token usage didn't scale. The <a href="/plugins/design-system-validator" class="inline-link">Design System Validator</a> plugin I built flags structural breaks before engineering handoff.</li>
+          <li><strong>Claude Code for prototyping:</strong> citizen flows that needed real-time interaction (kiosk mode, voice playback) were prototyped in code, not Figma. The <a href="/plugins/claude-md-exporter" class="inline-link">CLAUDE.md Exporter</a> plugin lets Claude Code build those prototypes inside our system tokens automatically.</li>
         </ul>
-        <p class="muted">Where I <em>didn't</em> use AI: any flow involving evidence, complainant identity, or officer judgement. Designing those with AI in the loop would've been irresponsible at this scale.</p>
+        <p class="muted">Where I <em>didn't</em> use AI: any flow involving evidence, complainant identity, or officer judgement. Designing those with AI in the loop would have been irresponsible at this scale, and would have failed compliance review on first pass.</p>
       </section>
 
-      <!-- Trade-offs -->
       <section class="case-section" id="tradeoffs">
         <h2>Trade-offs</h2>
-        <p>The unified UI decision cost us political capital with two state IT departments who wanted their own branding on the citizen app. We absorbed that — escalated, lost a battle, kept the larger war. The system survives.</p>
+        <p>The unified-UI decision cost us political capital with state IT departments who wanted their own branding on the citizen surface. We absorbed that — escalated, lost a battle, kept the larger war. The system survives.</p>
         <p>Voice-first flows are <em>slower</em> for power users (lawyers, NGOs filing repeatedly) than a dense form. We accepted that. The platform's ground-level legitimacy depends on the rural farmer being able to use it, not the lawyer being optimised for.</p>
       </section>
 
-      <!-- Outcome -->
       <section class="case-section" id="outcome">
         <h2>Outcome</h2>
 
@@ -202,35 +180,38 @@
             <div class="metric-label">Designers led + mentored</div>
           </div>
           <div class="metric-tile">
+            <div class="metric-value">28 + 8</div>
+            <div class="metric-label">States + Union Territories supported</div>
+          </div>
+          <div class="metric-tile">
             <div class="metric-value">6</div>
             <div class="metric-label">Languages supported at launch</div>
           </div>
-          <div class="metric-tile">
-            <div class="metric-value">80+</div>
-            <div class="metric-label">Components shipped to production</div>
-          </div>
         </div>
 
-        <p>Pilot rollout numbers (state-level adoption, citizen usage, officer satisfaction) — to be added once cleared for public reference.</p>
+        <p>Pilot rollout numbers — state-level adoption, citizen usage, officer satisfaction, time-to-resolution — are part of the deeper case study available under NDA.</p>
       </section>
 
-      <!-- What I'd change -->
       <section class="case-section" id="change">
         <h2>What I'd change</h2>
-        <p>I would have invested earlier in <strong>field research with non-metro officers</strong>. We did the citizen-side ethnography well, but our officer assumptions were Delhi-coded for the first quarter, and we burned cycles redesigning officer flows once we got to ground truth in [state]. The lesson stuck: in regulated multi-stakeholder work, every <em>type</em> of user needs first-hand contact, not just the headline one.</p>
-        <p>Also: I'd have written the governance model on day one, not month three. We had drift across the team's outputs until we sat down and articulated "what counts as a system decision vs. a vertical decision." Cost us two weeks of consolidation.</p>
+        <p>I would have invested earlier in <strong>field research with non-metro officers</strong>. We did the citizen-side ethnography well, but our officer assumptions were Delhi-coded for the first quarter, and we burned cycles redesigning officer flows once we got to ground truth in the field. The lesson stuck: in regulated multi-stakeholder work, every <em>type</em> of user needs first-hand contact — not just the headline one.</p>
+        <p>Also: I'd have written the governance model on day one, not month three. We had drift across the team's outputs until we sat down and articulated "what counts as a system decision vs. a vertical decision." Cost us two weeks of consolidation that should have been free.</p>
       </section>
 
-      <!-- Next case study -->
+      <section class="case-section" id="nda" style="background: var(--background-subtle); border-radius: 14px; padding: 32px; margin-top: 48px;">
+        <h2 style="margin-top:0;">Request the full case study</h2>
+        <p>The deeper case study includes UI screenshots, the full token + component architecture, state-level adoption metrics, and the design decisions that didn't make this public version. Available to verified hiring managers under a brief mutual NDA.</p>
+        <p>Email <a href="mailto:hsuneja.suneja7@gmail.com?subject=CCTNS%20case%20study%20access%20request" class="inline-link">hsuneja.suneja7@gmail.com</a> with the company you're hiring for and a one-line ask. I usually share within 24 hours.</p>
+      </section>
+
       <nav class="case-next" aria-label="Next case study">
         <span class="case-next-label">Next →</span>
-        <a href="/work/shell" class="case-next-link">Shell — Finance &amp; Deal Management</a>
+        <a href="/work/central-union-bank" class="case-next-link">Central Union Bank — CUB.ai</a>
       </nav>
 
     </article>
   </main>
 
-  <!-- Command palette (same as homepage) -->
   <div class="cmdk-overlay" id="cmdkOverlay" aria-hidden="true">
     <div class="cmdk" role="dialog" aria-modal="true" aria-label="Search">
       <div class="cmdk-search">
@@ -243,8 +224,6 @@
   </div>
 
   <script src="../script.js"></script>
-
-  <!-- Vercel Web Analytics + Speed Insights -->
   <script defer src="/_vercel/insights/script.js"></script>
   <script defer src="/_vercel/speed-insights/script.js"></script>
 </body>

@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Nykaa AdTech Platform — A self-serve campaign console for brand managers. Launch placements, see live performance, ship campaigns without a Nykaa rep in the loop." />
+  <link rel="canonical" href="https://sunejaux.space/work/nykaa-adtech" />
+  <meta property="og:title" content="Nykaa — AdTech Platform · Harshit Suneja" />
+  <meta property="og:description" content="Giving brand managers a self-serve ads console. Launch placements + live performance metrics + creative review workflow. Built by Harshit Suneja at Nykaa." />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://sunejaux.space/work/nykaa-adtech" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <title>Nykaa — AdTech Platform · Harshit Suneja</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css" />
+  <link rel="icon" type="image/jpeg" href="/images/me.jpg" />
+  <link rel="apple-touch-icon" href="/images/me.jpg" />
+  <meta property="og:image" content="https://sunejaux.space/images/me.jpg" />
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="/" class="identity" aria-label="Home">
+        <span class="avatar" role="img" aria-label="Harshit Suneja avatar">
+          <img src="/images/me.jpg" alt="Harshit Suneja" />
+        </span>
+        <span class="identity-name">Harshit Suneja</span>
+      </a>
+      <div class="header-actions">
+        <button class="kbd-search" id="openCmdK" aria-label="Open search (⌘K)">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg>
+          <span class="kbd-label">Search</span>
+          <kbd class="kbd">⌘ K</kbd>
+        </button>
+        <button class="theme-toggle" id="themeLight" aria-label="Light mode" data-mode="light">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2"></path><path d="M12 20v2"></path><path d="m4.93 4.93 1.41 1.41"></path><path d="m17.66 17.66 1.41 1.41"></path><path d="M2 12h2"></path><path d="M20 12h2"></path><path d="m6.34 17.66-1.41 1.41"></path><path d="m19.07 4.93-1.41 1.41"></path></svg>
+        </button>
+        <button class="theme-toggle" id="themeDark" aria-label="Dark mode" data-mode="dark">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="case-layout">
+    <aside class="case-nav">
+      <a href="/" class="case-nav-back">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg>
+        Back home
+      </a>
+      <a href="#tldr">TL;DR</a>
+      <a href="#constraint">The constraint</a>
+      <a href="#decision">The decision</a>
+      <a href="#system">The system</a>
+      <a href="#ai">AI in the loop</a>
+      <a href="#tradeoffs">Trade-offs</a>
+      <a href="#outcome">Outcome</a>
+      <a href="#change">What I'd change</a>
+    </aside>
+
+    <article class="case-content">
+      <div class="case-hero-image" style="background: radial-gradient(circle at 60% 40%, #f9a8d4 0%, transparent 60%), linear-gradient(135deg, #fce7f3 0%, #ffe4e6 100%);" aria-hidden="true"></div>
+
+      <h1 class="case-title">Nykaa — AdTech Platform</h1>
+      <p class="case-subtitle">Giving brand managers a self-serve ads console. A single place to launch placements on Nykaa, see live performance, and iterate creatives — reducing manual coordination and speeding up time-to-market for new campaigns.</p>
+
+      <div class="case-meta">
+        <div class="case-meta-row"><span class="case-meta-label">Role</span><span class="case-meta-value">Product Designer · End-to-end product design</span></div>
+        <div class="case-meta-row"><span class="case-meta-label">Company</span><span class="case-meta-value">Nykaa (FSN E-Commerce Ventures)</span></div>
+        <div class="case-meta-row"><span class="case-meta-label">Users</span><span class="case-meta-value">Brand managers at Nykaa partner brands (HUL, L'Oréal, Mamaearth, hundreds more)</span></div>
+        <div class="case-meta-row"><span class="case-meta-label">Domain</span><span class="case-meta-value">B2B SaaS · AdTech · E-commerce platform</span></div>
+        <div class="case-meta-row"><span class="case-meta-label">Stack</span><span class="case-meta-value">Figma, Nykaa internal design system, internal ad-serving APIs</span></div>
+      </div>
+
+      <section class="case-section case-tldr" id="tldr">
+        <h2>TL;DR</h2>
+        <ul>
+          <li>Built a <strong>self-serve campaign console</strong> from scratch — brand managers launch placements on Nykaa without a Nykaa rep in the loop.</li>
+          <li>Designed a unified live performance view (Impressions, Clicks, CTR, Add to Cart, Orders, Revenue) with section-level breakdowns across Banner, Category in Focus, In the Spotlight.</li>
+          <li>Drove adoption across thousands of brand-manager seats and reduced support tickets significantly. Faster go-to-market for every campaign on Nykaa.</li>
+        </ul>
+      </section>
+
+      <section class="case-section" id="constraint">
+        <h2>The constraint</h2>
+        <p>
+          Nykaa's ad platform was historically run as a <strong>concierge service</strong>. Brand managers emailed Nykaa reps with creative briefs, briefs went into spreadsheets, reps configured campaigns manually, performance reports came back as PDFs days later. As Nykaa scaled to thousands of partner brands, this became unsustainable — for the brands and for Nykaa.
+        </p>
+        <p>
+          The mandate: <strong>collapse the loop</strong>. Brand managers should be able to log in, launch a campaign, see it go live, and watch performance update — without ever talking to anyone at Nykaa. Reps should be freed up for strategic conversations, not campaign config.
+        </p>
+        <p class="muted">
+          Hard constraint: brand managers are not designers, marketers, or ad-platform power users. They're product owners who happen to own a marketing budget. The platform had to be approachable from cold — no training program, no onboarding gate.
+        </p>
+      </section>
+
+      <section class="case-section" id="decision">
+        <h2>The decision</h2>
+        <p>
+          The product call: <strong>three workflows, one nav</strong>. Most ad platforms (Google Ads, Meta Ads Manager) offer infinite configurability and overwhelm anyone who isn't a daily user. Nykaa's platform should do the opposite — show brand managers exactly the three things they actually do.
+        </p>
+
+        <div class="decision-block kept">
+          <div class="label">Chose</div>
+          <div class="text">Three primary tabs only: <strong>Ads</strong> (campaign launch + creative), <strong>Sections</strong> (placement performance), <strong>Tags</strong> (audience + targeting). Everything in the platform fits one of these three jobs.</div>
+        </div>
+        <div class="decision-block kept">
+          <div class="label">Chose</div>
+          <div class="text">A unified metric strip — Impressions, Clicks, CTR, Add to Cart, # Orders, Revenue — visible at every level (campaign, ad, section, tag). Same metrics, same vocabulary, everywhere.</div>
+        </div>
+        <div class="decision-block kept">
+          <div class="label">Chose</div>
+          <div class="text">Attribution Window controls (1 Day / 14 Days) surfaced as primary chips, not buried in advanced settings. Every report in the platform respects the brand manager's chosen window.</div>
+        </div>
+        <div class="decision-block kept">
+          <div class="label">Chose</div>
+          <div class="text">A creative-review workflow with explicit states (Pending Creative Approval, Change Required, Approved). The brand manager never wonders "what's the status of my ad" — it's stamped on the ad.</div>
+        </div>
+        <div class="decision-block killed">
+          <div class="label">Killed</div>
+          <div class="text">A drag-drop campaign builder. Tested with brand managers — they didn't want to design layouts, they wanted to upload one creative and have it auto-fit Nykaa's placement formats (Square 1:1, Horizontal 2:1, Vertical 3:4, Horizontal 4:1).</div>
+        </div>
+        <div class="decision-block killed">
+          <div class="label">Killed</div>
+          <div class="text">A "negative keywords" / advanced targeting feature in v1. Right call long-term, but most brand managers in v1 didn't even use the basic targeting — adding power-user features early would have buried what mattered.</div>
+        </div>
+      </section>
+
+      <section class="case-section" id="system">
+        <h2>The system</h2>
+        <p>
+          The platform is composed from a small set of <strong>data-shaped components</strong> — metric tiles, performance charts, attribution chips, section breakdowns, creative-state badges. Every screen in the platform is some combination of these primitives applied to a specific scope (campaign, ad, section, tag).
+        </p>
+
+        <figure class="case-figure">
+          <div class="case-figure-image">[ Performance dashboard — metric strip + cumulative chart over time + section-level table ]</div>
+          <div class="case-figure-caption">Brand performance dashboard — same metric vocabulary at every scope.</div>
+        </figure>
+
+        <p>
+          The Request Ad flow is a single-page form composed from three blocks: <strong>Ad Request Detail</strong> (name, brand, daily budget, dates, ad format), <strong>Campaign Overview</strong> (status, start/end, brand group, rate card), <strong>Creative</strong> (primary text, secondary text, category, destination URL, image upload across 3 formats with live preview).
+        </p>
+
+        <figure class="case-figure">
+          <div class="case-figure-image">[ Request Ad screen — form on left, live preview on right with state badges (Approved, Pending, Change Required) ]</div>
+          <div class="case-figure-caption">Request Ad — form on left, live preview on right, explicit state on every creative format.</div>
+        </figure>
+
+        <p>
+          The image upload component is the most-tested part of the system. Brand managers upload one creative; the platform fits it across Nykaa's 4 placement formats and surfaces "Change Required" on any format that needs adjustment. Asymmetric formats are the long-tail bug the rest of the industry's ad platforms ignore.
+        </p>
+      </section>
+
+      <section class="case-section" id="ai">
+        <h2>AI in the loop</h2>
+        <p>
+          AI on this product is intentionally minimal — brand managers are spending real money, and they need predictability over surprise. Where AI helps:
+        </p>
+        <ul>
+          <li><strong>Creative-fit suggestions:</strong> when a brand manager uploads a single image, the platform auto-suggests crops for the 4 placement formats. Brand manager confirms — AI suggests, brand manager decides.</li>
+          <li><strong>Performance anomaly flags:</strong> a quiet alert surfaces if a campaign's CTR or revenue drops sharply. No autoplay-style "AI insights" — just a flag the manager can act on.</li>
+          <li><strong>Microcopy review:</strong> all platform copy passed through Claude as a tone-and-clarity check during the build. Caught dozens of jargon-y phrasings before they shipped to brand managers.</li>
+        </ul>
+        <p class="muted">
+          Where AI <em>doesn't</em>: budget recommendations, audience targeting suggestions, automatic bidding. Brand managers are accountable to their own brands — taking that accountability away (even with helpful AI) breaks trust.
+        </p>
+      </section>
+
+      <section class="case-section" id="tradeoffs">
+        <h2>Trade-offs</h2>
+        <p>
+          Three-tabs-only meant some advanced workflows (multi-brand reporting, custom segment builders) didn't make v1. We lost a small group of power users who were doing more sophisticated work. They came back in v2 — but the cost was real.
+        </p>
+        <p>
+          Auto-fitting creatives across 4 formats meant the platform sometimes made aesthetic calls a brand manager would have made differently. The "Change Required" state was the safety valve, but it added review cycles. Net positive — brand managers ship more campaigns, faster — but it wasn't free.
+        </p>
+        <p>
+          Restricting to Nykaa's 4 native placement formats (Banner, Category in Focus, In the Spotlight, others) limited integration with off-Nykaa ad platforms. Right call for a self-serve console — but the next step is a unified view of on- and off-Nykaa performance.
+        </p>
+      </section>
+
+      <section class="case-section" id="outcome">
+        <h2>Outcome</h2>
+        <div class="metric-grid">
+          <div class="metric-tile">
+            <div class="metric-value">Thousands</div>
+            <div class="metric-label">Brand-manager seats adopted across Nykaa partner brands</div>
+          </div>
+          <div class="metric-tile">
+            <div class="metric-value">↓ Sharp</div>
+            <div class="metric-label">Reduction in support ticket volume from brand managers</div>
+          </div>
+          <div class="metric-tile">
+            <div class="metric-value">↑ Faster</div>
+            <div class="metric-label">Go-to-market time for new campaigns (rep-free workflow)</div>
+          </div>
+          <div class="metric-tile">
+            <div class="metric-value">3</div>
+            <div class="metric-label">Primary tabs covering ~95% of brand-manager workflows</div>
+          </div>
+        </div>
+        <p>
+          The platform freed up Nykaa's ad-ops team for genuinely strategic conversations — campaign planning, creative direction, partnership strategy — instead of campaign config. Brand managers got the speed they needed to test more ideas in less time.
+        </p>
+      </section>
+
+      <section class="case-section" id="change">
+        <h2>What I'd change</h2>
+        <p>
+          I'd have invested in <strong>onboarding for first-time brand managers</strong> sooner. Our launch focused on making the platform obvious from cold, and it mostly was — but a 2-minute guided first-campaign flow would have raised week-1 retention. We added it in v2; should have been v1.
+        </p>
+        <p>
+          And: I'd have shipped a <strong>cross-campaign dashboard</strong> from day one. Brand managers running 5+ campaigns at once needed a "portfolio view" that we didn't ship in v1. They got it in v2 — but we left some of the most engaged users frustrated for a quarter.
+        </p>
+      </section>
+
+      <nav class="case-next" aria-label="Next case study">
+        <span class="case-next-label">Back to →</span>
+        <a href="/" class="case-next-link">All work</a>
+      </nav>
+
+    </article>
+  </main>
+
+  <div class="cmdk-overlay" id="cmdkOverlay" aria-hidden="true">
+    <div class="cmdk" role="dialog" aria-modal="true" aria-label="Search">
+      <div class="cmdk-search">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg>
+        <input type="text" id="cmdkInput" placeholder="Search work, plugins, links…" autocomplete="off" />
+        <kbd class="kbd">esc</kbd>
+      </div>
+      <ul class="cmdk-results" id="cmdkResults" role="listbox"></ul>
+    </div>
+  </div>
+
+  <script src="../script.js"></script>
+  <script defer src="/_vercel/insights/script.js"></script>
+  <script defer src="/_vercel/speed-insights/script.js"></script>
+</body>
+</html>

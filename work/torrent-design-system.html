@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Torrent Diagnostic — Brand &amp; Design System. A reusable identity and UI system from scratch, powering the patient app, phlebotomist field app, and clinical web." />
+  <link rel="canonical" href="https://sunejaux.space/work/torrent-design-system" />
+  <meta property="og:title" content="Torrent Diagnostic — Brand &amp; Design System · Harshit Suneja" />
+  <meta property="og:description" content="Cutting design inconsistency with a reusable brand and UI system across three product surfaces. Built by Harshit Suneja at PwC." />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://sunejaux.space/work/torrent-design-system" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <title>Torrent Diagnostic — Brand &amp; Design System · Harshit Suneja</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css" />
+  <link rel="icon" type="image/jpeg" href="/images/me.jpg" />
+  <link rel="apple-touch-icon" href="/images/me.jpg" />
+  <meta property="og:image" content="https://sunejaux.space/images/me.jpg" />
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="/" class="identity" aria-label="Home">
+        <span class="avatar" role="img" aria-label="Harshit Suneja avatar">
+          <img src="/images/me.jpg" alt="Harshit Suneja" />
+        </span>
+        <span class="identity-name">Harshit Suneja</span>
+      </a>
+      <div class="header-actions">
+        <button class="kbd-search" id="openCmdK" aria-label="Open search (⌘K)">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg>
+          <span class="kbd-label">Search</span>
+          <kbd class="kbd">⌘ K</kbd>
+        </button>
+        <button class="theme-toggle" id="themeLight" aria-label="Light mode" data-mode="light">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2"></path><path d="M12 20v2"></path><path d="m4.93 4.93 1.41 1.41"></path><path d="m17.66 17.66 1.41 1.41"></path><path d="M2 12h2"></path><path d="M20 12h2"></path><path d="m6.34 17.66-1.41 1.41"></path><path d="m19.07 4.93-1.41 1.41"></path></svg>
+        </button>
+        <button class="theme-toggle" id="themeDark" aria-label="Dark mode" data-mode="dark">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="case-layout">
+    <aside class="case-nav">
+      <a href="/" class="case-nav-back">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg>
+        Back home
+      </a>
+      <a href="#tldr">TL;DR</a>
+      <a href="#constraint">The constraint</a>
+      <a href="#decision">The decision</a>
+      <a href="#system">The system</a>
+      <a href="#ai">AI in the loop</a>
+      <a href="#tradeoffs">Trade-offs</a>
+      <a href="#outcome">Outcome</a>
+      <a href="#change">What I'd change</a>
+    </aside>
+
+    <article class="case-content">
+      <div class="case-hero-image" style="background: radial-gradient(circle at 70% 50%, #fda4af 0%, transparent 50%), linear-gradient(135deg, #fce7f3 0%, #fbcfe8 100%);" aria-hidden="true"></div>
+
+      <h1 class="case-title">Torrent Diagnostic — Brand &amp; Design System</h1>
+      <p class="case-subtitle">Cutting design inconsistency with a reusable brand and UI system. One identity, one component library — powering the patient app, the phlebotomist field app, and the clinical web. Built from scratch.</p>
+
+      <div class="case-meta">
+        <div class="case-meta-row"><span class="case-meta-label">Role</span><span class="case-meta-value">Senior Product Designer · Brand identity + System architecture</span></div>
+        <div class="case-meta-row"><span class="case-meta-label">Client</span><span class="case-meta-value">Torrent Diagnostic · PwC engagement</span></div>
+        <div class="case-meta-row"><span class="case-meta-label">Surfaces</span><span class="case-meta-value">3 — Patient App, Phlebotomist Field App, Clinical Web</span></div>
+        <div class="case-meta-row"><span class="case-meta-label">Domain</span><span class="case-meta-value">Healthcare · Diagnostics · Multi-platform</span></div>
+        <div class="case-meta-row"><span class="case-meta-label">Stack</span><span class="case-meta-value">Figma, Tokens Studio, Style Dictionary, Storybook (engineering)</span></div>
+      </div>
+
+      <section class="case-section case-tldr" id="tldr">
+        <h2>TL;DR</h2>
+        <ul>
+          <li>Built a brand identity + design system foundation from scratch — used across 3 distinct product surfaces under the Torrent Diagnostic umbrella.</li>
+          <li>Established <strong>semantic token architecture</strong> (background / content / border × primary / secondary / tertiary) so any surface can theme without touching component internals.</li>
+          <li>Cut design inconsistency at the source — engineers across product teams now compose from the same library instead of inventing their own components.</li>
+        </ul>
+      </section>
+
+      <section class="case-section" id="constraint">
+        <h2>The constraint</h2>
+        <p>
+          Torrent Diagnostic was launching three products in parallel — the consumer-facing <a href="/work/torrent-patient-app" class="inline-link">Patient App</a>, a field-collection app for phlebotomists, and a clinical-side web tool. Three different product teams. Three different audiences. Three different platforms.
+        </p>
+        <p>
+          Without a shared system, we'd ship three products that visibly belonged to three different companies — even though they all carried the Torrent name. Worse: every product team would solve the same component problems independently, badly, and slowly.
+        </p>
+        <p class="muted">
+          Hard constraint: <strong>no luxury of a "freeze and build the system" phase</strong>. The patient app and phlebotomist app were on overlapping launch timelines. The system had to ship <em>alongside</em> the products, not before them.
+        </p>
+      </section>
+
+      <section class="case-section" id="decision">
+        <h2>The decision</h2>
+        <p>
+          The architectural call: <strong>brand-first, then system, then components</strong>. Most design systems do this in the wrong order — components first, then add system rules, then retrofit brand. We inverted it because the brand was the part that had to flex across audiences.
+        </p>
+
+        <div class="decision-block kept">
+          <div class="label">Chose</div>
+          <div class="text">A semantic token architecture from day one — even though it costs more upfront than literal tokens. Healthcare audiences vary widely (senior consumers, working phlebotomists, clinical staff) and each needs a different visual emphasis without forking the system.</div>
+        </div>
+        <div class="decision-block kept">
+          <div class="label">Chose</div>
+          <div class="text">Brand identity that prioritises calm + clarity over "diagnostic clinical." Healthcare branding often defaults to sterile blues and whites. Torrent's audience needed warmth — a daily companion, not a hospital interface.</div>
+        </div>
+        <div class="decision-block kept">
+          <div class="label">Chose</div>
+          <div class="text">A core component library scoped to ~40 components — the 80% used everywhere. Anything beyond was a "vertical extension" owned by the consumer team, not the system team.</div>
+        </div>
+        <div class="decision-block kept">
+          <div class="label">Chose</div>
+          <div class="text">Strict accessibility baseline at the system level — 44pt tap targets, AA contrast minimum, voice-readable text labels — so every surface inherited it without thinking about it.</div>
+        </div>
+        <div class="decision-block killed">
+          <div class="label">Killed</div>
+          <div class="text">Per-surface component variants. Tempting (the patient app uses different button sizing than the phlebotomist app), but governance debt forever. Solved instead with token-level theming on shared components.</div>
+        </div>
+        <div class="decision-block killed">
+          <div class="label">Killed</div>
+          <div class="text">A separate "brand-only" Figma file disconnected from the component library. Brand and system stay in the same source of truth — drift between them is the most common system failure I've seen.</div>
+        </div>
+      </section>
+
+      <section class="case-section" id="system">
+        <h2>The system</h2>
+        <p>
+          Three layers. <strong>Brand</strong> at the bottom (logo, palette, typography, tone). <strong>System</strong> in the middle (semantic tokens, primitive components). <strong>Surface</strong> at the top (the patient app's home screen, the phlebotomist app's task flow, the clinical web's dashboards).
+        </p>
+
+        <figure class="case-figure">
+          <div class="case-figure-image">[ Brand foundation — logo, color palette, typography, voice principles ]</div>
+          <div class="case-figure-caption">Brand foundation — calm-first palette, type system tuned for accessibility.</div>
+        </figure>
+
+        <figure class="case-figure">
+          <div class="case-figure-image">[ Token tier diagram — brand → semantic → component-level ]</div>
+          <div class="case-figure-caption">Token architecture — brand layer feeds semantic layer feeds component layer.</div>
+        </figure>
+
+        <figure class="case-figure">
+          <div class="case-figure-image">[ Component library overview — buttons, inputs, cards, list items, navigation ]</div>
+          <div class="case-figure-caption">~40 core components, each documented with do/don't examples.</div>
+        </figure>
+
+        <p>
+          Tokens flow through Tokens Studio → Style Dictionary → engineering. Designers change a brand token in Figma; engineering picks up the diff via PR. No hand-syncing, no documentation drift between Figma and code.
+        </p>
+      </section>
+
+      <section class="case-section" id="ai">
+        <h2>AI in the loop</h2>
+        <p>
+          The system gave me the testing ground for the AI Figma plugins I now use across PwC engagements. Specifically:
+        </p>
+        <ul>
+          <li><strong><a href="/plugins/design-system-validator" class="inline-link">Design System Validator</a>:</strong> with three product teams shipping in parallel, drift was inevitable without automated checks. The Validator catches token mismatches and structural breaks before they reach engineering.</li>
+          <li><strong><a href="/plugins/design-system-generator" class="inline-link">Design System Generator</a>:</strong> the Torrent identity-to-system pipeline became the template for this plugin — input one brand color + a few choices, get a starter system. Now reusable for any new internal Torrent product.</li>
+          <li><strong><a href="/plugins/claude-md-exporter" class="inline-link">CLAUDE.md Exporter</a>:</strong> when engineering started using Claude Code to scaffold new admin tools, they needed the system context Claude could read. Built the exporter, gave it to them, drift dropped.</li>
+        </ul>
+        <p class="muted">
+          AI doesn't make the design system; the design system constrains AI's output to be system-aligned by default. That's the loop.
+        </p>
+      </section>
+
+      <section class="case-section" id="tradeoffs">
+        <h2>Trade-offs</h2>
+        <p>
+          Concurrent-with-products meant the system had inconsistencies in the first quarter — tokens shifted as we learned what worked. Engineers got frustrated. We mitigated with a "what's stable" indicator on every component, but it was real friction.
+        </p>
+        <p>
+          Choosing semantic tokens over literal slowed first-component velocity. The patient app's launch could have been a few weeks earlier if we'd shipped literal tokens. We absorbed the delay because the system is an asset that lives for years; the launch is a moment.
+        </p>
+        <p>
+          A 40-component scope means some patterns (specialised data tables, complex forms) had to be built outside the system in v1. Those are now system v2 candidates — the long tail of every design system.
+        </p>
+      </section>
+
+      <section class="case-section" id="outcome">
+        <h2>Outcome</h2>
+        <div class="metric-grid">
+          <div class="metric-tile">
+            <div class="metric-value">3</div>
+            <div class="metric-label">Product surfaces unified under one system</div>
+          </div>
+          <div class="metric-tile">
+            <div class="metric-value">~40</div>
+            <div class="metric-label">Core components shipped to engineering</div>
+          </div>
+          <div class="metric-tile">
+            <div class="metric-value">1</div>
+            <div class="metric-label">Brand identity built from scratch</div>
+          </div>
+          <div class="metric-tile">
+            <div class="metric-value">↓ Drift</div>
+            <div class="metric-label">Sharp drop in cross-surface visual inconsistency</div>
+          </div>
+        </div>
+        <p>
+          The Patient App and Phlebotomist App both shipped on top of the system. The clinical web is in flight. The next product Torrent launches will start from this foundation in a fraction of the time the first three took.
+        </p>
+      </section>
+
+      <section class="case-section" id="change">
+        <h2>What I'd change</h2>
+        <p>
+          I'd have shipped <strong>contribution tooling</strong> from day one — PR templates, automated changelogs, RFC process for component proposals. We added them in month four. Done at month one, the contribution velocity from the consumer teams would have been double.
+        </p>
+        <p>
+          And: I'd have invested in <strong>a system Storybook earlier</strong>. We had Figma for the design layer but engineering's component documentation lagged behind for the first quarter. A live Storybook from day one would have been a forcing function for parity.
+        </p>
+      </section>
+
+      <nav class="case-next" aria-label="Next case study">
+        <span class="case-next-label">Next →</span>
+        <a href="/work/nykaa-adtech" class="case-next-link">Nykaa — AdTech Platform</a>
+      </nav>
+
+    </article>
+  </main>
+
+  <div class="cmdk-overlay" id="cmdkOverlay" aria-hidden="true">
+    <div class="cmdk" role="dialog" aria-modal="true" aria-label="Search">
+      <div class="cmdk-search">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg>
+        <input type="text" id="cmdkInput" placeholder="Search work, plugins, links…" autocomplete="off" />
+        <kbd class="kbd">esc</kbd>
+      </div>
+      <ul class="cmdk-results" id="cmdkResults" role="listbox"></ul>
+    </div>
+  </div>
+
+  <script src="../script.js"></script>
+  <script defer src="/_vercel/insights/script.js"></script>
+  <script defer src="/_vercel/speed-insights/script.js"></script>
+</body>
+</html>
