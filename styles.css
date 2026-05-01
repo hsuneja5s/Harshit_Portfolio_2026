@@ -335,9 +335,9 @@ img {
 }
 
 .work-tag {
-  font-size: 0.6875rem;
+  font-size: 9px;
   font-weight: 400;
-  color: var(--text-tertiary);
+  color: var(--text-secondary);
   letter-spacing: 0.01em;
   margin-bottom: 6px;
 }
