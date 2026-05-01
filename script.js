@@ -39,10 +39,10 @@ const results = document.getElementById('cmdkResults');
 const openBtn = document.getElementById('openCmdK');
 
 const ITEMS = [
-  { tag: 'Work',   label: 'Shell — Pacific Platform',         hint: '500+ deals · Insight.AI',                href: '/work/shell' },
-  { tag: 'Work',   label: 'CCTNS — Ministry of Home Affairs', hint: 'national policing · NDA-protected',      href: '/work/cctns' },
-  { tag: 'Work',   label: 'Central Union Bank — CUB.ai',      hint: 'AI banking assistant · NPS 4.7 → 9.2',   href: '/work/central-union-bank' },
-  { tag: 'Work',   label: 'IndusInd — INDIE',                 hint: 'banking flow simplification',            href: '/work/indusind' },
+  { tag: 'Work',   label: 'Energy — Pacific Platform',         hint: '500+ deals · Insight.AI',                href: '/work/shell' },
+  { tag: 'Work',   label: 'CCTNS — National Policing', hint: 'national policing · NDA-protected',      href: '/work/cctns' },
+  { tag: 'Work',   label: 'Banking — CUB.ai',      hint: 'AI banking assistant · NPS 4.7 → 9.2',   href: '/work/central-union-bank' },
+  { tag: 'Work',   label: 'Banking — INDIE',                 hint: 'banking flow simplification',            href: '/work/indusind' },
   { tag: 'Work',   label: 'Torrent — Patient App',            hint: 'live · India\'s 1st accessible diag',    href: '/work/torrent-patient-app' },
   { tag: 'Work',   label: 'Nykaa — AdTech Platform',          hint: 'self-serve ads console · B2B',           href: '/work/nykaa-adtech' },
   { tag: 'Plugin', label: 'CLAUDE.md Exporter',               hint: 'design system → Claude Code',            href: '/plugins/claude-md-exporter' },
