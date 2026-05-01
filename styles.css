@@ -699,35 +699,49 @@ img {
 }
 
 /* ============================================
-   CASE STUDY LAYOUT
+   CASE STUDY LAYOUT — content centered, nav floats left
    ============================================ */
 .case-layout {
-  max-width: 1100px;
+  max-width: 720px;
   margin: 0 auto;
-  padding: 56px 24px 96px;
-  display: grid;
-  grid-template-columns: 200px 1fr;
-  gap: 64px;
-  align-items: start;
+  padding: 48px 24px 96px;
+  position: relative;
 }
 
-@media (max-width: 900px) {
-  .case-layout {
-    grid-template-columns: 1fr;
-    gap: 32px;
-    padding: 32px 20px 64px;
+/* Left rail nav — floats outside the centered content on desktop */
+.case-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  font-size: 13px;
+}
+
+@media (min-width: 1024px) {
+  .case-nav {
+    position: fixed;
+    top: 96px;
+    left: max(24px, calc(50% - 480px));
+    width: 180px;
   }
 }
 
-/* Left rail nav */
-.case-nav {
-  position: sticky;
-  top: 96px;
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-  font-size: 14.5px;
-  align-self: start;
+@media (max-width: 1023px) {
+  .case-nav {
+    position: relative;
+    margin-bottom: 24px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--border-subtle);
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 0;
+  }
+  .case-nav-back {
+    margin-bottom: 0 !important;
+    margin-right: 14px;
+  }
+  .case-nav a:not(.case-nav-back) {
+    padding: 4px 12px 4px 0 !important;
+  }
 }
 
 @media (max-width: 900px) {
@@ -747,10 +761,11 @@ img {
 .case-nav-back {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  font-weight: 600;
+  gap: 6px;
+  font-weight: 500;
   color: var(--text-primary);
   margin-bottom: 16px;
+  font-size: 13px;
   transition: opacity 0.15s ease;
 }
 
@@ -760,11 +775,12 @@ img {
 
 .case-nav a:not(.case-nav-back) {
   display: block;
-  padding: 6px 0;
+  padding: 4px 0;
   color: var(--text-tertiary);
   transition: color 0.15s ease;
   white-space: nowrap;
-  font-weight: 500;
+  font-weight: 400;
+  font-size: 13px;
 }
 
 .case-nav a:not(.case-nav-back):hover {
@@ -773,22 +789,10 @@ img {
 
 .case-nav a.active {
   color: var(--text-primary);
-  font-weight: 600;
+  font-weight: 500;
 }
 
-@media (max-width: 900px) {
-  .case-nav-back {
-    margin-bottom: 0;
-    margin-right: 16px;
-    flex-shrink: 0;
-  }
-  .case-nav a:not(.case-nav-back) {
-    padding: 6px 12px;
-    flex-shrink: 0;
-  }
-}
-
-/* Right content */
+/* Right content — full width within the centered case-layout */
 .case-content {
   min-width: 0;
 }
@@ -796,9 +800,9 @@ img {
 .case-hero-image {
   width: 100%;
   aspect-ratio: 16 / 9;
-  border-radius: 16px;
+  border-radius: 12px;
   background: var(--background-subtle);
-  margin-bottom: 32px;
+  margin-bottom: 28px;
   position: relative;
   overflow: hidden;
 }
@@ -890,76 +894,74 @@ img {
 }
 
 .case-title {
-  font-size: 30px;
-  font-weight: 700;
-  letter-spacing: -0.022em;
-  line-height: 1.18;
-  margin-bottom: 14px;
+  font-size: 26px;
+  font-weight: 600;
+  letter-spacing: -0.018em;
+  line-height: 1.22;
+  margin-bottom: 12px;
 }
 
 @media (max-width: 640px) {
-  .case-title { font-size: 26px; }
+  .case-title { font-size: 22px; }
 }
 
 .case-subtitle {
-  font-size: 16px;
+  font-size: 15px;
   color: var(--text-secondary);
   line-height: 1.6;
-  margin-bottom: 32px;
-  max-width: 620px;
+  margin-bottom: 28px;
 }
 
-/* Metadata block */
+/* Metadata block — compact horizontal */
 .case-meta {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-  gap: 20px 32px;
-  padding: 20px 0;
+  gap: 14px 28px;
+  padding: 16px 0;
   border-top: 1px solid var(--border-subtle);
   border-bottom: 1px solid var(--border-subtle);
-  margin-bottom: 56px;
+  margin-bottom: 48px;
 }
 
 .case-meta-row {
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 2px;
 }
 
 .case-meta-label {
-  font-size: 12px;
+  font-size: 10.5px;
   font-weight: 500;
   color: var(--text-tertiary);
   text-transform: uppercase;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.07em;
 }
 
 .case-meta-value {
-  font-size: 14.5px;
+  font-size: 13px;
   color: var(--text-primary);
   line-height: 1.45;
 }
 
-/* Case sections */
+/* Case sections — quieter, smaller */
 .case-section {
-  margin-bottom: 72px;
+  margin-bottom: 56px;
   scroll-margin-top: 96px;
 }
 
 .case-section h2 {
-  font-size: 21px;
+  font-size: 18px;
   font-weight: 600;
-  letter-spacing: -0.018em;
+  letter-spacing: -0.012em;
   color: var(--text-primary);
-  margin-bottom: 16px;
+  margin-bottom: 14px;
 }
 
 .case-section p {
-  font-size: 15.5px;
+  font-size: 14.5px;
   color: var(--text-primary);
   line-height: 1.72;
-  margin-bottom: 18px;
-  max-width: 620px;
+  margin-bottom: 16px;
 }
 
 .case-section p.muted {
@@ -969,30 +971,28 @@ img {
 .case-section ul {
   list-style: none;
   padding: 0;
-  margin-bottom: 24px;
-  max-width: 620px;
+  margin-bottom: 20px;
 }
 
 .case-section ul li {
-  font-size: 15.5px;
+  font-size: 14.5px;
   color: var(--text-primary);
   line-height: 1.65;
-  padding-left: 18px;
+  padding-left: 16px;
   position: relative;
-  margin-bottom: 8px;
+  margin-bottom: 6px;
 }
 
 .case-section ol {
-  padding-left: 22px;
-  margin-bottom: 24px;
-  max-width: 620px;
+  padding-left: 20px;
+  margin-bottom: 20px;
 }
 
 .case-section ol li {
-  font-size: 15.5px;
+  font-size: 14.5px;
   color: var(--text-primary);
   line-height: 1.65;
-  margin-bottom: 8px;
+  margin-bottom: 6px;
   padding-left: 4px;
 }
 
@@ -1003,34 +1003,33 @@ img {
   color: var(--text-tertiary);
 }
 
-/* TL;DR card — quieter, less chunky */
+/* TL;DR card — quieter */
 .case-tldr {
   background: var(--background-subtle);
-  border-radius: 12px;
-  padding: 22px 26px;
-  margin-bottom: 56px;
+  border-radius: 10px;
+  padding: 20px 22px;
+  margin-bottom: 48px;
 }
 
 .case-tldr h2 {
-  font-size: 11.5px !important;
+  font-size: 10.5px !important;
   font-weight: 600 !important;
   text-transform: uppercase;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.09em;
   color: var(--text-tertiary) !important;
-  margin-bottom: 12px !important;
+  margin-bottom: 10px !important;
 }
 
 .case-tldr ul {
   margin-bottom: 0;
-  max-width: none;
 }
 
 .case-tldr ul li {
-  font-size: 15px;
+  font-size: 14px;
   color: var(--text-primary);
   font-weight: 400;
-  line-height: 1.6;
-  margin-bottom: 10px;
+  line-height: 1.55;
+  margin-bottom: 8px;
 }
 
 .case-tldr ul li:last-child {
@@ -1072,29 +1071,30 @@ img {
 
 /* Image / artifact block */
 .case-figure {
-  margin: 32px 0;
+  margin: 28px 0;
   max-width: 100%;
 }
 
 .case-figure-image {
   width: 100%;
   aspect-ratio: 16 / 10;
-  border-radius: 12px;
+  border-radius: 10px;
   background: var(--background-subtle);
   border: 1px solid var(--border-subtle);
   display: flex;
   align-items: center;
   justify-content: center;
   color: var(--text-tertiary);
-  font-size: 13px;
+  font-size: 12px;
   font-style: italic;
 }
 
 .case-figure-caption {
-  font-size: 13.5px;
+  font-size: 12px;
   color: var(--text-tertiary);
-  margin-top: 12px;
+  margin-top: 10px;
   font-style: italic;
+  text-align: center;
 }
 
 /* Outcome metric tile — refined */
@@ -1143,8 +1143,8 @@ img {
 
 /* Next case study */
 .case-next {
-  margin-top: 96px;
-  padding-top: 32px;
+  margin-top: 56px;
+  padding-top: 24px;
   border-top: 1px solid var(--border-subtle);
   display: flex;
   justify-content: space-between;
@@ -1153,20 +1153,20 @@ img {
 }
 
 .case-next-label {
-  font-size: 13px;
+  font-size: 11px;
   color: var(--text-tertiary);
   text-transform: uppercase;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.08em;
 }
 
 .case-next-link {
-  font-size: 18px;
-  font-weight: 600;
+  font-size: 14px;
+  font-weight: 500;
   color: var(--text-primary);
   text-decoration: none;
   display: inline-flex;
   align-items: center;
-  gap: 8px;
+  gap: 6px;
   transition: opacity 0.15s ease;
 }
 
@@ -1181,17 +1181,17 @@ img {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 12px;
-  margin-bottom: 24px;
-  font-size: 13px;
+  gap: 10px;
+  margin-bottom: 20px;
+  font-size: 12px;
   color: var(--text-tertiary);
 }
 
 .case-stamp {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
-  font-weight: 500;
+  gap: 5px;
+  font-weight: 400;
 }
 
 .case-stamp svg {
@@ -1206,53 +1206,52 @@ img {
   color: var(--text-tertiary);
 }
 
-/* Related work block */
+/* Related work block — quieter */
 .case-related {
-  margin-top: 80px;
-  padding-top: 32px;
+  margin-top: 64px;
+  padding-top: 28px;
   border-top: 1px solid var(--border-subtle);
 }
 
 .case-related h3 {
-  font-size: 13px;
+  font-size: 11px;
   font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.09em;
   color: var(--text-tertiary);
-  margin-bottom: 16px;
+  margin-bottom: 14px;
 }
 
 .case-related-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 12px;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 10px;
 }
 
 .case-related-card {
   display: block;
-  padding: 16px;
-  border-radius: 10px;
+  padding: 14px 16px;
+  border-radius: 8px;
   background: var(--background-subtle);
   text-decoration: none;
   color: inherit;
-  transition: background-color 0.15s ease, transform 0.15s ease;
+  transition: background-color 0.15s ease;
 }
 
 .case-related-card:hover {
   background: var(--border-subtle);
-  transform: translateY(-1px);
 }
 
 .case-related-title {
-  font-size: 14.5px;
-  font-weight: 600;
-  letter-spacing: -0.01em;
-  margin-bottom: 4px;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: -0.005em;
+  margin-bottom: 3px;
   color: var(--text-primary);
 }
 
 .case-related-sub {
-  font-size: 12.5px;
+  font-size: 11.5px;
   color: var(--text-secondary);
   line-height: 1.45;
 }
@@ -1742,15 +1741,14 @@ img {
 /* Pull quote — Vikas-style, no chunky chrome */
 .case-section .pull-quote,
 p.pull-quote {
-  font-size: 16.5px;
-  font-weight: 500;
+  font-size: 15px;
+  font-weight: 400;
   font-style: italic;
   color: var(--text-primary);
-  line-height: 1.55;
-  padding: 4px 0 4px 18px;
+  line-height: 1.6;
+  padding: 2px 0 2px 16px;
   border-left: 2px solid var(--accent-green);
-  margin: 24px 0;
-  max-width: 580px;
+  margin: 20px 0;
 }
 
 /* Federation / variance map — refined */
