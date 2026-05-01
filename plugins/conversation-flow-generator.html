@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Conversation Flow Generator — Figma plugin that drafts conversational UX flows and use cases inside Figma using Anthropic's models." />
+  <link rel="canonical" href="https://sunejaux.space/plugins/conversation-flow-generator" />
+  <meta property="og:title" content="Conversation Flow Generator — Harshit Suneja" />
+  <meta property="og:description" content="Figma plugin that generates conversation flows + real use cases using Anthropic's models. Built by Harshit Suneja." />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://sunejaux.space/plugins/conversation-flow-generator" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <title>Conversation Flow Generator — Harshit Suneja</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css" />
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="/" class="identity" aria-label="Home">
+        <span class="avatar" role="img" aria-label="Harshit Suneja avatar">
+          <img src="https://api.dicebear.com/7.x/initials/svg?seed=HS&backgroundColor=0a0a0a&textColor=fafafa&fontWeight=600" alt="Harshit Suneja" />
+        </span>
+        <span class="identity-name">Harshit Suneja</span>
+      </a>
+      <div class="header-actions">
+        <button class="kbd-search" id="openCmdK" aria-label="Open search (⌘K)">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg>
+          <span class="kbd-label">Search</span>
+          <kbd class="kbd">⌘ K</kbd>
+        </button>
+        <button class="theme-toggle" id="themeLight" aria-label="Light mode" data-mode="light">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2"></path><path d="M12 20v2"></path><path d="m4.93 4.93 1.41 1.41"></path><path d="m17.66 17.66 1.41 1.41"></path><path d="M2 12h2"></path><path d="M20 12h2"></path><path d="m6.34 17.66-1.41 1.41"></path><path d="m19.07 4.93-1.41 1.41"></path></svg>
+        </button>
+        <button class="theme-toggle" id="themeDark" aria-label="Dark mode" data-mode="dark">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="case-layout">
+    <aside class="case-nav">
+      <a href="/" class="case-nav-back">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg>
+        Back home
+      </a>
+      <a href="#why">Why I built it</a>
+      <a href="#how">How it works</a>
+      <a href="#stack">Stack</a>
+      <a href="#example">Example output</a>
+      <a href="#try">Try it</a>
+    </aside>
+
+    <article class="case-content">
+      <div class="case-hero-image case-hero-conversation" aria-hidden="true"></div>
+
+      <h1 class="case-title">Conversation Flow Generator <span class="status-pill beta">beta</span><span class="pseudo-tag">draft</span></h1>
+      <p class="case-subtitle">A Figma plugin that drafts conversational UX flows and real use cases inside Figma — powered by Anthropic's models. From an English prompt to fully-localised flow variants in minutes.</p>
+
+      <div class="case-meta">
+        <div class="case-meta-row"><span class="case-meta-label">Status</span><span class="case-meta-value">Beta · used on Shell + CCTNS conversational projects</span></div>
+        <div class="case-meta-row"><span class="case-meta-label">Stack</span><span class="case-meta-value">Figma Plugin API · TypeScript · Anthropic SDK · Claude 4.6</span></div>
+        <div class="case-meta-row"><span class="case-meta-label">Built</span><span class="case-meta-value">[Add date]</span></div>
+        <div class="case-meta-row"><span class="case-meta-label">Source</span><span class="case-meta-value">[Internal — open-source planned]</span></div>
+      </div>
+
+      <section class="case-section case-tldr" id="tldr">
+        <h2>TL;DR</h2>
+        <ul>
+          <li>Type the user goal ("file an FIR for a missing person") → plugin generates a complete flow with branches, error states, and fallback paths.</li>
+          <li>Localises into multiple languages from a single source. Hindi, Marathi, English, more.</li>
+          <li>Uses Anthropic's models with strict output schemas — fast iteration on conversational design without hand-drafting hundreds of variants.</li>
+        </ul>
+      </section>
+
+      <section class="case-section" id="why">
+        <h2>Why I built it</h2>
+        <p>
+          On the CCTNS citizen platform, voice-first flows had to work in 6 languages. Hand-drafting localised flow variants for every citizen scenario would have taken weeks per release and produced uneven quality. We needed scaffolding speed without losing design judgement.
+        </p>
+        <p>
+          On the Shell deal-management platform, the conversational interface needed to handle hundreds of variant prompts. Designers couldn't rely on engineers to write the system prompt — we needed to <em>shape</em> the flows from inside Figma, where the rest of the design lived.
+        </p>
+        <p class="muted">Both pains pointed to the same plugin. So I built it.</p>
+      </section>
+
+      <section class="case-section" id="how">
+        <h2>How it works</h2>
+        <ul>
+          <li><strong>Goal-first input:</strong> describe the user's goal in plain language. The plugin builds the complete flow from there — happy path, branches, error recovery.</li>
+          <li><strong>Figma-native output:</strong> each turn renders as a Figma frame using your design system's bubble/message components. No copy-paste from external tools.</li>
+          <li><strong>Multi-language generation:</strong> one click localises to selected languages with culturally-aware tone matching, not just dictionary translation.</li>
+          <li><strong>Variant generation:</strong> "give me 10 ways a user might phrase this" → 10 variant inputs to test against. Critical for training intent classifiers.</li>
+          <li><strong>Refusal and fallback design:</strong> auto-generates the "I don't know" / "I need more context" turns that designers usually forget.</li>
+        </ul>
+      </section>
+
+      <section class="case-section" id="stack">
+        <h2>Stack</h2>
+        <ul>
+          <li><strong>Figma Plugin API</strong> for frame + text generation</li>
+          <li><strong>Anthropic SDK</strong> with structured tool-use for predictable flow output</li>
+          <li><strong>Claude 4.6</strong> for nuanced multilingual generation</li>
+          <li><strong>TypeScript</strong> with a strict flow schema (turns, branches, conditions)</li>
+        </ul>
+      </section>
+
+      <section class="case-section" id="example">
+        <h2>Example output</h2>
+        <figure class="case-figure">
+          <div class="case-figure-image">[ Generated flow on Figma canvas — multi-turn, branched, with error states ]</div>
+          <div class="case-figure-caption">A complete generated flow for a citizen-services use case, ready to refine.</div>
+        </figure>
+        <figure class="case-figure">
+          <div class="case-figure-image">[ Same flow localised — English / Hindi / Marathi side by side ]</div>
+          <div class="case-figure-caption">One flow, three languages — generated together, reviewed in Figma.</div>
+        </figure>
+      </section>
+
+      <section class="case-section" id="try">
+        <h2>Try it</h2>
+        <p>Currently used internally on PwC client projects. Public Figma Community release coming once the prompt + output formats are stable. <a href="mailto:hsuneja.suneja7@gmail.com" class="inline-link">Email me</a> for early access if you're working on conversational UX.</p>
+      </section>
+
+      <nav class="case-next" aria-label="Next">
+        <span class="case-next-label">Back to →</span>
+        <a href="/" class="case-next-link">All work</a>
+      </nav>
+
+    </article>
+  </main>
+
+  <div class="cmdk-overlay" id="cmdkOverlay" aria-hidden="true">
+    <div class="cmdk" role="dialog" aria-modal="true" aria-label="Search">
+      <div class="cmdk-search">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg>
+        <input type="text" id="cmdkInput" placeholder="Search work, plugins, links…" autocomplete="off" />
+        <kbd class="kbd">esc</kbd>
+      </div>
+      <ul class="cmdk-results" id="cmdkResults" role="listbox"></ul>
+    </div>
+  </div>
+
+  <script src="../script.js"></script>
+  <script defer src="/_vercel/insights/script.js"></script>
+  <script defer src="/_vercel/speed-insights/script.js"></script>
+</body>
+</html>

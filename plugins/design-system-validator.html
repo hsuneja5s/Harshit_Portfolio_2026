@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Design System Validator — Figma plugin that flags structural breaks and token mismatches before engineering handoff." />
+  <link rel="canonical" href="https://sunejaux.space/plugins/design-system-validator" />
+  <meta property="og:title" content="Design System Validator — Harshit Suneja" />
+  <meta property="og:description" content="Figma plugin that catches token-mismatch and structural breaks before engineering handoff. Built by Harshit Suneja." />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://sunejaux.space/plugins/design-system-validator" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <title>Design System Validator — Harshit Suneja</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css" />
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="/" class="identity" aria-label="Home">
+        <span class="avatar" role="img" aria-label="Harshit Suneja avatar">
+          <img src="https://api.dicebear.com/7.x/initials/svg?seed=HS&backgroundColor=0a0a0a&textColor=fafafa&fontWeight=600" alt="Harshit Suneja" />
+        </span>
+        <span class="identity-name">Harshit Suneja</span>
+      </a>
+      <div class="header-actions">
+        <button class="kbd-search" id="openCmdK" aria-label="Open search (⌘K)">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg>
+          <span class="kbd-label">Search</span>
+          <kbd class="kbd">⌘ K</kbd>
+        </button>
+        <button class="theme-toggle" id="themeLight" aria-label="Light mode" data-mode="light">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2"></path><path d="M12 20v2"></path><path d="m4.93 4.93 1.41 1.41"></path><path d="m17.66 17.66 1.41 1.41"></path><path d="M2 12h2"></path><path d="M20 12h2"></path><path d="m6.34 17.66-1.41 1.41"></path><path d="m19.07 4.93-1.41 1.41"></path></svg>
+        </button>
+        <button class="theme-toggle" id="themeDark" aria-label="Dark mode" data-mode="dark">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="case-layout">
+    <aside class="case-nav">
+      <a href="/" class="case-nav-back">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg>
+        Back home
+      </a>
+      <a href="#why">Why I built it</a>
+      <a href="#how">How it works</a>
+      <a href="#stack">Stack</a>
+      <a href="#impact">Impact</a>
+      <a href="#try">Try it</a>
+    </aside>
+
+    <article class="case-content">
+      <div class="case-hero-image case-hero-validator" aria-hidden="true"></div>
+
+      <h1 class="case-title">Design System Validator <span class="status-pill shipped">shipped</span><span class="pseudo-tag">draft</span></h1>
+      <p class="case-subtitle">A Figma plugin that runs system checks across your file before handoff — catching token mismatches, off-grid layout, undocumented variants, and structural breaks engineers will catch in PR review.</p>
+
+      <div class="case-meta">
+        <div class="case-meta-row"><span class="case-meta-label">Status</span><span class="case-meta-value">Shipped · running daily on IndusInd team</span></div>
+        <div class="case-meta-row"><span class="case-meta-label">Stack</span><span class="case-meta-value">Figma Plugin API · TypeScript · custom rule engine</span></div>
+        <div class="case-meta-row"><span class="case-meta-label">Built</span><span class="case-meta-value">[Add date]</span></div>
+        <div class="case-meta-row"><span class="case-meta-label">Source</span><span class="case-meta-value">[Internal — open-source on roadmap]</span></div>
+      </div>
+
+      <section class="case-section case-tldr" id="tldr">
+        <h2>TL;DR</h2>
+        <ul>
+          <li>One click before handoff → plugin scans your frame for system violations and surfaces them inline with fix suggestions.</li>
+          <li>Catches ~40% of issues that would have otherwise reached engineering PR review.</li>
+          <li>Treats the design system as a contract: deviations are bugs, not preferences.</li>
+        </ul>
+      </section>
+
+      <section class="case-section" id="why">
+        <h2>Why I built it</h2>
+        <p>
+          On the IndusInd design system, we had ~120 components and 6 consumer designers shipping daily. Manual review of token usage and component variants didn't scale. By the time issues reached engineering PR review, they were expensive to fix — designers had to re-open files, re-export, re-handoff.
+        </p>
+        <p>
+          The cheaper place to catch them: <strong>before handoff, inside Figma</strong>. Same problem solved 10× cheaper.
+        </p>
+        <p class="muted">First version was a 200-line script. Real version became a proper plugin with a rule engine that consumer designers can extend.</p>
+      </section>
+
+      <section class="case-section" id="how">
+        <h2>How it works</h2>
+        <ul>
+          <li><strong>Token check:</strong> any color / spacing / radius / shadow value not bound to a system token gets flagged with a suggested replacement.</li>
+          <li><strong>Component check:</strong> detached instances, modified internals, undocumented variants — all surfaced.</li>
+          <li><strong>Structural check:</strong> auto-layout violations, missing constraints, hard-coded text styles outside the system.</li>
+          <li><strong>Fix suggestions:</strong> for each issue, the plugin suggests the closest valid system replacement — one click to swap.</li>
+          <li><strong>Severity levels:</strong> errors block handoff; warnings prompt review; info is just FYI.</li>
+        </ul>
+      </section>
+
+      <section class="case-section" id="stack">
+        <h2>Stack</h2>
+        <ul>
+          <li><strong>Figma Plugin API</strong> for full file traversal</li>
+          <li><strong>TypeScript</strong> with a typed rule schema so consumer designers can add custom rules</li>
+          <li><strong>Custom rule engine</strong> — declarative format, runs ~30 checks per second on a typical frame</li>
+          <li><strong>No AI</strong> — this one is intentionally rule-based. Predictable beats clever for a validation tool.</li>
+        </ul>
+      </section>
+
+      <section class="case-section" id="impact">
+        <h2>Impact</h2>
+        <div class="metric-grid">
+          <div class="metric-tile">
+            <div class="metric-value">~40%</div>
+            <div class="metric-label">Issues caught pre-handoff that previously reached eng PR review</div>
+          </div>
+          <div class="metric-tile">
+            <div class="metric-value">[N]</div>
+            <div class="metric-label">Files validated to date</div>
+          </div>
+          <div class="metric-tile">
+            <div class="metric-value">[N]</div>
+            <div class="metric-label">Custom rules contributed by team designers</div>
+          </div>
+        </div>
+        <p class="muted">The clearest impact: design-engineering rework loops dropped noticeably after rollout. Designers also report cleaner instincts now — the validator's feedback shapes how they build, not just what they ship.</p>
+      </section>
+
+      <section class="case-section" id="try">
+        <h2>Try it</h2>
+        <p>Available internally to IndusInd design team. Public Figma Community release planned once the rule engine is stable + documented. <a href="mailto:hsuneja.suneja7@gmail.com" class="inline-link">Email me</a> if your team wants early access.</p>
+      </section>
+
+      <nav class="case-next" aria-label="Next plugin">
+        <span class="case-next-label">Next plugin →</span>
+        <a href="/plugins/conversation-flow-generator" class="case-next-link">Conversation Flow Generator</a>
+      </nav>
+
+    </article>
+  </main>
+
+  <div class="cmdk-overlay" id="cmdkOverlay" aria-hidden="true">
+    <div class="cmdk" role="dialog" aria-modal="true" aria-label="Search">
+      <div class="cmdk-search">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg>
+        <input type="text" id="cmdkInput" placeholder="Search work, plugins, links…" autocomplete="off" />
+        <kbd class="kbd">esc</kbd>
+      </div>
+      <ul class="cmdk-results" id="cmdkResults" role="listbox"></ul>
+    </div>
+  </div>
+
+  <script src="../script.js"></script>
+  <script defer src="/_vercel/insights/script.js"></script>
+  <script defer src="/_vercel/speed-insights/script.js"></script>
+</body>
+</html>

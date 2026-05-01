@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Design System Generator — Figma plugin that builds a complete design system foundation (tokens, components, starter screens) in minutes." />
+  <link rel="canonical" href="https://sunejaux.space/plugins/design-system-generator" />
+  <meta property="og:title" content="Design System Generator — Harshit Suneja" />
+  <meta property="og:description" content="Figma plugin that scaffolds a complete design system foundation in minutes — tokens to starter screens. Built by Harshit Suneja." />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://sunejaux.space/plugins/design-system-generator" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <title>Design System Generator — Harshit Suneja</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css" />
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="/" class="identity" aria-label="Home">
+        <span class="avatar" role="img" aria-label="Harshit Suneja avatar">
+          <img src="https://api.dicebear.com/7.x/initials/svg?seed=HS&backgroundColor=0a0a0a&textColor=fafafa&fontWeight=600" alt="Harshit Suneja" />
+        </span>
+        <span class="identity-name">Harshit Suneja</span>
+      </a>
+      <div class="header-actions">
+        <button class="kbd-search" id="openCmdK" aria-label="Open search (⌘K)">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg>
+          <span class="kbd-label">Search</span>
+          <kbd class="kbd">⌘ K</kbd>
+        </button>
+        <button class="theme-toggle" id="themeLight" aria-label="Light mode" data-mode="light">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2"></path><path d="M12 20v2"></path><path d="m4.93 4.93 1.41 1.41"></path><path d="m17.66 17.66 1.41 1.41"></path><path d="M2 12h2"></path><path d="M20 12h2"></path><path d="m6.34 17.66-1.41 1.41"></path><path d="m19.07 4.93-1.41 1.41"></path></svg>
+        </button>
+        <button class="theme-toggle" id="themeDark" aria-label="Dark mode" data-mode="dark">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="case-layout">
+    <aside class="case-nav">
+      <a href="/" class="case-nav-back">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg>
+        Back home
+      </a>
+      <a href="#why">Why I built it</a>
+      <a href="#how">How it works</a>
+      <a href="#stack">Stack</a>
+      <a href="#example">Example output</a>
+      <a href="#try">Try it</a>
+    </aside>
+
+    <article class="case-content">
+      <div class="case-hero-image case-hero-dsgen" aria-hidden="true"></div>
+
+      <h1 class="case-title">Design System Generator <span class="status-pill alpha">alpha</span><span class="pseudo-tag">draft</span></h1>
+      <p class="case-subtitle">A Figma plugin that scaffolds a complete design system foundation — semantic tokens, primary components, and starter screens — in minutes instead of weeks.</p>
+
+      <div class="case-meta">
+        <div class="case-meta-row"><span class="case-meta-label">Status</span><span class="case-meta-value">Alpha · piloted with internal-tools team at IndusInd</span></div>
+        <div class="case-meta-row"><span class="case-meta-label">Stack</span><span class="case-meta-value">Figma Plugin API · TypeScript · Anthropic SDK · Tokens Studio sync</span></div>
+        <div class="case-meta-row"><span class="case-meta-label">Built</span><span class="case-meta-value">[Add date]</span></div>
+        <div class="case-meta-row"><span class="case-meta-label">Source</span><span class="case-meta-value">[Closed for now — open-source planned]</span></div>
+      </div>
+
+      <section class="case-section case-tldr" id="tldr">
+        <h2>TL;DR</h2>
+        <ul>
+          <li>Input one brand color + a few choices (typography scale, density, motion preference) → get a complete design system foundation in Figma.</li>
+          <li>Generates ~40 starter components, semantic token architecture, and 5 sample screens you can fork.</li>
+          <li>Built so internal-tools teams can spin up a system in a day instead of waiting six weeks for design system support.</li>
+        </ul>
+      </section>
+
+      <section class="case-section" id="why">
+        <h2>Why I built it</h2>
+        <p>
+          At any large org, the design system team is the bottleneck. Internal-tools teams need a basic system <em>now</em> — not in three months when the central team gets to them. Most end up re-inventing the wheel badly: copy-pasting colors, inventing components, drifting from brand.
+        </p>
+        <p>
+          The opportunity: 80% of design systems share the same scaffolding (semantic tokens × density × type scale × component primitives). Only the brand-specific bits actually need a human's judgment. So I built a plugin that produces the 80% in minutes — leaving humans to focus on the differentiating 20%.
+        </p>
+        <p class="muted">First use case at PwC was for an internal admin tool. It went from "we need a system" to "system in Figma + starter screens" in one afternoon.</p>
+      </section>
+
+      <section class="case-section" id="how">
+        <h2>How it works</h2>
+        <ul>
+          <li><strong>Brand inputs:</strong> you paste your brand color (or up to 3) — the plugin generates a WCAG-clean semantic palette: background / content / border × primary / secondary / tertiary states.</li>
+          <li><strong>Density + scale prompts:</strong> a few questions ("compact / comfortable / spacious", "modern grotesque / classic serif / mono-flavoured") pick the typography + spacing tokens.</li>
+          <li><strong>Token generation:</strong> a full semantic token set lands as Figma Variables — tied to a sync schema for downstream pipeline use.</li>
+          <li><strong>Component scaffolding:</strong> ~40 components ship — buttons, inputs, cards, lists, navs — all wired through the tokens, with ready-made variants.</li>
+          <li><strong>Starter screens:</strong> 5 sample layouts (login, dashboard, table, form, empty state) so engineers see the system in context, not in isolation.</li>
+        </ul>
+      </section>
+
+      <section class="case-section" id="stack">
+        <h2>Stack</h2>
+        <ul>
+          <li><strong>Figma Plugin API</strong> for variable + component creation</li>
+          <li><strong>TypeScript</strong> + a strict component spec format</li>
+          <li><strong>Anthropic SDK</strong> for naming + categorisation suggestions ("what should we call this token cluster?")</li>
+          <li><strong>WCAG contrast math</strong> built-in to guarantee AA palettes</li>
+        </ul>
+      </section>
+
+      <section class="case-section" id="example">
+        <h2>Example output</h2>
+        <figure class="case-figure">
+          <div class="case-figure-image">[ Generated Figma file — token sheet, component grid, starter screens ]</div>
+          <div class="case-figure-caption">From one input color to a full system: tokens, components, starter screens.</div>
+        </figure>
+      </section>
+
+      <section class="case-section" id="try">
+        <h2>Try it</h2>
+        <p>Currently invite-only while I stabilise the component coverage. If your team wants to pilot, ping me at <a href="mailto:hsuneja.suneja7@gmail.com" class="inline-link">hsuneja.suneja7@gmail.com</a>.</p>
+      </section>
+
+      <nav class="case-next" aria-label="Next plugin">
+        <span class="case-next-label">Next plugin →</span>
+        <a href="/plugins/design-system-validator" class="case-next-link">Design System Validator</a>
+      </nav>
+
+    </article>
+  </main>
+
+  <div class="cmdk-overlay" id="cmdkOverlay" aria-hidden="true">
+    <div class="cmdk" role="dialog" aria-modal="true" aria-label="Search">
+      <div class="cmdk-search">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg>
+        <input type="text" id="cmdkInput" placeholder="Search work, plugins, links…" autocomplete="off" />
+        <kbd class="kbd">esc</kbd>
+      </div>
+      <ul class="cmdk-results" id="cmdkResults" role="listbox"></ul>
+    </div>
+  </div>
+
+  <script src="../script.js"></script>
+  <script defer src="/_vercel/insights/script.js"></script>
+  <script defer src="/_vercel/speed-insights/script.js"></script>
+</body>
+</html>

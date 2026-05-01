@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="How sunejaux.space is built — vanilla HTML/CSS/JS, no framework, no build step. Hosted on Vercel. Source open on GitHub." />
+  <link rel="canonical" href="https://sunejaux.space/under-the-hood" />
+  <meta property="og:title" content="Under the hood — Harshit Suneja" />
+  <meta property="og:description" content="How this site is built. Vanilla HTML/CSS/JS, no framework. Hosted on Vercel. Source on GitHub." />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://sunejaux.space/under-the-hood" />
+  <meta name="twitter:card" content="summary" />
+  <title>Under the hood — Harshit Suneja</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="/" class="identity" aria-label="Home">
+        <span class="avatar" role="img" aria-label="Harshit Suneja avatar">
+          <img src="https://api.dicebear.com/7.x/initials/svg?seed=HS&backgroundColor=0a0a0a&textColor=fafafa&fontWeight=600" alt="Harshit Suneja" />
+        </span>
+        <span class="identity-name">Harshit Suneja</span>
+      </a>
+      <div class="header-actions">
+        <button class="kbd-search" id="openCmdK" aria-label="Open search (⌘K)">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg>
+          <span class="kbd-label">Search</span>
+          <kbd class="kbd">⌘ K</kbd>
+        </button>
+        <button class="theme-toggle" id="themeLight" aria-label="Light mode" data-mode="light">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2"></path><path d="M12 20v2"></path><path d="m4.93 4.93 1.41 1.41"></path><path d="m17.66 17.66 1.41 1.41"></path><path d="M2 12h2"></path><path d="M20 12h2"></path><path d="m6.34 17.66-1.41 1.41"></path><path d="m19.07 4.93-1.41 1.41"></path></svg>
+        </button>
+        <button class="theme-toggle" id="themeDark" aria-label="Dark mode" data-mode="dark">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="simple-page">
+    <a href="/" class="simple-page-back">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg>
+      Back home
+    </a>
+
+    <h1 class="simple-page-title">Under the hood</h1>
+    <p class="simple-page-sub">How this site is built. The decisions, the stack, the trade-offs. Source is public on GitHub — fork freely.</p>
+
+    <h2>Stack</h2>
+    <div class="kv-grid">
+      <span class="kv-label">Framework</span>
+      <span class="kv-value">None. Plain HTML, CSS, JavaScript. No build step.</span>
+      <span class="kv-label">Type system</span>
+      <span class="kv-value">None. Vanilla JS for the small surface area we need.</span>
+      <span class="kv-label">Styling</span>
+      <span class="kv-value">Hand-written CSS with custom properties for theming.</span>
+      <span class="kv-label">Typography</span>
+      <span class="kv-value">Inter (Google Fonts), system-ui fallback.</span>
+      <span class="kv-label">Hosting</span>
+      <span class="kv-value">Vercel (static), CDN-backed, served from the Bombay edge.</span>
+      <span class="kv-label">Domain</span>
+      <span class="kv-value">sunejaux.space ($1.99 promo on .space TLD).</span>
+      <span class="kv-label">Source control</span>
+      <span class="kv-value"><a href="https://github.com/hsuneja5s/Harshit_Portfolio_2026" class="inline-link">github.com/hsuneja5s/Harshit_Portfolio_2026</a></span>
+      <span class="kv-label">Deploy</span>
+      <span class="kv-value">Auto-deploy on push to <code>main</code> via Vercel-GitHub integration.</span>
+      <span class="kv-label">Analytics</span>
+      <span class="kv-value">Vercel Web Analytics + Speed Insights (script-tag, no SDK).</span>
+      <span class="kv-label">Search</span>
+      <span class="kv-value">Submitted to Google Search Console with sitemap.xml.</span>
+      <span class="kv-label">Built with</span>
+      <span class="kv-value">Claude Code (Sonnet 4.6) — in pair-programming mode, not autopilot.</span>
+    </div>
+
+    <h2>Decisions</h2>
+
+    <p><strong>Why no framework?</strong> A senior PD's portfolio is one page plus a handful of deep pages. React, Next.js, even Astro — all overkill. The "no build step" decision means I can edit any HTML file in any editor, push to <code>main</code>, and have it live in 20 seconds. The framework I'd need to learn would cost more time than I'd ever save.</p>
+
+    <p><strong>Why Vercel over Framer / Webflow / Squarespace?</strong> Static hosting + per-push deploys + Edge CDN, all free. I considered Framer (visual builder + hosting) but the static-HTML route gives me full control over the spine of every case study. For a Design Engineer angle, the medium <em>is</em> the message.</p>
+
+    <p><strong>Why CSS variables instead of a CSS-in-JS solution?</strong> Theming with <code>data-theme="dark"</code> + variable swap is one line per token. CSS-in-JS would require a build step and a runtime. Custom properties have been browser-native since Chrome 49 (2016).</p>
+
+    <p><strong>Why Claude Code as the build partner?</strong> Pair-programming with Claude is faster than solo for the boring parts (HTML scaffolding, repeating layouts) and equally fast for the interesting parts (deciding what content goes on a page). I write the strategy; Claude writes the boilerplate. Reviewing diffs is the new typing.</p>
+
+    <h2>Performance budget</h2>
+    <ul>
+      <li>No external JavaScript bundles beyond two analytics scripts (each <code>defer</code>-ed)</li>
+      <li>One Google Font request for Inter (subset, <code>display=swap</code>)</li>
+      <li>Each page ships in &lt; 15KB of HTML</li>
+      <li>Aggressive caching of static assets (CSS, JS, images) via vercel.json — 1 year immutable</li>
+      <li>Target: full first-paint &lt; 1s on 4G in India</li>
+    </ul>
+
+    <h2>What I'd add next</h2>
+    <ul>
+      <li>A real Open Graph image (1200×630, generated programmatically from page metadata)</li>
+      <li>Deep-pages for each AI plugin with embedded demo videos</li>
+      <li>A writing/notes section once I have 3-5 pieces drafted</li>
+      <li>Webmentions-style guestbook (if I want one — undecided)</li>
+    </ul>
+
+    <h2>Fork it</h2>
+    <p>The whole codebase is public. If you want to use this layout for your own portfolio, fork the repo, swap the content, redeploy. Credit appreciated but not required.</p>
+    <p><a href="https://github.com/hsuneja5s/Harshit_Portfolio_2026" class="inline-link">github.com/hsuneja5s/Harshit_Portfolio_2026 →</a></p>
+
+    <p class="muted">If you want to chat about the build, reach me at <a href="mailto:hsuneja.suneja7@gmail.com" class="inline-link">hsuneja.suneja7@gmail.com</a>.</p>
+  </main>
+
+  <div class="cmdk-overlay" id="cmdkOverlay" aria-hidden="true">
+    <div class="cmdk" role="dialog" aria-modal="true" aria-label="Search">
+      <div class="cmdk-search">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg>
+        <input type="text" id="cmdkInput" placeholder="Search work, plugins, links…" autocomplete="off" />
+        <kbd class="kbd">esc</kbd>
+      </div>
+      <ul class="cmdk-results" id="cmdkResults" role="listbox"></ul>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+  <script defer src="/_vercel/insights/script.js"></script>
+  <script defer src="/_vercel/speed-insights/script.js"></script>
+</body>
+</html>

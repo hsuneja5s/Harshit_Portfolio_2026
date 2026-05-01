@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="CLAUDE.md Exporter — Figma plugin that exports your design system as a single CLAUDE.md file so Claude Code builds inside your tokens, components, and rules." />
+  <link rel="canonical" href="https://sunejaux.space/plugins/claude-md-exporter" />
+  <meta property="og:title" content="CLAUDE.md Exporter — Harshit Suneja" />
+  <meta property="og:description" content="Figma plugin that bridges Figma → Claude Code by packaging your design system as a single CLAUDE.md file. Built by Harshit Suneja." />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://sunejaux.space/plugins/claude-md-exporter" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <title>CLAUDE.md Exporter — Harshit Suneja</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css" />
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="/" class="identity" aria-label="Home">
+        <span class="avatar" role="img" aria-label="Harshit Suneja avatar">
+          <img src="https://api.dicebear.com/7.x/initials/svg?seed=HS&backgroundColor=0a0a0a&textColor=fafafa&fontWeight=600" alt="Harshit Suneja" />
+        </span>
+        <span class="identity-name">Harshit Suneja</span>
+      </a>
+      <div class="header-actions">
+        <button class="kbd-search" id="openCmdK" aria-label="Open search (⌘K)">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg>
+          <span class="kbd-label">Search</span>
+          <kbd class="kbd">⌘ K</kbd>
+        </button>
+        <button class="theme-toggle" id="themeLight" aria-label="Light mode" data-mode="light">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2"></path><path d="M12 20v2"></path><path d="m4.93 4.93 1.41 1.41"></path><path d="m17.66 17.66 1.41 1.41"></path><path d="M2 12h2"></path><path d="M20 12h2"></path><path d="m6.34 17.66-1.41 1.41"></path><path d="m19.07 4.93-1.41 1.41"></path></svg>
+        </button>
+        <button class="theme-toggle" id="themeDark" aria-label="Dark mode" data-mode="dark">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="case-layout">
+    <aside class="case-nav">
+      <a href="/" class="case-nav-back">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg>
+        Back home
+      </a>
+      <a href="#why">Why I built it</a>
+      <a href="#how">How it works</a>
+      <a href="#stack">Stack</a>
+      <a href="#example">Example output</a>
+      <a href="#try">Try it</a>
+    </aside>
+
+    <article class="case-content">
+      <div class="case-hero-image case-hero-claudemd" aria-hidden="true"></div>
+
+      <h1 class="case-title">CLAUDE.md Exporter <span class="status-pill beta">beta</span><span class="pseudo-tag">draft</span></h1>
+      <p class="case-subtitle">A Figma plugin that exports your design system as a single <code>CLAUDE.md</code> file — so Claude Code generates components inside your tokens, naming, and rules. The Figma → Claude Code bridge.</p>
+
+      <div class="case-meta">
+        <div class="case-meta-row"><span class="case-meta-label">Status</span><span class="case-meta-value">Beta · used internally on IndusInd + CCTNS</span></div>
+        <div class="case-meta-row"><span class="case-meta-label">Stack</span><span class="case-meta-value">Figma Plugin API · TypeScript · Anthropic SDK</span></div>
+        <div class="case-meta-row"><span class="case-meta-label">Built</span><span class="case-meta-value">[Add date — e.g. Q1 2026]</span></div>
+        <div class="case-meta-row"><span class="case-meta-label">Source</span><span class="case-meta-value">[Open source — GitHub link soon]</span></div>
+      </div>
+
+      <section class="case-section case-tldr" id="tldr">
+        <h2>TL;DR</h2>
+        <ul>
+          <li>Pick your design system file in Figma → click Export → get a complete <code>CLAUDE.md</code> with tokens, components, naming rules.</li>
+          <li>Drop the file into your repo, and Claude Code generates inside your system instead of inventing its own.</li>
+          <li>Closes the gap between Figma's design system and Claude Code's component generation.</li>
+        </ul>
+      </section>
+
+      <section class="case-section" id="why">
+        <h2>Why I built it</h2>
+        <p>
+          On the IndusInd design system, engineers started using Claude Code to scaffold prototypes. Great for velocity — terrible for system adherence. Claude generated components that <em>looked</em> right but used invented token names, off-grid spacing, and components that didn't match our library.
+        </p>
+        <p>
+          The fix would have been to give Claude a long system prompt with our tokens. But maintaining that prompt manually meant designers had to hand-curate it after every system change. Drift was inevitable.
+        </p>
+        <p class="muted">
+          So I built the bridge. The plugin reads our Figma library — tokens, components, naming conventions, do/don't rules — and exports it as a single <code>CLAUDE.md</code> that Claude Code reads automatically. Engineers get system-aligned output without designers babysitting the prompt.
+        </p>
+      </section>
+
+      <section class="case-section" id="how">
+        <h2>How it works</h2>
+        <ul>
+          <li><strong>Reads Figma variables + styles:</strong> traverses your library file's variable collections and text/color styles, extracts the semantic-token tree.</li>
+          <li><strong>Reads component metadata:</strong> walks your published components, extracts names, descriptions, props, slot structure.</li>
+          <li><strong>Captures rules:</strong> pulls description text from your component pages — this becomes the "do/don't" guidance Claude follows.</li>
+          <li><strong>Optimises for context:</strong> the export is structured for Claude's token budget — prose where it helps comprehension, tables where they're denser.</li>
+          <li><strong>Outputs one Markdown file:</strong> ready to drop in your repo's root as <code>CLAUDE.md</code>, or anywhere Claude Code reads system context.</li>
+        </ul>
+      </section>
+
+      <section class="case-section" id="stack">
+        <h2>Stack</h2>
+        <ul>
+          <li><strong>Figma Plugin API</strong> for variable + component traversal</li>
+          <li><strong>TypeScript</strong> for safety across nested system structures</li>
+          <li><strong>Anthropic SDK</strong> (optional) for prose summarisation of component descriptions</li>
+          <li><strong>Markdown templating</strong> custom-tuned to Claude Code's preferred context format</li>
+        </ul>
+      </section>
+
+      <section class="case-section" id="example">
+        <h2>Example output</h2>
+        <figure class="case-figure">
+          <div class="case-figure-image">[ Sample CLAUDE.md output — tokens table, component list, do/don'ts ]</div>
+          <div class="case-figure-caption">A trimmed example of what the plugin generates from a real Figma library.</div>
+        </figure>
+      </section>
+
+      <section class="case-section" id="try">
+        <h2>Try it</h2>
+        <p>Currently in private beta with selected design system teams. Reach out at <a href="mailto:hsuneja.suneja7@gmail.com" class="inline-link">hsuneja.suneja7@gmail.com</a> if you'd like early access for your team.</p>
+        <p class="muted">Public Figma Community release: planned [TBD]. Open-source repo: planned alongside the public release.</p>
+      </section>
+
+      <nav class="case-next" aria-label="Next plugin">
+        <span class="case-next-label">Next plugin →</span>
+        <a href="/plugins/design-system-generator" class="case-next-link">Design System Generator</a>
+      </nav>
+
+    </article>
+  </main>
+
+  <div class="cmdk-overlay" id="cmdkOverlay" aria-hidden="true">
+    <div class="cmdk" role="dialog" aria-modal="true" aria-label="Search">
+      <div class="cmdk-search">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg>
+        <input type="text" id="cmdkInput" placeholder="Search work, plugins, links…" autocomplete="off" />
+        <kbd class="kbd">esc</kbd>
+      </div>
+      <ul class="cmdk-results" id="cmdkResults" role="listbox"></ul>
+    </div>
+  </div>
+
+  <script src="../script.js"></script>
+  <script defer src="/_vercel/insights/script.js"></script>
+  <script defer src="/_vercel/speed-insights/script.js"></script>
+</body>
+</html>
