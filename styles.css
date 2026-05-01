@@ -258,6 +258,19 @@ img {
   line-height: 1.3;
 }
 
+.brand-logo {
+  display: inline-block;
+  height: 1.6em;
+  width: auto;
+  vertical-align: -0.5em;
+  margin: 0 0.04em 0 0.06em;
+}
+
+/* Dark mode: invert the pwc letters so they read on dark bg, keep orange */
+[data-theme="dark"] .brand-logo {
+  filter: invert(1) hue-rotate(180deg);
+}
+
 .brand {
   display: inline-flex;
   align-items: center;
