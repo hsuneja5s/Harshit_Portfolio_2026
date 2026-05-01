@@ -830,6 +830,65 @@ img {
 [data-theme="dark"] .case-hero-cub { background: linear-gradient(135deg, #14532d 0%, #064e3b 100%); opacity: 0.55; }
 [data-theme="dark"] .case-hero-indusind { background: linear-gradient(135deg, #1e3a8a 0%, #312e81 100%); opacity: 0.55; }
 
+.case-hero-torrent-patient {
+  background:
+    radial-gradient(circle at 30% 30%, #c4b5fd 0%, transparent 60%),
+    linear-gradient(135deg, #ede9fe 0%, #ddd6fe 100%);
+}
+.case-hero-torrent-system {
+  background:
+    radial-gradient(circle at 70% 50%, #fda4af 0%, transparent 50%),
+    linear-gradient(135deg, #fce7f3 0%, #fbcfe8 100%);
+}
+.case-hero-nykaa-adtech {
+  background:
+    radial-gradient(circle at 60% 40%, #f9a8d4 0%, transparent 60%),
+    linear-gradient(135deg, #fce7f3 0%, #ffe4e6 100%);
+}
+
+[data-theme="dark"] .case-hero-torrent-patient { background: linear-gradient(135deg, #4c1d95 0%, #5b21b6 100%); opacity: 0.55; }
+[data-theme="dark"] .case-hero-torrent-system  { background: linear-gradient(135deg, #831843 0%, #9d174d 100%); opacity: 0.55; }
+[data-theme="dark"] .case-hero-nykaa-adtech    { background: linear-gradient(135deg, #831843 0%, #6b21a8 100%); opacity: 0.55; }
+
+/* CCTNS NDA banner */
+.nda-banner {
+  background: var(--background-subtle);
+  border-radius: 12px;
+  padding: 20px 24px;
+  margin-bottom: 40px;
+  border-left: 3px solid var(--accent-green);
+}
+
+.nda-banner p {
+  margin: 0;
+  font-size: 14.5px;
+  line-height: 1.55;
+  color: var(--text-primary);
+}
+
+.case-nav-nda {
+  color: var(--accent-green) !important;
+  font-weight: 600 !important;
+}
+
+.nda-request-section {
+  background: var(--background-subtle);
+  border-radius: 14px;
+  padding: 32px;
+  margin-top: 48px;
+}
+
+.nda-request-section h2 {
+  margin-top: 0;
+}
+
+/* Homepage plugin row card link */
+.play-item-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
 .case-title {
   font-size: 36px;
   font-weight: 700;
@@ -1133,30 +1192,6 @@ img {
   color: var(--text-tertiary);
 }
 
-.case-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-  margin-bottom: 28px;
-}
-
-.case-tag {
-  display: inline-flex;
-  align-items: center;
-  font-size: 12px;
-  font-weight: 500;
-  padding: 4px 10px;
-  border-radius: 999px;
-  background: var(--background-subtle);
-  color: var(--text-secondary);
-  letter-spacing: 0.01em;
-}
-
-.case-tag.tag-accent {
-  background: var(--accent-green-soft);
-  color: var(--accent-green);
-}
-
 /* Related work block */
 .case-related {
   margin-top: 80px;
@@ -1208,49 +1243,10 @@ img {
   line-height: 1.45;
 }
 
-/* Inline status pill on homepage card titles */
-.work-title .status-pill,
-h1.case-title .status-pill {
-  margin-left: 8px;
-  font-size: 11px;
-  padding: 2px 7px;
-  vertical-align: middle;
-}
-
 /* ============================================
    PLUGIN PAGE EXTRAS
    ============================================ */
-.status-pill {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  font-size: 12px;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  padding: 4px 10px;
-  border-radius: 999px;
-  vertical-align: middle;
-  margin-left: 12px;
-}
-
-.status-pill::before {
-  content: "";
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: currentColor;
-}
-
-.status-pill.shipped { color: var(--accent-green); background: var(--accent-green-soft); }
-.status-pill.beta    { color: #b45309; background: #fef3c7; }
-.status-pill.alpha   { color: #6b21a8; background: #f3e8ff; }
-.status-pill.coming  { color: var(--text-secondary); background: var(--background-subtle); }
-
-[data-theme="dark"] .status-pill.shipped { color: #4ade80; background: #14532d; }
-[data-theme="dark"] .status-pill.beta    { color: #fcd34d; background: #78350f; }
-[data-theme="dark"] .status-pill.alpha   { color: #d8b4fe; background: #581c87; }
-[data-theme="dark"] .status-pill.coming  { color: var(--text-secondary); background: var(--background-subtle); }
+/* status-pill removed in design QC pass — kept only the dot pattern below for any future use */
 
 .case-hero-claudemd {
   background:
