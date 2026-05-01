@@ -649,15 +649,14 @@ img {
    ============================================ */
 .claude-gif-wrap {
   position: fixed;
-  bottom: 24px;
+  bottom: 0;
   right: 24px;
   z-index: 50;
   cursor: default;
   background: #111;
-  border-radius: 14px;
+  border-radius: 14px 14px 0 0;
   overflow: hidden;
   width: 72px;
-  box-shadow: 0 4px 16px rgba(0,0,0,0.25);
 }
 
 .claude-gif {
