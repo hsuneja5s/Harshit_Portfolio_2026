@@ -334,35 +334,35 @@ img {
   overflow: hidden;
 }
 
-/* Placeholder visual treatments — swap for real images */
-.work-image-tokens {
+/* Placeholder visual treatments — swap for real screenshots later */
+.work-image-cctns {
   background:
-    radial-gradient(circle at 30% 30%, var(--accent-green-soft) 0%, transparent 60%),
-    linear-gradient(135deg, #e0f2fe 0%, #ddd6fe 100%);
+    radial-gradient(circle at 30% 30%, #fed7aa 0%, transparent 60%),
+    linear-gradient(135deg, #ffedd5 0%, #fef3c7 100%);
 }
 
-.work-image-ai {
+.work-image-shell {
   background:
     radial-gradient(circle at 70% 50%, #fde68a 0%, transparent 50%),
-    linear-gradient(135deg, #fef3c7 0%, #fce7f3 100%);
+    linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);
 }
 
-.work-image-forge {
+.work-image-cub {
   background:
-    radial-gradient(circle at 30% 70%, #c7d2fe 0%, transparent 60%),
-    linear-gradient(135deg, #e0e7ff 0%, #f3e8ff 100%);
+    radial-gradient(circle at 30% 70%, #bbf7d0 0%, transparent 60%),
+    linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%);
 }
 
-.work-image-portfolio {
+.work-image-indusind {
   background:
-    radial-gradient(circle at 60% 40%, #bbf7d0 0%, transparent 60%),
-    linear-gradient(135deg, #f0fdf4 0%, #ecfeff 100%);
+    radial-gradient(circle at 60% 40%, #bfdbfe 0%, transparent 60%),
+    linear-gradient(135deg, #eff6ff 0%, #e0e7ff 100%);
 }
 
-[data-theme="dark"] .work-image-tokens { background: linear-gradient(135deg, #1e3a8a 0%, #4c1d95 100%); opacity: 0.6; }
-[data-theme="dark"] .work-image-ai { background: linear-gradient(135deg, #78350f 0%, #831843 100%); opacity: 0.6; }
-[data-theme="dark"] .work-image-forge { background: linear-gradient(135deg, #312e81 0%, #581c87 100%); opacity: 0.6; }
-[data-theme="dark"] .work-image-portfolio { background: linear-gradient(135deg, #14532d 0%, #164e63 100%); opacity: 0.6; }
+[data-theme="dark"] .work-image-cctns { background: linear-gradient(135deg, #78350f 0%, #92400e 100%); opacity: 0.55; }
+[data-theme="dark"] .work-image-shell { background: linear-gradient(135deg, #713f12 0%, #78350f 100%); opacity: 0.55; }
+[data-theme="dark"] .work-image-cub { background: linear-gradient(135deg, #14532d 0%, #064e3b 100%); opacity: 0.55; }
+[data-theme="dark"] .work-image-indusind { background: linear-gradient(135deg, #1e3a8a 0%, #312e81 100%); opacity: 0.55; }
 
 /* ============================================
    PLAY & EXPERIMENTS
@@ -395,13 +395,16 @@ img {
   background: var(--background-subtle);
 }
 
-.play-thumb-1 { background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%); }
+.play-thumb-1 { background: linear-gradient(135deg, #1f2937 0%, #374151 100%); position: relative; }
+.play-thumb-1::after { content: "C"; color: #fafafa; font-weight: 700; font-size: 18px; position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; letter-spacing: -0.02em; }
 .play-thumb-2 { background: linear-gradient(135deg, #ddd6fe 0%, #c4b5fd 100%); }
-.play-thumb-3 { background: linear-gradient(135deg, #bfdbfe 0%, #93c5fd 100%); }
+.play-thumb-3 { background: linear-gradient(135deg, #fde68a 0%, #fcd34d 100%); }
+.play-thumb-4 { background: linear-gradient(135deg, #bfdbfe 0%, #93c5fd 100%); }
 
-[data-theme="dark"] .play-thumb-1 { background: linear-gradient(135deg, #78350f 0%, #92400e 100%); }
+[data-theme="dark"] .play-thumb-1 { background: linear-gradient(135deg, #0a0a0a 0%, #1f2937 100%); }
 [data-theme="dark"] .play-thumb-2 { background: linear-gradient(135deg, #4c1d95 0%, #5b21b6 100%); }
-[data-theme="dark"] .play-thumb-3 { background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 100%); }
+[data-theme="dark"] .play-thumb-3 { background: linear-gradient(135deg, #78350f 0%, #92400e 100%); }
+[data-theme="dark"] .play-thumb-4 { background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 100%); }
 
 .play-meta {
   flex: 1;
