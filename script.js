@@ -44,7 +44,6 @@ const ITEMS = [
   { tag: 'Work',   label: 'Central Union Bank — CUB.ai',      hint: 'AI banking assistant · NPS 4.7 → 9.2',   href: '/work/central-union-bank' },
   { tag: 'Work',   label: 'IndusInd — INDIE',                 hint: 'banking flow simplification',            href: '/work/indusind' },
   { tag: 'Work',   label: 'Torrent — Patient App',            hint: 'live · India\'s 1st accessible diag',    href: '/work/torrent-patient-app' },
-  { tag: 'Work',   label: 'Torrent — Brand & Design System',  hint: 'identity + UI system · 3 surfaces',      href: '/work/torrent-design-system' },
   { tag: 'Work',   label: 'Nykaa — AdTech Platform',          hint: 'self-serve ads console · B2B',           href: '/work/nykaa-adtech' },
   { tag: 'Plugin', label: 'CLAUDE.md Exporter',               hint: 'design system → Claude Code',            href: '/plugins/claude-md-exporter' },
   { tag: 'Plugin', label: 'Design System Generator',          hint: 'tokens → starter screens · in Figma',    href: '/plugins/design-system-generator' },
