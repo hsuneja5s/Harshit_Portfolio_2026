@@ -666,6 +666,16 @@ img {
   display: block;
 }
 
+.claude-gif-dark { display: none; }
+.claude-gif-light { display: block; }
+
+[data-theme="dark"] .claude-gif-light { display: none; }
+[data-theme="dark"] .claude-gif-dark  { display: block; }
+
+@media (max-width: 639px) {
+  .claude-gif-wrap { display: none; }
+}
+
 .claude-gif-tooltip {
   position: absolute;
   bottom: 50%;
