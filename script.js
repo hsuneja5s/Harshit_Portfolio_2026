@@ -39,11 +39,11 @@ const results = document.getElementById('cmdkResults');
 const openBtn = document.getElementById('openCmdK');
 
 const ITEMS = [
-  { tag: 'Work',   label: 'Energy — Pacific Platform',         hint: '500+ deals · Insight.AI',                href: '/work/shell' },
-  { tag: 'Work',   label: 'CCTNS — National Policing', hint: 'national policing · NDA-protected',      href: '/work/cctns' },
-  { tag: 'Work',   label: 'Banking — CUB.ai',      hint: 'AI banking assistant · NPS 4.7 → 9.2',   href: '/work/central-union-bank' },
-  { tag: 'Work',   label: 'Banking — INDIE',                 hint: 'banking flow simplification',            href: '/work/indusind' },
-  { tag: 'Work',   label: 'Torrent — Patient App',            hint: 'live · India\'s 1st accessible diag',    href: '/work/torrent-patient-app' },
+  { tag: 'Work',   label: 'Energy — Deal Pipeline',            hint: '500+ deals · Insight.AI',                href: '/work/shell' },
+  { tag: 'Work',   label: 'Government — Citizen Services',    hint: 'national policing · NDA-protected',      href: '/work/cctns' },
+  { tag: 'Work',   label: 'Banking — AI Assistant',           hint: 'AI banking assistant · NPS 4.7 → 9.2',   href: '/work/central-union-bank' },
+  { tag: 'Work',   label: 'Banking — Flow Redesign',          hint: 'guided, error-proof flows',              href: '/work/indusind' },
+  { tag: 'Work',   label: 'Healthcare — Patient App',         hint: 'live · India\'s 1st accessible diag',    href: '/work/torrent-patient-app' },
   { tag: 'Work',   label: 'Nykaa — AdTech Platform',          hint: 'self-serve ads console · B2B',           href: '/work/nykaa-adtech' },
   { tag: 'Plugin', label: 'CLAUDE.md Exporter',               hint: 'design system → Claude Code',            href: '/plugins/claude-md-exporter' },
   { tag: 'Plugin', label: 'Design System Generator',          hint: 'tokens → starter screens · in Figma',    href: '/plugins/design-system-generator' },
