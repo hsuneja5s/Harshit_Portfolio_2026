@@ -49,6 +49,11 @@ html {
 }
 
 @keyframes pageFadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes contentSlideIn {
   from { opacity: 0; transform: translateY(6px); }
   to   { opacity: 1; transform: translateY(0); }
 }
@@ -226,6 +231,7 @@ img {
   max-width: 720px;
   margin: 0 auto;
   padding: 0 24px 80px;
+  animation: contentSlideIn 0.35s ease both;
 }
 
 .section {
@@ -905,6 +911,7 @@ img {
 /* Right content — full width within the centered case-layout */
 .case-content {
   min-width: 0;
+  animation: contentSlideIn 0.35s ease both;
 }
 
 .case-hero-image {

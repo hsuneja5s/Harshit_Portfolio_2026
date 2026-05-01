@@ -269,6 +269,5 @@ document.addEventListener('click', (e) => {
 
   e.preventDefault();
   document.body.style.opacity = '0';
-  document.body.style.transform = 'translateY(-4px)';
   setTimeout(() => { location.href = href; }, 250);
 });
