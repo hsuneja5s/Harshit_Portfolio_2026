@@ -126,47 +126,37 @@
       <section class="case-section" id="cold-start">
         <h2>The cold-start problem</h2>
         <p>
-          The first decision wasn't conversational design. It was admitting that <strong>conversational interfaces have a cold-start problem</strong> — and the older audience CUB serves makes that problem worse.
+          In testing, when we showed users a free-form chat input with a blinking cursor, ~70% froze. They asked which buttons to press. They typed two words and stopped. <em>"I don't know what to ask."</em>
         </p>
         <p>
-          In testing, when we showed users a free-form chat input with a blinking cursor and a "What can I help you with?" prompt, ~70% froze. They asked which buttons to press. They typed two words and stopped. They said <em>"I don't know what to ask."</em> Conversation as a medium is fine. Conversation as a <em>prerequisite</em> is the trap.
-        </p>
-        <p class="muted">
-          Layered on top: an immovable regulatory shell — RBI compliance on every flow, consent screens, two-factor confirmations, disclaimers. The product had to feel like a conversation while obeying the form gauntlet underneath.
+          Conversation as a medium is fine. Conversation as a <em>prerequisite</em> is the trap.
         </p>
       </section>
 
       <section class="case-section" id="chips">
         <h2>The 8 quick-action chips</h2>
         <p>
-          The fix: open the conversation by handing the user a menu. Not as a fallback or a tutorial — as the <strong>primary</strong> entry point. Eight chips, covering ~85% of customer-service request volume:
+          The fix: open the conversation with a menu. Eight chips, covering ~85% of customer-service volume:
         </p>
         <ul>
-          <li><strong>Banking Summary</strong> — accounts at a glance</li>
-          <li><strong>Last 5 Transactions</strong> — the question support gets most</li>
-          <li><strong>Block Card</strong> — urgent path, surface always</li>
-          <li><strong>Transfer Money</strong> — head of the long tail</li>
-          <li><strong>Pay Bills</strong> — recurring, biller-aware</li>
-          <li><strong>Find ATM</strong> — location-aware, low-bandwidth fallback</li>
-          <li><strong>Download Statement</strong> — paper-trail need, common with older users</li>
-          <li><strong>Report Fraud</strong> — single tap, escalates immediately to a human</li>
+          <li><strong>Banking Summary</strong> · <strong>Last 5 Transactions</strong> · <strong>Block Card</strong> · <strong>Transfer Money</strong></li>
+          <li><strong>Pay Bills</strong> · <strong>Find ATM</strong> · <strong>Download Statement</strong> · <strong>Report Fraud</strong></li>
         </ul>
         <p>
-          Why eight, not fifteen? Cognitive load. The eighth chip is the inflection — anything more and users start scrolling, which kills the "I see what's possible" moment that solves cold-start. Anything in the long tail (loan inquiries, NRI services, dispute escalation) falls through to a free-text input <em>after</em> the user has entered the conversation surface confidently.
+          Why eight, not fifteen? Cognitive load. Beyond eight, users start scrolling — and lose the "I see what's possible" moment that solves cold-start. The long tail falls through to free-text after the user is already in the conversation.
         </p>
       </section>
 
       <section class="case-section" id="conversations">
         <h2>Sample conversations</h2>
         <p>
-          The art is in what each chip resolves to. Free-form prose responses fail with older users — too much to read, hard to scan, easy to lose track of. Every chip routes to a <strong>structured response card</strong> rendered inline in the chat thread. Two worked examples:
+          Each chip resolves to a structured response card, not prose. Two worked examples:
         </p>
 
         <div class="bubble-meta">Tap: <strong>Last 5 Transactions</strong></div>
         <div class="conversation">
           <div class="bubble bot">Hello! I'm your AI Banking Assistant. How can I help you today?</div>
           <div class="bubble user">Last 5 Transactions</div>
-          <div class="bubble bot">Here are your last 5 transactions:</div>
           <div class="bubble-card">
             <div class="bubble-card-title">Recent activity · Acct ••• 4521</div>
             <div class="bubble-card-row"><span>Amazon.com</span><span>− ₹156.99</span></div>
@@ -180,8 +170,7 @@
         <div class="bubble-meta">Free-text in the customer's own language</div>
         <div class="conversation">
           <div class="bubble user">I want to pay my son's college fees</div>
-          <div class="bubble bot">I can help with that. This looks like a transfer to a new beneficiary. Should I open the transfer form, or would you like to save the college first?</div>
-          <div class="bubble user">Open the form</div>
+          <div class="bubble bot">This looks like a transfer to a new beneficiary. Should I open the transfer form?</div>
           <div class="bubble-card">
             <div class="bubble-card-title">Transfer · Step 1 of 3</div>
             <div class="bubble-card-row"><span>From account</span><span>•••• 4521 (Savings)</span></div>
@@ -191,60 +180,52 @@
         </div>
 
         <p class="muted">
-          The intent classifier — trained on consented, anonymised CS transcripts — maps colloquial phrasings ("fees ka payment", "send money to my son") to the same task as the chip. Customers describe what they want; CUB.ai routes.
+          The intent classifier maps colloquial phrasings ("fees ka payment") to the same task as the chip. Customers describe what they want; CUB.ai routes.
         </p>
       </section>
 
       <section class="case-section" id="refusal">
         <h2>Refusal &amp; safety</h2>
         <p>
-          The most important design decisions in CUB.ai aren't what it does — they're <strong>what it refuses to do</strong>. In retail banking, an AI that confidently nudges customers toward a financial product is a regulatory and ethical disaster. The refusal matrix was reviewed and signed off by the bank's risk + compliance team before a single chip went live.
+          The most important design decisions in CUB.ai are what it <strong>refuses</strong> to do. The matrix was signed off by risk + compliance before a single chip went live.
         </p>
 
         <div class="refusal-matrix">
           <div class="refusal-col will">
             <div class="refusal-header">Will</div>
             <ul class="refusal-list">
-              <li>Surface account balances + recent activity</li>
-              <li>Block a card immediately on request</li>
-              <li>Fetch the last N transactions or a date range</li>
-              <li>Initiate a transfer (customer confirms every step)</li>
-              <li>Locate the nearest ATM</li>
-              <li>Generate / email account statements</li>
-              <li>Escalate fraud reports to a human within seconds</li>
-              <li>Translate a customer's intent ("son's fees") to the right form</li>
+              <li>Surface balances + recent activity</li>
+              <li>Block a card on request</li>
+              <li>Fetch the last N transactions</li>
+              <li>Initiate a transfer (customer confirms each step)</li>
+              <li>Generate / email statements</li>
+              <li>Escalate fraud to a human within seconds</li>
+              <li>Translate intent ("son's fees") to the right form</li>
             </ul>
           </div>
           <div class="refusal-col wont">
             <div class="refusal-header">Won't</div>
             <ul class="refusal-list">
-              <li>Recommend investment products or mutual funds</li>
-              <li>Offer financial advice ("should I invest in...?")</li>
-              <li>Predict or comment on market movements</li>
-              <li>Initiate a binding action without explicit customer confirmation</li>
-              <li>Discuss other customers' accounts (even with details given)</li>
-              <li>Pretend to be a human when asked directly</li>
-              <li>Make promises about loan / credit eligibility</li>
-              <li>Operate outside the 8 supported tasks without falling through to a human</li>
+              <li>Recommend investments or mutual funds</li>
+              <li>Offer financial advice</li>
+              <li>Predict or comment on markets</li>
+              <li>Take binding action without explicit confirmation</li>
+              <li>Discuss other customers' accounts</li>
+              <li>Pretend to be human when asked</li>
+              <li>Make promises on loan / credit eligibility</li>
             </ul>
           </div>
         </div>
 
         <p class="muted">
-          The "Won't" column is the design. The "Will" column is just the product. Most AI products in regulated workflows fail because they've designed only the Will side and let the Won't side leak.
+          Most AI products in regulated workflows design only the Will side. The Won't side is the product.
         </p>
       </section>
 
       <section class="case-section" id="tradeoffs">
         <h2>Trade-offs</h2>
         <p>
-          The chip-first approach is slower for power users who memorised the legacy app's tab structure (~5% of the base). We absorbed that cost — the change was net-positive within two release cycles even for them.
-        </p>
-        <p>
-          Killing gamified savings goals lost us a small contingent of younger customers who liked streaks and animated mascots. The older majority's NPS lift more than paid for it — but the segmentation question is worth re-opening for v2.
-        </p>
-        <p>
-          Constraining to 8 quick actions left ~15% of CS volume falling through to call center. Accepted for v1 — the head of the curve was the leverage point. The long tail is v2.
+          Chip-first is slower for ~5% of power users who memorised the legacy app. Killing gamified goals lost us a small younger contingent. 8 chips left ~15% of CS volume falling through to call-center — accepted for v1, picked up in v2.
         </p>
       </section>
 

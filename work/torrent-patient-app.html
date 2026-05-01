@@ -126,7 +126,7 @@
       <section class="case-section" id="audience">
         <h2>The audience</h2>
         <p>
-          Most diagnostic apps in India are designed for the wrong person — a younger, urban, digitally fluent customer booking themselves a one-off test. Torrent's actual patient base is different. Two real users, both spend hours with the product, both shaped every decision in this case study:
+          Most diagnostic apps are designed for the wrong person — a young, urban, digitally fluent customer booking a one-off test. Torrent's actual patient base is different.
         </p>
 
         <div class="persona-grid">
@@ -134,16 +134,7 @@
             <div class="persona-name">Asha · 64</div>
             <div class="persona-tagline">Type 2 diabetic, 12 years</div>
             <div class="persona-block">
-              <div class="persona-label">Daily life with the product</div>
-              <div class="persona-text">Tracks HbA1c every 3 months. Used to keep a paper folder of reports. Forgets what last quarter's number was by the time she gets to the doctor.</div>
-            </div>
-            <div class="persona-block">
-              <div class="persona-label">What blocks her</div>
-              <div class="persona-text">Empty search bars. PDF reports she can't open on her phone. Apps that "look complicated."</div>
-            </div>
-            <div class="persona-block">
-              <div class="persona-label">What she needs</div>
-              <div class="persona-text">Her last reading. The arrow showing whether it's better or worse. Doctor visit on Thursday — bring this number.</div>
+              <div class="persona-text">Tracks HbA1c every 3 months. Forgets last quarter's number by the time she sees the doctor. Freezes at empty search bars. Wants her last reading and an arrow showing better-or-worse.</div>
             </div>
           </div>
 
@@ -151,110 +142,71 @@
             <div class="persona-name">Ravi · 41</div>
             <div class="persona-tagline">Tracking father's chronic condition</div>
             <div class="persona-block">
-              <div class="persona-label">Daily life with the product</div>
-              <div class="persona-text">Books his father's tests. Reads his father's reports. Decides whether to call the doctor. Does it from his own phone, often during the workday.</div>
-            </div>
-            <div class="persona-block">
-              <div class="persona-label">What blocks him</div>
-              <div class="persona-text">Apps where the patient's account and the family-caregiver's view are tangled. Reports without context.</div>
-            </div>
-            <div class="persona-block">
-              <div class="persona-label">What he needs</div>
-              <div class="persona-text">A way to share the report directly with the family doctor. Trend over the last 6 months at a glance. Reassurance — or a clear "this needs a call."</div>
+              <div class="persona-text">Books his father's tests, reads the reports, decides whether to call the doctor. Wants the trend over 6 months at a glance. Either reassurance, or a clear "this needs a call."</div>
             </div>
           </div>
         </div>
 
         <p class="muted">
-          The trap was designing for either Asha <em>or</em> Ravi — the senior, or the caregiver. The product had to serve both, in different contexts, often on different devices, sometimes for the same lab value. That dual audience shaped every interaction model below.
+          The trap was designing for either Asha or Ravi. The product serves both — different contexts, different devices, sometimes for the same lab value.
         </p>
       </section>
 
       <section class="case-section" id="reframe">
         <h2>The reframe</h2>
-        <p>
-          The category framing — "diagnostic booking app" — guarantees a transactional product. Book → wait → PDF → forget. Most apps in this space optimise the transaction loop: faster booking, cheaper packages, push notifications when reports are ready.
+        <p class="pull-quote">
+          This isn't a booking app with reports attached. It's a daily companion for living with a chronic condition.
         </p>
         <p>
-          The reframe was simple: <strong>this product isn't for booking tests. It's for living with a chronic condition.</strong> Booking is a means; the product is a daily companion. Once you frame it that way, every decision flips:
+          Once you frame it that way, every decision flips. The home screen surfaces your last reading, not "Book a test." Records are organised by value-over-time, not test-occasion. Interpretation is plain-language and quiet, not gamification with badges.
         </p>
-        <ul>
-          <li>The home screen surfaces <em>your last reading</em>, not "Book a test" — booking is a CTA on a card, not the headline.</li>
-          <li>Records are organised by <em>value over time</em> (Trends), not by <em>test occasion</em> (Reports).</li>
-          <li>The interpretation is <em>plain-language and quiet</em>, not <em>colourful gamification with badges</em>.</li>
-          <li>The audience badge ("senior-citizen flat 10%") sits on the home screen unhidden — because the audience is the audience.</li>
-        </ul>
       </section>
 
       <section class="case-section" id="accessibility">
         <h2>Accessibility deep-dive</h2>
         <p>
-          "India's first accessibility-first diagnostic app" is a claim worth standing behind only if accessibility is in the bones, not the QA pass. Concrete decisions that shipped:
+          "India's first accessibility-first diagnostic app" is worth standing behind only if accessibility is in the bones, not the QA pass.
         </p>
-
         <ul>
-          <li><strong>Tap targets at 48pt minimum</strong> across every interactive element. Apple's HIG suggests 44pt; we went larger because Asha's phone is rarely steady.</li>
-          <li><strong>Body text at 16pt minimum</strong> with 1.5 line-height. "Caption" sizes are reserved for timestamps and meta — never for content a patient needs to read.</li>
-          <li><strong>WCAG AA contrast on every element</strong>, AAA on body text. Tested in 5 lighting conditions including direct outdoor sun (brightness drops contrast hard on cheap LCD panels).</li>
-          <li><strong>Voice-first paths for booking.</strong> Chat &amp; Book Test isn't a feature for power users — it's the primary CTA. Type, speak, or upload prescription — three equal entry points.</li>
-          <li><strong>Regional-language support.</strong> Hindi at launch, four more languages planned. The Trend interpretation phrasings are reviewed by a clinical advisory <em>per language</em>, not just translated.</li>
-          <li><strong>No motion-as-information.</strong> Trend direction is shown in shape + colour + text, not in animation. Some seniors have vestibular sensitivities; many run reduced-motion settings.</li>
-          <li><strong>Voice-readable labels on every chart.</strong> "Sparkline rising over the last 3 reads" is the alt text. Screen readers get the trend, not just "image."</li>
+          <li><strong>48pt minimum tap targets.</strong> Apple's HIG suggests 44; Asha's phone is rarely steady.</li>
+          <li><strong>16pt body minimum, 1.5 line-height.</strong> Captions are for timestamps, not content.</li>
+          <li><strong>WCAG AA on every element, AAA on body.</strong> Tested in 5 lighting conditions including outdoor sun.</li>
+          <li><strong>Voice-first paths for booking.</strong> Chat &amp; Book Test is the primary CTA, not a power-user feature.</li>
+          <li><strong>Regional language support.</strong> Per-language clinical review of Trend phrasings, not just translation.</li>
+          <li><strong>No motion-as-information.</strong> Trend direction is shape + colour + text, not animation.</li>
         </ul>
-
         <p class="muted">
-          The hardest accessibility problem isn't checking boxes — it's not making the app <em>look</em> like a "senior app." Younger users avoid those. The visual language is calm and warm rather than soft and patronising. Big tap targets that don't look big.
+          The hardest accessibility problem isn't checking boxes — it's not making the app <em>look</em> like a "senior app." Big tap targets that don't look big.
         </p>
       </section>
 
       <section class="case-section" id="trends">
         <h2>Trend-first design</h2>
         <p>
-          Every other diagnostic app shows you a number. We show you a <strong>trend</strong>. Same lab values, completely different mental model.
+          Every other diagnostic app shows you a number. We show you a <strong>trend</strong>. The Trend Card has a strict reading order: <em>plain-language interpretation</em> first, value second, ideal range third, sparkline fourth.
         </p>
-
-        <p>The Trend Card — the most-used component in the app — has six elements arranged in a strict reading order:</p>
-        <ol>
-          <li><strong>Plain-language interpretation</strong> at the top — <em>"Your recent HbA1c is rising and nearing the high end of the ideal range."</em> If the patient reads only one line, this is it.</li>
-          <li><strong>The current value</strong> with units — <em>5.2</em>.</li>
-          <li><strong>The ideal range</strong> for context — <em>4 — 5.6</em>. Always shown alongside the value.</li>
-          <li><strong>The sparkline</strong> over the last 3-6 reads. Range overlay shows where the safe band sits.</li>
-          <li><strong>Last-updated timestamp.</strong> Builds trust — the data is fresh.</li>
-          <li><strong>"Compare with previous"</strong> action — for Ravi, who's checking against six months ago.</li>
-        </ol>
         <p>
-          Why interpretation first, value second? In testing with seniors, when the value led, patients struggled to know whether 5.2 was good or bad. With interpretation first, the value becomes evidence — not a quiz.
+          Why interpretation first? In testing, when the value led, patients struggled to know whether 5.2 was good or bad. With interpretation first, the value becomes evidence — not a quiz.
         </p>
       </section>
 
       <section class="case-section" id="boundary">
         <h2>The AI boundary</h2>
-        <p>
-          AI's role in this product is the most interesting design constraint of the whole project. It's powerful enough to shape the experience — and dangerous enough that getting the boundary wrong would destroy trust irrecoverably. The line we drew, in a single sentence:
-        </p>
         <p class="pull-quote">
           AI describes. AI does not prescribe.
         </p>
-
-        <ul>
-          <li><strong>Will:</strong> generate plain-language interpretations of the patient's own historical values; OCR a paper prescription into a list of suggested tests (patient confirms); route a free-text booking intent to the right test package.</li>
-          <li><strong>Won't:</strong> provide medical advice; suggest treatment; recommend products; comment on whether a result is "concerning"; tell the patient what to do about a value.</li>
-        </ul>
-
-        <p class="muted">
-          That boundary sits between "your value is in/out of range" and "you should do X about it." The first is statistical; the second is medical. The first is the app's job; the second is the doctor's. Every microcopy review went through this filter — and the clinical advisory had veto power over any phrasing that drifted into the second category.
+        <p>
+          AI generates plain-language interpretations of the patient's own historical values, OCRs paper prescriptions into suggested tests, routes free-text booking intent to the right package. AI does not provide medical advice, suggest treatment, or tell the patient what to do about a value.
         </p>
-
-        <p>The plumbing: trend interpretation is generated per-patient using their own historical values. Phrasing templates (5 per category, in 5 languages) are reviewed and approved by clinicians before any patient sees them. Conversation Flow Generator (the Figma plugin I built) was used to draft hundreds of representative booking prompts to train the intent layer.</p>
+        <p class="muted">
+          The line sits between "your value is in/out of range" (statistical, app's job) and "you should do X about it" (medical, doctor's job). Phrasing templates are reviewed and approved by clinicians before any patient sees them.
+        </p>
       </section>
 
       <section class="case-section" id="tradeoffs">
         <h2>Trade-offs</h2>
         <p>
-          Choosing a senior-first audience meant the visual language is calmer, simpler, and slightly less "modern" than a younger-skewing app would be. Younger users adapt to calmer interfaces — senior users genuinely struggle with the visual density of most consumer apps.
-        </p>
-        <p>
-          The trends-first focus deferred revenue-adjacent features: doctor referral, e-pharmacy integration, family-member account separation. All are on the roadmap. Adoption first, monetisation second.
+          Senior-first means a calmer visual language than a younger-skewing app would have. Younger users adapt; senior users genuinely struggle with most consumer apps. Trends-first focus deferred doctor referral, e-pharmacy, and family-member account separation — adoption first, monetisation second.
         </p>
       </section>
 
