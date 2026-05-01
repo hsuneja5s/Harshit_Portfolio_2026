@@ -86,11 +86,11 @@
         Back home
       </a>
       <a href="#tldr">TL;DR</a>
-      <a href="#constraint">The constraint</a>
-      <a href="#decision">The decision</a>
-      <a href="#system">The system</a>
-      <a href="#ai">AI in the loop</a>
-      <a href="#tradeoffs">Trade-offs</a>
+      <a href="#context">The 3-product context</a>
+      <a href="#brand">Brand foundation</a>
+      <a href="#tokens">Token architecture</a>
+      <a href="#anatomy">Component anatomy</a>
+      <a href="#governance">Governance</a>
       <a href="#outcome">Outcome</a>
       <a href="#change">What I'd change</a>
     </aside>
@@ -122,102 +122,176 @@
         </ul>
       </section>
 
-      <section class="case-section" id="constraint">
-        <h2>The constraint</h2>
+      <section class="case-section" id="context">
+        <h2>The 3-product context</h2>
         <p>
-          Torrent Diagnostic was launching three products in parallel — the consumer-facing <a href="/work/torrent-patient-app" class="inline-link">Patient App</a>, a field-collection app for phlebotomists, and a clinical-side web tool. Three different product teams. Three different audiences. Three different platforms.
+          Torrent Diagnostic was launching <strong>three products in parallel</strong> — the consumer-facing <a href="/work/torrent-patient-app" class="inline-link">Patient App</a>, a field-collection app for phlebotomists, and a clinical-side web tool. Three different product teams, three different audiences, three different platforms.
         </p>
         <p>
-          Without a shared system, we'd ship three products that visibly belonged to three different companies — even though they all carried the Torrent name. Worse: every product team would solve the same component problems independently, badly, and slowly.
+          Without a shared foundation, we'd ship three products that visibly belonged to three different companies — even though they all carried the Torrent name. Worse: every product team would re-solve the same component problems badly and slowly.
         </p>
         <p class="muted">
-          Hard constraint: <strong>no luxury of a "freeze and build the system" phase</strong>. The patient app and phlebotomist app were on overlapping launch timelines. The system had to ship <em>alongside</em> the products, not before them.
+          Hard constraint: no luxury of a "freeze and build the system" phase. The system had to ship <em>alongside</em> products, not before them. So I inverted the usual order — <strong>brand first, then system, then components</strong> — because brand was the part that had to flex across audiences without forking.
         </p>
       </section>
 
-      <section class="case-section" id="decision">
-        <h2>The decision</h2>
+      <section class="case-section" id="brand">
+        <h2>Brand foundation</h2>
         <p>
-          The architectural call: <strong>brand-first, then system, then components</strong>. Most design systems do this in the wrong order — components first, then add system rules, then retrofit brand. We inverted it because the brand was the part that had to flex across audiences.
+          Healthcare branding usually defaults to sterile blues and whites. Torrent's audience — seniors with chronic conditions, phlebotomists in the field, clinicians at desks — needed something different. Calm, but warm. Trustworthy, not clinical.
         </p>
 
-        <div class="decision-block kept">
-          <div class="label">Chose</div>
-          <div class="text">A semantic token architecture from day one — even though it costs more upfront than literal tokens. Healthcare audiences vary widely (senior consumers, working phlebotomists, clinical staff) and each needs a different visual emphasis without forking the system.</div>
+        <div class="brand-foundation">
+          <div>
+            <div class="brand-block-title">Color · semantic palette</div>
+            <div class="swatch-row">
+              <div class="swatch swatch-light" style="background: #fce7f3;">soft</div>
+              <div class="swatch swatch-light" style="background: #fbcfe8;">primary-50</div>
+              <div class="swatch swatch-dark" style="background: #db2777;">primary</div>
+              <div class="swatch swatch-dark" style="background: #831843;">primary-900</div>
+              <div class="swatch swatch-light" style="background: #f3f4f6;">surface</div>
+              <div class="swatch swatch-dark" style="background: #1f2937;">content</div>
+            </div>
+          </div>
+
+          <div>
+            <div class="brand-block-title">Typography · accessibility-tuned scale</div>
+            <div class="type-sample">
+              <div class="type-sample-line">
+                <span class="type-sample-meta">Display</span>
+                <span style="font-size: 28px; font-weight: 700; letter-spacing: -0.02em;">Track your numbers</span>
+              </div>
+              <div class="type-sample-line">
+                <span class="type-sample-meta">Heading</span>
+                <span style="font-size: 19px; font-weight: 600; letter-spacing: -0.01em;">Records that move with you</span>
+              </div>
+              <div class="type-sample-line">
+                <span class="type-sample-meta">Body</span>
+                <span style="font-size: 15px; line-height: 1.55;">Reports in less than 6 hours, with trends you can act on.</span>
+              </div>
+              <div class="type-sample-line">
+                <span class="type-sample-meta">Caption</span>
+                <span style="font-size: 12.5px; color: var(--text-secondary);">Last updated · May 03, 2025</span>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <div class="brand-block-title">Tone · five voice principles</div>
+            <div class="tone-list">
+              <span class="tone-pill">Plain, never clinical</span>
+              <span class="tone-pill">Patient-first</span>
+              <span class="tone-pill">Numbers in context</span>
+              <span class="tone-pill">No false confidence</span>
+              <span class="tone-pill">Quiet over loud</span>
+            </div>
+          </div>
         </div>
-        <div class="decision-block kept">
-          <div class="label">Chose</div>
-          <div class="text">Brand identity that prioritises calm + clarity over "diagnostic clinical." Healthcare branding often defaults to sterile blues and whites. Torrent's audience needed warmth — a daily companion, not a hospital interface.</div>
+
+        <p class="muted">
+          Brand and system live in the same Figma source of truth. Drift between brand and system is the most common system failure I've seen — keeping them coupled prevents the gap from opening.
+        </p>
+      </section>
+
+      <section class="case-section" id="tokens">
+        <h2>Token architecture</h2>
+        <p>
+          Three tiers. Brand tokens at the bottom (raw values). Semantic tokens in the middle (intent-named). Component tokens at the top (component-scoped overrides). Each tier consumes only the tier below it. Designers change one brand token; the impact propagates without manual sync.
+        </p>
+
+        <div class="token-tiers">
+          <div class="token-tier token-tier-1">
+            <div class="token-tier-name">Tier 1 · Brand</div>
+            <div class="token-tier-desc">Raw brand values. Owned by brand team. Rarely change.</div>
+            <div class="token-examples">
+              <span class="token-example">brand-rose-500</span>
+              <span class="token-example">brand-warm-grey-50</span>
+              <span class="token-example">type-display-32</span>
+              <span class="token-example">space-base-4</span>
+            </div>
+          </div>
+          <div class="token-tier token-tier-2">
+            <div class="token-tier-name">Tier 2 · Semantic</div>
+            <div class="token-tier-desc">Intent-named — describe role, not appearance. Designers + engineers consume this layer.</div>
+            <div class="token-examples">
+              <span class="token-example">background-primary</span>
+              <span class="token-example">content-strong</span>
+              <span class="token-example">border-subtle</span>
+              <span class="token-example">type-heading-lg</span>
+              <span class="token-example">space-stack-md</span>
+            </div>
+          </div>
+          <div class="token-tier token-tier-3">
+            <div class="token-tier-name">Tier 3 · Component</div>
+            <div class="token-tier-desc">Component-scoped. Only when a component genuinely needs a value not covered by semantic.</div>
+            <div class="token-examples">
+              <span class="token-example">button-primary-bg</span>
+              <span class="token-example">card-elevated-shadow</span>
+              <span class="token-example">trend-warning-bg</span>
+            </div>
+          </div>
         </div>
-        <div class="decision-block kept">
-          <div class="label">Chose</div>
-          <div class="text">A core component library scoped to ~40 components — the 80% used everywhere. Anything beyond was a "vertical extension" owned by the consumer team, not the system team.</div>
-        </div>
-        <div class="decision-block kept">
-          <div class="label">Chose</div>
-          <div class="text">Strict accessibility baseline at the system level — 44pt tap targets, AA contrast minimum, voice-readable text labels — so every surface inherited it without thinking about it.</div>
-        </div>
-        <div class="decision-block killed">
-          <div class="label">Killed</div>
-          <div class="text">Per-surface component variants. Tempting (the patient app uses different button sizing than the phlebotomist app), but governance debt forever. Solved instead with token-level theming on shared components.</div>
-        </div>
-        <div class="decision-block killed">
-          <div class="label">Killed</div>
-          <div class="text">A separate "brand-only" Figma file disconnected from the component library. Brand and system stay in the same source of truth — drift between them is the most common system failure I've seen.</div>
+
+        <p>
+          The pipeline: Tokens Studio (Figma) → Style Dictionary (CI) → platform outputs (CSS variables for web, XML for Android, JSON for React Native). Designers change a token in Figma; engineering picks up the diff in a PR. No hand-syncing.
+        </p>
+      </section>
+
+      <section class="case-section" id="anatomy">
+        <h2>Component anatomy</h2>
+        <p>
+          Every component in the library has the same documentation shape — anatomy, variants, states, do / don't. Worked example: the <strong>Trend Card</strong>, used across the Patient App for HbA1c, cholesterol, LDL, and similar lab values.
+        </p>
+
+        <div class="anatomy">
+          <div class="anatomy-name">Trend Card</div>
+
+          <div class="anatomy-row">
+            <div class="anatomy-label">Anatomy</div>
+            <div class="anatomy-value">Title (test name) · Ideal range · Current value · Sparkline · Plain-language interpretation · Last-updated stamp</div>
+          </div>
+          <div class="anatomy-row">
+            <div class="anatomy-label">Variants</div>
+            <div class="anatomy-value">Compact (list view) · Expanded (detail view) · Empty (no data yet)</div>
+          </div>
+          <div class="anatomy-row">
+            <div class="anatomy-label">States</div>
+            <div class="anatomy-value">In range · Trending up · Trending down · Out of range · Insufficient data</div>
+          </div>
+          <div class="anatomy-row">
+            <div class="anatomy-label">Tokens used</div>
+            <div class="anatomy-value">background-elevated · content-strong · border-subtle · trend-up · trend-down · trend-warning-bg</div>
+          </div>
+          <div class="anatomy-row">
+            <div class="anatomy-label">Accessibility</div>
+            <div class="anatomy-value">Sparkline has text fallback ("Rising over the last 3 reads"). Range overlay readable in high-contrast mode. AA contrast on all states.</div>
+          </div>
+
+          <div class="do-dont">
+            <div class="do-dont-block do">
+              <div class="do-dont-label">Do</div>
+              State the range first, the value second. Plain-language interpretation as the headline.
+            </div>
+            <div class="do-dont-block dont">
+              <div class="do-dont-label">Don't</div>
+              Give medical advice. Trend Card describes; it does not prescribe.
+            </div>
+          </div>
         </div>
       </section>
 
-      <section class="case-section" id="system">
-        <h2>The system</h2>
+      <section class="case-section" id="governance">
+        <h2>Governance + contribution</h2>
         <p>
-          Three layers. <strong>Brand</strong> at the bottom (logo, palette, typography, tone). <strong>System</strong> in the middle (semantic tokens, primitive components). <strong>Surface</strong> at the top (the patient app's home screen, the phlebotomist app's task flow, the clinical web's dashboards).
-        </p>
-
-        <figure class="case-figure">
-          <div class="case-figure-image">[ Brand foundation — logo, color palette, typography, voice principles ]</div>
-          <div class="case-figure-caption">Brand foundation — calm-first palette, type system tuned for accessibility.</div>
-        </figure>
-
-        <figure class="case-figure">
-          <div class="case-figure-image">[ Token tier diagram — brand → semantic → component-level ]</div>
-          <div class="case-figure-caption">Token architecture — brand layer feeds semantic layer feeds component layer.</div>
-        </figure>
-
-        <figure class="case-figure">
-          <div class="case-figure-image">[ Component library overview — buttons, inputs, cards, list items, navigation ]</div>
-          <div class="case-figure-caption">~40 core components, each documented with do/don't examples.</div>
-        </figure>
-
-        <p>
-          Tokens flow through Tokens Studio → Style Dictionary → engineering. Designers change a brand token in Figma; engineering picks up the diff via PR. No hand-syncing, no documentation drift between Figma and code.
-        </p>
-      </section>
-
-      <section class="case-section" id="ai">
-        <h2>AI in the loop</h2>
-        <p>
-          The system gave me the testing ground for the AI Figma plugins I now use across PwC engagements. Specifically:
+          A system without governance becomes the worst kind of liability — it looks like a foundation but acts like a shared mutable global. Three rules carried us:
         </p>
         <ul>
-          <li><strong><a href="/plugins/design-system-validator" class="inline-link">Design System Validator</a>:</strong> with three product teams shipping in parallel, drift was inevitable without automated checks. The Validator catches token mismatches and structural breaks before they reach engineering.</li>
-          <li><strong><a href="/plugins/design-system-generator" class="inline-link">Design System Generator</a>:</strong> the Torrent identity-to-system pipeline became the template for this plugin — input one brand color + a few choices, get a starter system. Now reusable for any new internal Torrent product.</li>
-          <li><strong><a href="/plugins/claude-md-exporter" class="inline-link">CLAUDE.md Exporter</a>:</strong> when engineering started using Claude Code to scaffold new admin tools, they needed the system context Claude could read. Built the exporter, gave it to them, drift dropped.</li>
+          <li><strong>The system has one owner.</strong> A small architecture committee (2 people) reviews every system-level change. Speed without bottleneck.</li>
+          <li><strong>Anything that affects more than one team's UI is a system change.</strong> One sentence — but it has prevented more drift than any tool we've built.</li>
+          <li><strong>Consumer teams contribute via RFC.</strong> A 1-page proposal for any new pattern. Reviewed in 48 hours. Either accepted into the system or kept as a vertical extension.</li>
         </ul>
         <p class="muted">
-          AI doesn't make the design system; the design system constrains AI's output to be system-aligned by default. That's the loop.
-        </p>
-      </section>
-
-      <section class="case-section" id="tradeoffs">
-        <h2>Trade-offs</h2>
-        <p>
-          Concurrent-with-products meant the system had inconsistencies in the first quarter — tokens shifted as we learned what worked. Engineers got frustrated. We mitigated with a "what's stable" indicator on every component, but it was real friction.
-        </p>
-        <p>
-          Choosing semantic tokens over literal slowed first-component velocity. The patient app's launch could have been a few weeks earlier if we'd shipped literal tokens. We absorbed the delay because the system is an asset that lives for years; the launch is a moment.
-        </p>
-        <p>
-          A 40-component scope means some patterns (specialised data tables, complex forms) had to be built outside the system in v1. Those are now system v2 candidates — the long tail of every design system.
+          Component scope at v1 was deliberately tight (~40). The long tail (specialised data tables, complex forms) was deferred to v2 candidates. Tightness now → contribution velocity later.
         </p>
       </section>
 

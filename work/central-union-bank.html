@@ -86,10 +86,10 @@
         Back home
       </a>
       <a href="#tldr">TL;DR</a>
-      <a href="#constraint">The constraint</a>
-      <a href="#decision">The decision</a>
-      <a href="#system">The system</a>
-      <a href="#ai">AI in the loop</a>
+      <a href="#cold-start">The cold-start problem</a>
+      <a href="#chips">The 8 chip system</a>
+      <a href="#conversations">Sample conversations</a>
+      <a href="#refusal">Refusal &amp; safety</a>
       <a href="#tradeoffs">Trade-offs</a>
       <a href="#outcome">Outcome</a>
       <a href="#change">What I'd change</a>
@@ -123,82 +123,128 @@
         </ul>
       </section>
 
-      <section class="case-section" id="constraint">
-        <h2>The constraint</h2>
+      <section class="case-section" id="cold-start">
+        <h2>The cold-start problem</h2>
         <p>
-          Central Union Bank's customer base skews older and trust-sensitive. The previous app was the worst kind of "modernised" — a screen-by-screen port of branch processes, full of regulatory disclaimers and dropdowns no one used. NPS sat at 4.7. In interviews, customers told us: <em>"the bank doesn't trust me to know what I want."</em>
+          The first decision wasn't conversational design. It was admitting that <strong>conversational interfaces have a cold-start problem</strong> — and the older audience CUB serves makes that problem worse.
         </p>
         <p>
-          The constraint we couldn't move: <strong>RBI compliance for every flow</strong>. Every consent screen, every disclaimer, every two-factor confirmation — locked. We had to redesign experience around an immovable regulatory shell, while making the result feel less like a form gauntlet and more like a conversation.
+          In testing, when we showed users a free-form chat input with a blinking cursor and a "What can I help you with?" prompt, ~70% froze. They asked which buttons to press. They typed two words and stopped. They said <em>"I don't know what to ask."</em> Conversation as a medium is fine. Conversation as a <em>prerequisite</em> is the trap.
         </p>
         <p class="muted">
-          Layered on top: an older audience who say <em>"I want to pay my son's college fees"</em>, not <em>"I want to perform a third-party fund transfer."</em> The product needed to meet customers in their language — not the bank's.
+          Layered on top: an immovable regulatory shell — RBI compliance on every flow, consent screens, two-factor confirmations, disclaimers. The product had to feel like a conversation while obeying the form gauntlet underneath.
         </p>
       </section>
 
-      <section class="case-section" id="decision">
-        <h2>The decision</h2>
+      <section class="case-section" id="chips">
+        <h2>The 8 quick-action chips</h2>
         <p>
-          The strategic call: stop modelling the app on branch processes. Model it on <strong>how customers describe what they want</strong>. Conversational primary surface (CUB.ai) backed by quick-action chips — for the long tail, fall through to structured forms. For the head — the 8 most-used tasks — chat handles end-to-end.
+          The fix: open the conversation by handing the user a menu. Not as a fallback or a tutorial — as the <strong>primary</strong> entry point. Eight chips, covering ~85% of customer-service request volume:
         </p>
-
-        <div class="decision-block kept">
-          <div class="label">Chose</div>
-          <div class="text">A chat-first AI assistant with quick-action chips for the top 8 tasks: Banking Summary, Last 5 Transactions, Block Card, Transfer Money, Pay Bills, Find ATM, Download Statement, Report Fraud.</div>
-        </div>
-        <div class="decision-block kept">
-          <div class="label">Chose</div>
-          <div class="text">Structured response cards inside the chat — when a customer asks for "Last 5 Transactions", they get a tabular response with merchant, amount, date, category. Not a paragraph.</div>
-        </div>
-        <div class="decision-block kept">
-          <div class="label">Chose</div>
-          <div class="text">A unified design system underneath. Account Management screens, the chatbot surface, and shared components share one token tree, one type scale, one accessibility baseline.</div>
-        </div>
-        <div class="decision-block killed">
-          <div class="label">Killed</div>
-          <div class="text">Free-form open chat as the entry point. Tested with target users — they froze at the empty input field. Quick-action chips solved the cold-start problem and let conversation be the medium, not the prerequisite.</div>
-        </div>
-        <div class="decision-block killed">
-          <div class="label">Killed</div>
-          <div class="text">Gamified savings goals + animated mascots. Tested with the older audience — felt patronising. Customers wanted respect, not stickers.</div>
-        </div>
-      </section>
-
-      <section class="case-section" id="system">
-        <h2>The system</h2>
-        <p>
-          CUB.ai is composed from <strong>four conversational primitives</strong>: greeting messages, quick-action chips, structured-response cards (e.g., transaction tables, account summaries), and confirmation/handoff blocks (for anything that needs a 2FA or a branch escalation).
-        </p>
-
-        <figure class="case-figure">
-          <div class="case-figure-image">[ CUB.ai chat surface — greeting + 8 quick-action chips down the screen ]</div>
-          <div class="case-figure-caption">Quick-action chips solve the empty-input cold-start problem.</div>
-        </figure>
-
-        <p>
-          When a customer taps "Last 5 Transactions", the response renders as a <strong>structured card</strong> inside the chat — merchant name, amount, date, category — not a wall of natural-language text. Same for "Banking Summary" (account balances + recent activity) and "Find ATM" (map embed with nearest 3 results).
-        </p>
-
-        <figure class="case-figure">
-          <div class="case-figure-image">[ Structured card: 5 transactions rendered with merchant + amount + category badges ]</div>
-          <div class="case-figure-caption">"Last 5 Transactions" — structured response, not prose.</div>
-        </figure>
-
-        <p>
-          The design system that powers CUB.ai also powers Account Management screens, login/onboarding, and the broader app. Same tokens, same components — so the chatbot surface feels native to the bank, not bolted on.
-        </p>
-      </section>
-
-      <section class="case-section" id="ai">
-        <h2>AI in the loop</h2>
-        <p>AI's role here was deliberately quiet. In retail banking — and especially with an older demographic — customers don't want AI showing off. They want the bank to <em>get out of their way</em>.</p>
         <ul>
-          <li><strong>Intent classification:</strong> the chip selections + free-text inputs feed into an intent classifier that maps phrasings ("send money to my mom", "fees ka payment") to one of the supported tasks. We trained it on real (consented, anonymised) customer-service transcripts.</li>
-          <li><strong>Tone-and-clarity review:</strong> all customer-facing microcopy passed through Claude as a tone-and-clarity check before going to legal. Caught hundreds of legalese phrasings that legal then signed off on simpler versions of.</li>
-          <li><strong>Conversation flow drafting:</strong> I used the <a href="/plugins/conversation-flow-generator" class="inline-link">Conversation Flow Generator</a> Figma plugin (which I built) to draft and review hundreds of representative customer prompts before engineering wrote integration code.</li>
+          <li><strong>Banking Summary</strong> — accounts at a glance</li>
+          <li><strong>Last 5 Transactions</strong> — the question support gets most</li>
+          <li><strong>Block Card</strong> — urgent path, surface always</li>
+          <li><strong>Transfer Money</strong> — head of the long tail</li>
+          <li><strong>Pay Bills</strong> — recurring, biller-aware</li>
+          <li><strong>Find ATM</strong> — location-aware, low-bandwidth fallback</li>
+          <li><strong>Download Statement</strong> — paper-trail need, common with older users</li>
+          <li><strong>Report Fraud</strong> — single tap, escalates immediately to a human</li>
         </ul>
+        <p>
+          Why eight, not fifteen? Cognitive load. The eighth chip is the inflection — anything more and users start scrolling, which kills the "I see what's possible" moment that solves cold-start. Anything in the long tail (loan inquiries, NRI services, dispute escalation) falls through to a free-text input <em>after</em> the user has entered the conversation surface confidently.
+        </p>
+      </section>
+
+      <section class="case-section" id="conversations">
+        <h2>Sample conversations</h2>
+        <p>
+          The art is in what each chip resolves to. Free-form prose responses fail with older users — too much to read, hard to scan, easy to lose track of. Every chip routes to a <strong>structured response card</strong> rendered inline in the chat thread. Two worked examples:
+        </p>
+
+        <div class="bubble-meta">Tap: <strong>Last 5 Transactions</strong></div>
+        <div class="conversation">
+          <div class="bubble bot">Hello! I'm your AI Banking Assistant. How can I help you today?</div>
+          <div class="bubble user">Last 5 Transactions</div>
+          <div class="bubble bot">Here are your last 5 transactions:</div>
+          <div class="bubble-card">
+            <div class="bubble-card-title">Recent activity · Acct ••• 4521</div>
+            <div class="bubble-card-row"><span>Amazon.com</span><span>− ₹156.99</span></div>
+            <div class="bubble-card-row"><span>Starbucks</span><span>− ₹800.45</span></div>
+            <div class="bubble-card-row"><span>Salary deposit</span><span style="color: var(--accent-green);">+ ₹74,500.00</span></div>
+            <div class="bubble-card-row"><span>Netflix</span><span>− ₹15.99</span></div>
+            <div class="bubble-card-row"><span>Shell Gas Station</span><span>− ₹45.20</span></div>
+          </div>
+        </div>
+
+        <div class="bubble-meta">Free-text in the customer's own language</div>
+        <div class="conversation">
+          <div class="bubble user">I want to pay my son's college fees</div>
+          <div class="bubble bot">I can help with that. This looks like a transfer to a new beneficiary. Should I open the transfer form, or would you like to save the college first?</div>
+          <div class="bubble user">Open the form</div>
+          <div class="bubble-card">
+            <div class="bubble-card-title">Transfer · Step 1 of 3</div>
+            <div class="bubble-card-row"><span>From account</span><span>•••• 4521 (Savings)</span></div>
+            <div class="bubble-card-row"><span>To</span><span style="color: var(--text-tertiary);">Add beneficiary →</span></div>
+            <div class="bubble-card-row"><span>Amount</span><span style="color: var(--text-tertiary);">Enter amount →</span></div>
+          </div>
+        </div>
+
         <p class="muted">
-          Where AI <em>doesn't</em> go: personalised investment recommendations, advisory, anything that touches fiduciary territory. Off-limits. A retail bank cannot have an AI nudging customers toward financial products — full stop.
+          The intent classifier — trained on consented, anonymised CS transcripts — maps colloquial phrasings ("fees ka payment", "send money to my son") to the same task as the chip. Customers describe what they want; CUB.ai routes.
+        </p>
+      </section>
+
+      <section class="case-section" id="refusal">
+        <h2>Refusal &amp; safety</h2>
+        <p>
+          The most important design decisions in CUB.ai aren't what it does — they're <strong>what it refuses to do</strong>. In retail banking, an AI that confidently nudges customers toward a financial product is a regulatory and ethical disaster. The refusal matrix was reviewed and signed off by the bank's risk + compliance team before a single chip went live.
+        </p>
+
+        <div class="refusal-matrix">
+          <div class="refusal-col will">
+            <div class="refusal-header">Will</div>
+            <ul class="refusal-list">
+              <li>Surface account balances + recent activity</li>
+              <li>Block a card immediately on request</li>
+              <li>Fetch the last N transactions or a date range</li>
+              <li>Initiate a transfer (customer confirms every step)</li>
+              <li>Locate the nearest ATM</li>
+              <li>Generate / email account statements</li>
+              <li>Escalate fraud reports to a human within seconds</li>
+              <li>Translate a customer's intent ("son's fees") to the right form</li>
+            </ul>
+          </div>
+          <div class="refusal-col wont">
+            <div class="refusal-header">Won't</div>
+            <ul class="refusal-list">
+              <li>Recommend investment products or mutual funds</li>
+              <li>Offer financial advice ("should I invest in...?")</li>
+              <li>Predict or comment on market movements</li>
+              <li>Initiate a binding action without explicit customer confirmation</li>
+              <li>Discuss other customers' accounts (even with details given)</li>
+              <li>Pretend to be a human when asked directly</li>
+              <li>Make promises about loan / credit eligibility</li>
+              <li>Operate outside the 8 supported tasks without falling through to a human</li>
+            </ul>
+          </div>
+        </div>
+
+        <p class="muted">
+          The "Won't" column is the design. The "Will" column is just the product. Most AI products in regulated workflows fail because they've designed only the Will side and let the Won't side leak.
+        </p>
+      </section>
+
+      <section class="case-section" id="tradeoffs">
+        <h2>Trade-offs</h2>
+        <p>
+          The chip-first approach is slower for power users who memorised the legacy app's tab structure (~5% of the base). We absorbed that cost — the change was net-positive within two release cycles even for them.
+        </p>
+        <p>
+          Killing gamified savings goals lost us a small contingent of younger customers who liked streaks and animated mascots. The older majority's NPS lift more than paid for it — but the segmentation question is worth re-opening for v2.
+        </p>
+        <p>
+          Constraining to 8 quick actions left ~15% of CS volume falling through to call center. Accepted for v1 — the head of the curve was the leverage point. The long tail is v2.
         </p>
       </section>
 

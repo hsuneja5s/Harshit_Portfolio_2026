@@ -86,10 +86,10 @@
         Back home
       </a>
       <a href="#tldr">TL;DR</a>
-      <a href="#constraint">The constraint</a>
-      <a href="#decision">The decision</a>
-      <a href="#system">The system</a>
-      <a href="#ai">AI in the loop</a>
+      <a href="#federation">The federation problem</a>
+      <a href="#unified">Unified-with-flexibility</a>
+      <a href="#leadership">Leadership &amp; governance</a>
+      <a href="#ai">AI in regulated work</a>
       <a href="#tradeoffs">Trade-offs</a>
       <a href="#outcome">Outcome</a>
       <a href="#change">What I'd change</a>
@@ -130,79 +130,111 @@
         </ul>
       </section>
 
-      <section class="case-section" id="constraint">
-        <h2>The constraint</h2>
+      <section class="case-section" id="federation">
+        <h2>The federation problem</h2>
         <p>
-          Designing for India's full citizen base means designing for <strong>extreme variance</strong> at every axis — language, literacy, device, bandwidth, trust. A user could be a metro lawyer filing online from an iPhone, or a rural farmer dictating a complaint over a 2G connection at a village outpost.
+          Most national digital projects fail at the same place: <strong>variance</strong>. India is not one design problem — it's the same problem multiplied by every variance axis you can name. Designing one product for the whole country means designing for the variance, not around it.
+        </p>
+
+        <div class="federation-map">
+          <div class="federation-axis">
+            <div class="federation-axis-name">Languages</div>
+            <div class="federation-axis-content">Hindi, English + 4 regional at launch (Marathi, Tamil, Telugu, Bengali). Many more in the roadmap. Each isn't just translation — it's culturally-aware tone, grammar conventions, and phrasing review.</div>
+          </div>
+          <div class="federation-axis">
+            <div class="federation-axis-name">Literacy</div>
+            <div class="federation-axis-content">From metro lawyer reading on iPhone to rural farmer who has never typed on a phone. Voice-first is the primary path, not the accessibility fallback.</div>
+          </div>
+          <div class="federation-axis">
+            <div class="federation-axis-name">Device + bandwidth</div>
+            <div class="federation-axis-content">iPhone on metro 5G to ₹3,000 Android on rural 2G. Every page has an offline-first fallback. No design that depends on a fast network.</div>
+          </div>
+          <div class="federation-axis">
+            <div class="federation-axis-name">Trust</div>
+            <div class="federation-axis-content">Many users' first contact with any government service is this app. Trust isn't a brand exercise — it's earned in the first 30 seconds of use.</div>
+          </div>
+          <div class="federation-axis">
+            <div class="federation-axis-name">State machinery</div>
+            <div class="federation-axis-content">28 states + 8 UTs, each with its own police force, legacy systems, terminology, and political ownership. UI decisions can be vetoed at the state level.</div>
+          </div>
+          <div class="federation-axis">
+            <div class="federation-axis-name">Regulatory shell</div>
+            <div class="federation-axis-content">MHA security review · RPwD Act accessibility compliance · data localisation requirements · evidence-handling rules. Every screen clears multiple gates.</div>
+          </div>
+        </div>
+
+        <p class="muted">
+          The trap is to design for the median user. The median doesn't exist here — variance does. Every design decision was tested against the extremes, not the middle.
+        </p>
+      </section>
+
+      <section class="case-section" id="unified">
+        <h2>Unified-with-flexibility</h2>
+        <p>
+          The strategic question wasn't "what should the citizen experience look like?" It was deeper: <strong>should there be one citizen experience, or 28?</strong>
         </p>
         <p>
-          Layered on top: a federation of state police forces, each with their own legacy systems, terminology, and political ownership. Any UI we built had to respect state-specific workflows. And being a Ministry of Home Affairs project, every screen had to clear security review, accessibility (RPwD Act), and data-localisation review.
+          Each state's IT department had political and operational ownership of its own CCTNS instance. The path of least resistance was to give each state a customisable citizen surface — let them re-skin, re-arrange, re-name. That would have shipped faster, with less political friction, and would have replicated the exact fragmentation that made the original system unusable.
+        </p>
+        <p>
+          The harder call — and the one I pushed for, at real political cost — was <strong>one unified citizen surface</strong>, with state-specific logic in the backend. One vocabulary across India. One mental model a citizen carries from Maharashtra to Karnataka to Tamil Nadu without re-learning the app.
+        </p>
+        <p>
+          The flexibility lives where it should — in the system's <strong>customisation slots</strong>, not its surface. States can adapt language, local terminology, minor flow steps, and integration with their existing officer systems. They cannot fork the citizen surface, the navigation vocabulary, or the data shape. The line between "you can change this" and "you cannot" was the most-debated artefact of the project.
         </p>
         <p class="muted">
-          Six languages at launch. Offline-first by default. Citizens whose first contact with government services is this app. The bar for clarity was not "can a designer use this" — it was "can my grandmother in a village use this."
+          That decision cost political capital with state IT departments who wanted their own branding on the citizen surface. Escalated, lost a battle, kept the larger war. The unified system survives.
         </p>
       </section>
 
-      <section class="case-section" id="decision">
-        <h2>The decision</h2>
-        <p>The core call was whether to build <em>one citizen experience</em> that abstracts state differences, or a <em>federated experience</em> where each state customises. We picked the first — at significant political cost — because anything else would replicate the existing fragmentation that made the problem worth solving in the first place.</p>
-
-        <div class="decision-block kept">
-          <div class="label">Chose</div>
-          <div class="text">A unified citizen surface with state-specific logic in the backend. One UI vocabulary across India.</div>
-        </div>
-        <div class="decision-block killed">
-          <div class="label">Killed</div>
-          <div class="text">Per-state UI templating. Dropped because it would have calcified state silos forever.</div>
-        </div>
-        <div class="decision-block kept">
-          <div class="label">Chose</div>
-          <div class="text">Voice-first citizen flows for low-literacy users — designed as the primary path, not framed as an "accessibility feature."</div>
-        </div>
-        <div class="decision-block kept">
-          <div class="label">Chose</div>
-          <div class="text">A mentorship model where each junior designer owned one citizen vertical end-to-end. Ownership before scale.</div>
-        </div>
-        <div class="decision-block killed">
-          <div class="label">Killed</div>
-          <div class="text">Real-time chat between citizens and officers on the platform. Compliance review couldn't approve unfiltered messaging on a national platform — replaced with structured request/response flows.</div>
-        </div>
-      </section>
-
-      <section class="case-section" id="system">
-        <h2>The system</h2>
-        <p>The platform's backbone is a <strong>three-tier design system</strong> — semantic tokens at the core, vertical-specific component variants in the middle, state-customisation slots at the surface. This lets us ship one citizen app while letting states adapt language, terminology, and minor flow steps without forking the codebase.</p>
-
-        <figure class="case-figure">
-          <div class="case-figure-image">[ Architecture diagram redacted under NDA — available in full case study ]</div>
-          <div class="case-figure-caption">Three-tier token architecture: core / vertical / state-customisable. (Diagram redacted.)</div>
-        </figure>
-
+      <section class="case-section" id="leadership">
+        <h2>Leadership &amp; governance</h2>
         <p>
-          Component scope at launch covers the full citizen + officer flow surface, all wired through Tokens Studio with an automated pipeline into the engineering team's Storybook.
+          A team of <strong>5 designers across 5 citizen verticals</strong> (FIR, missing person, women's safety, traffic, cyber) shipping in parallel against a national-scale rollout. No two designers can build the same problem twice; no one designer can hold the whole system in their head. Governance is not a phase — it's the infrastructure.
         </p>
-
-        <figure class="case-figure">
-          <div class="case-figure-image">[ Citizen flow screens redacted — available in full case study ]</div>
-          <div class="case-figure-caption">Citizen flows — file, track, follow-up. (Screens redacted under NDA.)</div>
-        </figure>
+        <p>The model that carried us:</p>
+        <ul>
+          <li><strong>One designer owns one vertical end-to-end.</strong> Ownership before scale. Each designer carried a vertical from research through handoff. They knew their citizen archetype, their officer counterpart, their political stakeholders. Cross-vertical decisions came back to me, but the depth was theirs.</li>
+          <li><strong>Weekly system reviews.</strong> Every Friday, 90 minutes. Each designer presented one decision they were considering. We pressure-tested. Half the value was the decisions made; the other half was the team learning each other's domains.</li>
+          <li><strong>The system has one source of truth.</strong> Tokens, components, and patterns live in one Figma library, governed by a small architecture committee. Verticals consume — they don't fork.</li>
+          <li><strong>"Affects more than one team's UI" = system change.</strong> One sentence — but it's been the most-cited governance principle on the project. Anything that crosses vertical boundaries goes through the system review, not a designer's individual call.</li>
+          <li><strong>A short RFC process for new patterns.</strong> 1-page proposal, 48-hour review window, accept-or-reject. Speed without bottleneck. Designers shipped fast; system stayed coherent.</li>
+        </ul>
+        <p class="muted">
+          The hardest leadership lesson: in projects with this many stakeholders, you can't make every right decision. You make the right <em>shape</em> of decisions and let the team carry the details. Trusting the depth of a vertical owner is the senior move — the alternative is becoming the bottleneck for 5 verticals' worth of micro-decisions.
+        </p>
       </section>
 
       <section class="case-section" id="ai">
-        <h2>AI in the loop</h2>
-        <p>This project is where I started leaning hard into AI-assisted design workflows. Three concrete uses:</p>
+        <h2>AI in regulated work</h2>
+        <p>
+          Designing AI-assisted workflows in <em>any</em> regulated domain is a contract negotiation between speed and safety. In a national policing platform, the contract is non-negotiable — get it wrong and people's lives are affected. The frame I worked from:
+        </p>
+        <p style="font-size: 17px; font-weight: 500; padding: 16px 20px; border-left: 3px solid var(--accent-green); background: var(--accent-green-soft); border-radius: 6px; max-width: 640px;">
+          AI accelerates design work, not officer work. The product is what officers and citizens use. AI lives upstream — in how the team builds.
+        </p>
+        <p>Where AI accelerated <em>my team</em>:</p>
         <ul>
-          <li><strong>Multilingual flow generation:</strong> drafting voice-first flows in 6 languages would have taken weeks of per-language work. I built (and now use across PwC engagements) a Figma plugin — <a href="/plugins/conversation-flow-generator" class="inline-link">Conversation Flow Generator</a> — that uses Anthropic's models to generate localised flow variants from a single English source.</li>
-          <li><strong>System validation at scale:</strong> with the component count, language matrix, and vertical count we had, manual review of token usage didn't scale. The <a href="/plugins/design-system-validator" class="inline-link">Design System Validator</a> plugin I built flags structural breaks before engineering handoff.</li>
-          <li><strong>Claude Code for prototyping:</strong> citizen flows that needed real-time interaction (kiosk mode, voice playback) were prototyped in code, not Figma. The <a href="/plugins/claude-md-exporter" class="inline-link">CLAUDE.md Exporter</a> plugin lets Claude Code build those prototypes inside our system tokens automatically.</li>
+          <li><strong>Multilingual flow generation:</strong> drafting voice-first citizen flows in 6 languages would have taken weeks per release. I built <a href="/plugins/conversation-flow-generator" class="inline-link">Conversation Flow Generator</a> — uses Anthropic's models to generate localised flow variants from a single English source. Native-speaker review still required, but the per-language draft cost dropped to hours.</li>
+          <li><strong>System validation at scale:</strong> with the component × language × vertical matrix we had, manual token-usage review didn't scale across 5 designers. <a href="/plugins/design-system-validator" class="inline-link">Design System Validator</a> flags structural breaks before engineering handoff.</li>
+          <li><strong>Code prototyping for kiosk + voice flows:</strong> citizen flows that needed real-time interaction (offline kiosk mode, voice playback) were prototyped in code, not Figma. <a href="/plugins/claude-md-exporter" class="inline-link">CLAUDE.md Exporter</a> packages the system as Claude Code context so prototypes generate inside our tokens.</li>
         </ul>
-        <p class="muted">Where I <em>didn't</em> use AI: any flow involving evidence, complainant identity, or officer judgement. Designing those with AI in the loop would have been irresponsible at this scale, and would have failed compliance review on first pass.</p>
+        <p class="muted">
+          Where I <em>did not</em> use AI in the product: any flow involving evidence, complainant identity, officer judgement, or case adjudication. Putting AI inside those would have been irresponsible at this scale and would have failed MHA compliance review on first pass. The boundary is a contract — speed in design tooling, deterministic UX in the product.
+        </p>
       </section>
 
       <section class="case-section" id="tradeoffs">
         <h2>Trade-offs</h2>
-        <p>The unified-UI decision cost us political capital with state IT departments who wanted their own branding on the citizen surface. We absorbed that — escalated, lost a battle, kept the larger war. The system survives.</p>
-        <p>Voice-first flows are <em>slower</em> for power users (lawyers, NGOs filing repeatedly) than a dense form. We accepted that. The platform's ground-level legitimacy depends on the rural farmer being able to use it, not the lawyer being optimised for.</p>
+        <p>
+          The unified-UI decision cost political capital with state IT departments. Absorbed — escalated, lost a battle, kept the larger war. The system survives.
+        </p>
+        <p>
+          Voice-first flows are slower for power users (lawyers, NGOs filing repeatedly) than a dense form. Accepted. The platform's ground-level legitimacy depends on the rural farmer being able to use it, not the lawyer being optimised for.
+        </p>
+        <p>
+          Killing real-time chat between citizens and officers cost us a feature stakeholders had assumed would ship. Replaced with structured request/response flows that compliance could approve. The lesson: in compliance-heavy workflows, the question isn't "can we ship this?" — it's "can the regulator look at this in 6 months?"
+        </p>
       </section>
 
       <section class="case-section" id="outcome">

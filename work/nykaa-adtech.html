@@ -86,11 +86,11 @@
         Back home
       </a>
       <a href="#tldr">TL;DR</a>
-      <a href="#constraint">The constraint</a>
-      <a href="#decision">The decision</a>
-      <a href="#system">The system</a>
-      <a href="#ai">AI in the loop</a>
-      <a href="#tradeoffs">Trade-offs</a>
+      <a href="#persona">Brand-manager persona</a>
+      <a href="#reframe">Concierge → self-serve</a>
+      <a href="#ia">3-tab IA rationale</a>
+      <a href="#review">Creative review states</a>
+      <a href="#metrics">Performance hierarchy</a>
       <a href="#outcome">Outcome</a>
       <a href="#change">What I'd change</a>
     </aside>
@@ -122,101 +122,137 @@
         </ul>
       </section>
 
-      <section class="case-section" id="constraint">
-        <h2>The constraint</h2>
+      <section class="case-section" id="persona">
+        <h2>Brand-manager persona</h2>
         <p>
-          Nykaa's ad platform was historically run as a <strong>concierge service</strong>. Brand managers emailed Nykaa reps with creative briefs, briefs went into spreadsheets, reps configured campaigns manually, performance reports came back as PDFs days later. As Nykaa scaled to thousands of partner brands, this became unsustainable — for the brands and for Nykaa.
+          The product call started here. Most ad platforms (Google Ads, Meta Ads Manager) are built for ad-ops specialists who use them daily. Nykaa's brand managers are not those people. Designing for them as if they were is the most common failure in B2B SaaS.
         </p>
-        <p>
-          The mandate: <strong>collapse the loop</strong>. Brand managers should be able to log in, launch a campaign, see it go live, and watch performance update — without ever talking to anyone at Nykaa. Reps should be freed up for strategic conversations, not campaign config.
-        </p>
+
+        <div class="persona-grid">
+          <div class="persona-card">
+            <div class="persona-name">Priya · Brand Manager, HUL</div>
+            <div class="persona-tagline">Owns 3 brands · runs ~12 campaigns / quarter</div>
+            <div class="persona-block">
+              <div class="persona-label">What she actually does</div>
+              <div class="persona-text">Plans seasonal campaigns. Briefs creative agencies. Tracks performance against brand-level OKRs. Spends 20% of her week on Nykaa, 80% across other channels.</div>
+            </div>
+            <div class="persona-block">
+              <div class="persona-label">What she's NOT</div>
+              <div class="persona-text">A daily ad-platform user. Not a designer. Not someone who wants to set up bidding strategies. She wants creative live, performance visible, status clear.</div>
+            </div>
+            <div class="persona-block">
+              <div class="persona-label">What she needs the product to be</div>
+              <div class="persona-text">Predictable. No surprises. Clear status on every campaign. Performance she can paste into a slide for a Monday review.</div>
+            </div>
+          </div>
+        </div>
+
         <p class="muted">
-          Hard constraint: brand managers are not designers, marketers, or ad-platform power users. They're product owners who happen to own a marketing budget. The platform had to be approachable from cold — no training program, no onboarding gate.
+          Persona ≠ stock photo. The full persona was built from 14 interviews with brand managers across 3 verticals (beauty, FMCG, fashion). This composite captures the patterns we saw repeated across all 14.
         </p>
       </section>
 
-      <section class="case-section" id="decision">
-        <h2>The decision</h2>
+      <section class="case-section" id="reframe">
+        <h2>From concierge to self-serve</h2>
         <p>
-          The product call: <strong>three workflows, one nav</strong>. Most ad platforms (Google Ads, Meta Ads Manager) offer infinite configurability and overwhelm anyone who isn't a daily user. Nykaa's platform should do the opposite — show brand managers exactly the three things they actually do.
+          Before this platform existed, Nykaa's ad business ran as a concierge. The flow looked like this:
         </p>
+        <ol style="margin-left: 20px;">
+          <li>Brand manager emails Nykaa rep with a creative brief.</li>
+          <li>Rep parses the brief into a spreadsheet.</li>
+          <li>Rep configures the campaign in an internal admin panel.</li>
+          <li>Rep emails brand manager a screenshot for approval.</li>
+          <li>Campaign goes live (3-7 days later).</li>
+          <li>Rep emails a PDF performance report 2 weeks in.</li>
+        </ol>
 
-        <div class="decision-block kept">
-          <div class="label">Chose</div>
-          <div class="text">Three primary tabs only: <strong>Ads</strong> (campaign launch + creative), <strong>Sections</strong> (placement performance), <strong>Tags</strong> (audience + targeting). Everything in the platform fits one of these three jobs.</div>
-        </div>
-        <div class="decision-block kept">
-          <div class="label">Chose</div>
-          <div class="text">A unified metric strip — Impressions, Clicks, CTR, Add to Cart, # Orders, Revenue — visible at every level (campaign, ad, section, tag). Same metrics, same vocabulary, everywhere.</div>
-        </div>
-        <div class="decision-block kept">
-          <div class="label">Chose</div>
-          <div class="text">Attribution Window controls (1 Day / 14 Days) surfaced as primary chips, not buried in advanced settings. Every report in the platform respects the brand manager's chosen window.</div>
-        </div>
-        <div class="decision-block kept">
-          <div class="label">Chose</div>
-          <div class="text">A creative-review workflow with explicit states (Pending Creative Approval, Change Required, Approved). The brand manager never wonders "what's the status of my ad" — it's stamped on the ad.</div>
-        </div>
-        <div class="decision-block killed">
-          <div class="label">Killed</div>
-          <div class="text">A drag-drop campaign builder. Tested with brand managers — they didn't want to design layouts, they wanted to upload one creative and have it auto-fit Nykaa's placement formats (Square 1:1, Horizontal 2:1, Vertical 3:4, Horizontal 4:1).</div>
-        </div>
-        <div class="decision-block killed">
-          <div class="label">Killed</div>
-          <div class="text">A "negative keywords" / advanced targeting feature in v1. Right call long-term, but most brand managers in v1 didn't even use the basic targeting — adding power-user features early would have buried what mattered.</div>
-        </div>
+        <p>This flow scaled to ~50 brands. At ~500, it broke. At thousands, it was on fire. The mandate was simple — <strong>brand managers should be able to log in, launch a campaign, and see it go live themselves</strong>. Reps freed up for strategic conversations (campaign planning, partnership), not campaign config.</p>
+
+        <p>The reframe wasn't "build an ad platform." It was <em>"build the workflow Priya already has in her head, and remove every step that doesn't add value to her."</em></p>
       </section>
 
-      <section class="case-section" id="system">
-        <h2>The system</h2>
+      <section class="case-section" id="ia">
+        <h2>3-tab IA rationale</h2>
         <p>
-          The platform is composed from a small set of <strong>data-shaped components</strong> — metric tiles, performance charts, attribution chips, section breakdowns, creative-state badges. Every screen in the platform is some combination of these primitives applied to a specific scope (campaign, ad, section, tag).
+          When you study what brand managers actually do on Nykaa, three jobs emerge. We made each its own tab — and refused to add a fourth.
         </p>
 
-        <figure class="case-figure">
-          <div class="case-figure-image">[ Performance dashboard — metric strip + cumulative chart over time + section-level table ]</div>
-          <div class="case-figure-caption">Brand performance dashboard — same metric vocabulary at every scope.</div>
-        </figure>
+        <div class="ia-views">
+          <div class="ia-view">
+            <div class="ia-view-name">Ads</div>
+            <div class="ia-view-desc">Launch a campaign. Upload a creative. See its status. The job that used to require a rep is now self-serve from end to end.</div>
+          </div>
+          <div class="ia-view">
+            <div class="ia-view-name">Sections</div>
+            <div class="ia-view-desc">Where placements live on Nykaa — Banner, Category in Focus, In the Spotlight. Performance breakdown by surface so brand managers see <em>which placement is paying off</em>.</div>
+          </div>
+          <div class="ia-view">
+            <div class="ia-view-name">Tags</div>
+            <div class="ia-view-desc">Audience + targeting. Who saw the ad, what they did, how to refine. The lightweight targeting layer — not the Google-Ads-style power-user surface.</div>
+          </div>
+        </div>
 
         <p>
-          The Request Ad flow is a single-page form composed from three blocks: <strong>Ad Request Detail</strong> (name, brand, daily budget, dates, ad format), <strong>Campaign Overview</strong> (status, start/end, brand group, rate card), <strong>Creative</strong> (primary text, secondary text, category, destination URL, image upload across 3 formats with live preview).
+          Why three tabs, not seven? Because Priya doesn't have time to learn seven concepts. The platforms that try to give her seven (the Google Ads / Meta school) lose her at the second one. Three is the cognitive ceiling for a non-daily user.
         </p>
 
-        <figure class="case-figure">
-          <div class="case-figure-image">[ Request Ad screen — form on left, live preview on right with state badges (Approved, Pending, Change Required) ]</div>
-          <div class="case-figure-caption">Request Ad — form on left, live preview on right, explicit state on every creative format.</div>
-        </figure>
-
-        <p>
-          The image upload component is the most-tested part of the system. Brand managers upload one creative; the platform fits it across Nykaa's 4 placement formats and surfaces "Change Required" on any format that needs adjustment. Asymmetric formats are the long-tail bug the rest of the industry's ad platforms ignore.
-        </p>
-      </section>
-
-      <section class="case-section" id="ai">
-        <h2>AI in the loop</h2>
-        <p>
-          AI on this product is intentionally minimal — brand managers are spending real money, and they need predictability over surprise. Where AI helps:
-        </p>
-        <ul>
-          <li><strong>Creative-fit suggestions:</strong> when a brand manager uploads a single image, the platform auto-suggests crops for the 4 placement formats. Brand manager confirms — AI suggests, brand manager decides.</li>
-          <li><strong>Performance anomaly flags:</strong> a quiet alert surfaces if a campaign's CTR or revenue drops sharply. No autoplay-style "AI insights" — just a flag the manager can act on.</li>
-          <li><strong>Microcopy review:</strong> all platform copy passed through Claude as a tone-and-clarity check during the build. Caught dozens of jargon-y phrasings before they shipped to brand managers.</li>
-        </ul>
         <p class="muted">
-          Where AI <em>doesn't</em>: budget recommendations, audience targeting suggestions, automatic bidding. Brand managers are accountable to their own brands — taking that accountability away (even with helpful AI) breaks trust.
+          Killed in v1: a drag-drop campaign builder, a "negative keywords" advanced targeting feature, a multi-brand reporting view. All right calls eventually — but not in v1, where the leverage was making the basic loop frictionless.
+        </p>
+      </section>
+
+      <section class="case-section" id="review">
+        <h2>Creative review workflow</h2>
+        <p>
+          The single most-asked question in user testing: <em>"What's happening with my ad?"</em> Brand managers don't have time to email a rep to find out. So we made the answer visible — at all times, on every creative — through three explicit states.
+        </p>
+
+        <div class="state-flow">
+          <div class="state-step">
+            <div class="state-step-name">Pending Creative Approval</div>
+            <div class="state-step-desc">Submitted. In Nykaa review queue. Brand manager waits, status visible.</div>
+          </div>
+          <div class="state-flow-arrow">→</div>
+          <div class="state-step">
+            <div class="state-step-name">Change Required</div>
+            <div class="state-step-desc">Specific feedback on which format / element needs revision. Action lives next to the issue.</div>
+          </div>
+          <div class="state-flow-arrow">→</div>
+          <div class="state-step">
+            <div class="state-step-name">Approved · Live</div>
+            <div class="state-step-desc">Live on Nykaa. Performance metrics start flowing in real-time.</div>
+          </div>
+        </div>
+
+        <p>
+          The state is rendered <strong>per creative format</strong> — not per campaign. A campaign might have its Square (1:1) format approved, its Horizontal (2:1) pending, and its Vertical (3:4) needing changes. Brand managers see exactly where to focus and what to fix.
+        </p>
+
+        <p class="muted">
+          The image upload component became the most-tested part of the platform. Brand managers upload one creative; the platform auto-fits across Nykaa's 4 placement formats (Square 1:1, Horizontal 2:1, Vertical 3:4, Horizontal 4:1) and surfaces "Change Required" on any format that needs human adjustment.
+        </p>
+      </section>
+
+      <section class="case-section" id="metrics">
+        <h2>Performance hierarchy</h2>
+        <p>
+          The metric vocabulary on the platform is exactly six items, in this order: <strong>Impressions, Clicks, CTR, Add to Cart, # Orders, Revenue</strong>. Same metrics, same order, at every scope — campaign, ad, section, tag. The brand manager never has to translate between scopes.
+        </p>
+        <p>
+          Why the hierarchy matters: it follows the actual funnel. Impressions (top), Clicks (interest), CTR (efficiency), Add to Cart (intent), Orders (conversion), Revenue (outcome). Brand managers reading right-to-left can answer the only question that matters: <em>"is the spend paying off?"</em>
+        </p>
+        <p>
+          Above the metric strip: <strong>Attribution Window</strong> as a primary chip (1 Day / 14 Days). Most ad platforms bury this in advanced settings. We surfaced it because the answer to "is this paying off?" is meaningless without it.
         </p>
       </section>
 
       <section class="case-section" id="tradeoffs">
         <h2>Trade-offs</h2>
         <p>
-          Three-tabs-only meant some advanced workflows (multi-brand reporting, custom segment builders) didn't make v1. We lost a small group of power users who were doing more sophisticated work. They came back in v2 — but the cost was real.
+          Three-tabs-only meant some advanced workflows (multi-brand reporting, custom segment builders) didn't ship in v1. We lost a small group of power users who were doing more sophisticated work. They came back in v2 — but the cost was real.
         </p>
         <p>
-          Auto-fitting creatives across 4 formats meant the platform sometimes made aesthetic calls a brand manager would have made differently. The "Change Required" state was the safety valve, but it added review cycles. Net positive — brand managers ship more campaigns, faster — but it wasn't free.
-        </p>
-        <p>
-          Restricting to Nykaa's 4 native placement formats (Banner, Category in Focus, In the Spotlight, others) limited integration with off-Nykaa ad platforms. Right call for a self-serve console — but the next step is a unified view of on- and off-Nykaa performance.
+          Auto-fitting creatives sometimes made aesthetic calls a brand manager would have made differently. The "Change Required" state was the safety valve. Net positive — but reviews ate cycles.
         </p>
       </section>
 

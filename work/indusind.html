@@ -86,11 +86,11 @@
         Back home
       </a>
       <a href="#tldr">TL;DR</a>
-      <a href="#constraint">The constraint</a>
-      <a href="#decision">The decision</a>
-      <a href="#system">The system</a>
-      <a href="#ai">AI in the loop</a>
-      <a href="#tradeoffs">Trade-offs</a>
+      <a href="#audit">The friction audit</a>
+      <a href="#step-reduction">Step reduction · 14 → 6</a>
+      <a href="#attention">"Needs your attention"</a>
+      <a href="#prefill">Pre-fill + smart defaults</a>
+      <a href="#foundation">System foundation</a>
       <a href="#outcome">Outcome</a>
       <a href="#change">What I'd change</a>
     </aside>
@@ -123,97 +123,127 @@
         </ul>
       </section>
 
-      <section class="case-section" id="constraint">
-        <h2>The constraint</h2>
+      <section class="case-section" id="audit">
+        <h2>The friction audit</h2>
         <p>
-          IndusInd's customer experience had years of organic feature growth. Mobile and web had drifted apart. The same "transfer money" flow looked, behaved, and was named three different ways across surfaces. Customers noticed. So did regulators, who flagged inconsistency in disclosures.
+          IndusInd's customer experience had years of organic feature growth. Mobile and web had drifted apart. The same "transfer money" flow looked, behaved, and was named three different ways across surfaces. But cosmetic inconsistency wasn't the urgent problem — <strong>flow length</strong> was.
         </p>
         <p>
-          More urgent than the cosmetic issue: the high-friction flows. Applying for a business loan was a <strong>14-step process</strong> across multiple disconnected pages. Cross-currency transfers required customers to choose options they couldn't possibly understand without a banker on the phone. EMI handling and pending approvals piled up because customers didn't know what they needed to do next.
+          The audit method was uncomfortably simple: pick the 12 most-used flows, walk through each one in the legacy app, count every decision a customer had to make. Not every screen — every <em>decision</em>. A screen with a single "Continue" button is one decision. A screen with three radio options and four input fields is five decisions.
+        </p>
+        <p>
+          What we found:
+        </p>
+        <ul>
+          <li><strong>Apply for Business Loan: 14 decisions across 9 screens.</strong> Half of those decisions were re-asking for KYC data the bank already had.</li>
+          <li><strong>Cross-currency transfer: 11 decisions across 6 screens.</strong> Three of them were technical jargon (correspondent bank, charge bearer, swift code) the customer couldn't possibly know.</li>
+          <li><strong>EMI prepayment: 8 decisions, but worse — 3 of them were trick questions.</strong> If you picked "partial prepayment," you had to fill three more fields. If you picked "full," none. The path mattered.</li>
+        </ul>
+        <p class="muted">
+          The reframe: stop redesigning screens. Redesign <strong>decisions</strong>. Every flow audit started with the same question — <em>"what's the minimum number of decisions a customer should make to complete this?"</em> — and worked backward from there.
+        </p>
+      </section>
+
+      <section class="case-section" id="step-reduction">
+        <h2>Step reduction · worked example</h2>
+        <p>
+          The headline win: <strong>Apply for Business Loan went from 14 decisions to 6</strong>. Same regulatory shell, same disclosures, same outcome — fewer decisions because most of them weren't decisions, they were data the bank already had.
+        </p>
+
+        <div class="step-comparison">
+          <div class="step-column before">
+            <div class="step-column-title">Before</div>
+            <div class="step-column-count">14</div>
+            <ol class="step-list">
+              <li>Pick loan type</li>
+              <li>Re-enter PAN</li>
+              <li>Re-enter Aadhaar</li>
+              <li>Re-confirm address</li>
+              <li>Re-enter business name</li>
+              <li>Pick GST type</li>
+              <li>Enter GST number</li>
+              <li>Re-enter date of incorporation</li>
+              <li>Pick business category</li>
+              <li>Enter loan amount</li>
+              <li>Pick tenure</li>
+              <li>Pick repayment mode</li>
+              <li>Upload P&amp;L</li>
+              <li>Confirm + submit</li>
+            </ol>
+          </div>
+
+          <div class="step-column after">
+            <div class="step-column-title">After</div>
+            <div class="step-column-count">6</div>
+            <ol class="step-list">
+              <li>Pick loan type</li>
+              <li>Confirm pre-filled KYC + business details (one screen, all chips)</li>
+              <li>Enter loan amount + tenure (live EMI shown)</li>
+              <li>Pick repayment mode (3 chips, smart default)</li>
+              <li>Upload P&amp;L (auto-detected from connected accounts where possible)</li>
+              <li>Review &amp; submit</li>
+            </ol>
+          </div>
+        </div>
+
+        <p>
+          The seven decisions that disappeared weren't simplified — they were <strong>moved off the customer's plate entirely</strong>. KYC re-entry, address re-confirm, GST/business details — all data the bank already had. We replaced the input fields with <em>confirmation chips</em>: "Use this PAN" / "Use this address." Customer taps once instead of typing.
+        </p>
+      </section>
+
+      <section class="case-section" id="attention">
+        <h2>"Needs your attention"</h2>
+        <p>
+          The home dashboard was where most customer journeys started — and where most of them got <em>stuck</em>. Pending approvals piled up because customers didn't know they were pending. Incomplete loan applications timed out because no one nudged the customer back. EMIs went into arrears because the reminder lived in email, not in the app.
+        </p>
+        <p>
+          The "<strong>Needs your attention</strong>" strip is a single home-dashboard primitive that surfaces exactly what blocks the customer's progress. It has three rules:
+        </p>
+        <ul>
+          <li><strong>Action-led, not status-led.</strong> Not "Loan application status: 50% complete." Instead: "Continue your business loan — 4 fields left."</li>
+          <li><strong>One-tap to resolve.</strong> Tapping the chip lands the customer exactly on the field that needs them — not on the start of the form.</li>
+          <li><strong>Quiet when there's nothing.</strong> If nothing needs attention, the strip disappears. No "All caught up!" trophy. The empty state is silence.</li>
+        </ul>
+        <p class="muted">
+          The strip caught items that would have otherwise gone to call-center or branch. <em>Pending-action drift</em> — the most common bug class on the legacy app — dropped sharply in the first release cycle.
+        </p>
+      </section>
+
+      <section class="case-section" id="prefill">
+        <h2>Pre-fill + smart defaults</h2>
+        <p>
+          The path-of-least-thinking is fewer steps with smart defaults — not more steps with hand-holding. Three patterns we ran across every flow:
+        </p>
+        <ul>
+          <li><strong>Confirmation chips, not input fields.</strong> Where data exists (KYC, address, account number, beneficiary), present it as a chip the customer taps to confirm — not as a blank field they re-type. The path is "Use this" or "Change."</li>
+          <li><strong>Smart defaults that match the customer's history.</strong> If 8 of the customer's last 10 transfers were to the same beneficiary, it's the default. If they always pay rent on the 1st, that's pre-selected.</li>
+          <li><strong>Live computation, not "Continue."</strong> Loan EMI updates as the customer changes amount or tenure — visible on the same screen. No "click Calculate" button. The number moves with the input.</li>
+        </ul>
+        <p class="muted">
+          Killed: a "wizard mode" with separate step-by-step screens for every complex flow. Tested with users — felt patronising on simple steps, confusing on complex ones. Replaced with progressive disclosure inside one continuous frame.
+        </p>
+      </section>
+
+      <section class="case-section" id="foundation">
+        <h2>System foundation</h2>
+        <p>
+          INDIE shipped on top of a unified design system — semantic tokens, ~120 components, mobile + web from the same library. The system is the means; the flow simplification is the headline. Brief mention because some things deserve their own case study (more on this in the <a href="/work/torrent-design-system" class="inline-link">Torrent Design System</a> page, where the system <em>is</em> the headline).
+        </p>
+        <p>
+          One detail that mattered: tokens flow from Tokens Studio (Figma) → Style Dictionary (CI/CD) → platform outputs (CSS variables, XML, JSON). Designers change a token; engineering picks up the diff in a PR. Component reuse hit <strong>~85%</strong> across mobile + web.
         </p>
         <p class="muted">
-          The mandate: <strong>shorten the journey, surface what needs attention, prevent errors before they happen</strong>. Without freezing the product to do it.
+          The AI Figma plugins I now use across PwC engagements (<a href="/plugins/design-system-validator" class="inline-link">Validator</a>, <a href="/plugins/claude-md-exporter" class="inline-link">CLAUDE.md Exporter</a>, <a href="/plugins/design-system-generator" class="inline-link">Generator</a>) were all born on this engagement — built because manual review across 6 consumer designers wasn't scaling.
         </p>
-      </section>
-
-      <section class="case-section" id="decision">
-        <h2>The decision</h2>
-        <p>
-          The core call: stop redesigning screens, start redesigning <strong>journeys</strong>. Every flow audit started with the same question — <em>"what's the minimum number of decisions a customer should make to complete this?"</em> — and worked backward from there.
-        </p>
-
-        <div class="decision-block kept">
-          <div class="label">Chose</div>
-          <div class="text">A "Needs your attention" strip on the home dashboard — pending approvals, incomplete applications, EMIs due — surfacing exactly what blocks progress, with one-tap entry to resolve.</div>
-        </div>
-        <div class="decision-block kept">
-          <div class="label">Chose</div>
-          <div class="text">"At your fingertips" customisable shortcuts on home — Share QR, Scan &amp; Pay, Bill Pay, Apply for Business Loan — letting customers pin their own most-used actions.</div>
-        </div>
-        <div class="decision-block kept">
-          <div class="label">Chose</div>
-          <div class="text">Smart pre-fill from KYC + transaction history. Most form fields a customer would have to type are pre-populated and shown as confirmation chips, not blank inputs.</div>
-        </div>
-        <div class="decision-block kept">
-          <div class="label">Chose</div>
-          <div class="text">Semantic tokens — not literal — even though semantic cost more upfront. Banking has long surface-level requirements (dark mode, regional themes, white-label for partner products) that literal tokens couldn't have absorbed.</div>
-        </div>
-        <div class="decision-block killed">
-          <div class="label">Killed</div>
-          <div class="text">A "wizard mode" with separate step-by-step screens for every complex flow. Tested with target users — felt patronising on the simple steps, confusing on the complex ones. Replaced with progressive disclosure inside one continuous frame.</div>
-        </div>
-        <div class="decision-block killed">
-          <div class="label">Killed</div>
-          <div class="text">A separate "Pro" surface for power users. Maintaining two surfaces is governance debt we weren't going to pay. Power-user affordances (saved beneficiaries, recent recipients, gesture shortcuts) are layered on top of the same surface.</div>
-        </div>
-      </section>
-
-      <section class="case-section" id="system">
-        <h2>The system</h2>
-        <p>
-          The redesign is anchored on a <strong>journey-first component library</strong>. Each high-volume task type — transfer, pay bill, deposit, investment, loan application, dispute — gets one canonical flow composition. Engineers ship new tasks by extending the registry, not by designing new screens from scratch.
-        </p>
-
-        <figure class="case-figure">
-          <div class="case-figure-image">[ INDIE home — At-your-fingertips actions, Account Analytics, Recent Transactions, Needs-your-attention strip ]</div>
-          <div class="case-figure-caption">Home dashboard — at-fingertips actions, account analytics, attention-required signals.</div>
-        </figure>
-
-        <p>
-          Three layers feed the system: <strong>tokens</strong> (Figma Variables via Tokens Studio) sync to <strong>Style Dictionary</strong> in CI/CD, which generates platform-specific outputs (CSS variables for web, XML for Android, JSON for React Native). Designers change a token in Figma → engineering picks up the diff in a PR.
-        </p>
-
-        <figure class="case-figure">
-          <div class="case-figure-image">[ Mobile companion view — same dashboard restructured for handheld ]</div>
-          <div class="case-figure-caption">Same system on mobile — components compose differently, tokens stay the same.</div>
-        </figure>
-
-        <p>
-          The governance doc is short on purpose: <em>"any change that affects more than one team's UI is a system change."</em> That sentence has prevented more drift than any tooling we built.
-        </p>
-      </section>
-
-      <section class="case-section" id="ai">
-        <h2>AI in the loop</h2>
-        <p>This is the project where I started building tools to handle scale. Three concrete uses:</p>
-        <ul>
-          <li><strong><a href="/plugins/design-system-validator" class="inline-link">Design System Validator</a>:</strong> caught hundreds of token-mismatch and structural breaks before they landed in PR. Built because manual review across 6 consumer designers wasn't scaling.</li>
-          <li><strong><a href="/plugins/claude-md-exporter" class="inline-link">CLAUDE.md Exporter</a>:</strong> when engineers wanted to scaffold prototypes via Claude Code, they kept generating components that didn't match our tokens. The exporter packages our system as a single CLAUDE.md so Claude Code builds inside the system by default.</li>
-          <li><strong><a href="/plugins/design-system-generator" class="inline-link">Design System Generator</a>:</strong> we forked it for the IndusInd internal-tools team — instead of waiting weeks for system support, they could spin up a token-aligned starter system for a new internal app in a day.</li>
-        </ul>
-        <p class="muted">Every plugin started as a <em>"I'm doing this manually 30 times a week"</em> moment. None were built as side projects in isolation; all were built for this team and the work itself.</p>
       </section>
 
       <section class="case-section" id="tradeoffs">
         <h2>Trade-offs</h2>
         <p>
-          Choosing semantic tokens cost us a quarter of upfront design + engineering work compared to literal. We absorbed it. Two years from now, when dark mode lands in a week instead of a quarter, that bill will pay itself back many times over.
+          Killing the wizard-mode meant some genuinely complex flows now ask customers to think a little more in a single step. We accepted it — the path-of-least-thinking is fewer steps with smart defaults, not more steps with hand-holding.
         </p>
         <p>
-          Concurrent migration meant some features shipped during the transition were temporarily inconsistent — a "what's on the system" sticker on every Figma frame helped engineers know what they could trust. Imperfect, but better than freezing product velocity for six months.
-        </p>
-        <p>
-          Killing the wizard-mode meant some genuinely complex flows now ask customers to think a little more in a single step. We accepted it. The path-of-least-thinking is fewer steps with smart defaults — not more steps with hand-holding.
+          Pre-fill works only when the data is right. We invested in a <em>"this looks wrong, let me change it"</em> affordance on every chip — but the first month had a small spike in support tickets when stale KYC data surfaced incorrectly. Worth it; the volume dropped sharply once data quality improved.
         </p>
       </section>
 

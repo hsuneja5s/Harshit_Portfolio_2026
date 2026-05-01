@@ -86,10 +86,10 @@
         Back home
       </a>
       <a href="#tldr">TL;DR</a>
-      <a href="#constraint">The constraint</a>
-      <a href="#decision">The decision</a>
-      <a href="#system">The system</a>
-      <a href="#ai">AI in the loop</a>
+      <a href="#reframe">The reframe</a>
+      <a href="#ia">Information architecture</a>
+      <a href="#insight">Insight.AI deep dive</a>
+      <a href="#boundary">The boundary line</a>
       <a href="#tradeoffs">Trade-offs</a>
       <a href="#outcome">Outcome</a>
       <a href="#change">What I'd change</a>
@@ -123,91 +123,114 @@
         </ul>
       </section>
 
-      <section class="case-section" id="constraint">
-        <h2>The constraint</h2>
+      <section class="case-section" id="reframe">
+        <h2>The reframe</h2>
         <p>
-          Shell's finance function oversees a global portfolio of deals across businesses and regions, but deal data, time bookings, and budget information lived in <strong>four separate trackers</strong> — multiple spreadsheets, two legacy tools, and steering-committee slide packs assembled manually each month.
+          Shell's finance function oversees a global portfolio of deals across businesses and regions. Deal data, time bookings, and budget information lived in <strong>four separate trackers</strong> — multiple spreadsheets, two legacy tools, and slide packs assembled manually each month for steering committees.
         </p>
         <p>
-          Answering basic questions — <em>which deals are at risk, where are budgets off, where is capacity constrained</em> — required hours of reconciliation across owners. By the time risk surfaced in steering committees, the window to intervene had usually closed.
+          Answering basic portfolio questions — <em>which deals are at risk, where are budgets off, where is capacity constrained</em> — required hours of reconciliation. By the time risk surfaced in a steering committee, the window to intervene had usually closed.
+        </p>
+        <p>
+          The trap when projects like this kick off is the framing: <em>"build a deal-tracking dashboard."</em> Dashboards report. We needed something that <strong>acts</strong>. So the first design move was to refuse the dashboard framing entirely and reframe the project as a cockpit:
+        </p>
+        <p style="font-size: 17px; font-weight: 500; padding: 16px 20px; border-left: 3px solid var(--accent-green); background: var(--accent-green-soft); border-radius: 6px; max-width: 640px;">
+          A dashboard reports the past. A cockpit lets the pilot fly. Finance shouldn't have to assemble the picture — the picture should assemble itself, with the controls already in reach.
         </p>
         <p class="muted">
-          The mandate from Shell finance leadership: <strong>build a control cockpit, not another dashboard</strong>. Finance shouldn't have to assemble the picture; the picture should assemble itself.
+          That single sentence shaped every subsequent decision: which views, which navigation, what to show by default, what to keep one click away. Pacific Platform is the cockpit framing, productised.
         </p>
       </section>
 
-      <section class="case-section" id="decision">
-        <h2>The decision</h2>
+      <section class="case-section" id="ia">
+        <h2>Information architecture</h2>
         <p>
-          The framing call: stop treating this as a "reporting tool" project. Reframe it as a <strong>cockpit for finance</strong> with three goals — capture every active deal with consistent data, connect deals to people and budgets, surface exceptions early so finance can act.
+          The whole platform is composed of <strong>four core views</strong>, each answering a question finance leaders ask weekly. Same navigation, same vocabulary, same data spine — different lens.
         </p>
 
-        <div class="decision-block kept">
-          <div class="label">Chose</div>
-          <div class="text">Four core views in one workflow-aligned interface — Deal Management, Financial Dashboard, Resources &amp; Time, Budget Utilization. Same nav, same vocabulary, same data spine.</div>
+        <div class="ia-views">
+          <div class="ia-view">
+            <div class="ia-view-name">Deal Management</div>
+            <div class="ia-view-desc">Every active deal as a structured record. Status, value, owners, dates, phase. The portfolio at a glance, drillable to a single deal.</div>
+          </div>
+          <div class="ia-view">
+            <div class="ia-view-name">Financial Dashboard</div>
+            <div class="ia-view-desc">Portfolio-level KPIs with one-click drill into individual deals. The "is the spend paying off?" view.</div>
+          </div>
+          <div class="ia-view">
+            <div class="ia-view-name">Resources &amp; Time</div>
+            <div class="ia-view-desc">Who's on which deal, booked time, capacity hot spots. The "do we have the people?" view.</div>
+          </div>
+          <div class="ia-view">
+            <div class="ia-view-name">Budget Utilization</div>
+            <div class="ia-view-desc">Planned vs. actual spend with clear over/under-spend signals. Where Insight.AI lives.</div>
+          </div>
         </div>
-        <div class="decision-block kept">
-          <div class="label">Chose</div>
-          <div class="text">Exception-first filters — "at risk", "over budget", "capacity constrained" — surfaced as primary navigation chips, not buried in advanced filters.</div>
-        </div>
-        <div class="decision-block kept">
-          <div class="label">Chose</div>
-          <div class="text">Lean data inputs — analysts and managers keep records current without heavy admin overhead. Capturing data is part of the workflow, not a tax on it.</div>
-        </div>
-        <div class="decision-block killed">
-          <div class="label">Killed</div>
-          <div class="text">A "rich BI" mode with charts, slicers, and pivot tables. Finance leaders kept telling us they didn't want to build views — they wanted decisions surfaced. We removed it from scope, twice.</div>
-        </div>
-        <div class="decision-block killed">
-          <div class="label">Killed</div>
-          <div class="text">Real-time chat between contributors. Microsoft Teams already exists. Adding our own would have fragmented communication, not consolidated it.</div>
-        </div>
-      </section>
 
-      <section class="case-section" id="system">
-        <h2>The system</h2>
         <p>
-          Pacific is built on a small set of <strong>workflow-shaped components</strong> — deal cards, KPI tiles, exception chips, status timelines, contributor blocks, budget bars. Each one has a job, and the four core views compose them differently.
+          Across all four views, navigation is <strong>exception-first</strong>. The most important filter chips — <em>at risk</em>, <em>over budget</em>, <em>capacity constrained</em> — are surfaced as primary navigation, not buried in an advanced-filter drawer. Finance leaders go straight from the full portfolio (500+ deals) to the few that need attention this week, in two taps.
         </p>
 
         <figure class="case-figure">
-          <div class="case-figure-image">[ Pacific Platform — home screen with quick actions: Submit Deal, Add Deal, Open Existing, Request Access ]</div>
-          <div class="case-figure-caption">Home screen — central hub for deal lifecycle actions.</div>
-        </figure>
-
-        <p>
-          The deal page consolidates everything in one structured record: status, headline size, confidentiality, delegate, decision executive, FO analyst, country, line of business, strategic theme, deal phase (external + internal), and budget utilization — all in a single view, last-updated timestamp included. No more hunting across files.
-        </p>
-
-        <figure class="case-figure">
-          <div class="case-figure-image">[ Deal Page — Project Indian Ocean (South Asia) with status, contributors, budget, highlights tabs ]</div>
-          <div class="case-figure-caption">Deal page consolidates 30+ formerly-scattered fields into one view.</div>
+          <div class="case-figure-image">[ Deal Page — Project Indian Ocean: status, contributors, budget, highlights tabs ]</div>
+          <div class="case-figure-caption">Deal page — 30+ formerly-scattered fields, one structured record, last-updated stamp.</div>
         </figure>
       </section>
 
-      <section class="case-section" id="ai">
-        <h2>AI in the loop — Insight.AI</h2>
+      <section class="case-section" id="insight">
+        <h2>Insight.AI deep dive</h2>
         <p>
-          The Budget page surfaces an AI feature called <strong>Insight.AI</strong> — generated analysis of burn rate, projected exhaustion, and trend signals against historical spend. Instead of finance teams asking <em>"is this deal off track?"</em> and then assembling the answer, Insight.AI offers the answer first, with the underlying data one click away.
+          The Budget Utilization view surfaces an AI feature called <strong>Insight.AI</strong>. Most enterprise AI features fail because they answer questions nobody asked. Insight.AI works because it answers the <em>specific</em> question finance teams ask every week: <em>"is this deal off track, and how much warning do I have?"</em>
         </p>
-        <p>Concrete examples of what Insight.AI surfaces:</p>
+        <p>
+          Three concrete things Insight.AI surfaces, with worked examples:
+        </p>
+
         <ul>
-          <li><strong>Burn-rate alerts:</strong> <em>"Burn rate has increased by 18% this month. At this pace, budget exhaustion is projected 3 weeks before deal closure."</em></li>
-          <li><strong>Cost-by-category anomalies:</strong> flags categories where actuals diverge sharply from plan</li>
-          <li><strong>Spend-trend forward views:</strong> projects FY trajectories from current burn</li>
+          <li><strong>Burn-rate alerts.</strong> <em>"Burn rate has increased by 18% this month. At this pace, budget exhaustion is projected 3 weeks before deal closure."</em> Calculated from historical burn against planned trajectory. Flags before the steering committee can.</li>
+          <li><strong>Cost-by-category anomalies.</strong> <em>"FM Staff costs are 15% above plan; project category 'Item Name 1' has consumed 70% of budget in 40% of the timeline."</em> Calls out which line items are dragging the deal off course.</li>
+          <li><strong>Spend-trend forward views.</strong> <em>"At current pace, FY25-26 will exceed budget by ~$10K — variance pattern matches Q3 last year."</em> Projects from current data, with the historical comparison cited.</li>
         </ul>
+
+        <p>
+          Each Insight.AI output has a <strong>"why this"</strong> affordance one tap away — showing the underlying numbers, the comparison window, and the calculation. Finance teams trust the AI output because they can verify it, not because they take it on faith.
+        </p>
+
         <p class="muted">
-          Where AI <em>isn't</em>: deal status changes, headline-size approvals, contributor assignments. Anything binding stays human-in-the-loop. AI surfaces signal; humans commit decisions. That line was non-negotiable for finance compliance and is part of why the feature got past internal risk review on the first pass.
+          Stack: Anthropic SDK with structured tool-use. The model has access to deal data through a constrained schema — it can call <code>get_burn_rate(deal_id, window)</code> and similar functions, but cannot freely narrate. Output templates were drafted with finance leaders, not engineers, so the phrasings sound like finance, not chatbot.
+        </p>
+      </section>
+
+      <section class="case-section" id="boundary">
+        <h2>The boundary line</h2>
+        <p>
+          The single most important design decision for any AI feature in a regulated workflow is <strong>where AI's authority ends</strong>. Get this wrong and the feature fails internal risk review (or worse, ships and causes a bad decision). Get it right and the feature passes scrutiny on the first review pass.
+        </p>
+        <p>
+          The boundary in Pacific Platform, in one line:
+        </p>
+        <p style="font-size: 17px; font-weight: 500; padding: 16px 20px; border-left: 3px solid var(--accent-green); background: var(--accent-green-soft); border-radius: 6px; max-width: 640px;">
+          AI surfaces signal. Humans commit decisions.
+        </p>
+        <ul>
+          <li><strong>AI does:</strong> read deal data, compute burn rates, flag anomalies, project trajectories, draft narrative summaries, suggest categories where attention may be warranted.</li>
+          <li><strong>AI does not:</strong> change deal status, approve headline-size revisions, assign contributors, commit budget reallocation, write back to source-of-truth systems without explicit human action.</li>
+        </ul>
+        <p>
+          Every action that <em>changes</em> something in the platform is a button a human presses, after seeing the AI's signal. Insight.AI shows that a deal is off track; the human deal owner decides whether to escalate. The platform's design language reinforces this — AI panels use a neutral grey background; human action surfaces use the brand colour.
+        </p>
+        <p class="muted">
+          That line was non-negotiable for finance compliance. It's also the reason the feature got past internal risk review on the first pass — when the boundary is explicit and visually reinforced, reviewers can see it instead of having to take it on faith.
         </p>
       </section>
 
       <section class="case-section" id="tradeoffs">
         <h2>Trade-offs</h2>
         <p>
-          Going single-cockpit cost us scope ambition. There were proposals to add forecasting, scenario analysis, and Power BI-style custom dashboards in the first release. We deferred all three. Adoption depended on the cockpit being immediately understandable to a finance lead opening it cold — adding configurability would have undermined that.
+          Going single-cockpit cost us scope ambition. There were proposals to ship forecasting, scenario analysis, and Power BI-style custom dashboards in v1. We deferred all three. Adoption depended on the cockpit being immediately understandable to a finance lead opening it cold — adding configurability would have undermined that.
         </p>
         <p>
-          Lean data inputs meant some data shape decisions had to be standardized across business units that previously did things differently. We absorbed the political cost — every finance lead lost something small they liked, in exchange for everyone gaining visibility they couldn't get before.
+          Lean data inputs meant some data shape decisions had to be standardised across business units that previously did things differently. Every finance lead lost something small they liked, in exchange for everyone gaining visibility they couldn't get before.
         </p>
       </section>
 
