@@ -668,7 +668,7 @@ img {
   right: calc(100% + 12px);
   transform: translateX(4px) translateY(50%);
   background: var(--text-primary);
-  color: var(--background-base);
+  color: var(--background-primary);
   font-size: 12px;
   font-weight: 500;
   white-space: nowrap;
