@@ -659,6 +659,7 @@ img {
   width: 72px;
   height: auto;
   display: block;
+  mix-blend-mode: screen;
 }
 
 .claude-gif-tooltip {
