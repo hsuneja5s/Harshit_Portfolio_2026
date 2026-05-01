@@ -708,7 +708,7 @@ img {
   position: relative;
 }
 
-/* Left rail nav — floats outside the centered content on desktop */
+/* Left rail nav — pinned to left edge of viewport, independent of content */
 .case-nav {
   display: flex;
   flex-direction: column;
@@ -716,16 +716,16 @@ img {
   font-size: 13px;
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 1200px) {
   .case-nav {
     position: fixed;
     top: 96px;
-    left: max(24px, calc(50% - 480px));
-    width: 180px;
+    left: 32px;
+    width: 160px;
   }
 }
 
-@media (max-width: 1023px) {
+@media (max-width: 1199px) {
   .case-nav {
     position: relative;
     margin-bottom: 24px;
