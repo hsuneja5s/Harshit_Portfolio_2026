@@ -327,15 +327,20 @@ img {
   font-size: 17px;
   font-weight: 600;
   letter-spacing: -0.015em;
-  margin-bottom: 6px;
   color: var(--text-primary);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
-.work-sub {
-  font-size: 14px;
-  color: var(--text-secondary);
-  line-height: 1.5;
-  min-height: 2.8em;
+.work-tag {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text-tertiary);
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  margin-bottom: 8px;
 }
 
 .work-image {
