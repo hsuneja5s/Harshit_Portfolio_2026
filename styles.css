@@ -653,9 +653,6 @@ img {
   right: 24px;
   z-index: 50;
   cursor: default;
-  background: #111;
-  border-radius: 14px 14px 0 0;
-  overflow: hidden;
   width: 72px;
 }
 
@@ -663,6 +660,8 @@ img {
   width: 72px;
   height: auto;
   display: block;
+  border-radius: 14px 14px 0 0;
+  background: #111;
 }
 
 .claude-gif-dark { display: none; }
