@@ -659,11 +659,11 @@ img {
   width: 72px;
   height: auto;
   display: block;
-  mix-blend-mode: multiply;
+  mix-blend-mode: screen;
 }
 
 [data-theme="dark"] .claude-gif {
-  mix-blend-mode: screen;
+  mix-blend-mode: normal;
 }
 
 .claude-gif-tooltip {
