@@ -252,3 +252,23 @@ function escapeHtml(s) {
     .replace(/"/g, '&quot;')
     .replace(/'/g, '&#39;');
 }
+
+// ============================================
+// PAGE TRANSITIONS
+// ============================================
+document.addEventListener('click', (e) => {
+  const link = e.target.closest('a[href]');
+  if (!link) return;
+  const href = link.getAttribute('href');
+  if (
+    link.target === '_blank' ||
+    href.startsWith('#') ||
+    href.startsWith('mailto:') ||
+    href.startsWith('http') && !href.startsWith(location.origin)
+  ) return;
+
+  e.preventDefault();
+  document.body.style.opacity = '0';
+  document.body.style.transform = 'translateY(-4px)';
+  setTimeout(() => { location.href = href; }, 250);
+});
