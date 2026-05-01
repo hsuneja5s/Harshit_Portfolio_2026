@@ -39,10 +39,10 @@ const results = document.getElementById('cmdkResults');
 const openBtn = document.getElementById('openCmdK');
 
 const ITEMS = [
-  { tag: 'Work',   label: 'CCTNS — Ministry of Home Affairs', hint: 'national policing · 1.4B users',         href: '#' },
-  { tag: 'Work',   label: 'Shell — Finance & Deal Mgmt',      hint: 'AI-powered · conversational interfaces', href: '#' },
-  { tag: 'Work',   label: 'Central Union Bank',               hint: 'NPS 4.7 → 9.2 · self-service shift',     href: '#' },
-  { tag: 'Work',   label: 'IndusInd Bank — Design System',    hint: 'unified mobile + web banking',           href: '#' },
+  { tag: 'Work',   label: 'CCTNS — Ministry of Home Affairs', hint: 'national policing · 1.4B users',         href: '/work/cctns' },
+  { tag: 'Work',   label: 'Shell — Finance & Deal Mgmt',      hint: 'AI-powered · conversational interfaces', href: '/work/shell' },
+  { tag: 'Work',   label: 'Central Union Bank',               hint: 'NPS 4.7 → 9.2 · self-service shift',     href: '/work/central-union-bank' },
+  { tag: 'Work',   label: 'IndusInd Bank — Design System',    hint: 'unified mobile + web banking',           href: '/work/indusind' },
   { tag: 'Work',   label: 'Torrent Diagnostics',              hint: 'six-touchpoint diagnostic ecosystem',    href: '#' },
   { tag: 'Work',   label: 'Nykaa — Merchant Ad Platform',     hint: 'B2B ads · adoption scale',               href: '#' },
   { tag: 'Plugin', label: 'CLAUDE.md Exporter',               hint: 'design system → Claude Code',            href: '#' },
@@ -190,6 +190,56 @@ const scrollActiveIntoView = () => {
 overlay.addEventListener('click', (e) => {
   if (e.target === overlay) closePalette();
 });
+
+// ============================================
+// CASE STUDY SCROLL-SPY (left rail nav)
+// ============================================
+const caseNav = document.querySelector('.case-nav');
+if (caseNav) {
+  const navLinks = Array.from(caseNav.querySelectorAll('a:not(.case-nav-back)'));
+  const sections = navLinks
+    .map(link => document.querySelector(link.getAttribute('href')))
+    .filter(Boolean);
+
+  if (sections.length) {
+    const setActive = (id) => {
+      navLinks.forEach(link => {
+        link.classList.toggle('active', link.getAttribute('href') === '#' + id);
+      });
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      // Find the topmost section currently in view
+      const visible = entries
+        .filter(e => e.isIntersecting)
+        .sort((a, b) => a.target.getBoundingClientRect().top - b.target.getBoundingClientRect().top);
+      if (visible.length) {
+        setActive(visible[0].target.id);
+      }
+    }, {
+      rootMargin: '-100px 0px -60% 0px',
+      threshold: 0,
+    });
+
+    sections.forEach(s => observer.observe(s));
+
+    // Smooth scroll on click + immediate highlight
+    navLinks.forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const id = link.getAttribute('href').slice(1);
+        const target = document.getElementById(id);
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          setActive(id);
+        }
+      });
+    });
+
+    // Set initial active state
+    setActive(sections[0].id);
+  }
+}
 
 // ============================================
 // HELPERS

@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Central Union Bank — Digital banking redesign. NPS jumped from 4.7 to 9.2, 30%+ shift to self-service." />
+  <title>Central Union Bank — Harshit Suneja</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css" />
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="/" class="identity" aria-label="Home">
+        <span class="avatar" role="img" aria-label="Harshit Suneja avatar">
+          <img src="https://api.dicebear.com/7.x/initials/svg?seed=HS&backgroundColor=0a0a0a&textColor=fafafa&fontWeight=600" alt="Harshit Suneja" />
+        </span>
+        <span class="identity-name">Harshit Suneja</span>
+      </a>
+      <div class="header-actions">
+        <button class="kbd-search" id="openCmdK" aria-label="Open search (⌘K)">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg>
+          <span class="kbd-label">Search</span>
+          <kbd class="kbd">⌘ K</kbd>
+        </button>
+        <button class="theme-toggle" id="themeLight" aria-label="Light mode" data-mode="light">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2"></path><path d="M12 20v2"></path><path d="m4.93 4.93 1.41 1.41"></path><path d="m17.66 17.66 1.41 1.41"></path><path d="M2 12h2"></path><path d="M20 12h2"></path><path d="m6.34 17.66-1.41 1.41"></path><path d="m19.07 4.93-1.41 1.41"></path></svg>
+        </button>
+        <button class="theme-toggle" id="themeDark" aria-label="Dark mode" data-mode="dark">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="case-layout">
+    <aside class="case-nav">
+      <a href="/" class="case-nav-back">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg>
+        Back home
+      </a>
+      <a href="#tldr">TL;DR</a>
+      <a href="#constraint">The constraint</a>
+      <a href="#decision">The decision</a>
+      <a href="#system">The system</a>
+      <a href="#ai">AI in the loop</a>
+      <a href="#tradeoffs">Trade-offs</a>
+      <a href="#outcome">Outcome</a>
+      <a href="#change">What I'd change</a>
+    </aside>
+
+    <article class="case-content">
+      <div class="case-hero-image case-hero-cub" aria-hidden="true"></div>
+
+      <h1 class="case-title">Central Union Bank — Digital Banking <span class="pseudo-tag">draft</span></h1>
+      <p class="case-subtitle">Reimagined the bank's digital experience across conversational UX, investments, and doorstep services. NPS jumped from 4.7 to 9.2 in one release cycle.</p>
+
+      <div class="case-meta">
+        <div class="case-meta-row"><span class="case-meta-label">Role</span><span class="case-meta-value">Lead Designer · Customer-facing app</span></div>
+        <div class="case-meta-row"><span class="case-meta-label">Team</span><span class="case-meta-value">3 designers · ~25 engineers · risk + compliance partners</span></div>
+        <div class="case-meta-row"><span class="case-meta-label">Timeline</span><span class="case-meta-value">[Add quarter — e.g. Q1 2024 → Q3 2024]</span></div>
+        <div class="case-meta-row"><span class="case-meta-label">Domain</span><span class="case-meta-value">Banking · Retail · Regulated (RBI)</span></div>
+        <div class="case-meta-row"><span class="case-meta-label">Users</span><span class="case-meta-value">Mass-market customers · skewing older demographic</span></div>
+        <div class="case-meta-row"><span class="case-meta-label">Stack</span><span class="case-meta-value">Figma, Tokens Studio, Lottie, internal core banking APIs</span></div>
+      </div>
+
+      <section class="case-section case-tldr" id="tldr">
+        <h2>TL;DR</h2>
+        <ul>
+          <li>Lifted NPS from <strong>4.7 → 9.2</strong> in a single release cycle by reframing the app around conversational primary navigation.</li>
+          <li>Shifted <strong>30%+</strong> of customers from branch / call-centre to self-service for the highest-volume tasks.</li>
+          <li>Designed doorstep banking flows — from request to officer arrival — for a customer base that genuinely doesn't want to come to the branch.</li>
+        </ul>
+      </section>
+
+      <section class="case-section" id="constraint">
+        <h2>The constraint</h2>
+        <p>
+          Central Union Bank's customer base skews older and trust-sensitive. The previous app was the worst kind of "modernised" — a screen-by-screen port of branch processes, full of regulatory disclaimers and dropdowns that no one used. NPS at 4.7 reflected what customers told us in interviews: <em>"the bank doesn't trust me to know what I want."</em>
+        </p>
+        <p>
+          The constraint we couldn't move: <strong>RBI compliance for every flow</strong>. Every consent screen, every disclaimer, every two-factor confirmation — locked. We had to redesign experience around an immovable regulatory shell.
+        </p>
+      </section>
+
+      <section class="case-section" id="decision">
+        <h2>The decision</h2>
+        <p>The strategic call: stop modelling the app on branch processes. Model it on <strong>how customers describe what they want</strong>. They don't say "I want to perform a third-party fund transfer." They say "I want to pay my son's college fees." Conversational primary nav was the answer.</p>
+
+        <div class="decision-block kept">
+          <div class="label">Chose</div>
+          <div class="text">Conversational home screen. "What do you want to do today?" with intelligent autocomplete trained on common phrasings.</div>
+        </div>
+        <div class="decision-block kept">
+          <div class="label">Chose</div>
+          <div class="text">Doorstep banking as a first-class service surface. Three taps from home to officer-at-door request.</div>
+        </div>
+        <div class="decision-block kept">
+          <div class="label">Chose</div>
+          <div class="text">Investments tab with explanatory cards in regional languages. Demystifying mutual funds for first-time investors.</div>
+        </div>
+        <div class="decision-block killed">
+          <div class="label">Killed</div>
+          <div class="text">Gamified savings goals. Tested with target users — felt patronising. They wanted respect, not stickers.</div>
+        </div>
+        <div class="decision-block killed">
+          <div class="label">Killed</div>
+          <div class="text">A "Pro mode" for younger customers. Maintaining two surfaces was governance debt we weren't going to pay.</div>
+        </div>
+      </section>
+
+      <section class="case-section" id="system">
+        <h2>The system</h2>
+        <p>The redesign was anchored on a <strong>"task-first" component library</strong> — every task type (transfer, pay bill, deposit, investment, doorstep request, dispute) gets one canonical card composition. Engineers ship new tasks by adding to the registry, not by designing new screens.</p>
+
+        <figure class="case-figure">
+          <div class="case-figure-image">[ Conversational home screen with task cards ]</div>
+          <div class="case-figure-caption">Conversational primary nav with task-first cards.</div>
+        </figure>
+
+        <figure class="case-figure">
+          <div class="case-figure-image">[ Doorstep request flow — three taps to officer dispatched ]</div>
+          <div class="case-figure-caption">Doorstep banking — request → ETA → officer profile.</div>
+        </figure>
+      </section>
+
+      <section class="case-section" id="ai">
+        <h2>AI in the loop</h2>
+        <p>AI's role here was deliberately quiet. In retail banking, customers don't want AI showing off — they want the bank to <em>get out of their way</em>.</p>
+        <ul>
+          <li><strong>Conversational autocomplete:</strong> the home screen's natural-language input was powered by an intent-classifier that mapped phrases like "send money to my mom" or "fees ka payment" to the right task. We trained it on real customer service transcripts (with consent, anonymised).</li>
+          <li><strong>Internal copy-review loop:</strong> all customer-facing microcopy passed through Claude as a tone-and-clarity check before going to legal. Caught hundreds of legalese phrasings that legal then signed off on simpler versions of.</li>
+          <li><strong>I did <em>not</em> use AI for:</strong> personalised recommendations, investment advisory, or anything that touched fiduciary territory. That line is non-negotiable in retail banking.</li>
+        </ul>
+      </section>
+
+      <section class="case-section" id="tradeoffs">
+        <h2>Trade-offs</h2>
+        <p>The conversational home is slower for power users who already memorised the legacy app's tab structure. We absorbed that cost — these users were ~5% of the base, and the change was net-positive within two release cycles even for them.</p>
+        <p>Killing gamified goals lost us a small contingent of younger customers. But the goal was a unified experience, not a segmented one — and the older majority's NPS lift more than paid for it.</p>
+      </section>
+
+      <section class="case-section" id="outcome">
+        <h2>Outcome</h2>
+        <div class="metric-grid">
+          <div class="metric-tile">
+            <div class="metric-value">4.7 → 9.2</div>
+            <div class="metric-label">NPS lift in one release cycle</div>
+          </div>
+          <div class="metric-tile">
+            <div class="metric-value">30%+</div>
+            <div class="metric-label">Shift from branch/call-centre to self-service</div>
+          </div>
+          <div class="metric-tile">
+            <div class="metric-value">[N]M</div>
+            <div class="metric-label">Active customers on redesigned app</div>
+          </div>
+          <div class="metric-tile">
+            <div class="metric-value">[N]</div>
+            <div class="metric-label">Doorstep requests / month at steady state</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="case-section" id="change">
+        <h2>What I'd change</h2>
+        <p>I'd have invested in <strong>onboarding for the legacy power user</strong>. Our launch focused on making the new experience welcoming to first-time and casual users. We didn't realise until week two that the most-vocal complaints were from heavy users who couldn't find the tab structure they'd internalised. A 30-second "what changed" tour at launch would have saved a lot of support load.</p>
+        <p>And: I'd push harder on accessibility audits earlier. We caught a few WCAG issues at the eleventh hour that should have been part of the design system spec from week one.</p>
+      </section>
+
+      <nav class="case-next" aria-label="Next case study">
+        <span class="case-next-label">Next →</span>
+        <a href="/work/indusind" class="case-next-link">IndusInd Bank — Design System</a>
+      </nav>
+
+    </article>
+  </main>
+
+  <div class="cmdk-overlay" id="cmdkOverlay" aria-hidden="true">
+    <div class="cmdk" role="dialog" aria-modal="true" aria-label="Search">
+      <div class="cmdk-search">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg>
+        <input type="text" id="cmdkInput" placeholder="Search work, plugins, links…" autocomplete="off" />
+        <kbd class="kbd">esc</kbd>
+      </div>
+      <ul class="cmdk-results" id="cmdkResults" role="listbox"></ul>
+    </div>
+  </div>
+
+  <script src="../script.js"></script>
+</body>
+</html>

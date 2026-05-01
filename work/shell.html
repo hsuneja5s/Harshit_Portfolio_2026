@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Shell — AI-powered Finance & Deal Management platform with conversational interfaces and real-time dashboards." />
+  <title>Shell — Finance & Deal Management — Harshit Suneja</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css" />
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="/" class="identity" aria-label="Home">
+        <span class="avatar" role="img" aria-label="Harshit Suneja avatar">
+          <img src="https://api.dicebear.com/7.x/initials/svg?seed=HS&backgroundColor=0a0a0a&textColor=fafafa&fontWeight=600" alt="Harshit Suneja" />
+        </span>
+        <span class="identity-name">Harshit Suneja</span>
+      </a>
+      <div class="header-actions">
+        <button class="kbd-search" id="openCmdK" aria-label="Open search (⌘K)">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg>
+          <span class="kbd-label">Search</span>
+          <kbd class="kbd">⌘ K</kbd>
+        </button>
+        <button class="theme-toggle" id="themeLight" aria-label="Light mode" data-mode="light">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2"></path><path d="M12 20v2"></path><path d="m4.93 4.93 1.41 1.41"></path><path d="m17.66 17.66 1.41 1.41"></path><path d="M2 12h2"></path><path d="M20 12h2"></path><path d="m6.34 17.66-1.41 1.41"></path><path d="m19.07 4.93-1.41 1.41"></path></svg>
+        </button>
+        <button class="theme-toggle" id="themeDark" aria-label="Dark mode" data-mode="dark">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="case-layout">
+    <aside class="case-nav">
+      <a href="/" class="case-nav-back">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg>
+        Back home
+      </a>
+      <a href="#tldr">TL;DR</a>
+      <a href="#constraint">The constraint</a>
+      <a href="#decision">The decision</a>
+      <a href="#system">The system</a>
+      <a href="#ai">AI in the loop</a>
+      <a href="#tradeoffs">Trade-offs</a>
+      <a href="#outcome">Outcome</a>
+      <a href="#change">What I'd change</a>
+    </aside>
+
+    <article class="case-content">
+      <div class="case-hero-image case-hero-shell" aria-hidden="true"></div>
+
+      <h1 class="case-title">Shell — Finance &amp; Deal Management <span class="pseudo-tag">draft</span></h1>
+      <p class="case-subtitle">The entire deal lifecycle — origination to close — collapsed onto a single AI-powered platform with real-time dashboards and conversational interfaces.</p>
+
+      <div class="case-meta">
+        <div class="case-meta-row"><span class="case-meta-label">Role</span><span class="case-meta-value">Lead Designer · Deal lifecycle workstream</span></div>
+        <div class="case-meta-row"><span class="case-meta-label">Team</span><span class="case-meta-value">3 designers · ~20 engineers · Shell stakeholders</span></div>
+        <div class="case-meta-row"><span class="case-meta-label">Timeline</span><span class="case-meta-value">[Add quarter — e.g. Q2 2024 → Q4 2024]</span></div>
+        <div class="case-meta-row"><span class="case-meta-label">Domain</span><span class="case-meta-value">Energy · Enterprise B2B · Finance Operations</span></div>
+        <div class="case-meta-row"><span class="case-meta-label">Users</span><span class="case-meta-value">Deal teams, finance controllers, regional analysts</span></div>
+        <div class="case-meta-row"><span class="case-meta-label">Stack</span><span class="case-meta-value">Figma, Anthropic SDK, Cursor, custom prototyping</span></div>
+      </div>
+
+      <section class="case-section case-tldr" id="tldr">
+        <h2>TL;DR</h2>
+        <ul>
+          <li>Replaced spreadsheet-and-email deal management with a conversational AI surface — reducing approval cycle time materially.</li>
+          <li>Designed a "natural-language first, structured-form second" interaction model that worked for both finance pros and field deal-makers.</li>
+          <li>Shipped real-time dashboards that surface deal risk before humans need to ask.</li>
+        </ul>
+      </section>
+
+      <section class="case-section" id="constraint">
+        <h2>The constraint</h2>
+        <p>
+          Shell's deal lifecycle was historically run on Excel, email, and a fragmented set of legacy tools. Approval threads spanned weeks. Risk only surfaced in steering committees — too late to act on. The mandate: <strong>collapse the cycle, surface signals earlier, without forcing finance teams to relearn their craft.</strong>
+        </p>
+        <p>
+          The hard part: deal-makers <em>and</em> finance controllers <em>and</em> regional analysts use the platform daily, but they want completely different things from it. A field deal-maker wants speed and natural language. A controller wants structured audit trails. Designing one surface for both was the core tension.
+        </p>
+      </section>
+
+      <section class="case-section" id="decision">
+        <h2>The decision</h2>
+        <p>The biggest call: <strong>making the conversational interface the primary surface</strong>, not a chatbot bolt-on. Most enterprise AI products treat conversation as a sidebar. We made it the home screen.</p>
+
+        <div class="decision-block kept">
+          <div class="label">Chose</div>
+          <div class="text">Conversational primary nav. "Show me deals at risk in APAC this quarter" → live dashboard generated.</div>
+        </div>
+        <div class="decision-block kept">
+          <div class="label">Chose</div>
+          <div class="text">Every AI response is editable as a structured form. Deal-makers move fast in chat; controllers refine in form.</div>
+        </div>
+        <div class="decision-block killed">
+          <div class="label">Killed</div>
+          <div class="text">A "novice mode" with hand-holding tooltips. Patronising for a senior finance audience. Replaced with <em>example prompts</em> at the top.</div>
+        </div>
+        <div class="decision-block kept">
+          <div class="label">Chose</div>
+          <div class="text">Real-time risk dashboards built from deal data — not waiting for users to ask. Risk finds you, not the other way around.</div>
+        </div>
+        <div class="decision-block killed">
+          <div class="label">Killed</div>
+          <div class="text">Mobile parity at launch. Deal work happens at desks; we shipped desktop-first and saved mobile for v2.</div>
+        </div>
+      </section>
+
+      <section class="case-section" id="system">
+        <h2>The system</h2>
+        <p>The interface is built on a <strong>"conversation primitives"</strong> design system — message blocks, structured-form blocks, dashboard blocks, and decision blocks — that interleave inside a single thread. Engineers ship new deal types by composing these primitives, not by building new screens.</p>
+
+        <figure class="case-figure">
+          <div class="case-figure-image">[ Conversation primitive components — message, form, dashboard, decision ]</div>
+          <div class="case-figure-caption">Four primitives compose every deal interaction.</div>
+        </figure>
+
+        <figure class="case-figure">
+          <div class="case-figure-image">[ Real-time risk dashboard — surfaced inside the conversation thread ]</div>
+          <div class="case-figure-caption">Risk dashboards generate inside the thread, not on a separate page.</div>
+        </figure>
+      </section>
+
+      <section class="case-section" id="ai">
+        <h2>AI in the loop</h2>
+        <p>This was my first project where AI wasn't a feature — it was the <em>medium</em>. Concretely:</p>
+        <ul>
+          <li><strong>Anthropic for the conversational layer:</strong> all natural-language deal queries route through Claude with a structured tool-use schema specific to Shell's deal data. We collaborated with the engineering team on the system prompt — the design constraint was making Claude refuse confidently when data was missing rather than hallucinate.</li>
+          <li><strong>Prompt-flow design with my own plugin:</strong> I used the Conversation Flow Generator (the Figma plugin I built) to draft and review hundreds of representative deal prompts before engineering wrote a line of integration code.</li>
+          <li><strong>Cursor + Claude Code in prototyping:</strong> the conversational UI's interaction edges (streaming, error recovery, tool-call latency) were built as live code prototypes in Cursor. Static Figma frames couldn't capture what was happening in time.</li>
+        </ul>
+        <p class="muted">Boundary line: AI <em>generates</em> insights and drafts. AI <em>does not</em> approve or commit deals. Every binding action requires explicit human action — a tradition I won't violate in regulated workflows.</p>
+      </section>
+
+      <section class="case-section" id="tradeoffs">
+        <h2>Trade-offs</h2>
+        <p>Going conversation-primary alienated a small but vocal group of senior controllers who wanted the dense table view they'd used for 15 years. We added a "classic" toggle as the escape hatch. Adoption data later showed [N]% never used it — but it was the right safety valve.</p>
+        <p>Cycle-time gains came partly from automation that <em>shifted</em> work from finance teams to AI-assisted draft review. Some controllers initially felt deskilled. Worth flagging — this is the underdiscussed cost of AI-native design in enterprise.</p>
+      </section>
+
+      <section class="case-section" id="outcome">
+        <h2>Outcome</h2>
+        <div class="metric-grid">
+          <div class="metric-tile">
+            <div class="metric-value">[N]%</div>
+            <div class="metric-label">Reduction in deal cycle time</div>
+          </div>
+          <div class="metric-tile">
+            <div class="metric-value">[N]</div>
+            <div class="metric-label">Conversation primitives shipped</div>
+          </div>
+          <div class="metric-tile">
+            <div class="metric-value">[N]</div>
+            <div class="metric-label">Active deal teams using daily</div>
+          </div>
+        </div>
+        <p>Concrete metrics to be filled in once internal numbers clear external-share approval.</p>
+      </section>
+
+      <section class="case-section" id="change">
+        <h2>What I'd change</h2>
+        <p>I'd have spent more time co-designing with controllers <em>before</em> the conversational shift, not after. We won the argument with leadership, then had to win it again with the people doing the work. Knowing what I know now, I'd run a "controller's roundtable" earlier — let them shape what the structured-form mode looked like, so it felt theirs.</p>
+        <p>Also: I underestimated how much <strong>error UX</strong> matters in conversational AI products. Users are far less forgiving of an AI mistake than a form validation error. Investing in error states earlier would've prevented a small adoption stutter at launch.</p>
+      </section>
+
+      <nav class="case-next" aria-label="Next case study">
+        <span class="case-next-label">Next →</span>
+        <a href="/work/central-union-bank" class="case-next-link">Central Union Bank — Digital Banking</a>
+      </nav>
+
+    </article>
+  </main>
+
+  <div class="cmdk-overlay" id="cmdkOverlay" aria-hidden="true">
+    <div class="cmdk" role="dialog" aria-modal="true" aria-label="Search">
+      <div class="cmdk-search">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg>
+        <input type="text" id="cmdkInput" placeholder="Search work, plugins, links…" autocomplete="off" />
+        <kbd class="kbd">esc</kbd>
+      </div>
+      <ul class="cmdk-results" id="cmdkResults" role="listbox"></ul>
+    </div>
+  </div>
+
+  <script src="../script.js"></script>
+</body>
+</html>

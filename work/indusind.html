@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="IndusInd Bank — Built a new design system from the ground up. Replaced fragmented mobile + web banking with one unified experience." />
+  <title>IndusInd Bank — Design System — Harshit Suneja</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css" />
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="/" class="identity" aria-label="Home">
+        <span class="avatar" role="img" aria-label="Harshit Suneja avatar">
+          <img src="https://api.dicebear.com/7.x/initials/svg?seed=HS&backgroundColor=0a0a0a&textColor=fafafa&fontWeight=600" alt="Harshit Suneja" />
+        </span>
+        <span class="identity-name">Harshit Suneja</span>
+      </a>
+      <div class="header-actions">
+        <button class="kbd-search" id="openCmdK" aria-label="Open search (⌘K)">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg>
+          <span class="kbd-label">Search</span>
+          <kbd class="kbd">⌘ K</kbd>
+        </button>
+        <button class="theme-toggle" id="themeLight" aria-label="Light mode" data-mode="light">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2"></path><path d="M12 20v2"></path><path d="m4.93 4.93 1.41 1.41"></path><path d="m17.66 17.66 1.41 1.41"></path><path d="M2 12h2"></path><path d="M20 12h2"></path><path d="m6.34 17.66-1.41 1.41"></path><path d="m19.07 4.93-1.41 1.41"></path></svg>
+        </button>
+        <button class="theme-toggle" id="themeDark" aria-label="Dark mode" data-mode="dark">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="case-layout">
+    <aside class="case-nav">
+      <a href="/" class="case-nav-back">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg>
+        Back home
+      </a>
+      <a href="#tldr">TL;DR</a>
+      <a href="#constraint">The constraint</a>
+      <a href="#decision">The decision</a>
+      <a href="#system">The system</a>
+      <a href="#ai">AI in the loop</a>
+      <a href="#tradeoffs">Trade-offs</a>
+      <a href="#outcome">Outcome</a>
+      <a href="#change">What I'd change</a>
+    </aside>
+
+    <article class="case-content">
+      <div class="case-hero-image case-hero-indusind" aria-hidden="true"></div>
+
+      <h1 class="case-title">IndusInd Bank — Design System <span class="pseudo-tag">draft</span></h1>
+      <p class="case-subtitle">A design system from the ground up — replacing a fragmented product experience across mobile and web with one unified banking application.</p>
+
+      <div class="case-meta">
+        <div class="case-meta-row"><span class="case-meta-label">Role</span><span class="case-meta-value">Design system lead · Architecture + governance</span></div>
+        <div class="case-meta-row"><span class="case-meta-label">Team</span><span class="case-meta-value">2 designers (system) · 6 designers (consumers) · ~40 engineers</span></div>
+        <div class="case-meta-row"><span class="case-meta-label">Timeline</span><span class="case-meta-value">[Add quarter — e.g. Q3 2024 → Present]</span></div>
+        <div class="case-meta-row"><span class="case-meta-label">Domain</span><span class="case-meta-value">Banking · Mobile + Web · Multi-platform</span></div>
+        <div class="case-meta-row"><span class="case-meta-label">Surfaces</span><span class="case-meta-value">Retail mobile · web banking · internal tools</span></div>
+        <div class="case-meta-row"><span class="case-meta-label">Stack</span><span class="case-meta-value">Figma, Tokens Studio, Style Dictionary, Storybook, GitHub Actions</span></div>
+      </div>
+
+      <section class="case-section case-tldr" id="tldr">
+        <h2>TL;DR</h2>
+        <ul>
+          <li>Built a semantic-token-first design system from scratch — one source of truth for mobile, web, and internal tools.</li>
+          <li>Established governance + contribution model so the system survives without me. Engineers and designers ship new components without breaking consistency.</li>
+          <li>Replaced years of UI drift with a unified banking experience. Component reuse went from <em>nominal</em> to <strong>~85%</strong> across the app.</li>
+        </ul>
+      </section>
+
+      <section class="case-section" id="constraint">
+        <h2>The constraint</h2>
+        <p>
+          IndusInd had years of organic product growth across multiple feature teams. Mobile and web had drifted apart. The same "transfer money" flow looked, behaved, and was named three different ways across surfaces. Customers noticed. So did regulators, who flagged inconsistency in disclosures.
+        </p>
+        <p>
+          The mandate: <strong>build a system that brings the surfaces together — without forking the migration into a multi-year nightmare</strong>. We had to ship the system <em>and</em> migrate consumers to it concurrently. No "freeze the product, build the system" luxury.
+        </p>
+      </section>
+
+      <section class="case-section" id="decision">
+        <h2>The decision</h2>
+        <p>The architectural call was <strong>semantic tokens, not literal tokens</strong> — even though semantic tokens cost more upfront. Banking has long surface-level requirements (dark mode, regional themes, white-label for partner banks) that literal tokens couldn't have absorbed.</p>
+
+        <div class="decision-block kept">
+          <div class="label">Chose</div>
+          <div class="text">Semantic token architecture: background / content / border × primary / secondary / tertiary. Engineers theme by remapping a single layer.</div>
+        </div>
+        <div class="decision-block killed">
+          <div class="label">Killed</div>
+          <div class="text">Literal tokens (color-blue-500 etc.). Faster to ship, impossible to theme. Saying no early was the highest-leverage decision.</div>
+        </div>
+        <div class="decision-block kept">
+          <div class="label">Chose</div>
+          <div class="text">Component-by-component migration with explicit "until consumed" deprecation tags. Old components kept working, but every new feature had to use the system.</div>
+        </div>
+        <div class="decision-block kept">
+          <div class="label">Chose</div>
+          <div class="text">A contribution model where consumer designers can propose new components, but a small architecture committee reviews. Prevents drift without bottlenecking.</div>
+        </div>
+        <div class="decision-block killed">
+          <div class="label">Killed</div>
+          <div class="text">A "lite" version of the system for non-banking surfaces. Adds maintenance burden, gives nothing back.</div>
+        </div>
+      </section>
+
+      <section class="case-section" id="system">
+        <h2>The system</h2>
+        <p>Three layers, single source of truth: <strong>tokens</strong> in Tokens Studio (Figma) sync to <strong>Style Dictionary</strong> (CI/CD pipeline) which generates platform-specific outputs (CSS variables for web, XML for Android, JSON for React Native).</p>
+
+        <figure class="case-figure">
+          <div class="case-figure-image">[ Token pipeline diagram — Figma → Style Dictionary → platforms ]</div>
+          <div class="case-figure-caption">Token sync pipeline. Designers change a token in Figma; engineering picks up the diff via PR.</div>
+        </figure>
+
+        <figure class="case-figure">
+          <div class="case-figure-image">[ Component library overview — across mobile + web surfaces ]</div>
+          <div class="case-figure-caption">~120 components shipped to date. Each documented in Storybook with do/don't examples.</div>
+        </figure>
+
+        <p>The governance doc is short on purpose: <em>"any change that affects more than one team's UI is a system change."</em> That sentence has prevented more drift than any tooling we built.</p>
+      </section>
+
+      <section class="case-section" id="ai">
+        <h2>AI in the loop</h2>
+        <p>This is the project where I built the AI Figma plugins that now sit in my plugin shelf. Each one was a real pain-killer first, a portable tool second.</p>
+        <ul>
+          <li><strong>Design System Validator:</strong> caught 100s of token-mismatch + structural breaks before they landed in PR. Built because manual review across 6 consumer designers wasn't scaling.</li>
+          <li><strong>CLAUDE.md Exporter:</strong> when engineers wanted to scaffold prototypes via Claude Code, they kept generating components that didn't match our tokens. The exporter packages our system as a single CLAUDE.md so Claude builds inside the system by default.</li>
+          <li><strong>Design System Generator:</strong> we forked it for the IndusInd internal-tools team — instead of waiting weeks for system support, they could spin up a token-aligned starter system for a new internal app in a day.</li>
+        </ul>
+        <p class="muted">Every plugin started as a <em>"I'm doing this manually 30 times a week"</em> moment. None were built as side projects in isolation; all were built for this team and the work itself.</p>
+      </section>
+
+      <section class="case-section" id="tradeoffs">
+        <h2>Trade-offs</h2>
+        <p>Choosing semantic tokens cost us a quarter of upfront design + engineering work compared to literal. We absorbed it. Two years from now when dark mode lands in a week instead of a quarter, that bill will be paid back many times over.</p>
+        <p>Concurrent migration meant some features shipped during the transition were temporarily inconsistent — a "what's on the system" sticker on every Figma frame helped engineers know what they could trust. Imperfect, but better than freezing product velocity.</p>
+      </section>
+
+      <section class="case-section" id="outcome">
+        <h2>Outcome</h2>
+        <div class="metric-grid">
+          <div class="metric-tile">
+            <div class="metric-value">~85%</div>
+            <div class="metric-label">Component reuse across mobile + web</div>
+          </div>
+          <div class="metric-tile">
+            <div class="metric-value">~120</div>
+            <div class="metric-label">Components shipped to production</div>
+          </div>
+          <div class="metric-tile">
+            <div class="metric-value">[N]%</div>
+            <div class="metric-label">Reduction in time-to-first-screen</div>
+          </div>
+          <div class="metric-tile">
+            <div class="metric-value">3</div>
+            <div class="metric-label">AI Figma plugins shipped from this project</div>
+          </div>
+        </div>
+        <p>The clearest outcome isn't on the metric tiles: <strong>the system survives without me.</strong> Designers who've never met me are shipping inside it. That's the bar.</p>
+      </section>
+
+      <section class="case-section" id="change">
+        <h2>What I'd change</h2>
+        <p>I'd have written the <strong>governance doc on day one</strong>, not month three. We had drift across the team's outputs until we sat down and articulated "what counts as a system decision vs. a vertical decision." Cost us ~2 weeks of consolidation. The doc itself is six bullet points; writing it earlier would have been free.</p>
+        <p>And: I'd have invested in <strong>contribution tooling</strong> (PR templates, automated change-logs) sooner. We did them in month four. Done at month one, the contribution velocity would've been double.</p>
+      </section>
+
+      <nav class="case-next" aria-label="Next case study">
+        <span class="case-next-label">Back to →</span>
+        <a href="/" class="case-next-link">All work</a>
+      </nav>
+
+    </article>
+  </main>
+
+  <div class="cmdk-overlay" id="cmdkOverlay" aria-hidden="true">
+    <div class="cmdk" role="dialog" aria-modal="true" aria-label="Search">
+      <div class="cmdk-search">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg>
+        <input type="text" id="cmdkInput" placeholder="Search work, plugins, links…" autocomplete="off" />
+        <kbd class="kbd">esc</kbd>
+      </div>
+      <ul class="cmdk-results" id="cmdkResults" role="listbox"></ul>
+    </div>
+  </div>
+
+  <script src="../script.js"></script>
+</body>
+</html>
