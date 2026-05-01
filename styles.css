@@ -645,6 +645,59 @@ img {
 }
 
 /* ============================================
+   CLAUDE FLOATING GIF
+   ============================================ */
+.claude-gif-wrap {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 50;
+  cursor: default;
+}
+
+.claude-gif {
+  width: 72px;
+  height: auto;
+  display: block;
+  mix-blend-mode: multiply;
+}
+
+[data-theme="dark"] .claude-gif {
+  mix-blend-mode: screen;
+}
+
+.claude-gif-tooltip {
+  position: absolute;
+  bottom: calc(100% + 10px);
+  right: 0;
+  background: var(--text-primary);
+  color: var(--background-base);
+  font-size: 12px;
+  font-weight: 500;
+  white-space: nowrap;
+  padding: 8px 12px;
+  border-radius: 10px;
+  pointer-events: none;
+  opacity: 0;
+  transform: translateY(4px);
+  transition: opacity 0.18s ease, transform 0.18s ease;
+}
+
+.claude-gif-tooltip::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  right: 16px;
+  border: 5px solid transparent;
+  border-top-color: var(--text-primary);
+}
+
+.claude-gif-wrap:hover .claude-gif-tooltip {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ============================================
    COMMAND PALETTE
    ============================================ */
 .cmdk-overlay {
