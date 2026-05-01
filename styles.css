@@ -1102,6 +1102,122 @@ img {
 }
 
 /* ============================================
+   CASE STUDY ENHANCEMENTS
+   ============================================ */
+.case-stamp-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 24px;
+  font-size: 13px;
+  color: var(--text-tertiary);
+}
+
+.case-stamp {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 500;
+}
+
+.case-stamp svg {
+  width: 13px;
+  height: 13px;
+  opacity: 0.75;
+}
+
+.case-stamp + .case-stamp::before {
+  content: "·";
+  margin-right: 6px;
+  color: var(--text-tertiary);
+}
+
+.case-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 28px;
+}
+
+.case-tag {
+  display: inline-flex;
+  align-items: center;
+  font-size: 12px;
+  font-weight: 500;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: var(--background-subtle);
+  color: var(--text-secondary);
+  letter-spacing: 0.01em;
+}
+
+.case-tag.tag-accent {
+  background: var(--accent-green-soft);
+  color: var(--accent-green);
+}
+
+/* Related work block */
+.case-related {
+  margin-top: 80px;
+  padding-top: 32px;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.case-related h3 {
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-tertiary);
+  margin-bottom: 16px;
+}
+
+.case-related-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 12px;
+}
+
+.case-related-card {
+  display: block;
+  padding: 16px;
+  border-radius: 10px;
+  background: var(--background-subtle);
+  text-decoration: none;
+  color: inherit;
+  transition: background-color 0.15s ease, transform 0.15s ease;
+}
+
+.case-related-card:hover {
+  background: var(--border-subtle);
+  transform: translateY(-1px);
+}
+
+.case-related-title {
+  font-size: 14.5px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  margin-bottom: 4px;
+  color: var(--text-primary);
+}
+
+.case-related-sub {
+  font-size: 12.5px;
+  color: var(--text-secondary);
+  line-height: 1.45;
+}
+
+/* Inline status pill on homepage card titles */
+.work-title .status-pill,
+h1.case-title .status-pill {
+  margin-left: 8px;
+  font-size: 11px;
+  padding: 2px 7px;
+  vertical-align: middle;
+}
+
+/* ============================================
    PLUGIN PAGE EXTRAS
    ============================================ */
 .status-pill {
