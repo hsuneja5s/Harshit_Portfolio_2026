@@ -266,9 +266,10 @@ img {
 
 .brand-logo {
   display: inline-block;
-  height: 1.1em;
+  height: auto;
+  max-height: 32px;
   width: auto;
-  vertical-align: -0.35em;
+  vertical-align: middle;
   margin: 0 0.04em 0 0.06em;
 }
 
