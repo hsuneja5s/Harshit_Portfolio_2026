@@ -653,22 +653,26 @@ img {
   right: 24px;
   z-index: 50;
   cursor: default;
+  background: #111;
+  border-radius: 14px;
+  overflow: hidden;
+  width: 72px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.25);
 }
 
 .claude-gif {
   width: 72px;
   height: auto;
   display: block;
-  mix-blend-mode: screen;
 }
 
 .claude-gif-tooltip {
   position: absolute;
   bottom: 50%;
   right: calc(100% + 12px);
-  transform: translateX(4px) translateY(50%);
-  background: var(--text-primary);
-  color: var(--background-primary);
+  transform: translateX(6px) translateY(50%);
+  background: #0a0a0a;
+  color: #ffffff;
   font-size: 12px;
   font-weight: 500;
   white-space: nowrap;
@@ -676,7 +680,7 @@ img {
   border-radius: 10px;
   pointer-events: none;
   opacity: 0;
-  transition: opacity 0.18s ease, transform 0.18s ease;
+  transition: opacity 0.2s ease, transform 0.2s ease;
 }
 
 .claude-gif-tooltip::after {
@@ -686,7 +690,7 @@ img {
   left: 100%;
   transform: translateY(-50%);
   border: 5px solid transparent;
-  border-left-color: var(--text-primary);
+  border-left-color: #0a0a0a;
 }
 
 .claude-gif-wrap:hover .claude-gif-tooltip {
