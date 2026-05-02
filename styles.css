@@ -455,14 +455,14 @@ img {
 .play-list {
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 16px;
 }
 
 .play-item {
   display: flex;
   align-items: center;
   gap: 16px;
-  padding: 24px;
+  padding: 14px 16px;
   border-radius: 12px;
   border: 1px solid var(--border-subtle);
   cursor: pointer;
