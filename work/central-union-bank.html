@@ -86,24 +86,21 @@
         Back home
       </a>
       <a href="#tldr">In brief</a>
-      <a href="#cold-start">The cold-start problem</a>
+      <a href="#problem">The activation problem</a>
+      <a href="#bet">The bet</a>
       <a href="#chips">The 8 chip system</a>
       <a href="#conversations">Sample conversations</a>
-      <a href="#refusal">Refusal &amp; safety</a>
-      <a href="#tradeoffs">Trade-offs</a>
-      <a href="#outcome">Outcome</a>
+      <a href="#refusal">Refusal as the product</a>
+      <a href="#outcome">Business outcome</a>
+      <a href="#cuts">What we didn't ship</a>
     </aside>
 
     <article class="case-content">
       <div class="case-hero-image case-hero-cub" aria-hidden="true"></div>
 
-      <h1 class="case-title">Designing a bank's first AI assistant from the ground up</h1>
-      <p class="case-subtitle">Designing an AI banking assistant that could actually handle everyday banking. Resolves routine queries and guides customers through common tasks — reducing call-center load and making self-service feel closer to a human conversation.</p>
+      <h1 class="case-title">CUB.ai — turning AI hesitation into self-service</h1>
+      <p class="case-subtitle">A bank's first AI assistant designed to convert hesitant customers into successful self-service users — not to demonstrate model capability. Lifted NPS 4.7 → 9.2 in one release cycle and shifted 30%+ of routine support away from branches and call centers.</p>
 
-      <div class="case-stamp-row">
-        <span class="case-stamp"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg> 6 min read</span>
-        <span class="case-stamp"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg> 2024</span>
-      </div>
       <div class="case-meta">
         <div class="case-meta-row"><span class="case-meta-label">Role</span><span class="case-meta-value">Senior Product Designer</span></div>
         <div class="case-meta-row"><span class="case-meta-label">Team</span><span class="case-meta-value">PwC India</span></div>
@@ -113,19 +110,39 @@
       <section class="case-section case-tldr" id="tldr">
         <h2>In brief</h2>
         <ul>
-          <li>Designed CUB.ai — an AI assistant inside the bank's app — that resolves the most common customer service requests without sending them to a call center.</li>
-          <li>Built on a quick-action chip model: <em>Banking Summary, Last 5 Transactions, Block Card, Transfer Money, Pay Bills, Find ATM, Download Statement, Report Fraud</em> — each backed by a specific intent + structured response.</li>
-          <li>Lifted NPS from <strong>4.7 → 9.2</strong> in a single release cycle and shifted <strong>30%+</strong> of customer interactions away from branch + call center.</li>
+          <li><strong>The user problem wasn't "lack of AI" — it was activation.</strong> ~70% of customers froze when shown a free-form chat input. The cost: every frozen customer became a call-center ticket.</li>
+          <li><strong>The bet:</strong> chips over chat. Open the conversation with a menu, route the long tail through free-text once the user is already in. Refusal matrix as the actual product.</li>
+          <li><strong>How it landed:</strong> NPS <strong>4.7 → 9.2</strong> in one release cycle. <strong>30%+</strong> of routine support deflected from branch + call center to self-service.</li>
         </ul>
       </section>
 
-      <section class="case-section" id="cold-start">
-        <h2>The cold-start problem</h2>
+      <section class="case-section" id="problem">
+        <h2>The activation problem</h2>
         <p>
-          In testing, when we showed users a free-form chat input with a blinking cursor, ~70% froze. They asked which buttons to press. They typed two words and stopped. <em>"I don't know what to ask."</em>
+          Treating this brief as "design an AI assistant" would have produced a chat product that demos beautifully and quietly fails activation. The actual user problem was upstream: a customer staring at a blinking cursor doesn't know what to ask, freezes, and falls back to the call center. Every frozen customer is a missed deflection — and call-center cost is the line item the bank actually wanted moved.
         </p>
         <p>
+          In testing, when we showed users a free-form chat input, <strong>~70% froze</strong>. They asked which buttons to press. They typed two words and stopped. <em>"I don't know what to ask."</em>
+        </p>
+        <p class="pull-quote">
           Conversation as a medium is fine. Conversation as a <em>prerequisite</em> is the trap.
+        </p>
+        <p>
+          So the design problem to solve wasn't "make conversation feel natural" — it was "convert a hesitant customer into a successful first-task within 10 seconds, before they reach for the phone."
+        </p>
+      </section>
+
+      <section class="case-section" id="bet">
+        <h2>The bet</h2>
+        <p>
+          Two non-obvious calls, both at the cost of looking less impressive in a demo:
+        </p>
+        <ul>
+          <li><strong>Chips over chat.</strong> Open with a visible menu of the most-asked things. The user sees what's possible in one glance — no cold-start, no "what should I type?". Conversation kicks in <em>after</em> the first action, where it's a power-feature, not a prerequisite.</li>
+          <li><strong>Refusal as a product surface, not a filter.</strong> What CUB.ai <em>won't</em> do is published, opinionated, and risk-signed-off — not buried in a content moderation layer. In regulated work, the refusal matrix is the trust-establishing artifact.</li>
+        </ul>
+        <p class="muted">
+          What we explicitly chose not to optimize for: open-ended conversational range. A more chatty assistant would have been more "AI-feeling." It also would have raised the activation barrier and the compliance surface area at the same time.
         </p>
       </section>
 
@@ -181,9 +198,9 @@
       </section>
 
       <section class="case-section" id="refusal">
-        <h2>Refusal &amp; safety</h2>
+        <h2>Refusal as the product</h2>
         <p>
-          The most important design decisions in CUB.ai are what it <strong>refuses</strong> to do. The matrix was signed off by risk + compliance before a single chip went live.
+          The most important design decisions in CUB.ai are what it <strong>refuses</strong> to do. In a regulated context, this isn't safety theatre — it's the artifact that lets risk + compliance approve the product in the first place. The matrix was signed off before a single chip went live.
         </p>
 
         <div class="refusal-matrix">
@@ -218,49 +235,40 @@
         </p>
       </section>
 
-      <section class="case-section" id="tradeoffs">
-        <h2>Trade-offs</h2>
-        <p>
-          Chip-first is slower for ~5% of power users who memorised the legacy app. Killing gamified goals lost us a small younger contingent. 8 chips left ~15% of CS volume falling through to call-center — accepted for v1, picked up in v2.
-        </p>
-      </section>
-
-      <section class="case-section" id="tradeoffs">
-        <h2>Trade-offs</h2>
-        <p>
-          The chip-first approach is slower for power users who already memorised the legacy app's tab structure. We absorbed that cost — those users were ~5% of the base, and the change was net-positive within two release cycles even for them.
-        </p>
-        <p>
-          Killing gamified goals lost us a small contingent of younger customers. But the goal was a unified experience, not a segmented one — and the older majority's NPS lift more than paid for it.
-        </p>
-        <p>
-          Constraining to 8 quick actions left ~15% of customer-service requests still falling through to call center. We accepted it for v1 — the head of the curve was the leverage point. The long tail is v2.
-        </p>
-      </section>
-
       <section class="case-section" id="outcome">
-        <h2>Outcome</h2>
+        <h2>Business outcome</h2>
+        <p>
+          The chip-first activation bet tied directly to the business metrics the bank actually had at risk:
+        </p>
         <div class="metric-grid">
           <div class="metric-tile">
             <div class="metric-value">4.7 → 9.2</div>
-            <div class="metric-label">NPS lift in one release cycle</div>
+            <div class="metric-label">NPS lift in a single release cycle. Customers who would have abandoned the app now finish their task inside it.</div>
           </div>
           <div class="metric-tile">
             <div class="metric-value">30%+</div>
-            <div class="metric-label">Shift from branch / call center to self-service</div>
+            <div class="metric-label">Customer interactions deflected from branch + call center. Direct, attributable cost reduction on the support line item.</div>
           </div>
           <div class="metric-tile">
-            <div class="metric-value">8</div>
-            <div class="metric-label">Quick-action chips covering ~85% of CS volume</div>
-          </div>
-          <div class="metric-tile">
-            <div class="metric-value">1</div>
-            <div class="metric-label">Unified design system across chat + account screens</div>
+            <div class="metric-value">~85% coverage</div>
+            <div class="metric-label">Of customer-service volume handled by 8 chips. Activation problem solved at the head of the curve.</div>
           </div>
         </div>
-        <p>
-          CUB.ai is now the primary self-service surface for routine banking — the bank's call-center capacity is freed up for the genuinely complex requests that need a human.
+        <p class="muted">
+          CUB.ai is now the primary self-service surface for routine banking. Call-center capacity is freed up for the genuinely complex requests that <em>need</em> a human — the kind of work the bank should never have been trying to automate.
         </p>
+      </section>
+
+      <section class="case-section" id="cuts">
+        <h2>What we didn't ship</h2>
+        <p>
+          Three things we wanted in v1 and made the call to defer. Worth being explicit about:
+        </p>
+        <ul>
+          <li><strong>Long-tail intent coverage beyond ~85%.</strong> The remaining ~15% of customer-service volume still falls through to call center. We capped chip count at 8 to protect activation — beyond eight, users start scrolling and lose the "I see what's possible" moment that solved cold-start in the first place. The long tail is v2 work.</li>
+          <li><strong>Onboarding for legacy power users.</strong> Our launch focused on welcoming first-time and casual users — but the most-vocal early complaints came from heavy users who couldn't find the tab structure they'd internalised. A 30-second "what changed" tour at launch would have saved a lot of support load. We added it later. Should have been v1.</li>
+          <li><strong>Investment in chatbot error UX.</strong> Users are far less forgiving of an AI mistake than a form validation error — a misclassified intent feels personal. We treated the recovery flow as a v1.5 problem; in hindsight, it should have shipped at launch and prevented a small adoption stutter we didn't need to absorb.</li>
+        </ul>
       </section>
 
 
