@@ -260,6 +260,43 @@ img {
   padding-top: 64px;
 }
 
+.availability-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px 6px 10px;
+  border: 1.5px solid #22c55e;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 500;
+  color: #16a34a;
+  margin-bottom: 16px;
+  letter-spacing: 0.01em;
+}
+
+[data-theme="dark"] .availability-chip {
+  color: #4ade80;
+  border-color: #4ade80;
+}
+
+.availability-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #22c55e;
+  flex-shrink: 0;
+  animation: pulse-dot 2s ease-in-out infinite;
+}
+
+[data-theme="dark"] .availability-dot {
+  background: #4ade80;
+}
+
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.6; transform: scale(0.85); }
+}
+
 .hero-role {
   font-size: 24px;
   font-weight: 600;
