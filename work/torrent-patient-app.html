@@ -86,24 +86,22 @@
         Back home
       </a>
       <a href="#tldr">In brief</a>
-      <a href="#audience">The audience</a>
-      <a href="#reframe">The reframe</a>
-      <a href="#accessibility">Accessibility deep-dive</a>
+      <a href="#problem">A behavior-change problem</a>
+      <a href="#audience">Asha &amp; Ravi</a>
+      <a href="#bet">The bet</a>
+      <a href="#accessibility">Accessibility in the bones</a>
       <a href="#trends">Trend-first design</a>
       <a href="#boundary">The AI boundary</a>
-      <a href="#outcome">Outcome</a>
+      <a href="#outcome">Where it earns its keep</a>
+      <a href="#cuts">What we didn't ship</a>
     </aside>
 
     <article class="case-content">
       <div class="case-hero-image case-hero-torrent-patient" aria-hidden="true"></div>
 
-      <h1 class="case-title">Turning lab reports into a daily health companion</h1>
-      <p class="case-subtitle">Turning health reports into a daily health companion for patients. India's first accessibility-first diagnostic app — now live, helping patients book tests, upload prescriptions, and watch their health trends without ever needing a clinic.</p>
+      <h1 class="case-title">Designing for return visits, not test bookings</h1>
+      <p class="case-subtitle">India's first accessibility-first diagnostic app for Torrent — built around a different bet: chronic-condition patients aren't transactional, they're a daily-engagement audience. The product wins or loses on whether Asha checks back next quarter, not whether she books her first test.</p>
 
-      <div class="case-stamp-row">
-        <span class="case-stamp"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg> 6 min read</span>
-        <span class="case-stamp"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg> 2025 — Live 2026</span>
-      </div>
       <div class="case-meta">
         <div class="case-meta-row"><span class="case-meta-label">Role</span><span class="case-meta-value">Senior Product Designer</span></div>
         <div class="case-meta-row"><span class="case-meta-label">Team</span><span class="case-meta-value">PwC India</span></div>
@@ -113,16 +111,32 @@
       <section class="case-section case-tldr" id="tldr">
         <h2>In brief</h2>
         <ul>
-          <li>Designed and shipped <strong>India's first accessibility-first diagnostic app</strong> for Torrent — book tests, upload prescriptions, track health trends in one place.</li>
-          <li>Reframed the product from <em>"download a PDF report"</em> to <em>"a daily health companion"</em> — Records section turns one-off lab values into HbA1c / Cholesterol / LDL trends over time.</li>
-          <li>Reports delivered in <strong>under 6 hours</strong>. Senior-citizen flat 10% off built into the home screen. Chat &amp; Book Test as primary CTA.</li>
+          <li><strong>The user problem isn't booking — it's behavior change.</strong> Chronic-condition patients live with a number for years. The retention game is whether they'll come back next quarter to look at the trend, not whether they'll book the first test.</li>
+          <li><strong>The bet:</strong> design for the daily companion, not the transactional booking. Trends as the primary surface. Accessibility-first because the actual audience is older, not because it looks good in a press release.</li>
+          <li><strong>How it shows:</strong> Records as a HbA1c / Cholesterol / LDL trend view (not a list of PDFs). Plain-language interpretation before the value. Reports in under 6 hours. Voice-first booking as primary CTA.</li>
         </ul>
       </section>
 
-      <section class="case-section" id="audience">
-        <h2>The audience</h2>
+      <section class="case-section" id="problem">
+        <h2>A behavior-change problem</h2>
         <p>
-          Most diagnostic apps are designed for the wrong person — a young, urban, digitally fluent customer booking a one-off test. Torrent's actual patient base is different.
+          Treating this brief as <em>"design a diagnostic booking app"</em> would have produced a lookalike of every other one in the market — and competed on the only axis those apps compete on: discounts and home-collection windows. That's a price war Torrent wasn't going to win.
+        </p>
+        <p>
+          The reframe: chronic-condition patients aren't a transactional audience. They live with HbA1c, with cholesterol, with blood pressure for <em>years</em>. The business value of one of these patients sits not in the first test but in the next twelve. The cost of inaction shows up as retention — patients who book once, get a PDF, and never return until a doctor pushes them. The economics of acquisition vs. lifetime value are completely different from how the rest of the category thinks about it.
+        </p>
+        <p class="pull-quote">
+          This isn't a booking app with reports attached. It's a daily companion for living with a chronic condition.
+        </p>
+        <p>
+          Once you frame it that way, every decision flips: home screen, IA, copy tone, accessibility floor, who counts as the primary user. The brief became <em>"design something patients return to" </em>— not <em>"design something patients tap once."</em>
+        </p>
+      </section>
+
+      <section class="case-section" id="audience">
+        <h2>Asha &amp; Ravi</h2>
+        <p>
+          Most diagnostic apps are designed for the wrong person — a young, urban, digitally fluent customer booking a one-off test. Torrent's actual chronic-care audience looks different, and one of them isn't even the patient.
         </p>
 
         <div class="persona-grid">
@@ -148,18 +162,22 @@
         </p>
       </section>
 
-      <section class="case-section" id="reframe">
-        <h2>The reframe</h2>
-        <p class="pull-quote">
-          This isn't a booking app with reports attached. It's a daily companion for living with a chronic condition.
-        </p>
+      <section class="case-section" id="bet">
+        <h2>The bet</h2>
         <p>
-          Once you frame it that way, every decision flips. The home screen surfaces your last reading, not "Book a test." Records are organised by value-over-time, not test-occasion. Interpretation is plain-language and quiet, not gamification with badges.
+          Two non-obvious calls, both pointed at the retention bet:
+        </p>
+        <ul>
+          <li><strong>Accessibility-first as the design floor — not a compliance pass.</strong> Asha is the actual user, not an edge case. 48pt taps, 16pt body minimums, no motion-as-information, voice-first booking. The hardest part wasn't the spec — it was making the app not <em>look</em> like a "senior app." Design for an older audience without designing them an old-people app.</li>
+          <li><strong>Trends as the primary surface, values as evidence.</strong> Plain-language interpretation reads first. The number reads second. In testing, when the value led, patients struggled to know whether 5.2 was good or bad. With interpretation first, the value becomes evidence, not a quiz.</li>
+        </ul>
+        <p class="muted">
+          What we explicitly chose not to optimize for: visual ambition, gamification, e-pharmacy upsell. None of those make Asha come back next quarter. We sacrificed monetisation ambition for the only thing that earns the next year of work — patients who keep returning to look at their trends.
         </p>
       </section>
 
       <section class="case-section" id="accessibility">
-        <h2>Accessibility deep-dive</h2>
+        <h2>Accessibility in the bones</h2>
         <p>
           "India's first accessibility-first diagnostic app" is worth standing behind only if accessibility is in the bones, not the QA pass.
         </p>
@@ -199,36 +217,40 @@
         </p>
       </section>
 
-      <section class="case-section" id="tradeoffs">
-        <h2>Trade-offs</h2>
-        <p>
-          Senior-first means a calmer visual language than a younger-skewing app would have. Younger users adapt; senior users genuinely struggle with most consumer apps. Trends-first focus deferred doctor referral, e-pharmacy, and family-member account separation — adoption first, monetisation second.
-        </p>
-      </section>
-
       <section class="case-section" id="outcome">
-        <h2>Outcome</h2>
+        <h2>Where it earns its keep</h2>
+        <p>
+          The retention bet pays back on a longer clock than a typical launch. The leading indicators we're watching:
+        </p>
         <div class="metric-grid">
           <div class="metric-tile">
-            <div class="metric-value">Live</div>
-            <div class="metric-label">Public release on iOS + Android (2026)</div>
+            <div class="metric-value">↑ Return rate</div>
+            <div class="metric-label">Quarterly active rate among chronic-condition patients — the only metric that proves the daily-companion bet. The 6-month signal that determines whether v2 happens.</div>
           </div>
           <div class="metric-tile">
-            <div class="metric-value">&lt; 6 hr</div>
-            <div class="metric-label">Report turnaround time, surfaced as a primary affordance</div>
+            <div class="metric-value">Live</div>
+            <div class="metric-label">Public release on iOS + Android (2026). Reports in under 6 hours surfaced as a primary affordance — the hook that pulls Asha back.</div>
           </div>
           <div class="metric-tile">
             <div class="metric-value">India's 1st</div>
-            <div class="metric-label">Accessibility-first diagnostic app at this scale</div>
-          </div>
-          <div class="metric-tile">
-            <div class="metric-value">5</div>
-            <div class="metric-label">Trend categories supported at launch (HbA1c, Cholesterol, LDL, more)</div>
+            <div class="metric-label">Accessibility-first diagnostic app at scale. Brand defensibility against competitors who can't catch up without re-architecting their app.</div>
           </div>
         </div>
-        <p>
-          The product is in the hands of patients now. The deeper measure of success is whether patients keep coming back to look at their trends — which is a 6-month signal we'll be watching carefully.
+        <p class="muted">
+          The product is in patients' hands now. The deeper measure isn't the launch metrics — it's whether patients keep coming back next quarter to look at their trends. That's a 6-month signal we're watching carefully, and the partner-level call is to optimize for it instead of the easier short-term wins.
         </p>
+      </section>
+
+      <section class="case-section" id="cuts">
+        <h2>What we didn't ship</h2>
+        <p>
+          Three real cuts. Not "trade-offs" — actual things we wanted, on the wishlist, didn't happen:
+        </p>
+        <ul>
+          <li><strong>First-class family-member workflows.</strong> A surprising amount of trend-checking is done by adult children on behalf of parents (Ravi's job in our personas). We deferred dedicated multi-account flows to v2; if I'd front-loaded it, the early adoption curve among the 40+ caregiver segment would likely have been steeper. A real cost paid in early adoption.</li>
+          <li><strong>Doctor-shareable summary cards.</strong> Patients want to bring their phone to a doctor visit and show "here's what's been changing." We have it on the v2 roadmap; we should have launched with it. Closing that loop with the doctor is one of the strongest retention drivers we know about — leaving it out at launch was a real call to pay back.</li>
+          <li><strong>e-pharmacy and doctor referral monetisation.</strong> Deliberate cut, and we'd make it again. But it's worth being clear that monetisation didn't land in v1 and the business is carrying that on its books. The bet is that retention-first compounds, and a year of patient adoption will fund the monetisation v2 — but the bet hasn't paid back yet.</li>
+        </ul>
       </section>
 
 
