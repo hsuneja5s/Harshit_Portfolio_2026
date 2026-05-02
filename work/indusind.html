@@ -86,24 +86,22 @@
         Back home
       </a>
       <a href="#tldr">In brief</a>
-      <a href="#audit">The friction audit</a>
-      <a href="#step-reduction">Step reduction · 14 → 6</a>
+      <a href="#problem">The abandonment problem</a>
+      <a href="#bet">Redesigning decisions</a>
+      <a href="#step-reduction">Where it shows · 14 → 6</a>
       <a href="#attention">"Needs your attention"</a>
       <a href="#prefill">Pre-fill + smart defaults</a>
       <a href="#foundation">System foundation</a>
-      <a href="#outcome">Outcome</a>
+      <a href="#outcome">Business outcome</a>
+      <a href="#cuts">What we didn't ship</a>
     </aside>
 
     <article class="case-content">
       <div class="case-hero-image case-hero-indusind" aria-hidden="true"></div>
 
-      <h1 class="case-title">Turning high-friction banking into guided, error-proof flows</h1>
-      <p class="case-subtitle">Shortening complex banking flows into few-step, error-proof journeys. A UX overhaul that streamlined high-friction workflows into clear, guided steps — for both customers and internal users.</p>
+      <h1 class="case-title">The economics of fewer decisions</h1>
+      <p class="case-subtitle">A UX overhaul of high-stakes banking flows — loan applications, cross-currency transfers, account opening — reframed as a decision-reduction problem. Every removed decision is a recovered customer, a recovered application, a recovered revenue line.</p>
 
-      <div class="case-stamp-row">
-        <span class="case-stamp"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg> 6 min read</span>
-        <span class="case-stamp"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg> 2024</span>
-      </div>
       <div class="case-meta">
         <div class="case-meta-row"><span class="case-meta-label">Role</span><span class="case-meta-value">Senior Product Designer</span></div>
         <div class="case-meta-row"><span class="case-meta-label">Team</span><span class="case-meta-value">PwC India</span></div>
@@ -113,24 +111,40 @@
       <section class="case-section case-tldr" id="tldr">
         <h2>In brief</h2>
         <ul>
-          <li>Compressed high-friction banking flows (account opening, business loan applications, cross-currency transfers) into <strong>few-step, error-proof journeys</strong> by collapsing decisions and pre-filling state.</li>
-          <li>Built and rolled out a unified design system underneath — same tokens, same components — across customer mobile, web, and internal staff tools.</li>
-          <li>Component reuse hit <strong>~85%</strong> across surfaces. Pending-action drift, the most common bug class on the legacy app, dropped sharply.</li>
+          <li><strong>The user problem wasn't "friction" — it was abandonment.</strong> Customers were dropping out of the highest-revenue flows (loan applications, cross-currency transfers) because the decision load was punitive. Each abandonment is a lost revenue line.</li>
+          <li><strong>The bet:</strong> stop redesigning screens — redesign decisions. Every flow audited against one question: <em>what's the minimum number of decisions to complete this?</em></li>
+          <li><strong>How it landed:</strong> Apply for Business Loan compressed from <strong>14 decisions to 6</strong>. Pending-action drift (the legacy bug class) dropped sharply. ~85% component reuse across the system.</li>
         </ul>
       </section>
 
-      <section class="case-section" id="audit">
-        <h2>The friction audit</h2>
+      <section class="case-section" id="problem">
+        <h2>The abandonment problem</h2>
         <p>
-          The method was uncomfortably simple: pick the 12 most-used flows, walk through each in the legacy app, count every <em>decision</em> a customer had to make. Not every screen — every decision.
+          The brief landed as <em>"reduce friction in our customer flows."</em> Friction is a feature word — it doesn't tell you which dollar is bleeding. The actual user problem is sharper, and so is the business consequence: customers were abandoning the bank's <em>most valuable</em> flows because the cognitive load of completing them was punitive. A business-loan applicant who drops out at decision 11 of 14 is not a UX statistic; they're a revenue line that walks to a competitor.
+        </p>
+        <p>
+          When we walked the 12 most-used flows in the legacy app and counted decisions, the picture was brutal:
         </p>
         <ul>
-          <li><strong>Apply for Business Loan: 14 decisions across 9 screens.</strong> Half were re-asking for KYC the bank already had.</li>
-          <li><strong>Cross-currency transfer: 11 decisions.</strong> Three were jargon (correspondent bank, charge bearer) the customer couldn't possibly know.</li>
+          <li><strong>Apply for Business Loan: 14 decisions across 9 screens.</strong> Half were re-asking for KYC the bank already had on file.</li>
+          <li><strong>Cross-currency transfer: 11 decisions.</strong> Three were jargon ("correspondent bank", "charge bearer") the customer couldn't possibly know.</li>
           <li><strong>EMI prepayment: 8 decisions</strong> — three of them trick questions whose answer changed the next three.</li>
         </ul>
         <p class="muted">
-          Reframe: stop redesigning screens. Redesign decisions. Every audit asked the same question — <em>"what's the minimum number of decisions to complete this?"</em>
+          Reframe: a "better screen" treats abandonment as a layout problem. The reality is each unnecessary decision is a measurable conversion drop. The flows we redesigned weren't the ugliest — they were the ones where the bank was losing the most revenue per drop-off.
+        </p>
+      </section>
+
+      <section class="case-section" id="bet">
+        <h2>Redesigning decisions</h2>
+        <p>
+          The strategic call: stop redesigning screens. Redesign <em>decisions</em>. The audit was uncomfortably simple — count every decision a customer had to make in a flow, then ask: <em>does the bank already have the answer?</em> If yes, that's not a decision. That's a confirmation.
+        </p>
+        <p>
+          What we explicitly chose <em>not</em> to optimize for: visual polish on the legacy structure. A screen-by-screen polish would have been faster, demoed easily, and changed nothing about the abandonment economics. We held back from "redesign everything" in favour of "remove what shouldn't have been there."
+        </p>
+        <p class="muted">
+          Killed: a wizard mode that walked customers through every complex flow. Tested with users — patronising on simple steps, confusing on complex ones. Replaced with progressive disclosure inside a single continuous frame.
         </p>
       </section>
 
@@ -210,36 +224,40 @@
         </p>
       </section>
 
-      <section class="case-section" id="tradeoffs">
-        <h2>Trade-offs</h2>
+      <section class="case-section" id="outcome">
+        <h2>Business outcome</h2>
         <p>
-          Pre-fill works only when the data is right. The first month had a small spike in support tickets when stale KYC surfaced incorrectly — volume dropped sharply once data quality improved. Killing wizard-mode meant some genuinely complex flows ask customers to think a little more in a single step. Accepted.
+          Decision-reduction tied to outcomes the bank could see on its own dashboards:
+        </p>
+        <div class="metric-grid">
+          <div class="metric-tile">
+            <div class="metric-value">↑ Completion</div>
+            <div class="metric-label">High-stakes flows (business loan, cross-currency transfer) compressed to fewer decisions — directly recovering applicants who would have dropped at decision 11+.</div>
+          </div>
+          <div class="metric-tile">
+            <div class="metric-value">↓ Pending-action drift</div>
+            <div class="metric-label">The legacy bug class — customers stuck mid-flow with no clear path forward — collapsed sharply once "Needs your attention" replaced status-led messaging.</div>
+          </div>
+          <div class="metric-tile">
+            <div class="metric-value">~85% reuse</div>
+            <div class="metric-label">Component reuse across mobile + web. Same tokens, same components — meaning the next flow gets cheaper, not more expensive.</div>
+          </div>
+        </div>
+        <p class="muted">
+          The clearest outcome isn't on the metric tiles: <strong>the system survives without me</strong>. Designers who've never met me are shipping inside it. That's the partner-level bar — leverage that compounds after I'm gone.
         </p>
       </section>
 
-      <section class="case-section" id="outcome">
-        <h2>Outcome</h2>
-        <div class="metric-grid">
-          <div class="metric-tile">
-            <div class="metric-value">~85%</div>
-            <div class="metric-label">Component reuse across mobile + web</div>
-          </div>
-          <div class="metric-tile">
-            <div class="metric-value">↓ Sharp</div>
-            <div class="metric-label">Drop in pending-action drift (the legacy bug class)</div>
-          </div>
-          <div class="metric-tile">
-            <div class="metric-value">↓ Steps</div>
-            <div class="metric-label">High-friction flows compressed (e.g., 14 → 6 steps for business loan)</div>
-          </div>
-          <div class="metric-tile">
-            <div class="metric-value">3</div>
-            <div class="metric-label">AI Figma plugins built and shipped from this engagement</div>
-          </div>
-        </div>
+      <section class="case-section" id="cuts">
+        <h2>What we didn't ship</h2>
         <p>
-          The clearest outcome isn't on the metric tiles: <strong>the system survives without me</strong>. Designers who've never met me are shipping inside it. That's the bar.
+          Three calls we made deliberately, and would still make again — but worth being honest about the cost:
         </p>
+        <ul>
+          <li><strong>Pre-fill assumes clean data.</strong> The first month had a small spike in support tickets when stale KYC surfaced incorrectly. Volume dropped once data quality improved, but the experience for those early customers was worse than the legacy app — and the data quality work should have been a v0 dependency, not a v1.5 fix.</li>
+          <li><strong>The contribution tooling.</strong> PR templates, automated changelogs, contribution rituals — we shipped them in month four. Done in month one, the contribution velocity from other designers would have been double across the engagement. A real cost paid in the team's ramp time.</li>
+          <li><strong>The governance doc.</strong> Six bullet points on what counts as a system decision vs a vertical decision. Written in month three, not month one. Cost us roughly two weeks of consolidation work that should have been free. Writing it earlier would have been the cheapest investment in the whole project.</li>
+        </ul>
       </section>
 
 
