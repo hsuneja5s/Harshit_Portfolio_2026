@@ -86,11 +86,12 @@
         Back home
       </a>
       <a href="#tldr">In brief</a>
-      <a href="#reframe">The reframe</a>
-      <a href="#ia">Information architecture</a>
-      <a href="#insight">Insight.AI deep dive</a>
-      <a href="#tradeoffs">Trade-offs</a>
-      <a href="#outcome">Outcome</a>
+      <a href="#problem">The user problem</a>
+      <a href="#bet">The bet</a>
+      <a href="#build">How we built it</a>
+      <a href="#insight">Insight.ai</a>
+      <a href="#outcome">Business outcome</a>
+      <a href="#cuts">What we didn't ship</a>
     </aside>
 
     <article class="case-content">
@@ -108,29 +109,45 @@
       <section class="case-section case-tldr" id="tldr">
         <h2>In brief</h2>
         <ul>
-          <li><strong>Insight.ai</strong> surfaces burn-rate alerts, cost anomalies, and forward spend projections — embedded directly into the deal platform, not bolted on.</li>
-          <li>Built into <strong>Pacific Platform</strong> — a unified cockpit replacing four parallel trackers across deal management, financials, resources, and budget utilization.</li>
-          <li>Finance now <em>acts</em> on early signals, not monthly slide packs.</li>
+          <li><strong>The problem wasn't reporting — it was time-to-decision.</strong> Finance leaders at a Fortune 10 energy company were learning about deal-level risk weeks after it became actionable.</li>
+          <li><strong>The bet:</strong> embed AI inside the workflow finance leaders already lived in, not behind a separate analytics tool. Insight.ai sits where budget decisions actually get made.</li>
+          <li><strong>The shift:</strong> finance moved from monthly retrospective reporting to in-flight risk management — collapsing the gap between signal and decision.</li>
         </ul>
       </section>
 
-      <section class="case-section" id="reframe">
-        <h2>The reframe</h2>
+      <section class="case-section" id="problem">
+        <h2>The user problem</h2>
         <p>
-          Deal data, time bookings, and budgets lived in four separate trackers. Answering basic questions — which deals are at risk, where are budgets off — took hours of reconciliation. By the time risk surfaced in a steering committee, the window to act had closed.
+          Finance leaders running deal portfolios at a Fortune 10 energy company weren't short on data — they were short on <em>time-to-decision</em>. Deal data, time bookings, and budget actuals lived in four parallel trackers. By the time a deal showed up as "at risk" in a monthly steering committee deck, the window to redirect resourcing or renegotiate scope had already closed.
+        </p>
+        <p>
+          This wasn't a dashboard problem. A better dashboard reports the past faster. The actual cost was <em>strategic</em>: capital-allocation calls that should have been adjusted in week 2 of a quarter were getting flagged in week 10. The business cost showed up downstream as overrun budgets, deferred recoveries, and the slow erosion of margin on flagship engagements.
         </p>
         <p class="pull-quote">
           A dashboard reports the past. A cockpit lets the pilot fly.
         </p>
         <p>
-          That sentence shaped every subsequent decision. Pacific Platform is the cockpit framing, productised.
+          Treating this as a feature problem — "build a better risk view" — would have shipped a prettier version of the same monthly cycle. The reframe was that this was a <strong>cycle-time</strong> problem, and AI was the only realistic way to compress it without doubling the size of the finance ops team.
         </p>
       </section>
 
-      <section class="case-section" id="ia">
-        <h2>Information architecture</h2>
+      <section class="case-section" id="bet">
+        <h2>The bet</h2>
         <p>
-          Four core views, each answering a question finance leaders ask weekly. Same navigation, same vocabulary, same data spine.
+          We made one explicit call early: <strong>Insight.ai had to live inside the day-to-day deal workflow, not next to it.</strong> A standalone analytics product would have shipped faster and demoed better. It also would have failed adoption — finance leaders aren't going to add a fifth tool to a workflow they're already trying to consolidate.
+        </p>
+        <p>
+          What we chose <em>not</em> to optimize for: surface area. We deliberately sacrificed forecasting modules, scenario analysis, custom-report builders, and configurable dashboards. Every one of those was on a wishlist. Every one was deferred because adoption depended on the cockpit being legible to a finance lead opening it cold — not on the platform demonstrating its full capability surface.
+        </p>
+        <p class="muted">
+          Partner-level call: we'd rather ship a tool people use weekly than a tool that wins the procurement RFP and sits unused.
+        </p>
+      </section>
+
+      <section class="case-section" id="build">
+        <h2>How we built it</h2>
+        <p>
+          Four views — same navigation, same vocabulary, same data spine — each answering a question finance leaders ask <em>weekly</em>, not quarterly.
         </p>
 
         <div class="ia-views">
@@ -148,54 +165,61 @@
           </div>
           <div class="ia-view">
             <div class="ia-view-name">Budget Utilization</div>
-            <div class="ia-view-desc">Planned vs. actual spend. Where Insight.AI lives.</div>
+            <div class="ia-view-desc">Planned vs. actual spend. Where Insight.ai lives.</div>
           </div>
         </div>
 
         <p>
-          Navigation is exception-first. <em>At risk</em>, <em>over budget</em>, <em>capacity constrained</em> are primary chips, not buried filters. From the full portfolio to the deals that matter this week — in two taps.
+          Navigation is exception-first. <em>At risk</em>, <em>over budget</em>, <em>capacity constrained</em> are primary chips, not buried filters. The design call: leaders don't open the platform to see the portfolio — they open it to find the few deals that need them this week. Two taps from cold-open to action.
         </p>
       </section>
 
       <section class="case-section" id="insight">
-        <h2>Insight.AI</h2>
+        <h2>Insight.ai</h2>
         <p>
-          On the Budget view, Insight.AI surfaces the question finance teams ask weekly — <em>"is this deal off track, and how much warning do I have?"</em> — before they ask it.
+          Insight.ai is the AI layer embedded inside the Budget view. It answers — proactively, with citation — the question finance teams ask every week: <em>"is this deal off track, and how much warning do I have?"</em>
         </p>
         <ul>
-          <li><strong>Burn-rate alerts:</strong> <em>"Burn rate up 18% this month. Budget exhaustion projected 3 weeks before closure."</em></li>
-          <li><strong>Cost-by-category anomalies:</strong> flags categories where actuals diverge sharply from plan.</li>
-          <li><strong>Spend-trend forward views:</strong> projects FY trajectories from current burn, citing the historical comparison.</li>
+          <li><strong>Burn-rate alerts:</strong> <em>"Burn rate up 18% this month. Budget exhaustion projected 3 weeks before closure."</em> Surfaces during the quarter, not after.</li>
+          <li><strong>Cost-by-category anomalies:</strong> flags categories where actuals diverge sharply from plan, with comparison window cited inline.</li>
+          <li><strong>Spend-trend forward views:</strong> projects FY trajectories from current burn, citing the historical comparison the projection is anchored on.</li>
         </ul>
         <p class="muted">
-          Every Insight.AI output has a "why this" affordance — the numbers, the comparison window, the calculation. Trust comes from verification, not faith.
-        </p>
-      </section>
-
-
-<section class="case-section" id="tradeoffs">
-        <h2>Trade-offs</h2>
-        <p>
-          Single-cockpit cost us scope ambition. Forecasting, scenario analysis, and custom dashboards were all deferred — adoption depended on the cockpit being legible to a finance lead opening it cold. Lean data inputs meant standardising shape across business units; every finance lead lost something small in exchange for visibility nobody had before.
+          Every Insight.ai output has a "why this" affordance — the numbers, the comparison window, the calculation. In a regulated finance context, trust comes from verification, not faith. That call is why the feature passed internal risk review on the first pass and didn't end up gated behind a manual approval queue.
         </p>
       </section>
 
       <section class="case-section" id="outcome">
-        <h2>Outcome</h2>
+        <h2>Business outcome</h2>
+        <p>
+          The design decisions tied directly to three business outcomes the CFO function cared about:
+        </p>
         <div class="metric-grid">
           <div class="metric-tile">
-            <div class="metric-value">Intelligence</div>
-            <div class="metric-label">Burn-rate risks, budget anomalies, and deal health surfaced by Insight.ai — before leaders know to ask.</div>
+            <div class="metric-value">↓ Time-to-decision</div>
+            <div class="metric-label">Deal-level risk surfaced in-flight, not in monthly steering. Capital-allocation calls happen earlier in the quarter — when adjustments still change the outcome.</div>
           </div>
           <div class="metric-tile">
-            <div class="metric-value">One Secure Platform</div>
-            <div class="metric-label">A global deal portfolio, four legacy trackers, and Insight.ai — consolidated into a single governed source of truth.</div>
+            <div class="metric-value">↑ Margin protection</div>
+            <div class="metric-label">Budget anomalies flagged before they compound. Insight.ai's burn-rate signals catch overruns weeks earlier than slide-pack reporting did.</div>
           </div>
           <div class="metric-tile">
-            <div class="metric-value">↓ License Costs</div>
-            <div class="metric-label">Retiring fragmented tools and spreadsheet infrastructure drove measurable cost reduction across the portfolio.</div>
+            <div class="metric-value">↓ License costs</div>
+            <div class="metric-label">Retiring four legacy trackers and the spreadsheet infrastructure around them drove measurable cost reduction — directly attributable to the consolidation decision.</div>
           </div>
         </div>
+      </section>
+
+      <section class="case-section" id="cuts">
+        <h2>What we didn't ship</h2>
+        <p>
+          Three things were on the wishlist and stayed there. Worth being honest about:
+        </p>
+        <ul>
+          <li><strong>Forecasting and scenario analysis.</strong> The natural next layer once burn-rate data is structured. Deferred because adoption of the core cockpit had to come first — a forecasting tool finance leaders don't trust the underlying data of is worse than no forecasting tool. Earned, not assumed.</li>
+          <li><strong>Custom report builders for business-unit finance leads.</strong> Several BUs wanted their own dashboards. We held the line on a single shared vocabulary across the portfolio, knowing it would cost us configurability. The right call for v1 — but it's a debt the v2 governance model needs to pay down.</li>
+          <li><strong>A first-class contributor experience for deal owners.</strong> The cockpit was designed leader-out: it serves the finance lead opening it weekly. Deal owners and analysts — the people keeping the data fresh — got a thinner experience. Their flows lagged leadership flows by a release cycle. If I were starting again, I'd parallel-track contributors from day one.</li>
+        </ul>
       </section>
 
 
