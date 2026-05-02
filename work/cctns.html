@@ -126,26 +126,20 @@
       <section class="case-section" id="problem">
         <h2>The trust problem</h2>
         <p>
-          The unstated assumption in most government-tech briefs is: <em>"if we build it, citizens will use it."</em> That's wrong, and it's the most expensive assumption in the category. A policing platform competes against a citizen's default — walking into a station and talking to a person they at least know how to read. To get used at scale, the digital surface has to clear a higher trust bar than the physical one.
-        </p>
-        <p>
-          Trust at this scale is not a microcopy problem. It's a function of: legibility (can the citizen read the screen?), legitimacy (does it look and behave like the state, not like a startup?), reachability (does it work on a ₹3,000 phone in a regional language?), and recoverability (when something goes wrong, is there a human?). Miss any one of those and adoption stalls — which means state IT budgets shift back to physical infrastructure, and the platform quietly dies.
+          Trust at this scale isn't a microcopy problem. It's legibility (can the citizen read the screen?), legitimacy (does it look like the state, not a startup?), reachability (does it work on a ₹3,000 phone in a regional language?), and recoverability (when something goes wrong, is there a human?). Miss one and adoption stalls — state IT budgets shift back to physical infrastructure, and the platform quietly dies.
         </p>
         <p class="muted">
-          Treating this as a "redesign citizen services" brief would have produced a beautiful, unused product. The reframe was: every design decision is a trust deposit or a trust withdrawal.
+          Every design decision is a trust deposit or a trust withdrawal.
         </p>
       </section>
 
       <section class="case-section" id="call">
         <h2>The strategic call</h2>
         <p>
-          The pivotal question wasn't <em>"what should the citizen experience look like?"</em> It was <em>"should there be one citizen experience, or 28?"</em>
+          <strong>One citizen surface across India</strong> — state-specific logic in the backend, one vocabulary in front. The easier call was giving each state a customisable surface. We refused it, knowing it cost political capital with state IT departments.
         </p>
-        <p>
-          The easy path was give each state a customisable surface — re-skin, re-arrange, re-name. That replicates the fragmentation we were trying to fix. The harder call, at real political cost with state IT departments, was <strong>one citizen surface across India</strong>, with state-specific logic in the backend. One vocabulary; one mental model a citizen carries from Maharashtra to Karnataka without re-learning.
-        </p>
-        <p>
-          What we explicitly chose not to optimize for: state-level customisation surface area. Flexibility lives in customisation slots — language, local terminology, minor flow steps. States <em>cannot</em> fork the citizen surface, the navigation, or the data shape. We absorbed political friction in exchange for a federation-proof product. Partner-level call.
+        <p class="muted">
+          States cannot fork the citizen surface, the navigation, or the data shape. We absorbed that friction for a product that holds at 28 states + 8 UTs without forking.
         </p>
       </section>
 
@@ -190,9 +184,6 @@
           <li><strong>"Affects more than one team's UI" = system change.</strong> One sentence — most-cited governance principle on the project.</li>
           <li><strong>1-page RFC for new patterns.</strong> 48-hour review window. Speed without bottleneck.</li>
         </ul>
-        <p class="muted">
-          The senior move: trusting depth. The alternative is becoming the bottleneck for 5 verticals of micro-decisions.
-        </p>
       </section>
 
       <section class="case-section" id="ai">
@@ -212,9 +203,6 @@
 
       <section class="case-section" id="outcome">
         <h2>Where it earned its keep</h2>
-        <p>
-          The design decisions tied directly to outcomes that matter for a national platform's <em>continued funding</em> — not vanity metrics:
-        </p>
         <div class="metric-grid">
           <div class="metric-tile">
             <div class="metric-value">↑ Citizen adoption</div>
@@ -236,13 +224,10 @@
 
       <section class="case-section" id="cuts">
         <h2>What we didn't ship</h2>
-        <p>
-          Three things were on the list and stayed on the list. Worth being honest:
-        </p>
         <ul>
-          <li><strong>Real-time citizen-officer chat.</strong> Killed by compliance review — chat creates evidentiary records the legal framework wasn't ready for. Replaced with structured request/response flows. The right call for v1, but it costs us the warm-touch interaction citizens want when they're escalating a real complaint.</li>
-          <li><strong>State-customisable citizen surface.</strong> Several state IT departments wanted skin-level customisation. We held the line on a single surface, knowing it cost us political capital. The right call long-term, but it means we win each state the hard way — through citizen adoption pulling state ownership in, not the reverse.</li>
-          <li><strong>Voice-first power-user paths.</strong> Voice is the primary flow for low-literacy citizens, which slows down the metro lawyer who'd rather just fill a dense form. We accepted that asymmetry. A "power-user mode" would have been a v1 distraction — but it's an honest debt the v2 needs to address.</li>
+          <li><strong>Real-time citizen-officer chat.</strong> Killed by compliance — chat creates evidentiary records the legal framework wasn't ready for. Replaced with structured request/response flows. Costs us the warm-touch interaction citizens want when escalating a real complaint.</li>
+          <li><strong>State-customisable citizen surface.</strong> We held the line on a single surface, absorbing political friction. It means we win each state the hard way — through citizen adoption pulling state ownership in, not the reverse.</li>
+          <li><strong>Voice-first power-user paths.</strong> Voice is primary for low-literacy citizens, which slows the metro lawyer who'd rather fill a dense form. We accepted the asymmetry. Honest debt for v2.</li>
         </ul>
       </section>
 

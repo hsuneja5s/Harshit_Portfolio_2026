@@ -119,31 +119,19 @@
       <section class="case-section" id="problem">
         <h2>The activation problem</h2>
         <p>
-          Treating this brief as "design an AI assistant" would have produced a chat product that demos beautifully and quietly fails activation. The actual user problem was upstream: a customer staring at a blinking cursor doesn't know what to ask, freezes, and falls back to the call center. Every frozen customer is a missed deflection — and call-center cost is the line item the bank actually wanted moved.
-        </p>
-        <p>
-          In testing, when we showed users a free-form chat input, <strong>~70% froze</strong>. They asked which buttons to press. They typed two words and stopped. <em>"I don't know what to ask."</em>
+          In testing, when we showed users a free-form chat input, <strong>~70% froze</strong>. They typed two words and stopped. <em>"I don't know what to ask."</em> Every frozen customer became a call-center ticket — and call-center cost was the line item the bank actually wanted moved.
         </p>
         <p class="pull-quote">
           Conversation as a medium is fine. Conversation as a <em>prerequisite</em> is the trap.
-        </p>
-        <p>
-          So the design problem to solve wasn't "make conversation feel natural" — it was "convert a hesitant customer into a successful first-task within 10 seconds, before they reach for the phone."
         </p>
       </section>
 
       <section class="case-section" id="bet">
         <h2>The bet</h2>
-        <p>
-          Two non-obvious calls, both at the cost of looking less impressive in a demo:
-        </p>
         <ul>
           <li><strong>Chips over chat.</strong> Open with a visible menu of the most-asked things. The user sees what's possible in one glance — no cold-start, no "what should I type?". Conversation kicks in <em>after</em> the first action, where it's a power-feature, not a prerequisite.</li>
           <li><strong>Refusal as a product surface, not a filter.</strong> What CUB.ai <em>won't</em> do is published, opinionated, and risk-signed-off — not buried in a content moderation layer. In regulated work, the refusal matrix is the trust-establishing artifact.</li>
         </ul>
-        <p class="muted">
-          What we explicitly chose not to optimize for: open-ended conversational range. A more chatty assistant would have been more "AI-feeling." It also would have raised the activation barrier and the compliance surface area at the same time.
-        </p>
       </section>
 
       <section class="case-section" id="chips">
@@ -155,9 +143,6 @@
           <li><strong>Banking Summary</strong> · <strong>Last 5 Transactions</strong> · <strong>Block Card</strong> · <strong>Transfer Money</strong></li>
           <li><strong>Pay Bills</strong> · <strong>Find ATM</strong> · <strong>Download Statement</strong> · <strong>Report Fraud</strong></li>
         </ul>
-        <p>
-          Why eight, not fifteen? Cognitive load. Beyond eight, users start scrolling — and lose the "I see what's possible" moment that solves cold-start. The long tail falls through to free-text after the user is already in the conversation.
-        </p>
       </section>
 
       <section class="case-section" id="conversations">
@@ -237,9 +222,6 @@
 
       <section class="case-section" id="outcome">
         <h2>Business outcome</h2>
-        <p>
-          The chip-first activation bet tied directly to the business metrics the bank actually had at risk:
-        </p>
         <div class="metric-grid">
           <div class="metric-tile">
             <div class="metric-value">4.7 → 9.2</div>
@@ -254,20 +236,14 @@
             <div class="metric-label">Of customer-service volume handled by 8 chips. Activation problem solved at the head of the curve.</div>
           </div>
         </div>
-        <p class="muted">
-          CUB.ai is now the primary self-service surface for routine banking. Call-center capacity is freed up for the genuinely complex requests that <em>need</em> a human — the kind of work the bank should never have been trying to automate.
-        </p>
       </section>
 
       <section class="case-section" id="cuts">
         <h2>What we didn't ship</h2>
-        <p>
-          Three things we wanted in v1 and made the call to defer. Worth being explicit about:
-        </p>
         <ul>
-          <li><strong>Long-tail intent coverage beyond ~85%.</strong> The remaining ~15% of customer-service volume still falls through to call center. We capped chip count at 8 to protect activation — beyond eight, users start scrolling and lose the "I see what's possible" moment that solved cold-start in the first place. The long tail is v2 work.</li>
-          <li><strong>Onboarding for legacy power users.</strong> Our launch focused on welcoming first-time and casual users — but the most-vocal early complaints came from heavy users who couldn't find the tab structure they'd internalised. A 30-second "what changed" tour at launch would have saved a lot of support load. We added it later. Should have been v1.</li>
-          <li><strong>Investment in chatbot error UX.</strong> Users are far less forgiving of an AI mistake than a form validation error — a misclassified intent feels personal. We treated the recovery flow as a v1.5 problem; in hindsight, it should have shipped at launch and prevented a small adoption stutter we didn't need to absorb.</li>
+          <li><strong>Long-tail intent coverage beyond ~85%.</strong> Capped chip count at 8 to protect activation — beyond eight, users scroll and lose the "I see what's possible" moment. The long tail is v2 work.</li>
+          <li><strong>Onboarding for legacy power users.</strong> Launch focused on first-time users; heavy users couldn't find the tab structure they'd internalised. A 30-second "what changed" tour should have been v1.</li>
+          <li><strong>Chatbot error UX.</strong> A misclassified intent feels personal — more so than a form error. Recovery flow was a v1.5 call; it should have shipped at launch.</li>
         </ul>
       </section>
 

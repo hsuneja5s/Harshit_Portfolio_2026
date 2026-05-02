@@ -120,10 +120,7 @@
       <section class="case-section" id="problem">
         <h2>The abandonment problem</h2>
         <p>
-          The brief landed as <em>"reduce friction in our customer flows."</em> Friction is a feature word — it doesn't tell you which dollar is bleeding. The actual user problem is sharper, and so is the business consequence: customers were abandoning the bank's <em>most valuable</em> flows because the cognitive load of completing them was punitive. A business-loan applicant who drops out at decision 11 of 14 is not a UX statistic; they're a revenue line that walks to a competitor.
-        </p>
-        <p>
-          When we walked the 12 most-used flows in the legacy app and counted decisions, the picture was brutal:
+          The bank's highest-revenue flows had punitive decision counts. Every drop-off is a revenue line that walks to a competitor:
         </p>
         <ul>
           <li><strong>Apply for Business Loan: 14 decisions across 9 screens.</strong> Half were re-asking for KYC the bank already had on file.</li>
@@ -137,9 +134,6 @@
 
       <section class="case-section" id="bet">
         <h2>Redesigning decisions</h2>
-        <p>
-          The strategic call: stop redesigning screens. Redesign <em>decisions</em>. The audit was uncomfortably simple — count every decision a customer had to make in a flow, then ask: <em>does the bank already have the answer?</em> If yes, that's not a decision. That's a confirmation.
-        </p>
         <p>
           What we explicitly chose <em>not</em> to optimize for: visual polish on the legacy structure. A screen-by-screen polish would have been faster, demoed easily, and changed nothing about the abandonment economics. We held back from "redesign everything" in favour of "remove what shouldn't have been there."
         </p>
@@ -191,7 +185,7 @@
         </div>
 
         <p>
-          The seven decisions that disappeared weren't simplified — they were <strong>moved off the customer's plate entirely</strong>. Replaced with confirmation chips: "Use this PAN" / "Use this address." Customer taps once instead of typing.
+          The decisions that disappeared weren't simplified — they were <strong>moved off the customer's plate</strong>. Replaced with confirmation chips: "Use this PAN." Customer taps once instead of typing.
         </p>
       </section>
 
@@ -210,10 +204,7 @@
       <section class="case-section" id="prefill">
         <h2>Pre-fill + smart defaults</h2>
         <p>
-          Three patterns across every flow: confirmation chips instead of blank input fields; defaults from history (the beneficiary you transferred to 8 of the last 10 times); live computation as the customer types (loan EMI updates inline, no "Calculate" button).
-        </p>
-        <p class="muted">
-          Killed a wizard mode that walked customers through every complex flow. Tested with users — patronising on simple steps, confusing on complex ones. Replaced with progressive disclosure inside one continuous frame.
+          Confirmation chips instead of blank fields. Defaults from history. Live EMI computation as the customer types — no "Calculate" button.
         </p>
       </section>
 
@@ -226,9 +217,6 @@
 
       <section class="case-section" id="outcome">
         <h2>Business outcome</h2>
-        <p>
-          Decision-reduction tied to outcomes the bank could see on its own dashboards:
-        </p>
         <div class="metric-grid">
           <div class="metric-tile">
             <div class="metric-value">↑ Completion</div>
@@ -243,20 +231,14 @@
             <div class="metric-label">Component reuse across mobile + web. Same tokens, same components — meaning the next flow gets cheaper, not more expensive.</div>
           </div>
         </div>
-        <p class="muted">
-          The clearest outcome isn't on the metric tiles: <strong>the system survives without me</strong>. Designers who've never met me are shipping inside it. That's the partner-level bar — leverage that compounds after I'm gone.
-        </p>
       </section>
 
       <section class="case-section" id="cuts">
         <h2>What we didn't ship</h2>
-        <p>
-          Three calls we made deliberately, and would still make again — but worth being honest about the cost:
-        </p>
         <ul>
-          <li><strong>Pre-fill assumes clean data.</strong> The first month had a small spike in support tickets when stale KYC surfaced incorrectly. Volume dropped once data quality improved, but the experience for those early customers was worse than the legacy app — and the data quality work should have been a v0 dependency, not a v1.5 fix.</li>
-          <li><strong>The contribution tooling.</strong> PR templates, automated changelogs, contribution rituals — we shipped them in month four. Done in month one, the contribution velocity from other designers would have been double across the engagement. A real cost paid in the team's ramp time.</li>
-          <li><strong>The governance doc.</strong> Six bullet points on what counts as a system decision vs a vertical decision. Written in month three, not month one. Cost us roughly two weeks of consolidation work that should have been free. Writing it earlier would have been the cheapest investment in the whole project.</li>
+          <li><strong>Pre-fill assumes clean data.</strong> First month had a support ticket spike when stale KYC surfaced incorrectly. Data quality work should have been a v0 dependency, not a v1.5 fix.</li>
+          <li><strong>Contribution tooling.</strong> PR templates and contribution rituals shipped in month four. Done in month one, contribution velocity from other designers would have been double.</li>
+          <li><strong>Governance doc.</strong> Six bullets on system vs. vertical decisions. Written in month three — cost two weeks of consolidation that should have been free.</li>
         </ul>
       </section>
 

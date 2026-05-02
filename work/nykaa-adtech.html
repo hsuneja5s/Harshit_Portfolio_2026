@@ -120,38 +120,23 @@
       <section class="case-section" id="problem">
         <h2>A revenue-ceiling problem</h2>
         <p>
-          The brief landed as <em>"give brand managers a self-serve ads console."</em> Reading it that way produces a faster version of the existing concierge model — a faster intake form. The actual user problem was upstream and harsher: Nykaa's ad-revenue line was capped by the throughput of its own operations team.
-        </p>
-        <p>
-          The legacy flow: brand manager emails Nykaa rep → rep configures campaign → rep emails screenshot for approval → campaign goes live 3-7 days later → PDF report 2 weeks in. Scaled to 50 brands. Broke at 500. Was on fire at thousands. Every brand added a fixed amount of human-hours to AdOps — and AdOps doesn't scale linearly with the inventory Nykaa has to monetise. The result: a structural gap between the inventory available and the revenue the ad business could capture against it.
-        </p>
-        <p>
-          So the design problem isn't <em>"give the brand manager a nicer interface."</em> It's <em>"unbundle the concierge so the platform can monetise its full inventory."</em> Two different products live underneath those two framings.
+          The legacy flow: brand manager emails Nykaa rep → rep configures campaign → approval by email → live in 3–7 days → PDF report 2 weeks later. Scaled to 50 brands. Broke at 500. Every brand added fixed human-hours to AdOps — and AdOps doesn't scale with the inventory Nykaa had to monetise.
         </p>
         <p class="pull-quote">
-          Build the workflow Priya already has in her head. Remove every step that doesn't add value to her — and that doesn't need to live inside Nykaa's AdOps team.
+          The design problem wasn't "give the brand manager a nicer interface." It was "unbundle the concierge so the platform can monetise its full inventory."
         </p>
       </section>
 
       <section class="case-section" id="bet">
         <h2>The bet</h2>
-        <p>
-          The non-obvious calls — the ones that look like restraint and read like missed-features in a demo:
-        </p>
         <ul>
           <li><strong>Designed for Priya, not for ad-ops specialists.</strong> Most ad platforms (Google Ads, Meta Ads Manager) are built for daily users who learn the surface. Brand managers spend 20% of their week on Nykaa. Power-user range was the wrong target — comprehension on first open was.</li>
           <li><strong>Three tabs. Refused a fourth.</strong> Three is the cognitive ceiling for a non-daily user. A fourth tab would have absorbed real wishlist items (multi-brand reporting, advanced targeting, drag-drop builder). We made the call to ship none of those in v1 — adoption depended on legibility, not capability.</li>
         </ul>
-        <p class="muted">
-          What we explicitly chose not to optimize for: feature parity with Google Ads. We could have built a sophisticated targeting console; brand managers would have ignored it. Restraint was the strategy.
-        </p>
       </section>
 
       <section class="case-section" id="persona">
         <h2>Designing for Priya</h2>
-        <p>
-          The person we designed for is the test of whether the bet was right. Not a hypothetical — a composite from 14 brand-manager interviews:
-        </p>
 
         <div class="persona-grid">
           <div class="persona-card">
@@ -166,9 +151,6 @@
           </div>
         </div>
 
-        <p class="muted">
-          Composite persona built from 14 brand-manager interviews across beauty, FMCG, and fashion.
-        </p>
       </section>
 
       <section class="case-section" id="ia">
@@ -192,9 +174,6 @@
           </div>
         </div>
 
-        <p class="muted">
-          Three is the cognitive ceiling for a non-daily user. Killed in v1: drag-drop campaign builder, advanced targeting, multi-brand reporting. All right calls eventually — not in v1.
-        </p>
       </section>
 
       <section class="case-section" id="review">
@@ -220,9 +199,6 @@
           </div>
         </div>
 
-        <p>
-          State is rendered <strong>per creative format</strong>, not per campaign. A campaign might have Square approved, Horizontal pending, Vertical needing changes. Brand managers see exactly where to focus.
-        </p>
       </section>
 
       <section class="case-section" id="metrics">
@@ -230,16 +206,10 @@
         <p>
           Six metrics, in funnel order: <strong>Impressions, Clicks, CTR, Add to Cart, Orders, Revenue</strong>. Same metrics at every scope — campaign, ad, section, tag. Reading right-to-left answers the only question that matters: <em>is the spend paying off?</em>
         </p>
-        <p class="muted">
-          Above the strip: Attribution Window as a primary chip (1 Day / 14 Days). Most platforms bury this in advanced settings. The answer to "is this paying off?" is meaningless without it.
-        </p>
       </section>
 
       <section class="case-section" id="outcome">
         <h2>Business outcome</h2>
-        <p>
-          The shift to self-serve tied directly to outcomes Nykaa's ad business was structurally capped on:
-        </p>
         <div class="metric-grid">
           <div class="metric-tile">
             <div class="metric-value">↑ Inventory monetisation</div>
@@ -254,20 +224,14 @@
             <div class="metric-label">AdOps freed for the conversations they were never able to have under concierge — campaign planning, creative direction, partnership strategy. The team's value to the business stepped up, not down.</div>
           </div>
         </div>
-        <p class="muted">
-          Faster time-to-market for every campaign was the obvious win. The bigger one was structural: Nykaa's ad business stopped being a function of its operations team's headcount.
-        </p>
       </section>
 
       <section class="case-section" id="cuts">
         <h2>What we didn't ship</h2>
-        <p>
-          Three things we wanted in v1 and made the call to defer. Worth being explicit about each:
-        </p>
         <ul>
-          <li><strong>Onboarding for first-time brand managers.</strong> The platform was obvious from cold to most users — but a 2-minute guided first-campaign flow would have raised week-1 retention meaningfully. Added in v2; should have been v1. A real cost paid in slower activation among the most engaged brand-manager segment.</li>
-          <li><strong>Cross-campaign portfolio dashboard.</strong> Brand managers running 5+ campaigns at once needed a "portfolio view" that we didn't ship in v1. They got it in v2 — but we left some of the most engaged users frustrated for a quarter. Holding the 3-tab line was the right call; not having a portfolio surface for power-users was the wrong cost to pay.</li>
-          <li><strong>Multi-brand reporting and advanced targeting.</strong> Deferred deliberately, and we'd defer them again. But it's worth being honest — the v1 platform left a small group of sophisticated users without the surface they needed. They came back when v2 shipped, but a few brand-manager-of-the-year-types absorbed real friction in the meantime.</li>
+          <li><strong>Onboarding for first-time brand managers.</strong> A 2-minute guided first-campaign flow would have raised week-1 retention. Added in v2 — should have been v1.</li>
+          <li><strong>Cross-campaign portfolio dashboard.</strong> Brand managers running 5+ campaigns needed a portfolio view. Holding the 3-tab line was right; leaving power-users without a portfolio view was the wrong cost to pay.</li>
+          <li><strong>Multi-brand reporting and advanced targeting.</strong> Deliberately deferred — and we'd defer them again. But a small group of sophisticated users absorbed real friction until v2 shipped.</li>
         </ul>
       </section>
 

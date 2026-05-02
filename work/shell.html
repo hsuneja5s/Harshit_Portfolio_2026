@@ -118,16 +118,10 @@
       <section class="case-section" id="problem">
         <h2>The user problem</h2>
         <p>
-          Finance leaders running deal portfolios at a Fortune 10 energy company weren't short on data — they were short on <em>time-to-decision</em>. Deal data, time bookings, and budget actuals lived in four parallel trackers. By the time a deal showed up as "at risk" in a monthly steering committee deck, the window to redirect resourcing or renegotiate scope had already closed.
-        </p>
-        <p>
-          This wasn't a dashboard problem. A better dashboard reports the past faster. The actual cost was <em>strategic</em>: capital-allocation calls that should have been adjusted in week 2 of a quarter were getting flagged in week 10. The business cost showed up downstream as overrun budgets, deferred recoveries, and the slow erosion of margin on flagship engagements.
+          Capital-allocation calls that should have been adjusted in week 2 of a quarter were getting flagged in week 10. Deal data, time bookings, and budget actuals lived in four parallel trackers. By the time a deal showed up as "at risk" in a monthly steering deck, the window to act had already closed.
         </p>
         <p class="pull-quote">
           A dashboard reports the past. A cockpit lets the pilot fly.
-        </p>
-        <p>
-          Treating this as a feature problem — "build a better risk view" — would have shipped a prettier version of the same monthly cycle. The reframe was that this was a <strong>cycle-time</strong> problem, and AI was the only realistic way to compress it without doubling the size of the finance ops team.
         </p>
       </section>
 
@@ -139,16 +133,10 @@
         <p>
           What we chose <em>not</em> to optimize for: surface area. We deliberately sacrificed forecasting modules, scenario analysis, custom-report builders, and configurable dashboards. Every one of those was on a wishlist. Every one was deferred because adoption depended on the cockpit being legible to a finance lead opening it cold — not on the platform demonstrating its full capability surface.
         </p>
-        <p class="muted">
-          Partner-level call: we'd rather ship a tool people use weekly than a tool that wins the procurement RFP and sits unused.
-        </p>
       </section>
 
       <section class="case-section" id="build">
         <h2>How we built it</h2>
-        <p>
-          Four views — same navigation, same vocabulary, same data spine — each answering a question finance leaders ask <em>weekly</em>, not quarterly.
-        </p>
 
         <div class="ia-views">
           <div class="ia-view">
@@ -191,9 +179,6 @@
 
       <section class="case-section" id="outcome">
         <h2>Business outcome</h2>
-        <p>
-          The design decisions tied directly to three business outcomes the CFO function cared about:
-        </p>
         <div class="metric-grid">
           <div class="metric-tile">
             <div class="metric-value">↓ Time-to-decision</div>
@@ -212,13 +197,10 @@
 
       <section class="case-section" id="cuts">
         <h2>What we didn't ship</h2>
-        <p>
-          Three things were on the wishlist and stayed there. Worth being honest about:
-        </p>
         <ul>
-          <li><strong>Forecasting and scenario analysis.</strong> The natural next layer once burn-rate data is structured. Deferred because adoption of the core cockpit had to come first — a forecasting tool finance leaders don't trust the underlying data of is worse than no forecasting tool. Earned, not assumed.</li>
-          <li><strong>Custom report builders for business-unit finance leads.</strong> Several BUs wanted their own dashboards. We held the line on a single shared vocabulary across the portfolio, knowing it would cost us configurability. The right call for v1 — but it's a debt the v2 governance model needs to pay down.</li>
-          <li><strong>A first-class contributor experience for deal owners.</strong> The cockpit was designed leader-out: it serves the finance lead opening it weekly. Deal owners and analysts — the people keeping the data fresh — got a thinner experience. Their flows lagged leadership flows by a release cycle. If I were starting again, I'd parallel-track contributors from day one.</li>
+          <li><strong>Forecasting and scenario analysis.</strong> Deferred — adoption of the core cockpit had to come first. A forecasting tool finance leaders don't trust the underlying data of is worse than no forecasting tool.</li>
+          <li><strong>Custom report builders for BU finance leads.</strong> We held the line on a shared vocabulary, knowing it cost configurability. Right for v1 — debt for v2.</li>
+          <li><strong>Contributor experience for deal owners.</strong> The cockpit was designed leader-out. Deal owners got a thinner experience; their flows lagged by a release cycle. I'd parallel-track contributors from day one if starting again.</li>
         </ul>
       </section>
 
