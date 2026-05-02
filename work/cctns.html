@@ -86,25 +86,22 @@
         Back home
       </a>
       <a href="#tldr">In brief</a>
-      <a href="#federation">The federation problem</a>
-      <a href="#unified">Unified-with-flexibility</a>
-      <a href="#leadership">Leadership &amp; governance</a>
+      <a href="#problem">The trust problem</a>
+      <a href="#call">The strategic call</a>
+      <a href="#federation">Federation map</a>
+      <a href="#leadership">Shipping at scale</a>
       <a href="#ai">AI in regulated work</a>
-      <a href="#tradeoffs">Trade-offs</a>
-      <a href="#outcome">Outcome</a>
+      <a href="#outcome">Where it earned its keep</a>
+      <a href="#cuts">What we didn't ship</a>
       <a href="#nda" class="case-nav-nda">Request full case →</a>
     </aside>
 
     <article class="case-content">
       <div class="case-hero-image case-hero-cctns" aria-hidden="true"></div>
 
-      <h1 class="case-title">Redesigning citizen services for 1.4 billion+ Indians</h1>
-      <p class="case-subtitle">A national policing platform connecting citizens, officers, and state machinery — designed for India's 1.4 billion. End-to-end FIR management, citizen services, and security operations on one stack.</p>
+      <h1 class="case-title">Designing citizen trust into a national platform</h1>
+      <p class="case-subtitle">A national policing platform connecting citizens, officers, and state machinery across India. The core question wasn't "what should the UI look like" — it was whether 1.4B citizens would trust a digital surface enough to use it instead of walking into a station.</p>
 
-      <div class="case-stamp-row">
-        <span class="case-stamp"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg> 5 min read · NDA-redacted</span>
-        <span class="case-stamp"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg> 2023 — Present</span>
-      </div>
       <div class="nda-banner">
         <p>
           <strong>Public overview only.</strong> This case study is under client NDA — UI screenshots, internal stakeholder details, state-specific data, and confidential decisions are redacted. The deeper case study with full artefacts is available on request to serious hiring managers under a brief mutual NDA. <a href="#nda" class="inline-link">Request access →</a>
@@ -120,16 +117,42 @@
       <section class="case-section case-tldr" id="tldr">
         <h2>In brief</h2>
         <ul>
-          <li>Leading design on a national policing platform spanning citizen services, officer dashboards, and FIR management — designed for India's full citizen base.</li>
-          <li>Reframed a fragmented multi-state experience into <strong>one citizen surface</strong> with state-specific logic in the backend — abstracted variance without papering over it.</li>
-          <li>Established design system, governance model, and AI-assisted workflows for the team. Mentoring 5 designers across the engagement.</li>
+          <li><strong>The real problem wasn't UX — it was institutional trust.</strong> A platform that looks great but a citizen doesn't trust enough to use against the local station has zero impact.</li>
+          <li><strong>The strategic call:</strong> one citizen surface across India (with state-specific logic in the backend), not 28 customised state surfaces. Political cost upfront, federation-proof at scale.</li>
+          <li><strong>How it gets paid back:</strong> citizen adoption against the legacy "walk into the station" path — the only metric that matters for state digitisation budgets to keep flowing.</li>
         </ul>
       </section>
 
-      <section class="case-section" id="federation">
-        <h2>The federation problem</h2>
+      <section class="case-section" id="problem">
+        <h2>The trust problem</h2>
         <p>
-          India is not one design problem. It's the same problem multiplied by every variance axis — language, literacy, device, trust, state machinery, regulation. Designing one product for the whole country means designing for the variance, not around it.
+          The unstated assumption in most government-tech briefs is: <em>"if we build it, citizens will use it."</em> That's wrong, and it's the most expensive assumption in the category. A policing platform competes against a citizen's default — walking into a station and talking to a person they at least know how to read. To get used at scale, the digital surface has to clear a higher trust bar than the physical one.
+        </p>
+        <p>
+          Trust at this scale is not a microcopy problem. It's a function of: legibility (can the citizen read the screen?), legitimacy (does it look and behave like the state, not like a startup?), reachability (does it work on a ₹3,000 phone in a regional language?), and recoverability (when something goes wrong, is there a human?). Miss any one of those and adoption stalls — which means state IT budgets shift back to physical infrastructure, and the platform quietly dies.
+        </p>
+        <p class="muted">
+          Treating this as a "redesign citizen services" brief would have produced a beautiful, unused product. The reframe was: every design decision is a trust deposit or a trust withdrawal.
+        </p>
+      </section>
+
+      <section class="case-section" id="call">
+        <h2>The strategic call</h2>
+        <p>
+          The pivotal question wasn't <em>"what should the citizen experience look like?"</em> It was <em>"should there be one citizen experience, or 28?"</em>
+        </p>
+        <p>
+          The easy path was give each state a customisable surface — re-skin, re-arrange, re-name. That replicates the fragmentation we were trying to fix. The harder call, at real political cost with state IT departments, was <strong>one citizen surface across India</strong>, with state-specific logic in the backend. One vocabulary; one mental model a citizen carries from Maharashtra to Karnataka without re-learning.
+        </p>
+        <p>
+          What we explicitly chose not to optimize for: state-level customisation surface area. Flexibility lives in customisation slots — language, local terminology, minor flow steps. States <em>cannot</em> fork the citizen surface, the navigation, or the data shape. We absorbed political friction in exchange for a federation-proof product. Partner-level call.
+        </p>
+      </section>
+
+      <section class="case-section" id="federation">
+        <h2>Federation map</h2>
+        <p>
+          One product. Every variance axis. Designing for the variance, not around it:
         </p>
 
         <div class="federation-map">
@@ -156,21 +179,8 @@
         </div>
       </section>
 
-      <section class="case-section" id="unified">
-        <h2>Unified-with-flexibility</h2>
-        <p>
-          The strategic question wasn't <em>"what should the citizen experience look like?"</em> It was <em>"should there be one citizen experience, or 28?"</em>
-        </p>
-        <p>
-          Easy path: give each state a customisable surface — re-skin, re-arrange, re-name. That replicates the fragmentation we were trying to fix. The harder call, at real political cost, was <strong>one citizen surface across India</strong>, with state-specific logic in the backend. One vocabulary; one mental model a citizen carries from Maharashtra to Karnataka without re-learning.
-        </p>
-        <p class="muted">
-          Flexibility lives in customisation slots, not the surface. States can adapt language, local terminology, minor flow steps. They cannot fork the citizen surface, the navigation, or the data shape.
-        </p>
-      </section>
-
       <section class="case-section" id="leadership">
-        <h2>Leadership &amp; governance</h2>
+        <h2>Shipping at scale</h2>
         <p>
           5 designers across 5 citizen verticals shipping in parallel. No designer can hold the whole system in their head. Governance is the infrastructure, not a phase.
         </p>
@@ -200,36 +210,40 @@
         </p>
       </section>
 
-      <section class="case-section" id="tradeoffs">
-        <h2>Trade-offs</h2>
-        <p>
-          Unified UI cost political capital with state IT departments. Voice-first flows are slower for power users than dense forms. Real-time citizen-officer chat was killed by compliance review and replaced with structured request/response flows. In compliance-heavy work, the question isn't <em>"can we ship this?"</em> — it's <em>"can the regulator look at this in 6 months?"</em>
-        </p>
-      </section>
-
       <section class="case-section" id="outcome">
-        <h2>Outcome</h2>
-
+        <h2>Where it earned its keep</h2>
+        <p>
+          The design decisions tied directly to outcomes that matter for a national platform's <em>continued funding</em> — not vanity metrics:
+        </p>
         <div class="metric-grid">
           <div class="metric-tile">
-            <div class="metric-value">1.4B+</div>
-            <div class="metric-label">Citizens in target population</div>
+            <div class="metric-value">↑ Citizen adoption</div>
+            <div class="metric-label">Reach across India's full citizen base — the only metric that earns the next phase of state IT budget. Pilot numbers under NDA.</div>
           </div>
           <div class="metric-tile">
-            <div class="metric-value">5</div>
-            <div class="metric-label">Designers led + mentored</div>
+            <div class="metric-value">↓ Time-to-resolution</div>
+            <div class="metric-label">Citizens resolving requests through the digital surface instead of the station queue. Direct relief on officer workload.</div>
           </div>
           <div class="metric-tile">
             <div class="metric-value">28 + 8</div>
-            <div class="metric-label">States + Union Territories supported</div>
-          </div>
-          <div class="metric-tile">
-            <div class="metric-value">6</div>
-            <div class="metric-label">Languages supported at launch</div>
+            <div class="metric-label">States + UTs on a single citizen surface — federation-proof, no forking. The strategic call paid back.</div>
           </div>
         </div>
+        <p class="muted">
+          State-level adoption rates, officer satisfaction scores, and citizen-side trust metrics are part of the deeper case study available under NDA.
+        </p>
+      </section>
 
-        <p>Pilot rollout numbers — state-level adoption, citizen usage, officer satisfaction, time-to-resolution — are part of the deeper case study available under NDA.</p>
+      <section class="case-section" id="cuts">
+        <h2>What we didn't ship</h2>
+        <p>
+          Three things were on the list and stayed on the list. Worth being honest:
+        </p>
+        <ul>
+          <li><strong>Real-time citizen-officer chat.</strong> Killed by compliance review — chat creates evidentiary records the legal framework wasn't ready for. Replaced with structured request/response flows. The right call for v1, but it costs us the warm-touch interaction citizens want when they're escalating a real complaint.</li>
+          <li><strong>State-customisable citizen surface.</strong> Several state IT departments wanted skin-level customisation. We held the line on a single surface, knowing it cost us political capital. The right call long-term, but it means we win each state the hard way — through citizen adoption pulling state ownership in, not the reverse.</li>
+          <li><strong>Voice-first power-user paths.</strong> Voice is the primary flow for low-literacy citizens, which slows down the metro lawyer who'd rather just fill a dense form. We accepted that asymmetry. A "power-user mode" would have been a v1 distraction — but it's an honest debt the v2 needs to address.</li>
+        </ul>
       </section>
 
 
