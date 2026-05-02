@@ -112,7 +112,7 @@ img {
 }
 
 .header-inner {
-  max-width: 720px;
+  max-width: 800px;
   margin: 0 auto;
   padding: 16px 24px;
   display: flex;
@@ -228,7 +228,7 @@ img {
    MAIN LAYOUT
    ============================================ */
 .main {
-  max-width: 720px;
+  max-width: 800px;
   margin: 0 auto;
   padding: 0 24px 80px;
   animation: contentSlideIn 0.35s ease both;
@@ -251,11 +251,6 @@ img {
   color: var(--text-secondary);
   line-height: 1.55;
   margin-bottom: 12px;
-  max-width: 540px;
-}
-
-.sayhello .section-sub {
-  max-width: none;
 }
 
 /* ============================================
@@ -301,7 +296,6 @@ img {
   font-size: 16px;
   color: var(--text-secondary);
   line-height: 1.5;
-  max-width: 580px;
 }
 
 /* ============================================
@@ -835,7 +829,7 @@ img {
    CASE STUDY LAYOUT — content centered, nav floats left
    ============================================ */
 .case-layout {
-  max-width: 760px;
+  max-width: 840px;
   margin: 0 auto;
   padding: 48px 24px 120px;
   position: relative;
@@ -1171,7 +1165,6 @@ img {
   border-left: 2px solid var(--border-inverse);
   padding: 4px 0 4px 18px;
   margin-bottom: 18px;
-  max-width: 620px;
 }
 
 .decision-block .label {
@@ -1393,7 +1386,6 @@ img {
 /* Conversation bubble (CUB.ai) — refined */
 .conversation {
   margin: 20px 0 28px;
-  max-width: 620px;
   display: flex;
   flex-direction: column;
   gap: 8px;
@@ -1596,7 +1588,6 @@ img {
   display: flex;
   flex-direction: column;
   gap: 10px;
-  max-width: 620px;
 }
 
 .token-tier {
@@ -2038,7 +2029,7 @@ p.pull-quote {
    SIMPLE PAGE (About / Now / Under-the-hood)
    ============================================ */
 .simple-page {
-  max-width: 720px;
+  max-width: 800px;
   margin: 0 auto;
   padding: 56px 24px 96px;
 }
@@ -2077,7 +2068,6 @@ p.pull-quote {
   color: var(--text-primary);
   line-height: 1.7;
   margin-bottom: 20px;
-  max-width: 640px;
 }
 
 .simple-page p.muted {
