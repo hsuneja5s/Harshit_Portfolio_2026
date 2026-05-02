@@ -86,24 +86,22 @@
         Back home
       </a>
       <a href="#tldr">In brief</a>
-      <a href="#persona">Brand-manager persona</a>
-      <a href="#reframe">Concierge → self-serve</a>
-      <a href="#ia">3-tab IA rationale</a>
+      <a href="#problem">A revenue-ceiling problem</a>
+      <a href="#bet">The bet</a>
+      <a href="#persona">Designing for Priya</a>
+      <a href="#ia">3-tab IA</a>
       <a href="#review">Creative review states</a>
       <a href="#metrics">Performance hierarchy</a>
-      <a href="#outcome">Outcome</a>
+      <a href="#outcome">Business outcome</a>
+      <a href="#cuts">What we didn't ship</a>
     </aside>
 
     <article class="case-content">
       <div class="case-hero-image case-hero-nykaa-adtech" aria-hidden="true"></div>
 
-      <h1 class="case-title">From approval queues to self-serve campaign management</h1>
-      <p class="case-subtitle">Giving brand managers a self-serve ads console. A single place to launch placements on Nykaa, see live performance, and iterate creatives — reducing manual coordination and speeding up time-to-market for new campaigns.</p>
+      <h1 class="case-title">Unbundling the concierge</h1>
+      <p class="case-subtitle">Nykaa's ad business hit a revenue ceiling because every campaign needed a Nykaa rep in the loop. The product wasn't a self-serve console — it was the operational unbundling of an account-management bottleneck. Adoption across thousands of brand managers, support tickets down sharply, AdOps freed for strategic work.</p>
 
-      <div class="case-stamp-row">
-        <span class="case-stamp"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg> 5 min read</span>
-        <span class="case-stamp"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg> 2022 — 2023</span>
-      </div>
       <div class="case-meta">
         <div class="case-meta-row"><span class="case-meta-label">Role</span><span class="case-meta-value">Senior Product Designer</span></div>
         <div class="case-meta-row"><span class="case-meta-label">Team</span><span class="case-meta-value">Nykaa</span></div>
@@ -113,16 +111,46 @@
       <section class="case-section case-tldr" id="tldr">
         <h2>In brief</h2>
         <ul>
-          <li>Built a <strong>self-serve campaign console</strong> from scratch — brand managers launch placements on Nykaa without a Nykaa rep in the loop.</li>
-          <li>Designed a unified live performance view (Impressions, Clicks, CTR, Add to Cart, Orders, Revenue) with section-level breakdowns across Banner, Category in Focus, In the Spotlight.</li>
-          <li>Drove adoption across thousands of brand-manager seats and reduced support tickets significantly. Faster go-to-market for every campaign on Nykaa.</li>
+          <li><strong>The user problem wasn't "too many emails" — it was a revenue ceiling.</strong> Every campaign required a Nykaa rep in the loop, capping how many brands the platform could serve. Self-serve was the only way the line item could grow.</li>
+          <li><strong>The bet:</strong> design for Priya (a brand manager doing 20% of her week on Nykaa), not for an ad-ops specialist. A 3-tab IA, refused fourth tab, status visibility everywhere. Not a Google-Ads lookalike.</li>
+          <li><strong>How it landed:</strong> adoption across thousands of brand-manager seats. Support ticket volume dropped sharply. AdOps freed for strategic conversations they were never able to have during the concierge era.</li>
         </ul>
       </section>
 
-      <section class="case-section" id="persona">
-        <h2>Brand-manager persona</h2>
+      <section class="case-section" id="problem">
+        <h2>A revenue-ceiling problem</h2>
         <p>
-          Most ad platforms (Google Ads, Meta Ads Manager) are built for ad-ops specialists who use them daily. Nykaa's brand managers are not those people.
+          The brief landed as <em>"give brand managers a self-serve ads console."</em> Reading it that way produces a faster version of the existing concierge model — a faster intake form. The actual user problem was upstream and harsher: Nykaa's ad-revenue line was capped by the throughput of its own operations team.
+        </p>
+        <p>
+          The legacy flow: brand manager emails Nykaa rep → rep configures campaign → rep emails screenshot for approval → campaign goes live 3-7 days later → PDF report 2 weeks in. Scaled to 50 brands. Broke at 500. Was on fire at thousands. Every brand added a fixed amount of human-hours to AdOps — and AdOps doesn't scale linearly with the inventory Nykaa has to monetise. The result: a structural gap between the inventory available and the revenue the ad business could capture against it.
+        </p>
+        <p>
+          So the design problem isn't <em>"give the brand manager a nicer interface."</em> It's <em>"unbundle the concierge so the platform can monetise its full inventory."</em> Two different products live underneath those two framings.
+        </p>
+        <p class="pull-quote">
+          Build the workflow Priya already has in her head. Remove every step that doesn't add value to her — and that doesn't need to live inside Nykaa's AdOps team.
+        </p>
+      </section>
+
+      <section class="case-section" id="bet">
+        <h2>The bet</h2>
+        <p>
+          The non-obvious calls — the ones that look like restraint and read like missed-features in a demo:
+        </p>
+        <ul>
+          <li><strong>Designed for Priya, not for ad-ops specialists.</strong> Most ad platforms (Google Ads, Meta Ads Manager) are built for daily users who learn the surface. Brand managers spend 20% of their week on Nykaa. Power-user range was the wrong target — comprehension on first open was.</li>
+          <li><strong>Three tabs. Refused a fourth.</strong> Three is the cognitive ceiling for a non-daily user. A fourth tab would have absorbed real wishlist items (multi-brand reporting, advanced targeting, drag-drop builder). We made the call to ship none of those in v1 — adoption depended on legibility, not capability.</li>
+        </ul>
+        <p class="muted">
+          What we explicitly chose not to optimize for: feature parity with Google Ads. We could have built a sophisticated targeting console; brand managers would have ignored it. Restraint was the strategy.
+        </p>
+      </section>
+
+      <section class="case-section" id="persona">
+        <h2>Designing for Priya</h2>
+        <p>
+          The person we designed for is the test of whether the bet was right. Not a hypothetical — a composite from 14 brand-manager interviews:
         </p>
 
         <div class="persona-grid">
@@ -140,16 +168,6 @@
 
         <p class="muted">
           Composite persona built from 14 brand-manager interviews across beauty, FMCG, and fashion.
-        </p>
-      </section>
-
-      <section class="case-section" id="reframe">
-        <h2>From concierge to self-serve</h2>
-        <p>
-          Before this platform: brand manager emails Nykaa rep → rep configures campaign → rep emails screenshot for approval → campaign goes live 3-7 days later → PDF report 2 weeks in. Scaled to 50 brands. Broke at 500. On fire at thousands.
-        </p>
-        <p class="pull-quote">
-          Build the workflow Priya already has in her head. Remove every step that doesn't add value to her.
         </p>
       </section>
 
@@ -217,36 +235,40 @@
         </p>
       </section>
 
-      <section class="case-section" id="tradeoffs">
-        <h2>Trade-offs</h2>
+      <section class="case-section" id="outcome">
+        <h2>Business outcome</h2>
         <p>
-          Three-tabs-only lost a small group of power users doing more sophisticated work (multi-brand reporting, custom segments). They came back in v2. Auto-fitting creatives sometimes made aesthetic calls a brand manager would have made differently — "Change Required" was the safety valve.
+          Unbundling the concierge tied directly to outcomes Nykaa's ad business was structurally capped on:
+        </p>
+        <div class="metric-grid">
+          <div class="metric-tile">
+            <div class="metric-value">↑ Inventory monetisation</div>
+            <div class="metric-label">The revenue ceiling lifts when AdOps stops being the bottleneck. Adoption across thousands of brand-manager seats — each one a campaign that previously needed human-hours to launch.</div>
+          </div>
+          <div class="metric-tile">
+            <div class="metric-value">↓ Support load</div>
+            <div class="metric-label">Sharp reduction in support tickets from brand managers. Status visibility on every creative collapses the "what's happening with my ad?" volume that was eating AdOps' day.</div>
+          </div>
+          <div class="metric-tile">
+            <div class="metric-value">↑ Strategic AdOps</div>
+            <div class="metric-label">AdOps freed for the conversations they were never able to have under concierge — campaign planning, creative direction, partnership strategy. The team's value to the business stepped up, not down.</div>
+          </div>
+        </div>
+        <p class="muted">
+          Faster time-to-market for every campaign was the obvious win. The bigger one was structural: Nykaa's ad business stopped being a function of its operations team's headcount.
         </p>
       </section>
 
-      <section class="case-section" id="outcome">
-        <h2>Outcome</h2>
-        <div class="metric-grid">
-          <div class="metric-tile">
-            <div class="metric-value">Thousands</div>
-            <div class="metric-label">Brand-manager seats adopted across Nykaa partner brands</div>
-          </div>
-          <div class="metric-tile">
-            <div class="metric-value">↓ Sharp</div>
-            <div class="metric-label">Reduction in support ticket volume from brand managers</div>
-          </div>
-          <div class="metric-tile">
-            <div class="metric-value">↑ Faster</div>
-            <div class="metric-label">Go-to-market time for new campaigns (rep-free workflow)</div>
-          </div>
-          <div class="metric-tile">
-            <div class="metric-value">3</div>
-            <div class="metric-label">Primary tabs covering ~95% of brand-manager workflows</div>
-          </div>
-        </div>
+      <section class="case-section" id="cuts">
+        <h2>What we didn't ship</h2>
         <p>
-          The platform freed up Nykaa's ad-ops team for genuinely strategic conversations — campaign planning, creative direction, partnership strategy — instead of campaign config. Brand managers got the speed they needed to test more ideas in less time.
+          Three things we wanted in v1 and made the call to defer. Worth being explicit about each:
         </p>
+        <ul>
+          <li><strong>Onboarding for first-time brand managers.</strong> The platform was obvious from cold to most users — but a 2-minute guided first-campaign flow would have raised week-1 retention meaningfully. Added in v2; should have been v1. A real cost paid in slower activation among the most engaged brand-manager segment.</li>
+          <li><strong>Cross-campaign portfolio dashboard.</strong> Brand managers running 5+ campaigns at once needed a "portfolio view" that we didn't ship in v1. They got it in v2 — but we left some of the most engaged users frustrated for a quarter. Holding the 3-tab line was the right call; not having a portfolio surface for power-users was the wrong cost to pay.</li>
+          <li><strong>Multi-brand reporting and advanced targeting.</strong> Deferred deliberately, and we'd defer them again. But it's worth being honest — the v1 platform left a small group of sophisticated users without the surface they needed. They came back when v2 shipped, but a few brand-manager-of-the-year-types absorbed real friction in the meantime.</li>
+        </ul>
       </section>
 
 
