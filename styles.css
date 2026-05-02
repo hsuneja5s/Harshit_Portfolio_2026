@@ -470,12 +470,14 @@ img {
   gap: 16px;
   padding: 14px 12px;
   border-radius: 12px;
+  border: 1px solid var(--border-subtle);
   cursor: pointer;
-  transition: background-color 0.15s ease;
+  transition: background-color 0.15s ease, border-color 0.15s ease;
 }
 
 .play-item:hover {
   background: var(--background-subtle);
+  border-color: var(--border-inverse);
 }
 
 .play-thumb {
