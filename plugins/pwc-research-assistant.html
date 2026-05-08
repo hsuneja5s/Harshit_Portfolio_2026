@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="PwC × Research Assistant — Figma plugin that converts a PRD into IA, personas, user journeys, flows, and wireframes on canvas. Built for PwC engagements." />
+  <link rel="canonical" href="https://sunejaux.space/plugins/pwc-research-assistant" />
+  <meta property="og:title" content="PwC × Research Assistant — Harshit Suneja" />
+  <meta property="og:description" content="Drop in a PRD. Get IA, personas, user journeys, and wireframes on canvas — grounded in the source document. Devil's advocate mode surfaces gaps before reviews." />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://sunejaux.space/plugins/pwc-research-assistant" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <title>PwC × Research Assistant — Harshit Suneja</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css?v=20260501" />
+  <link rel="icon" type="image/jpeg" href="/images/me.jpg" />
+  <link rel="apple-touch-icon" href="/images/me.jpg" />
+  <meta property="og:image" content="https://sunejaux.space/images/me.jpg" />
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Harshit Suneja",
+  "givenName": "Harshit",
+  "familyName": "Suneja",
+  "jobTitle": "Senior Product Designer",
+  "worksFor": {"@type": "Organization", "name": "PwC India"},
+  "address": {"@type": "PostalAddress", "addressLocality": "New Delhi", "addressCountry": "IN"},
+  "url": "https://sunejaux.space/",
+  "image": "https://sunejaux.space/images/me.jpg",
+  "email": "hsuneja.suneja7@gmail.com",
+  "sameAs": [
+    "https://linkedin.com/in/harshitux",
+    "https://github.com/hsuneja5s"
+  ],
+  "knowsAbout": ["Product Design", "Design Systems", "AI in Design", "Conversational UX", "Banking UX", "Healthcare UX", "Government UX", "Figma Plugin Development"]
+}
+</script>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="/" class="identity" aria-label="Home">
+        <span class="avatar" role="img" aria-label="Harshit Suneja avatar">
+          <img src="/images/me.jpg" alt="Harshit Suneja" />
+        </span>
+        <span class="identity-name">Harshit Suneja</span>
+      </a>
+      <div class="header-actions">
+        <button class="kbd-search" id="openCmdK" aria-label="Open search (⌘K)">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg>
+          <span class="kbd-label">Search</span>
+          <kbd class="kbd">⌘ K</kbd>
+        </button>
+        <button class="theme-toggle" id="themeLight" aria-label="Light mode" data-mode="light">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2"></path><path d="M12 20v2"></path><path d="m4.93 4.93 1.41 1.41"></path><path d="m17.66 17.66 1.41 1.41"></path><path d="M2 12h2"></path><path d="M20 12h2"></path><path d="m6.34 17.66-1.41 1.41"></path><path d="m19.07 4.93-1.41 1.41"></path></svg>
+        </button>
+        <button class="theme-toggle" id="themeDark" aria-label="Dark mode" data-mode="dark">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="case-layout">
+    <aside class="case-nav">
+      <a href="/" class="case-nav-back">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg>
+        Back home
+      </a>
+      <a href="#why">Why I built it</a>
+      <a href="#how">How it works</a>
+      <a href="#stack">Stack</a>
+      <a href="#demo">See it live</a>
+      <a href="#try">Try it</a>
+    </aside>
+
+    <article class="case-content">
+      <div class="case-hero-image case-hero-research" aria-hidden="true"></div>
+
+      <h1 class="case-title">PwC × Research Assistant</h1>
+      <p class="case-subtitle">Drop in a PRD. Get information architecture, personas, user journeys, flows, and wireframes on Figma canvas — all grounded in the source document. Devil's advocate mode surfaces the gaps before your review meeting does.</p>
+
+      <div class="case-meta">
+        <div class="case-meta-row"><span class="case-meta-label">Status</span><span class="case-meta-value">Live · used across PwC engagements</span></div>
+        <div class="case-meta-row"><span class="case-meta-label">Stack</span><span class="case-meta-value">Figma Plugin API · Claude Opus · Anthropic SDK</span></div>
+        <div class="case-meta-row"><span class="case-meta-label">Built with</span><span class="case-meta-value">Utkarsha Sharma</span></div>
+        <div class="case-meta-row"><span class="case-meta-label">Source</span><span class="case-meta-value">Internal · PwC engagements</span></div>
+      </div>
+
+      <section class="case-section case-tldr" id="tldr">
+        <h2>In brief</h2>
+        <ul>
+          <li>Research used to eat 2–3 days per engagement: reading the PRD, synthesising it into IA, running workshops to align on personas. This plugin compresses that to minutes.</li>
+          <li>Output is Figma-native — not a PDF report, not a slide deck. It lands on your canvas and is immediately editable.</li>
+          <li>Devil's advocate mode doesn't just generate. It interrogates the PRD and surfaces what's missing before anyone has to ask.</li>
+        </ul>
+      </section>
+
+      <section class="case-section" id="why">
+        <h2>Why I built it</h2>
+        <p>
+          Every new PwC engagement starts the same way: a PRD (or something close to one), a kickoff call, and then days of synthesis work before a designer can put anything meaningful on canvas. Reading, re-reading, extracting personas, sketching journeys — all before the real design thinking begins.
+        </p>
+        <p>
+          The problem isn't effort. It's that the effort is low-signal. A designer spending three days summarising a 40-page document is not doing design work. They're doing extraction.
+        </p>
+        <p class="muted">
+          So we automated the extraction. Paste the PRD. The plugin reads it, generates the full research layer on canvas — IA, personas, journeys, flows, wireframe starters — and surfaces the gaps the document left open. Designers go straight to the judgment calls.
+        </p>
+      </section>
+
+      <section class="case-section" id="how">
+        <h2>How it works</h2>
+        <ul>
+          <li><strong>Ingest:</strong> paste your PRD text (or upload a document) directly into the plugin panel.</li>
+          <li><strong>Parse and model:</strong> Claude Opus reads the document, extracts user goals, pain points, system boundaries, and feature scope.</li>
+          <li><strong>Generate on canvas:</strong> outputs IA diagrams, persona cards, user journey maps, and flow diagrams as native Figma frames — positioned, labelled, and linked.</li>
+          <li><strong>Wireframe starters:</strong> for each key flow, generates low-fidelity wireframe screens mapped to the journey steps.</li>
+          <li><strong>Devil's advocate mode:</strong> a separate pass where Claude interrogates the PRD — surfacing unstated assumptions, missing edge cases, and contradictions. Displayed as an annotation layer on canvas.</li>
+        </ul>
+      </section>
+
+      <section class="case-section" id="stack">
+        <h2>Stack</h2>
+        <ul>
+          <li><strong>Figma Plugin API</strong> — all output is native frames, shapes, and text; nothing is an image export</li>
+          <li><strong>Claude Opus via Anthropic SDK</strong> — handles both the synthesis and the adversarial review pass</li>
+          <li><strong>Custom canvas layout engine</strong> — positions generated artifacts on a structured grid so output is immediately navigable</li>
+        </ul>
+      </section>
+
+      <section class="case-section" id="demo">
+        <h2>See it live</h2>
+        <p>The LinkedIn post below shows a full walkthrough — PRD in, canvas out, devil's advocate mode running.</p>
+
+        <a
+          href="https://www.linkedin.com/posts/harshitux_productdesign-uxdesign-figma-activity-7452212054670594048-6Jab"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="li-post-card"
+          aria-label="Watch demo on LinkedIn — PwC Research Assistant plugin walkthrough"
+        >
+          <div class="li-post-card-header">
+            <div class="li-post-card-avatar">
+              <img src="/images/me.jpg" alt="Harshit Suneja" />
+            </div>
+            <div class="li-post-card-author">
+              <span class="li-post-card-name">Harshit Suneja</span>
+              <span class="li-post-card-role">Senior Product Designer · PwC India</span>
+            </div>
+            <div class="li-post-card-logo" aria-label="LinkedIn">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.95v5.66H9.36V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zm1.78 13.02H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/></svg>
+            </div>
+          </div>
+
+          <div class="li-post-card-body">
+            <p>Episode #09 — PwC × Research Assistant</p>
+            <p>Drop in a PRD. Get IA, personas, user journeys, flows, and wireframes on canvas — all grounded in the source document. Devil's advocate mode surfaces what's missing before your review meeting does.</p>
+            <p class="li-post-card-tags">#ProductDesign #UXDesign #Figma #AI #DesignSystems</p>
+          </div>
+
+          <div class="li-post-card-media" aria-hidden="true">
+            <div class="li-post-card-media-inner">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" opacity="0.4"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+              <span>Watch demo on LinkedIn</span>
+            </div>
+          </div>
+
+          <div class="li-post-card-footer">
+            <span class="li-post-card-cta">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.95v5.66H9.36V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zm1.78 13.02H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/></svg>
+              View post &amp; demo on LinkedIn ↗
+            </span>
+          </div>
+        </a>
+      </section>
+
+      <section class="case-section" id="try">
+        <h2>Try it</h2>
+        <p>Currently in use across active PwC engagements. Reach out at <a href="mailto:hsuneja.suneja7@gmail.com" class="inline-link">hsuneja.suneja7@gmail.com</a> if you want to see it run on your PRD.</p>
+        <p class="muted">Built with Utkarsha Sharma. Public release TBD.</p>
+      </section>
+
+      <nav class="case-next" aria-label="Next plugin">
+        <span class="case-next-label">Next plugin →</span>
+        <a href="/plugins/claude-md-exporter" class="case-next-link">CLAUDE.md Exporter</a>
+      </nav>
+
+    </article>
+  </main>
+
+  <div class="cmdk-overlay" id="cmdkOverlay" aria-hidden="true">
+    <div class="cmdk" role="dialog" aria-modal="true" aria-label="Search">
+      <div class="cmdk-search">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg>
+        <input type="text" id="cmdkInput" placeholder="Search work, plugins, links…" autocomplete="off" />
+        <kbd class="kbd">esc</kbd>
+      </div>
+      <ul class="cmdk-results" id="cmdkResults" role="listbox"></ul>
+    </div>
+  </div>
+
+  <script src="../script.js?v=20260501"></script>
+  <script defer src="/_vercel/insights/script.js"></script>
+  <script defer src="/_vercel/speed-insights/script.js"></script>
+</body>
+</html>
