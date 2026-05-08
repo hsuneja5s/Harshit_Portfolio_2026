@@ -525,6 +525,8 @@ img {
   border-radius: 10px;
   flex-shrink: 0;
   background: var(--background-subtle);
+  object-fit: cover;
+  display: block;
 }
 
 .play-thumb-1 { background: linear-gradient(135deg, #1f2937 0%, #374151 100%); position: relative; }
