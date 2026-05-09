@@ -83,11 +83,12 @@
       <div class="case-hero-image case-hero-research" aria-hidden="true"></div>
 
       <h1 class="case-title">PwC × Research Assistant</h1>
+      <p class="plugin-oneliner">A designer spending three days summarising a PRD is doing extraction work, not design work. This plugin does the extraction.</p>
       <p class="case-subtitle">Drop in a PRD. Get information architecture, personas, user journeys, flows, and wireframes on Figma canvas — all grounded in the source document. Devil's advocate mode surfaces the gaps before your review meeting does.</p>
 
       <div class="case-meta">
         <div class="case-meta-row"><span class="case-meta-label">Status</span><span class="case-meta-value">Live · used across PwC engagements</span></div>
-        <div class="case-meta-row"><span class="case-meta-label">Stack</span><span class="case-meta-value">Figma Plugin API · Claude Opus · Anthropic SDK</span></div>
+        <div class="case-meta-row"><span class="case-meta-label">Stack</span><span class="case-meta-value mono">Figma Plugin API · Claude Opus · Anthropic SDK</span></div>
         <div class="case-meta-row"><span class="case-meta-label">Built with</span><span class="case-meta-value">Utkarsha Sharma</span></div>
         <div class="case-meta-row"><span class="case-meta-label">Source</span><span class="case-meta-value">Internal · PwC engagements</span></div>
       </div>
@@ -178,6 +179,17 @@
             </span>
           </div>
         </a>
+      </section>
+
+      <section class="case-section" id="rejected">
+        <div class="rejected-block">
+          <h3>What I tried first</h3>
+          <ul>
+            <li><strong>A structured interview wizard.</strong> The first version walked the designer through a series of structured questions — "what are the user goals?", "what are the system boundaries?" — and used the answers to generate output. It was slower than just reading the PRD, and it put the cognitive load back on the designer. Killed it after the first internal test.</li>
+            <li><strong>Generating slides, not Figma frames.</strong> Early output went to a presentation format so it was shareable with clients. Problem: slides aren't editable design artifacts. Designers had to duplicate the work anyway. Pivoted to Figma-native output with no regrets.</li>
+            <li><strong>A single-output model (IA only).</strong> Version zero only generated IA — the intent was to keep it simple and see if anyone used it. Everyone immediately asked "why can't it do personas and journeys?" Lesson: the value is in the full research layer, not a single artifact.</li>
+          </ul>
+        </div>
       </section>
 
       <section class="case-section" id="try">

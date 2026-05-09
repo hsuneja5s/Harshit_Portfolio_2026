@@ -100,6 +100,7 @@
       <div class="case-hero-image case-hero-nykaa-adtech" aria-hidden="true"></div>
 
       <h1 class="case-title">From approval queues to self-serve campaign management</h1>
+      <p class="case-thesis">The design problem wasn't "give the brand manager a nicer interface." It was "unbundle the concierge so the platform can monetise its full inventory."</p>
       <p class="case-subtitle">Nykaa's ad business hit a revenue ceiling because every campaign needed a Nykaa rep in the loop. The product wasn't a self-serve console — it was the operational unbundling of an account-management bottleneck. Adoption across thousands of brand managers, support tickets down sharply, AdOps freed for strategic work.</p>
 
       <div class="case-meta">
@@ -121,9 +122,6 @@
         <h2>A revenue-ceiling problem</h2>
         <p>
           The legacy flow: brand manager emails Nykaa rep → rep configures campaign → approval by email → live in 3–7 days → PDF report 2 weeks later. Scaled to 50 brands. Broke at 500. Every brand added fixed human-hours to AdOps — and AdOps doesn't scale with the inventory Nykaa had to monetise.
-        </p>
-        <p class="pull-quote">
-          The design problem wasn't "give the brand manager a nicer interface." It was "unbundle the concierge so the platform can monetise its full inventory."
         </p>
       </section>
 
@@ -179,7 +177,11 @@
       <section class="case-section" id="review">
         <h2>Creative review states</h2>
         <p>
-          Most-asked question in testing: <em>"What's happening with my ad?"</em> So the answer is visible at all times, on every creative.
+          <blockquote class="voice-quote">
+          <p>"What's happening with my ad?"</p>
+          <cite>— Most-asked question in brand manager usability testing</cite>
+        </blockquote>
+          The answer is visible at all times, on every creative.
         </p>
 
         <div class="state-flow">
@@ -228,10 +230,11 @@
 
       <section class="case-section" id="cuts">
         <h2>What we didn't ship</h2>
+        <p class="case-thesis">Three cuts that were defensible in v1 and still cost us in ways we could have anticipated.</p>
         <ul>
-          <li><strong>Onboarding for first-time brand managers.</strong> A 2-minute guided first-campaign flow would have raised week-1 retention. Added in v2 — should have been v1.</li>
-          <li><strong>Cross-campaign portfolio dashboard.</strong> Brand managers running 5+ campaigns needed a portfolio view. Holding the 3-tab line was right; leaving power-users without a portfolio view was the wrong cost to pay.</li>
-          <li><strong>Multi-brand reporting and advanced targeting.</strong> Deliberately deferred — and we'd defer them again. But a small group of sophisticated users absorbed real friction until v2 shipped.</li>
+          <li><strong>Onboarding for first-time brand managers.</strong> The assumption was that the 3-tab IA was self-explaining enough that a guided flow wasn't needed. Testing didn't surface confusion — but week-1 retention data after launch told a different story. A short first-campaign guide would have been a sprint. Not shipping it made the product work for brands that had internal support but harder for solo brand managers. Added in v2, should have been v1.</li>
+          <li><strong>Cross-campaign portfolio dashboard.</strong> Holding 3 tabs was right. But brand managers running 5+ campaigns across multiple brands needed a portfolio view — and the closest we had was exporting to a spreadsheet. We knew this was a gap going in and chose activation legibility over power-user coverage. The right call for the median user, wrong cost for the top decile.</li>
+          <li><strong>Multi-brand reporting and advanced targeting.</strong> Deliberately deferred — and if I could redo the prioritisation, I'd defer them again. But there was a small group of sophisticated brand managers (3–5% of seats) who were building adjacent tooling to compensate for what we didn't ship. That's a signal worth watching, not ignoring. We watched it, acted in v2, and the feature debt compounded less than it could have.</li>
         </ul>
       </section>
 

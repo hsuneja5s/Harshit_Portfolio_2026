@@ -100,6 +100,7 @@
       <div class="case-hero-image case-hero-indusind" aria-hidden="true"></div>
 
       <h1 class="case-title">The economics of fewer decisions</h1>
+      <p class="case-thesis">Every removed decision is a recovered customer, a recovered application, a recovered revenue line.</p>
       <p class="case-subtitle">A UX overhaul of high-stakes banking flows — loan applications, cross-currency transfers, account opening — reframed as a decision-reduction problem. Every removed decision is a recovered customer, a recovered application, a recovered revenue line.</p>
 
       <div class="case-meta">
@@ -127,8 +128,12 @@
           <li><strong>Cross-currency transfer: 11 decisions.</strong> Three were jargon ("correspondent bank", "charge bearer") the customer couldn't possibly know.</li>
           <li><strong>EMI prepayment: 8 decisions</strong> — three of them trick questions whose answer changed the next three.</li>
         </ul>
+        <blockquote class="voice-quote">
+          <p>"I started the loan form three times. Each time I got to a page that asked me things I didn't have with me and I gave up."</p>
+          <cite>— IndusInd customer, exit research interview</cite>
+        </blockquote>
         <p class="muted">
-          Reframe: a "better screen" treats abandonment as a layout problem. The reality is each unnecessary decision is a measurable conversion drop. The flows we redesigned weren't the ugliest — they were the ones where the bank was losing the most revenue per drop-off.
+          The flows we redesigned weren't the ugliest — they were the ones where the bank was losing the most revenue per drop-off. Each unnecessary decision is a measurable conversion drop.
         </p>
       </section>
 
@@ -235,10 +240,11 @@
 
       <section class="case-section" id="cuts">
         <h2>What we didn't ship</h2>
+        <p class="case-thesis">Three calls we got wrong by not treating infrastructure as a launch dependency.</p>
         <ul>
-          <li><strong>Pre-fill assumes clean data.</strong> First month had a support ticket spike when stale KYC surfaced incorrectly. Data quality work should have been a v0 dependency, not a v1.5 fix.</li>
-          <li><strong>Contribution tooling.</strong> PR templates and contribution rituals shipped in month four. Done in month one, contribution velocity from other designers would have been double.</li>
-          <li><strong>Governance doc.</strong> Six bullets on system vs. vertical decisions. Written in month three — cost two weeks of consolidation that should have been free.</li>
+          <li><strong>Pre-fill assumes clean data.</strong> The pre-fill model was right — confirmation chips over blank fields is the correct bet. What we underestimated was how dirty the legacy KYC data was. First month surfaced stale addresses and mismatched PANs; customers lost more trust in the app than the old empty forms had cost. Data quality work needed to be a v0 dependency, not a clean-up run in v1.5.</li>
+          <li><strong>Contribution tooling for other designers.</strong> We built the system with no contribution rituals — no PR templates, no decision log format, no "is this a system change?" checklist. By month four, three separate designers had duplicated components because they couldn't tell if something existed. The tooling that eventually shipped in month four should have been there on day one; the cost was two months of silent fragmentation.</li>
+          <li><strong>Governance documentation.</strong> The final governance doc is six bullets on system vs. vertical decisions. It took three months to write because no one felt they owned it. When it finally existed, two weeks of consolidation work became free — work that would never have been needed if the doc had existed at the start of the project.</li>
         </ul>
       </section>
 

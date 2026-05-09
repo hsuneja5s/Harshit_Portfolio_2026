@@ -84,11 +84,12 @@
       <div class="case-hero-image case-hero-dsgen" aria-hidden="true"></div>
 
       <h1 class="case-title">Design System Generator<span class="pseudo-tag">draft</span></h1>
+      <p class="plugin-oneliner">80% of every design system is the same scaffolding. Only the last 20% needs a human. This plugin does the 80%.</p>
       <p class="case-subtitle">A Figma plugin that scaffolds a complete design system foundation — semantic tokens, primary components, and starter screens — in minutes instead of weeks.</p>
 
       <div class="case-meta">
         <div class="case-meta-row"><span class="case-meta-label">Status</span><span class="case-meta-value">Alpha · piloted with internal-tools team at IndusInd</span></div>
-        <div class="case-meta-row"><span class="case-meta-label">Stack</span><span class="case-meta-value">Figma Plugin API · TypeScript · Anthropic SDK · Tokens Studio sync</span></div>
+        <div class="case-meta-row"><span class="case-meta-label">Stack</span><span class="case-meta-value mono">Figma Plugin API · TypeScript · Anthropic SDK · Tokens Studio sync</span></div>
         <div class="case-meta-row"><span class="case-meta-label">Built</span><span class="case-meta-value">Q3 2025 — alongside Torrent Diagnostic system work</span></div>
         <div class="case-meta-row"><span class="case-meta-label">Source</span><span class="case-meta-value">Closed during PwC engagement · public release planned</span></div>
       </div>
@@ -186,6 +187,17 @@
             </span>
           </div>
         </a>
+      </section>
+
+      <section class="case-section" id="rejected">
+        <div class="rejected-block">
+          <h3>What I tried first</h3>
+          <ul>
+            <li><strong>A Figma template kit.</strong> The obvious solution: a well-structured starter file teams could duplicate. Teams duplicated it and immediately started modifying components in ways that broke the token connections. Without the generation step, there was no guarantee the system stayed coherent. The plugin generates connected components from scratch every time — no inheritance of broken states.</li>
+            <li><strong>A configuration spreadsheet.</strong> Tried a spreadsheet-first approach where teams filled in brand values, density preferences, and type choices — then a script ran against it. The spreadsheet interface was a barrier; teams didn't know what the values meant. Moved to conversational prompts ("compact / comfortable / spacious") instead of field-by-field input.</li>
+            <li><strong>Letting teams fork the output freely.</strong> First version generated the system with no guardrails on what teams could modify. Post-generation edits immediately broke token connections. Added a "frozen foundation" model — you can extend the system but can't structurally modify what the generator produced without re-running it.</li>
+          </ul>
+        </div>
       </section>
 
       <section class="case-section" id="try">

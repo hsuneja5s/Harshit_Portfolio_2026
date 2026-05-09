@@ -84,11 +84,12 @@
       <div class="case-hero-image case-hero-claudemd" aria-hidden="true"></div>
 
       <h1 class="case-title">CLAUDE.md Exporter<span class="pseudo-tag">draft</span></h1>
+      <p class="plugin-oneliner">Engineers weren't ignoring the design system — Claude Code just didn't know it existed.</p>
       <p class="case-subtitle">A Figma plugin that exports your design system as a single <code>CLAUDE.md</code> file — so Claude Code generates components inside your tokens, naming, and rules. The Figma → Claude Code bridge.</p>
 
       <div class="case-meta">
         <div class="case-meta-row"><span class="case-meta-label">Status</span><span class="case-meta-value">Beta · used internally on IndusInd + CCTNS</span></div>
-        <div class="case-meta-row"><span class="case-meta-label">Stack</span><span class="case-meta-value">Figma Plugin API · TypeScript · Anthropic SDK</span></div>
+        <div class="case-meta-row"><span class="case-meta-label">Stack</span><span class="case-meta-value mono">Figma Plugin API · TypeScript · Anthropic SDK</span></div>
         <div class="case-meta-row"><span class="case-meta-label">Built</span><span class="case-meta-value">Q4 2025 — alongside IndusInd engagement</span></div>
         <div class="case-meta-row"><span class="case-meta-label">Source</span><span class="case-meta-value">Closed during PwC engagement · open-source release planned</span></div>
       </div>
@@ -188,6 +189,17 @@
             </span>
           </div>
         </a>
+      </section>
+
+      <section class="case-section" id="rejected">
+        <div class="rejected-block">
+          <h3>What I tried first</h3>
+          <ul>
+            <li><strong>A hand-maintained system prompt.</strong> The first fix was simple: I wrote a system prompt by hand with our token names, component list, and naming rules, and engineers pasted it at the start of each Claude Code session. It worked — until the design system changed. Within two weeks the prompt was stale. Engineers didn't know it was stale. The drift came back silently.</li>
+            <li><strong>Exporting as JSON.</strong> Tried exporting the token tree as a JSON file engineers could reference. Claude Code doesn't read JSON natively as context — engineers would have to format it into a prompt manually. Same maintenance problem, different format.</li>
+            <li><strong>A separate design-tokens package.</strong> Explored syncing Figma tokens to a design-tokens package the codebase imported. Solved the code side, didn't solve the "Claude doesn't know the component rules" side. The plugin is the only approach that covers both tokens and human-language rules in a format Claude reads automatically.</li>
+          </ul>
+        </div>
       </section>
 
       <section class="case-section" id="try">

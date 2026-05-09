@@ -84,11 +84,12 @@
       <div class="case-hero-image case-hero-validator" aria-hidden="true"></div>
 
       <h1 class="case-title">Design System Validator<span class="pseudo-tag">draft</span></h1>
+      <p class="plugin-oneliner">Design system violations don't show up at handoff — they show up in PR review, which is 10× more expensive to fix.</p>
       <p class="case-subtitle">A Figma plugin that runs system checks across your file before handoff — catching token mismatches, off-grid layout, undocumented variants, and structural breaks engineers will catch in PR review.</p>
 
       <div class="case-meta">
         <div class="case-meta-row"><span class="case-meta-label">Status</span><span class="case-meta-value">Shipped · running daily on IndusInd team</span></div>
-        <div class="case-meta-row"><span class="case-meta-label">Stack</span><span class="case-meta-value">Figma Plugin API · TypeScript · custom rule engine</span></div>
+        <div class="case-meta-row"><span class="case-meta-label">Stack</span><span class="case-meta-value mono">Figma Plugin API · TypeScript · custom rule engine</span></div>
         <div class="case-meta-row"><span class="case-meta-label">Built</span><span class="case-meta-value">Q2 2025 — alongside IndusInd design system rollout</span></div>
         <div class="case-meta-row"><span class="case-meta-label">Source</span><span class="case-meta-value">Closed during PwC engagement · open-source release on roadmap</span></div>
       </div>
@@ -197,6 +198,17 @@
             </span>
           </div>
         </a>
+      </section>
+
+      <section class="case-section" id="rejected">
+        <div class="rejected-block">
+          <h3>What I tried first</h3>
+          <ul>
+            <li><strong>A manual pre-handoff checklist.</strong> The first version was a Notion checklist designers were supposed to run before marking a file ready. Adoption was ~20% after two weeks. Checklists require willpower; plugins run on one click. The moment I turned the checklist into a plugin button, adoption went to near-100% because the path of least resistance changed.</li>
+            <li><strong>AI-powered detection.</strong> Explored using Claude to visually "look" at a frame and flag violations. Too slow for a pre-handoff tool — designers don't want to wait 30 seconds for a scan. Worse, the output was probabilistic ("this looks like it might be off-token"), which broke trust. Predictable rule-based checks turned out to be exactly right for a validation tool: you need deterministic output, not a suggestion.</li>
+            <li><strong>Blocking all errors before export.</strong> First version made handoff literally impossible if errors existed. Designers found workarounds instead of fixing issues. Moved to severity levels — errors are visible and prominent, but don't block. The friction model matters: too much friction creates bypass behavior; just enough friction creates awareness.</li>
+          </ul>
+        </div>
       </section>
 
       <section class="case-section" id="try">

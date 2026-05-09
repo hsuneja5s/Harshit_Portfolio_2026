@@ -84,11 +84,12 @@
       <div class="case-hero-image case-hero-conversation" aria-hidden="true"></div>
 
       <h1 class="case-title">Conversation Flow Generator<span class="pseudo-tag">draft</span></h1>
+      <p class="plugin-oneliner">Multilingual conversational UX at six languages isn't a translation problem — it's a speed and consistency problem.</p>
       <p class="case-subtitle">A Figma plugin that drafts conversational UX flows and real use cases inside Figma — powered by Anthropic's models. From an English prompt to fully-localised flow variants in minutes.</p>
 
       <div class="case-meta">
         <div class="case-meta-row"><span class="case-meta-label">Status</span><span class="case-meta-value">Beta · used on Shell + CCTNS conversational projects</span></div>
-        <div class="case-meta-row"><span class="case-meta-label">Stack</span><span class="case-meta-value">Figma Plugin API · TypeScript · Anthropic SDK · Claude 4.6</span></div>
+        <div class="case-meta-row"><span class="case-meta-label">Stack</span><span class="case-meta-value mono">Figma Plugin API · TypeScript · Anthropic SDK · Claude 4.6</span></div>
         <div class="case-meta-row"><span class="case-meta-label">Built</span><span class="case-meta-value">Q1 2025 — alongside CCTNS multilingual work</span></div>
         <div class="case-meta-row"><span class="case-meta-label">Source</span><span class="case-meta-value">Closed during PwC engagement · open-source release planned</span></div>
       </div>
@@ -190,6 +191,17 @@
             </span>
           </div>
         </a>
+      </section>
+
+      <section class="case-section" id="rejected">
+        <div class="rejected-block">
+          <h3>What I tried first</h3>
+          <ul>
+            <li><strong>Spreadsheet-based flow scripting.</strong> The first CCTNS approach was a structured Google Sheet — intent, response, branch condition, error fallback — that a script would turn into flow diagrams. The sheet took longer to fill than hand-drafting the flow, and the output couldn't be edited in context. Figma-native was the only model that kept flows in the same space as the rest of the design.</li>
+            <li><strong>Having engineers write the prompts.</strong> On the Shell platform, the initial plan was for engineers to write and maintain the system prompts that drove the conversational interface. Two weeks in, the prompts were drifting from the design intent — engineers optimised for technical correctness, designers optimised for conversational register. Moving prompt authorship into Figma (where the UX decisions live) put the right people in control of the right layer.</li>
+            <li><strong>Free-form generation without a schema.</strong> First version let Claude generate however it wanted — flow structure, turn format, branching logic all emergent. Output was high-quality but inconsistent. Two flows from the same designer had different structural conventions, which made them impossible to compare or hand off reliably. The strict output schema was the most important architectural decision: it made the output boring and trustworthy, which is exactly what a design tool needs to be.</li>
+          </ul>
+        </div>
       </section>
 
       <section class="case-section" id="try">

@@ -99,6 +99,7 @@
       <div class="case-hero-image case-hero-cub" aria-hidden="true"></div>
 
       <h1 class="case-title">CUB.ai — turning AI hesitation into self-service</h1>
+      <p class="case-thesis">Conversation as a medium is fine. Conversation as a prerequisite is the trap.</p>
       <p class="case-subtitle">A bank's first AI assistant designed to convert hesitant customers into successful self-service users — not to demonstrate model capability. Lifted NPS 4.7 → 9.2 in one release cycle and shifted 30%+ of routine support away from branches and call centers.</p>
 
       <div class="case-meta">
@@ -119,11 +120,12 @@
       <section class="case-section" id="problem">
         <h2>The activation problem</h2>
         <p>
-          In testing, when we showed users a free-form chat input, <strong>~70% froze</strong>. They typed two words and stopped. <em>"I don't know what to ask."</em> Every frozen customer became a call-center ticket — and call-center cost was the line item the bank actually wanted moved.
+          In testing, when we showed users a free-form chat input, <strong>~70% froze</strong>. They typed two words and stopped. Every frozen customer became a call-center ticket — and call-center cost was the line item the bank actually wanted moved.
         </p>
-        <p class="pull-quote">
-          Conversation as a medium is fine. Conversation as a <em>prerequisite</em> is the trap.
-        </p>
+        <blockquote class="voice-quote">
+          <p>"I don't know what to ask."</p>
+          <cite>— CUB customer, usability testing</cite>
+        </blockquote>
       </section>
 
       <section class="case-section" id="bet">
@@ -240,10 +242,11 @@
 
       <section class="case-section" id="cuts">
         <h2>What we didn't ship</h2>
+        <p class="case-thesis">Each of these cuts was a conscious bet — we knew the gaps going in and chose activation over completeness.</p>
         <ul>
-          <li><strong>Long-tail intent coverage beyond ~85%.</strong> Capped chip count at 8 to protect activation — beyond eight, users scroll and lose the "I see what's possible" moment. The long tail is v2 work.</li>
-          <li><strong>Onboarding for legacy power users.</strong> Launch focused on first-time users; heavy users couldn't find the tab structure they'd internalised. A 30-second "what changed" tour should have been v1.</li>
-          <li><strong>Chatbot error UX.</strong> A misclassified intent feels personal — more so than a form error. Recovery flow was a v1.5 call; it should have shipped at launch.</li>
+          <li><strong>Long-tail intent coverage beyond ~85%.</strong> The product team wanted 12 chips to capture more intents. We capped at 8 because research showed that past eight, users scroll — and the moment they scroll, the "I see what's possible" glance is lost. The long tail is solvable in v2 with better free-text routing, not by adding more chips.</li>
+          <li><strong>Onboarding for legacy power users.</strong> The launch brief was centered entirely on first-time users — deliberately so, because activation was the problem. What we didn't anticipate: heavy users who'd internalised the old tab structure couldn't find their flows after the redesign. A 30-second adaptive "what changed" tour would have cost a sprint; not shipping it cost us trust from our most engaged users.</li>
+          <li><strong>Chatbot error UX.</strong> A misclassified intent doesn't feel like a technical glitch — it feels like the assistant didn't listen. That's a different emotional register than a form error. We knew this and still shipped without a recovery flow; the hypothesis was we'd measure how often misclassification happened before designing the fix. We should have launched with a minimal recovery path rather than relying on data we hadn't collected yet.</li>
         </ul>
       </section>
 
