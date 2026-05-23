@@ -441,9 +441,9 @@ img {
 }
 
 .work-image-energy-deal {
-  background:
-    radial-gradient(circle at 70% 50%, #fde68a 0%, transparent 50%),
-    linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);
+  background-image: url("/images/work/energy-cover.png?v=20260523-4");
+  background-size: cover;
+  background-position: center;
 }
 
 .work-image-banking-ai {
@@ -459,7 +459,12 @@ img {
 }
 
 [data-theme="dark"] .work-image-public-sector { background: linear-gradient(135deg, #78350f 0%, #92400e 100%); opacity: 0.55; }
-[data-theme="dark"] .work-image-energy-deal { background: linear-gradient(135deg, #713f12 0%, #78350f 100%); opacity: 0.55; }
+[data-theme="dark"] .work-image-energy-deal {
+  background-image: url("/images/work/energy-cover.png?v=20260523-4");
+  background-size: cover;
+  background-position: center;
+  opacity: 0.8;
+}
 [data-theme="dark"] .work-image-banking-ai { background: linear-gradient(135deg, #14532d 0%, #064e3b 100%); opacity: 0.55; }
 [data-theme="dark"] .work-image-retail-banking { background: linear-gradient(135deg, #1e3a8a 0%, #312e81 100%); opacity: 0.55; }
 
