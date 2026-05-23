@@ -31,33 +31,160 @@ onScroll();
 window.addEventListener('scroll', onScroll, { passive: true });
 
 // ============================================
+// PORTFOLIO CONTENT REGISTRY
+// ============================================
+const PORTFOLIO_DATA = {
+  work: [
+    {
+      sector: 'Energy',
+      label: 'Energy — Deal Pipeline',
+      title: 'Deal intelligence for global energy operations',
+      hint: '500+ deals · AI risk layer',
+      href: '/work/energy-deal-operations',
+      imageClass: 'work-image-energy-deal',
+    },
+    {
+      sector: 'Public Sector',
+      label: 'Public Sector — Citizen Services',
+      title: 'Designing citizen trust into a national platform',
+      hint: 'national citizen services · NDA-protected',
+      href: '/work/public-sector-citizen-services',
+      imageClass: 'work-image-public-sector',
+    },
+    {
+      sector: 'Banking',
+      label: 'Banking — AI Assistant',
+      title: 'AI banking assistant — turning AI hesitation into self-service',
+      hint: 'AI banking assistant · NPS 4.7 → 9.2',
+      href: '/work/banking-ai-self-service',
+      imageClass: 'work-image-banking-ai',
+    },
+    {
+      sector: 'Banking',
+      label: 'Banking — Flow Redesign',
+      title: 'The economics of fewer decisions',
+      hint: 'guided, error-proof flows',
+      href: '/work/retail-banking-onboarding',
+      imageClass: 'work-image-retail-banking',
+    },
+    {
+      sector: 'Healthcare',
+      label: 'Healthcare — Patient App',
+      title: 'Designing for return visits, not test bookings',
+      hint: 'live · accessible diagnostics',
+      href: '/work/healthcare-patient-experience',
+      imageClass: 'work-image-healthcare-patient',
+    },
+    {
+      sector: 'Commerce',
+      label: 'Commerce — Ad Operations',
+      title: 'From approval queues to self-serve campaign management',
+      hint: 'self-serve ads console · B2B',
+      href: '/work/commerce-ad-operations',
+      imageClass: 'work-image-commerce-ads',
+    },
+  ],
+  plugins: [
+    {
+      title: 'PwC × Research Assistant',
+      hint: 'PRD → IA, journeys, personas, wireframes',
+      href: '/plugins/pwc-research-assistant',
+      image: '/images/plugins/Research%20Assistance.png',
+      summary: "Drop in a PRD. Get IA, personas, user journeys, and wireframes on canvas — grounded in the source document. Devil's advocate mode surfaces the gaps before your review meeting does.",
+      featured: true,
+    },
+    {
+      title: 'CLAUDE.md Exporter',
+      hint: 'design system → Claude Code',
+      href: '/plugins/claude-md-exporter',
+      image: '/images/plugins/Claude_md.png',
+      summary: 'Claude Code kept generating outside our design system. One exported file fixes it — every token, component, and rule.',
+    },
+    {
+      title: 'Design System Generator',
+      hint: 'tokens → starter screens · in Figma',
+      href: '/plugins/design-system-generator',
+      image: '/images/plugins/Design%20System%20Generator.png',
+      summary: "Design system support was a 6-week queue. Now it's an afternoon — tokens, components, starter screens in one run.",
+    },
+    {
+      title: 'Design System Validator',
+      hint: 'flag breaks before handoff',
+      href: '/plugins/design-system-validator',
+      image: '/images/plugins/Design%20System%20Validator.png',
+      summary: 'Catches token mismatches, detached components, and structural breaks before they reach engineering PR review.',
+    },
+    {
+      title: 'Conversation Flow Generator',
+      hint: 'flows · powered by Anthropic',
+      href: '/plugins/conversation-flow-generator',
+      image: '/images/plugins/UX%20Conversational.png',
+      summary: 'Type a user goal. Get a complete flow with branches, fallbacks, and error states — localised across languages from one source.',
+    },
+  ],
+  pages: [
+    { label: 'About', hint: 'who I am', href: '/about' },
+    { label: 'Under the hood', hint: 'how this site is built', href: '/under-the-hood' },
+    { label: 'Now', hint: 'what I am working on', href: '/now' },
+  ],
+  links: [
+    { label: 'Email', hint: 'hsuneja.suneja7@gmail.com', href: 'mailto:hsuneja.suneja7@gmail.com' },
+    { label: 'GitHub', hint: 'github.com/hsuneja5s', href: 'https://github.com/hsuneja5s' },
+    { label: 'LinkedIn', hint: 'linkedin.com/in/harshitux', href: 'https://linkedin.com/in/harshitux' },
+    { label: 'Resume', hint: 'email me for the latest PDF', href: 'mailto:hsuneja.suneja7@gmail.com?subject=Resume%20request' },
+  ],
+};
+
+const SEARCH_ITEMS = [
+  ...PORTFOLIO_DATA.work.map(item => ({ tag: 'Work', label: item.label, hint: item.hint, href: item.href })),
+  ...PORTFOLIO_DATA.plugins.map(item => ({ tag: 'Plugin', label: item.title, hint: item.hint, href: item.href })),
+  ...PORTFOLIO_DATA.pages.map(item => ({ tag: 'Page', ...item })),
+  ...PORTFOLIO_DATA.links.map(item => ({ tag: 'Link', ...item })),
+  { tag: 'Action', label: 'Toggle theme', hint: 'switch light / dark', action: 'toggleTheme' },
+];
+
+const renderHomeCollections = () => {
+  const workGrid = document.querySelector('[data-portfolio-work]');
+  const pluginGrid = document.querySelector('[data-portfolio-plugins]');
+
+  if (workGrid) {
+    workGrid.innerHTML = PORTFOLIO_DATA.work.map(item => `
+      <a href="${item.href}" class="work-card">
+        <div class="work-meta">
+          <p class="work-tag">${escapeHtml(item.sector)}</p>
+          <h3 class="work-title">${escapeHtml(item.title)}</h3>
+        </div>
+        <div class="work-image ${item.imageClass}" aria-hidden="true"></div>
+        <div class="work-card-overlay" aria-hidden="true"><span class="work-card-cta">In progress</span></div>
+      </a>
+    `).join('');
+  }
+
+  if (pluginGrid) {
+    pluginGrid.innerHTML = PORTFOLIO_DATA.plugins.map(item => `
+      <a href="${item.href}" class="plugin-bento-card${item.featured ? ' plugin-bento-card--featured' : ''}">
+        <img src="${item.image}" alt="" class="plugin-bento-img" />
+        <div class="plugin-bento-content">
+          <h3 class="plugin-bento-title">${escapeHtml(item.title)}</h3>
+          <p class="plugin-bento-sub">${escapeHtml(item.summary)}</p>
+          <div class="plugin-bento-footer">
+            <span class="plugin-bento-arrow" aria-hidden="true">↗</span>
+          </div>
+        </div>
+      </a>
+    `).join('');
+  }
+};
+
+renderHomeCollections();
+
+// ============================================
 // COMMAND PALETTE (⌘K)
 // ============================================
 const overlay = document.getElementById('cmdkOverlay');
 const input = document.getElementById('cmdkInput');
 const results = document.getElementById('cmdkResults');
 const openBtn = document.getElementById('openCmdK');
-
-const ITEMS = [
-  { tag: 'Work',   label: 'Energy — Deal Pipeline',            hint: '500+ deals · AI risk layer',                href: '/work/energy-deal-operations' },
-  { tag: 'Work',   label: 'Public Sector — Citizen Services',  hint: 'national citizen services · NDA-protected', href: '/work/public-sector-citizen-services' },
-  { tag: 'Work',   label: 'Banking — AI Assistant',           hint: 'AI banking assistant · NPS 4.7 → 9.2',   href: '/work/banking-ai-self-service' },
-  { tag: 'Work',   label: 'Banking — Flow Redesign',          hint: 'guided, error-proof flows',              href: '/work/retail-banking-onboarding' },
-  { tag: 'Work',   label: 'Healthcare — Patient App',         hint: 'live · India\'s 1st accessible diag',    href: '/work/healthcare-patient-experience' },
-  { tag: 'Work',   label: 'Commerce — Ad operations',          hint: 'self-serve ads console · B2B',           href: '/work/commerce-ad-operations' },
-  { tag: 'Plugin', label: 'CLAUDE.md Exporter',               hint: 'design system → Claude Code',            href: '/plugins/claude-md-exporter' },
-  { tag: 'Plugin', label: 'Design System Generator',          hint: 'tokens → starter screens · in Figma',    href: '/plugins/design-system-generator' },
-  { tag: 'Plugin', label: 'Design System Validator',          hint: 'flag breaks before handoff',             href: '/plugins/design-system-validator' },
-  { tag: 'Plugin', label: 'Conversation Flow Generator',      hint: 'flows · powered by Anthropic',           href: '/plugins/conversation-flow-generator' },
-  { tag: 'Page',   label: 'About',                            hint: 'who I am',                               href: '/about' },
-  { tag: 'Page',   label: 'Under the hood',                   hint: 'how this site is built',                 href: '/under-the-hood' },
-  { tag: 'Page',   label: 'Now',                              hint: 'what I am working on',                   href: '/now' },
-  { tag: 'Link',   label: 'Email',                            hint: 'hsuneja.suneja7@gmail.com',              href: 'mailto:hsuneja.suneja7@gmail.com' },
-  { tag: 'Link',   label: 'GitHub',                           hint: 'github.com/hsuneja5s',                   href: 'https://github.com/hsuneja5s' },
-  { tag: 'Link',   label: 'LinkedIn',                         hint: 'linkedin.com/in/harshitux',              href: 'https://linkedin.com/in/harshitux' },
-  { tag: 'Link',   label: 'Resume',                           hint: 'download PDF',                           href: '#' },
-  { tag: 'Action', label: 'Toggle theme',                     hint: 'switch light / dark',                    action: 'toggleTheme' },
-];
 
 let activeIndex = 0;
 
@@ -69,7 +196,7 @@ const fuzzyMatch = (q, s) => {
 
 const render = () => {
   const q = input.value.trim();
-  const filtered = ITEMS.filter(i =>
+  const filtered = SEARCH_ITEMS.filter(i =>
     fuzzyMatch(q, i.label) || fuzzyMatch(q, i.hint) || fuzzyMatch(q, i.tag)
   );
 
@@ -83,7 +210,7 @@ const render = () => {
   results.innerHTML = filtered.map((item, idx) => `
     <li class="cmdk-result ${idx === activeIndex ? 'active' : ''}" data-idx="${idx}" role="option">
       <span class="cmdk-result-label">${escapeHtml(item.label)}</span>
-      <span class="cmdk-result-hint" style="color: var(--text-tertiary); font-size: 13px; margin-left: 8px;">${escapeHtml(item.hint)}</span>
+      <span class="cmdk-result-hint">${escapeHtml(item.hint)}</span>
       <span class="cmdk-result-tag">${item.tag}</span>
     </li>
   `).join('');
@@ -155,7 +282,7 @@ document.addEventListener('keydown', (e) => {
 
   if (!overlay.classList.contains('open')) return;
 
-  const filtered = ITEMS.filter(i =>
+  const filtered = SEARCH_ITEMS.filter(i =>
     fuzzyMatch(input.value.trim(), i.label) ||
     fuzzyMatch(input.value.trim(), i.hint) ||
     fuzzyMatch(input.value.trim(), i.tag)

@@ -12,7 +12,7 @@ Treat this file as the working memory for Codex and other coding agents.
 - Main files:
   - `index.html`: homepage.
   - `styles.css`: all layout, theme tokens, components, responsive rules.
-  - `script.js`: theme toggle, command palette, scroll-spy behavior.
+  - `script.js`: central portfolio registry, homepage rendering, theme toggle, command palette, scroll-spy behavior.
   - `work/*.html`: case studies.
   - `plugins/*.html`: AI/Figma plugin pages.
   - `sitemap.xml`, `robots.txt`, `vercel.json`: SEO and deploy config.
@@ -51,6 +51,9 @@ Preserve these rules:
 - Aim for WebP/JPG/PNG assets that are visually inspectable and lightweight.
 - If replacing images referenced from HTML, update paths and alt text together.
 - If changing CSS/JS references, follow the cache-busting rule below.
+- Homepage work cards, plugin cards, and command-palette entries are linked
+  through `PORTFOLIO_DATA` in `script.js`. Update that registry first instead
+  of hardcoding the same title, URL, or hint in multiple places.
 
 ## Deployment Rules
 
