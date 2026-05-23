@@ -34,7 +34,7 @@ PROJECT: [name]
 ROLE: [your role — Lead Designer / Designer in team of 5 / etc.]
 TEAM: [team size + composition — "12 engineers, 1 PM, 2 designers"]
 TIMELINE: [duration — "3 months" / "Q4 2024"]
-CLIENT/CONTEXT: [PwC engagement / Nykaa internal / etc.]
+CLIENT/CONTEXT: [PwC engagement / commerce marketplace internal / etc.]
 
 — THE PROBLEM (1-2 sentences)
 [What was broken? What was the unmet need?]
@@ -63,14 +63,14 @@ CLIENT/CONTEXT: [PwC engagement / Nykaa internal / etc.]
 
 ---
 
-### CASE 1 — CCTNS, Ministry of Home Affairs
+### CASE 1 — national citizen-services platform, public-sector client
 
 ```
-PROJECT: CCTNS — National policing platform
+PROJECT: national citizen-services platform — National citizen-services platform
 ROLE: [Lead Designer / Designer leading a team of 5]
 TEAM: [you + 5 designers + how many engineers + PMs?]
 TIMELINE: [start month → present? How long so far?]
-CLIENT/CONTEXT: PwC engagement for Ministry of Home Affairs, India
+CLIENT/CONTEXT: PwC engagement for public-sector client, India
 
 — THE PROBLEM
 [What's broken in the current FIR/policing system? What did citizens or officers struggle with?]
@@ -98,17 +98,17 @@ CLIENT/CONTEXT: PwC engagement for Ministry of Home Affairs, India
 
 ---
 
-### CASE 2 — Shell, Finance & Deal Management
+### CASE 2 — global energy platform, Finance & Deal Management
 
 ```
-PROJECT: Shell — AI-powered deal lifecycle platform
+PROJECT: global energy platform — AI-powered deal lifecycle platform
 ROLE: [Designer / Lead?]
 TEAM: [size + composition]
 TIMELINE: [duration]
-CLIENT/CONTEXT: PwC engagement for Shell
+CLIENT/CONTEXT: PwC engagement for global energy platform
 
 — THE PROBLEM
-[What was deal management at Shell like before? Spreadsheets? Multiple tools?]
+[What was deal management at global energy platform like before? Spreadsheets? Multiple tools?]
 
 — THE CONSTRAINT
 [Enterprise sales cycle? Compliance? Stakeholder breadth?]
@@ -133,10 +133,10 @@ CLIENT/CONTEXT: PwC engagement for Shell
 
 ---
 
-### CASE 3 — Central Union Bank, Digital Banking
+### CASE 3 — private-sector bank, Digital Banking
 
 ```
-PROJECT: Central Union Bank — Digital banking redesign
+PROJECT: private-sector bank — Digital banking redesign
 ROLE: [Lead Designer]
 TEAM: [size]
 TIMELINE: [duration]
@@ -170,10 +170,10 @@ CLIENT/CONTEXT: PwC engagement
 
 ---
 
-### CASE 4 — IndusInd Bank, Design System
+### CASE 4 — private-sector bank, Design System
 
 ```
-PROJECT: IndusInd Bank — Design system from scratch
+PROJECT: private-sector bank — Design system from scratch
 ROLE: [Lead?]
 TEAM: [How many designers + engineers using the system?]
 TIMELINE: [duration]
@@ -288,11 +288,11 @@ Format:
 
 Already on resume — confirm what to surface on portfolio:
 
-**Nykaa (FSN E-Commerce Ventures)** — Jan 2022 → Oct 2023
+**commerce marketplace** — Jan 2022 → Oct 2023
 - Merchant advertising platform from scratch
 - B2B retailer checkout — **12% AOV ↑, 8% conversion ↑**
 
-**FellaFeeds** — Dec 2021 → Dec 2022
+**early-stage commerce startup** — Dec 2021 → Dec 2022
 - Telemedicine, health/wellness, IoT fitness, customer feedback
 
 **Education**

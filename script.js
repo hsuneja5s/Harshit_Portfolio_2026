@@ -39,12 +39,12 @@ const results = document.getElementById('cmdkResults');
 const openBtn = document.getElementById('openCmdK');
 
 const ITEMS = [
-  { tag: 'Work',   label: 'Energy — Deal Pipeline',            hint: '500+ deals · Insight.AI',                href: '/work/shell' },
-  { tag: 'Work',   label: 'Government — Citizen Services',    hint: 'national policing · NDA-protected',      href: '/work/cctns' },
-  { tag: 'Work',   label: 'Banking — AI Assistant',           hint: 'AI banking assistant · NPS 4.7 → 9.2',   href: '/work/central-union-bank' },
-  { tag: 'Work',   label: 'Banking — Flow Redesign',          hint: 'guided, error-proof flows',              href: '/work/indusind' },
-  { tag: 'Work',   label: 'Healthcare — Patient App',         hint: 'live · India\'s 1st accessible diag',    href: '/work/torrent-patient-app' },
-  { tag: 'Work',   label: 'Nykaa — AdTech Platform',          hint: 'self-serve ads console · B2B',           href: '/work/nykaa-adtech' },
+  { tag: 'Work',   label: 'Energy — Deal Pipeline',            hint: '500+ deals · AI risk layer',                href: '/work/energy-deal-operations' },
+  { tag: 'Work',   label: 'Public Sector — Citizen Services',  hint: 'national citizen services · NDA-protected', href: '/work/public-sector-citizen-services' },
+  { tag: 'Work',   label: 'Banking — AI Assistant',           hint: 'AI banking assistant · NPS 4.7 → 9.2',   href: '/work/banking-ai-self-service' },
+  { tag: 'Work',   label: 'Banking — Flow Redesign',          hint: 'guided, error-proof flows',              href: '/work/retail-banking-onboarding' },
+  { tag: 'Work',   label: 'Healthcare — Patient App',         hint: 'live · India\'s 1st accessible diag',    href: '/work/healthcare-patient-experience' },
+  { tag: 'Work',   label: 'Commerce — Ad operations',          hint: 'self-serve ads console · B2B',           href: '/work/commerce-ad-operations' },
   { tag: 'Plugin', label: 'CLAUDE.md Exporter',               hint: 'design system → Claude Code',            href: '/plugins/claude-md-exporter' },
   { tag: 'Plugin', label: 'Design System Generator',          hint: 'tokens → starter screens · in Figma',    href: '/plugins/design-system-generator' },
   { tag: 'Plugin', label: 'Design System Validator',          hint: 'flag breaks before handoff',             href: '/plugins/design-system-validator' },

@@ -438,56 +438,56 @@ img {
 }
 
 /* Placeholder visual treatments — swap for real screenshots later */
-.work-image-cctns {
+.work-image-public-sector {
   background:
     radial-gradient(circle at 30% 30%, #fed7aa 0%, transparent 60%),
     linear-gradient(135deg, #ffedd5 0%, #fef3c7 100%);
 }
 
-.work-image-shell {
+.work-image-energy-deal {
   background:
     radial-gradient(circle at 70% 50%, #fde68a 0%, transparent 50%),
     linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);
 }
 
-.work-image-cub {
+.work-image-banking-ai {
   background:
     radial-gradient(circle at 30% 70%, #bbf7d0 0%, transparent 60%),
     linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%);
 }
 
-.work-image-indusind {
+.work-image-retail-banking {
   background:
     radial-gradient(circle at 60% 40%, #bfdbfe 0%, transparent 60%),
     linear-gradient(135deg, #eff6ff 0%, #e0e7ff 100%);
 }
 
-[data-theme="dark"] .work-image-cctns { background: linear-gradient(135deg, #78350f 0%, #92400e 100%); opacity: 0.55; }
-[data-theme="dark"] .work-image-shell { background: linear-gradient(135deg, #713f12 0%, #78350f 100%); opacity: 0.55; }
-[data-theme="dark"] .work-image-cub { background: linear-gradient(135deg, #14532d 0%, #064e3b 100%); opacity: 0.55; }
-[data-theme="dark"] .work-image-indusind { background: linear-gradient(135deg, #1e3a8a 0%, #312e81 100%); opacity: 0.55; }
+[data-theme="dark"] .work-image-public-sector { background: linear-gradient(135deg, #78350f 0%, #92400e 100%); opacity: 0.55; }
+[data-theme="dark"] .work-image-energy-deal { background: linear-gradient(135deg, #713f12 0%, #78350f 100%); opacity: 0.55; }
+[data-theme="dark"] .work-image-banking-ai { background: linear-gradient(135deg, #14532d 0%, #064e3b 100%); opacity: 0.55; }
+[data-theme="dark"] .work-image-retail-banking { background: linear-gradient(135deg, #1e3a8a 0%, #312e81 100%); opacity: 0.55; }
 
-.work-image-torrent-patient {
+.work-image-healthcare-patient {
   background:
     radial-gradient(circle at 30% 30%, #c4b5fd 0%, transparent 60%),
     linear-gradient(135deg, #ede9fe 0%, #ddd6fe 100%);
 }
 
-.work-image-torrent-system {
+.work-image-healthcare-system {
   background:
     radial-gradient(circle at 70% 50%, #fda4af 0%, transparent 50%),
     linear-gradient(135deg, #fce7f3 0%, #fbcfe8 100%);
 }
 
-.work-image-nykaa-adtech {
+.work-image-commerce-ads {
   background:
     radial-gradient(circle at 60% 40%, #f9a8d4 0%, transparent 60%),
     linear-gradient(135deg, #fce7f3 0%, #ffe4e6 100%);
 }
 
-[data-theme="dark"] .work-image-torrent-patient { background: linear-gradient(135deg, #4c1d95 0%, #5b21b6 100%); opacity: 0.55; }
-[data-theme="dark"] .work-image-torrent-system  { background: linear-gradient(135deg, #831843 0%, #9d174d 100%); opacity: 0.55; }
-[data-theme="dark"] .work-image-nykaa-adtech    { background: linear-gradient(135deg, #831843 0%, #6b21a8 100%); opacity: 0.55; }
+[data-theme="dark"] .work-image-healthcare-patient { background: linear-gradient(135deg, #4c1d95 0%, #5b21b6 100%); opacity: 0.55; }
+[data-theme="dark"] .work-image-healthcare-system  { background: linear-gradient(135deg, #831843 0%, #9d174d 100%); opacity: 0.55; }
+[data-theme="dark"] .work-image-commerce-ads    { background: linear-gradient(135deg, #831843 0%, #6b21a8 100%); opacity: 0.55; }
 
 /* ============================================
    PLAY & EXPERIMENTS
@@ -1000,53 +1000,53 @@ img {
 }
 
 /* hero gradients per case */
-.case-hero-cctns {
+.case-hero-public-sector {
   background:
     radial-gradient(circle at 30% 30%, #fed7aa 0%, transparent 60%),
     linear-gradient(135deg, #ffedd5 0%, #fef3c7 100%);
 }
-.case-hero-shell {
+.case-hero-energy-deal {
   background:
     radial-gradient(circle at 70% 50%, #fde68a 0%, transparent 50%),
     linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);
 }
-.case-hero-cub {
+.case-hero-banking-ai {
   background:
     radial-gradient(circle at 30% 70%, #bbf7d0 0%, transparent 60%),
     linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%);
 }
-.case-hero-indusind {
+.case-hero-retail-banking {
   background:
     radial-gradient(circle at 60% 40%, #bfdbfe 0%, transparent 60%),
     linear-gradient(135deg, #eff6ff 0%, #e0e7ff 100%);
 }
 
-[data-theme="dark"] .case-hero-cctns { background: linear-gradient(135deg, #78350f 0%, #92400e 100%); opacity: 0.55; }
-[data-theme="dark"] .case-hero-shell { background: linear-gradient(135deg, #713f12 0%, #78350f 100%); opacity: 0.55; }
-[data-theme="dark"] .case-hero-cub { background: linear-gradient(135deg, #14532d 0%, #064e3b 100%); opacity: 0.55; }
-[data-theme="dark"] .case-hero-indusind { background: linear-gradient(135deg, #1e3a8a 0%, #312e81 100%); opacity: 0.55; }
+[data-theme="dark"] .case-hero-public-sector { background: linear-gradient(135deg, #78350f 0%, #92400e 100%); opacity: 0.55; }
+[data-theme="dark"] .case-hero-energy-deal { background: linear-gradient(135deg, #713f12 0%, #78350f 100%); opacity: 0.55; }
+[data-theme="dark"] .case-hero-banking-ai { background: linear-gradient(135deg, #14532d 0%, #064e3b 100%); opacity: 0.55; }
+[data-theme="dark"] .case-hero-retail-banking { background: linear-gradient(135deg, #1e3a8a 0%, #312e81 100%); opacity: 0.55; }
 
-.case-hero-torrent-patient {
+.case-hero-healthcare-patient {
   background:
     radial-gradient(circle at 30% 30%, #c4b5fd 0%, transparent 60%),
     linear-gradient(135deg, #ede9fe 0%, #ddd6fe 100%);
 }
-.case-hero-torrent-system {
+.case-hero-healthcare-system {
   background:
     radial-gradient(circle at 70% 50%, #fda4af 0%, transparent 50%),
     linear-gradient(135deg, #fce7f3 0%, #fbcfe8 100%);
 }
-.case-hero-nykaa-adtech {
+.case-hero-commerce-ads {
   background:
     radial-gradient(circle at 60% 40%, #f9a8d4 0%, transparent 60%),
     linear-gradient(135deg, #fce7f3 0%, #ffe4e6 100%);
 }
 
-[data-theme="dark"] .case-hero-torrent-patient { background: linear-gradient(135deg, #4c1d95 0%, #5b21b6 100%); opacity: 0.55; }
-[data-theme="dark"] .case-hero-torrent-system  { background: linear-gradient(135deg, #831843 0%, #9d174d 100%); opacity: 0.55; }
-[data-theme="dark"] .case-hero-nykaa-adtech    { background: linear-gradient(135deg, #831843 0%, #6b21a8 100%); opacity: 0.55; }
+[data-theme="dark"] .case-hero-healthcare-patient { background: linear-gradient(135deg, #4c1d95 0%, #5b21b6 100%); opacity: 0.55; }
+[data-theme="dark"] .case-hero-healthcare-system  { background: linear-gradient(135deg, #831843 0%, #9d174d 100%); opacity: 0.55; }
+[data-theme="dark"] .case-hero-commerce-ads    { background: linear-gradient(135deg, #831843 0%, #6b21a8 100%); opacity: 0.55; }
 
-/* CCTNS NDA banner */
+/* national citizen-services platform NDA banner */
 .nda-banner {
   background: var(--background-subtle);
   border-radius: 12px;
@@ -1458,7 +1458,7 @@ img {
    CASE-SPECIFIC VISUAL COMPONENTS
    ============================================ */
 
-/* Conversation bubble (CUB.ai) — refined */
+/* Conversation bubble (AI banking assistant) — refined */
 .conversation {
   margin: 20px 0 28px;
   display: flex;

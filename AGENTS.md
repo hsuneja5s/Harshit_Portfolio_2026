@@ -81,7 +81,7 @@ Before proposing a push, run a local static server and check:
 - Keep changes scoped to the request.
 - Do not revert user changes or unrelated edits.
 - Commit messages should be plain and specific, for example:
-  `Tighten plugin card spacing` or `Add CCTNS content placeholders`.
+  `Tighten plugin card spacing` or `Add public-sector content placeholders`.
 - Push to `main` only after local verification and explicit user approval.
 
 ## Current Priorities
@@ -89,6 +89,6 @@ Before proposing a push, run a local static server and check:
 - Vet case-study content line by line before serious outreach.
 - Add real project and plugin screenshots.
 - Create a proper 1200x630 OG image.
-- Consider a gated deeper CCTNS version later.
+- Consider a gated deeper public-sector case-study version later.
 - Defer Arabic localization until the owner asks for it.
 - Do cross-browser and device QA after real content lands.
