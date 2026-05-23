@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="How a unified deal-management cockpit gave finance leaders at a global energy enterprise a clear view of deals, resources, and budgets. Shifting effort from manual reconciliation to performance management." />
+  <meta name="description" content="How a unified deal-management cockpit gave finance leaders a clear view of deals, resources, and budgets. Shifting effort from manual reconciliation to performance management." />
   <link rel="canonical" href="https://sunejaux.space/work/energy-deal-operations" />
   <meta property="og:title" content="One cockpit for the entire deal pipeline · Harshit Suneja" />
-  <meta property="og:description" content="Consolidating active deals from multiple trackers into a single, workflow-aligned control cockpit for a global energy enterprise. Shifting effort from manual reconciliation to performance management." />
+  <meta property="og:description" content="Consolidating active deals from multiple trackers into a single, workflow-aligned control cockpit. Shifting effort from manual reconciliation to performance management." />
   <meta property="og:type" content="article" />
   <meta property="og:url" content="https://sunejaux.space/work/energy-deal-operations" />
   <meta name="twitter:card" content="summary_large_image" />
@@ -89,7 +89,7 @@
       <a href="#problem">The story</a>
       <a href="#bet">The bet</a>
       <a href="#build">The cockpit</a>
-      <a href="#insight">Risk layer</a>
+      <a href="#insight">Insight.AI</a>
       <a href="#outcome">Business outcome</a>
       <a href="#cuts">What we didn't ship</a>
     </aside>
@@ -99,7 +99,7 @@
 
       <h1 class="case-title">Deal intelligence for global energy operations</h1>
       <p class="case-thesis">A dashboard reports the past. A cockpit lets the pilot fly.</p>
-      <p class="case-subtitle">A unified deal management cockpit that consolidated multiple separate trackers and hundreds of active deals into a single, workflow-aligned interface — shifting the finance function's effort from manual reconciliation to real-time performance management.</p>
+      <p class="case-subtitle">A unified control hub—The Pacific Platform—that consolidated multiple separate trackers and hundreds of active regional deals into a single, workflow-aligned interface, shifting finance from manual reconciliation to active performance management.</p>
 
 <div class="case-meta">
         <div class="case-meta-row"><span class="case-meta-label">Role</span><span class="case-meta-value">Senior Product Designer</span></div>
@@ -110,74 +110,74 @@
       <section class="case-section case-tldr" id="tldr">
         <h2>In brief</h2>
         <ul>
-          <li><strong>The problem wasn't reporting — it was time-to-decision.</strong> Finance leaders were learning about deal-level risk weeks after it became actionable due to fragmented offline tracking.</li>
-          <li><strong>The bet:</strong> build a single, workflow-aligned control cockpit that brings active deals, resources, and budgets together so finance can act, not just report.</li>
-          <li><strong>The shift:</strong> consolidated hundreds of active deals from multiple separate trackers into a single shared system, reducing reviewer spreadsheet assembly time to zero.</li>
+          <li><strong>The problem was fragmented tracking, not reporting.</strong> Finance leaders were forced to stitch time bookings, deal details, and budget allocations across spreadsheets and legacy tools.</li>
+          <li><strong>The bet:</strong> Design a single, workflow-aligned landing hub (The Pacific Platform) with tabbed metadata detail and an active risk layer directly embedded where budgets live.</li>
+          <li><strong>The shift:</strong> Shifted reviewing effort from offline slide-pack assembly to dynamic in-flight checks, surfacing burn-rate risks weeks before month-end reviews.</li>
         </ul>
       </section>
 
       <section class="case-section" id="problem">
         <h2>The story</h2>
         <p>
-          The finance function at a global energy enterprise oversees a large portfolio of deals across businesses and regions, but deal data, time bookings, and budget information lived in multiple spreadsheets and legacy tools. This fragmentation made it impossible to get a reliable, end-to-end view.
+          The finance function at a global energy enterprise oversees a highly complex portfolio of regional deals (e.g., digital infrastructure, regional partnerships), but deal data, time bookings, and budget information lived in separate tools.
         </p>
         <p>
-          Answering basic questions such as which deals are at risk, where budgets are off, and where capacity is constrained required hours of manual data stitching. As a result, month-end reviews depended on slide packs and offline files instead of a single, trusted cockpit.
+          Answering basic questions such as which deals are active, where budgets stand, and whether capacity is constrained required hours of manual data assembly. Review preparation relied on offline slides instead of a single, trusted cockpit.
         </p>
       </section>
 
       <section class="case-section" id="bet">
         <h2>The bet</h2>
         <p>
-          We reframed the problem from "another dashboard" to a control cockpit for finance. We made one explicit call early: <strong>the risk and allocation layers had to live inside the day-to-day deal workflow, not next to it.</strong> A standalone analytics tool would have shipped faster and demoed beautifully, but it would have failed adoption. Finance leaders don't want a fifth tool to look at — they want one interface that eliminates the friction of the other four.
+          We reframed the problem from "another dashboard" to a centralized landing cockpit called **The Pacific Platform**. We made one explicit call: **bring active deals, resources, and budget utilization together in a tabbed, high-density interface.** 
         </p>
         <p>
-          We deliberately sacrificed forecasting modules, scenario sandboxes, and granular custom builders in v1. Every one of those was on a stakeholder wishlist, but we deferred them. We bet entirely on legibility: making the cockpit so intuitive that a leader opening it cold could identify exception-level risks within seconds.
+          Instead of building heavy analytical scenario builders, we focused on legibility: structuring key metadata (Decision Executives, IM Advisors, Country) and opportunity status checklists directly on the deal card, so review teams could confirm WBS creation and data compliance in a single scan.
         </p>
       </section>
 
       <section class="case-section" id="build">
         <h2>The cockpit</h2>
         <p>
-          The tool brings four core views into a single, workflow-aligned interface, eliminating the need for offline slide decks:
+          The landing hub structures active portfolios and unifies workflows, bringing four core views into a clean, tabbed interface:
         </p>
 
         <div class="ia-views">
           <div class="ia-view">
-            <div class="ia-view-name">Deal Management</div>
-            <div class="ia-view-desc">Structured records with status, value, key dates, and owners. Portfolio at a glance, drillable to a single deal.</div>
+            <div class="ia-view-name">Pacific Home</div>
+            <div class="ia-view-desc">Central hub with standardized quick actions: Submit Deal to Prioritisation Board, Add a Deal, and Open Existing Deal.</div>
           </div>
           <div class="ia-view">
-            <div class="ia-view-name">Financial Dashboard</div>
-            <div class="ia-view-desc">Portfolio KPIs with real-time drill-down into individual deal structures.</div>
+            <div class="ia-view-name">Opportunity Details</div>
+            <div class="ia-view-desc">Structured metadata mapping Decision Executives, IM Advisors, Line of Business, and Strategic themes (e.g., Integrated Gas, LNG).</div>
           </div>
           <div class="ia-view">
-            <div class="ia-view-name">Resources &amp; Time</div>
-            <div class="ia-view-desc">Who's on which deal, booked time, and capacity hot spots.</div>
+            <div class="ia-view-name">Opportunity Status</div>
+            <div class="ia-view-desc">Compliance checklist tracking Mandatory Data, SharePoint Site Setup, and WBS creation.</div>
           </div>
           <div class="ia-view">
-            <div class="ia-view-name">Budget Utilization</div>
-            <div class="ia-view-desc">Planned versus actual spend, with clear exception signals for over- and underspend.</div>
+            <div class="ia-view-name">Budget Cockpit</div>
+            <div class="ia-view-desc">Planned versus actual spend, category breakdown (FM Staff hours), and contextual AI spend forecasting.</div>
           </div>
         </div>
 
         <p>
-          Navigation is exception-first. Filters like <em>"at risk"</em>, <em>"over budget"</em>, and <em>"capacity constrained"</em> are prominent status actions, not buried selectors. The design forces focus: leaders open the platform to find the few deals that need intervention this week, not to scan the hundreds that don't. Data inputs are kept extremely lean so analysts can keep records current without heavy administrative friction.
+          The deal view organizes data into clear tabs: <em>Details</em>, <em>Contributors</em>, <em>Budget</em> (with a status dot), and <em>Highlights</em>. Rather than burying compliance, the status panel actively guides reviewers to SharePoint configurations and WBS statuses. Data inputs are kept lightweight so deal owners can maintain current statuses without administrative friction.
         </p>
       </section>
 
       <section class="case-section" id="insight">
-        <h2>Risk layer</h2>
+        <h2>Insight.AI</h2>
         <p>
-          The budget view embeds an active risk layer. It proactively answers the core question finance teams ask every week: <em>"is this deal off track, and how much warning do I have?"</em>
+          The Budget tab embeds **Insight.AI**, an active risk layer designed to flag spend trajectory anomalies proactively where budget reviews occur.
         </p>
         <ul>
-          <li><strong>Burn-rate alerts:</strong> <em>"Burn rate up in recent weeks. Budget exhaustion projected ahead of schedule."</em> Surfaces during the quarter, not after.</li>
-          <li><strong>Cost-by-category anomalies:</strong> flags categories where actual spend diverges sharply from planned allocations, with comparison windows cited inline.</li>
-          <li><strong>Spend-trend forward views:</strong> projects FY trajectories from current actuals, citing the historical spend comparison it's anchored on.</li>
+          <li><strong>Contextual AI Warnings:</strong> Restrained, high-visibility warning blocks alerting teams directly: <em>"Burn rate has increased by 18% this month. At this pace, budget exhaustion is projected 3 weeks before deal closure."</em></li>
+          <li><strong>Granular Category breakdown:</strong> Maps costs by category (FM Staff actual hours and costs) next to a clean monthly spend trend bar chart.</li>
+          <li><strong>Longitudinal spend trends:</strong> Displays multi-year trajectories at a glance, allowing immediate context checks against historical averages.</li>
         </ul>
         <p class="muted">
-          In a corporate finance context, trust comes from verification, not blind faith. Every indicator has a "why this" affordance surfacing the underlying calculation and comparison window. That design call is why the features passed internal risk and audit reviews on the first cycle, avoiding manual approval gates.
+          In high-stakes enterprise applications, transparency builds adoption. Insight.AI works contextually, placing explanation metrics alongside actual category bookings so finance teams can verify the forecast instantly.
         </p>
       </section>
 
@@ -203,12 +203,12 @@
         <h2>What we didn't ship</h2>
         <p class="case-thesis">Every deliberate cut bought the cockpit a better chance of actually being used.</p>
         <ul>
-          <li><strong>Forecasting and scenario analysis.</strong> The instinct was to add it in v1 to make the platform feel "complete." We resisted because adoption of the core cockpit had to land first — forecasting on top of untrusted data is worse than no forecasting at all.</li>
-          <li><strong>Custom report builders for BU finance leads.</strong> Every business unit wanted its own slice of the data. We held the line on a shared vocabulary because custom layouts before shared understanding just fragments reviews. Acknowledged debt for v2.</li>
-          <li><strong>Contributor experience for deal owners.</strong> The cockpit was designed leader-out, meaning deal owners got a thinner experience by design. Their input flows lagged by a full release cycle. If I were starting again, I'd parallel-track contributors from day one.</li>
+          <li><strong>Complex scenario modeling.</strong> We avoided adding heavy simulation tools in v1 to prioritize platform legibility. Establishing a single source of truth for active deals took precedence.</li>
+          <li><strong>Granular custom report builders.</strong> Held the line on a standardized, shared vocabulary. Custom review views were deferred to v2 to prevent fragmentation of review standards.</li>
+          <li><strong>Full contributor writing permissions.</strong> The initial release prioritized the leader-out review cockpit, keeping data entry fields highly focused and lightweight.</li>
         </ul>
         <p class="muted">
-          With structured deal data and workflows in one place, the finance function now has a platform for scenario analysis, trend views across quarters, and future integrations with forecasting and AI-driven indicators of deal health.
+          With structured deal data and workflows in one place, the platform serves as a solid foundation for future integrations, including trend projections across quarters and expanded AI-driven indicators of deal health.
         </p>
       </section>
 
