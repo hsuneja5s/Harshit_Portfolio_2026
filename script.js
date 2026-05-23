@@ -501,6 +501,7 @@ document.addEventListener("DOMContentLoaded", () => {
     let charIndex = words[0].length;
     let isDeleting = true; // Initialize to true so we start by deleting "Harshit" after the pause
     let typingSpeed = 150;
+    let cycleCount = 0;
 
     function type() {
       const currentWord = words[wordIndex];
@@ -517,11 +518,19 @@ document.addEventListener("DOMContentLoaded", () => {
       target.textContent = chars.slice(0, charIndex).join('');
 
       if (!isDeleting && charIndex === chars.length) {
+        if (wordIndex === 0 && cycleCount > 0) {
+          // Finished the cycle. Remove cursor caret and stop permanently.
+          target.classList.remove('typewriter-name');
+          return;
+        }
         typingSpeed = 2000; // Pause on complete word
         isDeleting = true;
       } else if (isDeleting && charIndex === 0) {
         isDeleting = false;
         wordIndex = (wordIndex + 1) % words.length;
+        if (wordIndex === 0) {
+          cycleCount++;
+        }
         typingSpeed = 400; // Pause on empty state
       }
 
