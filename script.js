@@ -38,8 +38,8 @@ const PORTFOLIO_DATA = {
     {
       sector: 'Energy',
       label: 'Energy — Deal Pipeline',
-      title: 'Deal intelligence for global energy operations',
-      hint: '500+ deals · AI risk layer',
+      title: 'How Shell Finance got a clear view of every deal',
+      hint: '500+ deals · control cockpit',
       href: '/work/energy-deal-operations',
       imageClass: 'work-image-energy-deal',
     },
