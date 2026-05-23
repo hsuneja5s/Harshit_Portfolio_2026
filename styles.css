@@ -35,6 +35,19 @@
   --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.4);
 }
 
+:root {
+  /* Typography Scale Tokens (+2px base & headings) */
+  --font-size-xxs: 13px;     /* For small captions, labels, tags (originally 11px) */
+  --font-size-xs: 14px;      /* Originally 12px */
+  --font-size-sm: 15px;      /* For subtext, side labels, captions (originally 13px) */
+  --font-size-base: 18px;    /* Core body text (originally 16px) */
+  --font-size-md: 17px;      /* Case section titles (originally 15px) */
+  --font-size-lg: 20px;      /* Medium titles (originally 18px) */
+  --font-size-xl: 24px;      /* Case titles & section headers (originally 22px) */
+  --font-size-2xl: 26px;     /* Hero main roles (originally 24px) */
+  --font-size-3xl: 34px;     /* Giant displays (originally 32px) */
+}
+
 /* ============================================
    RESET / BASE
    ============================================ */
@@ -75,7 +88,7 @@ html {
 
 body {
   font-family: 'Inter', system-ui, -apple-system, sans-serif;
-  font-size: 16px;
+  font-size: var(--font-size-base);
   line-height: 1.55;
   color: var(--text-primary);
   background: var(--background-primary);
@@ -254,7 +267,7 @@ img {
 }
 
 .section-title {
-  font-size: 22px;
+  font-size: var(--font-size-xl);
   font-weight: 600;
   letter-spacing: -0.02em;
   color: var(--text-primary);
@@ -262,7 +275,7 @@ img {
 }
 
 .section-sub {
-  font-size: 15px;
+  font-size: var(--font-size-sm);
   color: var(--text-secondary);
   line-height: 1.55;
   margin-bottom: 12px;
@@ -322,7 +335,7 @@ img {
 }
 
 .hero-role {
-  font-size: 24px;
+  font-size: var(--font-size-2xl);
   font-weight: 600;
   letter-spacing: -0.02em;
   color: var(--text-primary);
@@ -350,7 +363,7 @@ img {
 }
 
 .hero-tagline {
-  font-size: 16px;
+  font-size: var(--font-size-base);
   color: var(--text-secondary);
   line-height: 1.5;
 }
@@ -406,7 +419,7 @@ img {
 .work-card-cta {
   background: #0a0a0a;
   color: #fff;
-  font-size: 14px;
+  font-size: var(--font-size-xs);
   font-weight: 500;
   padding: 12px 24px;
   border-radius: 100px;
@@ -424,7 +437,7 @@ img {
 }
 
 .work-title {
-  font-size: 18px;
+  font-size: var(--font-size-lg);
   font-weight: 700;
   letter-spacing: -0.02em;
   color: var(--text-primary);
@@ -435,7 +448,7 @@ img {
 }
 
 .work-tag {
-  font-size: 12px;
+  font-size: var(--font-size-xs);
   font-weight: 500;
   color: var(--text-secondary);
   letter-spacing: 0.01em;
@@ -1007,7 +1020,7 @@ img {
 }
 
 .case-title {
-  font-size: 22px;
+  font-size: var(--font-size-xl);
   font-weight: 600;
   letter-spacing: -0.018em;
   line-height: 1.25;
@@ -1016,12 +1029,12 @@ img {
 
 @media (max-width: 640px) {
   .case-title {
-    font-size: 20px;
+    font-size: var(--font-size-lg);
   }
 }
 
 .case-subtitle {
-  font-size: 13px;
+  font-size: var(--font-size-sm);
   color: var(--text-secondary);
   line-height: 1.65;
   margin-bottom: 28px;
@@ -1076,7 +1089,7 @@ img {
 }
 
 .case-section h2 {
-  font-size: 15px;
+  font-size: var(--font-size-md);
   font-weight: 600;
   letter-spacing: -0.01em;
   color: var(--text-primary);
@@ -1085,7 +1098,7 @@ img {
 }
 
 .case-section p {
-  font-size: 13px;
+  font-size: var(--font-size-sm);
   color: var(--text-primary);
   line-height: 1.7;
   margin-bottom: 16px;
@@ -1102,7 +1115,7 @@ img {
 }
 
 .case-section ul li {
-  font-size: 13px;
+  font-size: var(--font-size-sm);
   color: var(--text-primary);
   line-height: 1.65;
   padding-left: 16px;
@@ -1116,7 +1129,7 @@ img {
 }
 
 .case-section ol li {
-  font-size: 13px;
+  font-size: var(--font-size-sm);
   color: var(--text-primary);
   line-height: 1.65;
   margin-bottom: 8px;
@@ -2394,13 +2407,13 @@ blockquote.voice-quote cite {
 }
 
 .split-text h3 {
-  font-size: 18px;
+  font-size: var(--font-size-lg);
   font-weight: 600;
   margin-bottom: 12px;
 }
 
 .split-text p {
-  font-size: 14px;
+  font-size: var(--font-size-xs); /* Evaluates to 14px */
   color: var(--text-secondary);
   line-height: 1.65;
   margin: 0;
@@ -2427,7 +2440,7 @@ blockquote.voice-quote cite {
 }
 
 .step-number {
-  font-size: 12px;
+  font-size: var(--font-size-xs);
   font-family: monospace;
   font-weight: 600;
   color: var(--text-tertiary);
@@ -2436,14 +2449,14 @@ blockquote.voice-quote cite {
 }
 
 .step-card h4 {
-  font-size: 15px;
+  font-size: var(--font-size-md);
   font-weight: 600;
   margin-bottom: 8px;
   color: var(--text-primary);
 }
 
 .step-card p {
-  font-size: 13px;
+  font-size: var(--font-size-sm);
   color: var(--text-secondary);
   line-height: 1.55;
   margin: 0;

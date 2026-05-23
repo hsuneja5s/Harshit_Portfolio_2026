@@ -14,7 +14,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../styles.css?v=20260523-6" />
+  <link rel="stylesheet" href="../styles.css?v=20260523-7" />
   <link rel="icon" type="image/jpeg" href="/images/me.jpg" />
   <link rel="apple-touch-icon" href="/images/me.jpg" />
   <meta property="og:image" content="https://sunejaux.space/images/og-cover.jpg" />
@@ -111,48 +111,40 @@
       <section class="case-section case-tldr" id="tldr">
         <h2>In brief</h2>
         <ul>
-          <li>Research used to eat 2–3 days per engagement: reading the PRD, synthesising it into IA, running workshops to align on personas. This plugin compresses that to minutes.</li>
-          <li>Output is Figma-native — not a PDF report, not a slide deck. It lands on your canvas and is immediately editable.</li>
-          <li>Devil's advocate mode doesn't just generate. It interrogates the PRD and surfaces what's missing before anyone has to ask.</li>
+          <li>Uploads product requirement documents directly to scaffold editable personas, flows, and canvas maps in minutes.</li>
+          <li>Transforms low-signal document reading into instant, fully editable Figma-native layout components.</li>
+          <li>Employs an adversarial review pass to surface hidden system gaps and contradictions before team reviews.</li>
         </ul>
       </section>
 
       <section class="case-section" id="why">
         <h2>Why I built it</h2>
         <p>
-          Every new PwC engagement starts the same way: a PRD (or something close to one), a kickoff call, and then days of synthesis work before a designer can put anything meaningful on canvas. Reading, re-reading, extracting personas, sketching journeys — all before the real design thinking begins.
-        </p>
-        <p>
-          The problem isn't effort. It's that the effort is low-signal. A designer spending three days summarising a 40-page document is not doing design work. They're doing extraction.
-        </p>
-        <p class="muted">
-          So we automated the extraction. Paste the PRD. The plugin reads it, generates the full research layer on canvas — IA, personas, journeys, flows, wireframe starters — and surfaces the gaps the document left open. Designers go straight to the judgment calls.
+          Kickstarting enterprise engagements typically demands days of reading dense PRDs and manual layout alignment before real design work begins. I built this assistant to automate low-signal synthesis, mapping raw product requirements directly into structured research and diagram layers on the canvas so designers can focus purely on strategic judgments.
         </p>
       </section>
 
       <section class="case-section" id="how">
         <h2>How it works</h2>
         <ul>
-          <li><strong>Ingest:</strong> paste your PRD text (or upload a document) directly into the plugin panel.</li>
-          <li><strong>Parse and model:</strong> Claude Opus reads the document, extracts user goals, pain points, system boundaries, and feature scope.</li>
-          <li><strong>Generate on canvas:</strong> outputs IA diagrams, persona cards, user journey maps, and flow diagrams as native Figma frames — positioned, labelled, and linked.</li>
-          <li><strong>Wireframe starters:</strong> for each key flow, generates low-fidelity wireframe screens mapped to the journey steps.</li>
-          <li><strong>Devil's advocate mode:</strong> a separate pass where Claude interrogates the PRD — surfacing unstated assumptions, missing edge cases, and contradictions. Displayed as an annotation layer on canvas.</li>
+          <li><strong>PRD Ingestion:</strong> Grounded parsing engine extracts core user intents, system boundaries, and functional scopes automatically.</li>
+          <li><strong>Canvas Scaffolding:</strong> Renders information architectures, detailed persona cards, and flow maps instantly as fully editable Figma elements.</li>
+          <li><strong>Devil's Advocate Mode:</strong> Performs a secondary adversarial pass to highlight hidden system gaps and design contradictions as prominent overlay notes.</li>
         </ul>
       </section>
 
       <section class="case-section" id="stack">
         <h2>Stack</h2>
         <ul>
-          <li><strong>Figma Plugin API</strong> — all output is native frames, shapes, and text; nothing is an image export</li>
-          <li><strong>Claude Opus via Anthropic SDK</strong> — handles both the synthesis and the adversarial review pass</li>
-          <li><strong>Custom canvas layout engine</strong> — positions generated artifacts on a structured grid so output is immediately navigable</li>
+          <li><strong>Figma Plugin API</strong> to generate editable typography and vector-aligned frames directly on the canvas.</li>
+          <li><strong>Claude Opus via Anthropic SDK</strong> to handle complex narrative synthesis and adversarial review audits.</li>
+          <li><strong>Custom Layout Engine</strong> to organize generated outputs cleanly across a modular, structured spatial grid.</li>
         </ul>
       </section>
 
       <section class="case-section" id="demo">
         <h2>See it live</h2>
-        <p>The LinkedIn post below shows a full walkthrough — PRD in, canvas out, devil's advocate mode running.</p>
+        <p>The LinkedIn post below shows a full walkthrough — PRD in, canvas out, and devil's advocate mode running.</p>
 
         <a
           href="https://www.linkedin.com/posts/harshitux_productdesign-uxdesign-figma-activity-7452212054670594048-6Jab"
@@ -200,17 +192,17 @@
         <div class="rejected-block">
           <h3>What I tried first</h3>
           <ul>
-            <li><strong>A structured interview wizard.</strong> The first version walked the designer through a series of structured questions — "what are the user goals?", "what are the system boundaries?" — and used the answers to generate output. It was slower than just reading the PRD, and it put the cognitive load back on the designer. Killed it after the first internal test.</li>
-            <li><strong>Generating slides, not Figma frames.</strong> Early output went to a presentation format so it was shareable with clients. Problem: slides aren't editable design artifacts. Designers had to duplicate the work anyway. Pivoted to Figma-native output with no regrets.</li>
-            <li><strong>A single-output model (IA only).</strong> Version zero only generated IA — the intent was to keep it simple and see if anyone used it. Everyone immediately asked "why can't it do personas and journeys?" Lesson: the value is in the full research layer, not a single artifact.</li>
+            <li><strong>Interactive Wizards:</strong> Step-by-step interview flows placed excessive cognitive load on designers compared to simple, automated PRD ingestion.</li>
+            <li><strong>Slide Presentations:</strong> Generating static client decks proved redundant since designers still had to manually translate those slides into native Figma frames.</li>
+            <li><strong>Single-Output Engines:</strong> Restricting scope to simple information architectures fell short; the real speed gains required scaffolding the entire user research layer.</li>
           </ul>
         </div>
       </section>
 
       <section class="case-section" id="try">
         <h2>Try it</h2>
-        <p>Currently in use across active PwC engagements. Reach out at <a href="mailto:hsuneja.suneja7@gmail.com" class="inline-link">hsuneja.suneja7@gmail.com</a> if you want to see it run on your PRD.</p>
-        <p class="muted">Built with Utkarsha Sharma. Public release TBD.</p>
+        <p>Currently in use across active PwC design engagements. If you would like to run a PRD through the generator, reach out at <a href="mailto:hsuneja.suneja7@gmail.com" class="inline-link">hsuneja.suneja7@gmail.com</a>.</p>
+        <p class="muted">Built in collaboration with Utkarsha Sharma. Public release details pending.</p>
       </section>
 
       <nav class="case-next" aria-label="Next plugin">

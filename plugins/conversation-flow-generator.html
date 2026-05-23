@@ -14,7 +14,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../styles.css?v=20260523-6" />
+  <link rel="stylesheet" href="../styles.css?v=20260523-7" />
   <link rel="icon" type="image/jpeg" href="/images/me.jpg" />
   <link rel="apple-touch-icon" href="/images/me.jpg" />
   <meta property="og:image" content="https://sunejaux.space/images/og-cover.jpg" />
@@ -121,32 +121,27 @@
       <section class="case-section" id="why">
         <h2>Why I built it</h2>
         <p>
-          On the national citizen-services platform citizen platform, voice-first flows had to work in 6 languages. Hand-drafting localised flow variants for every citizen scenario would have taken weeks per release and produced uneven quality. We needed scaffolding speed without losing design judgement.
+          During large citizen-service launches, voice-first flows had to be deployed across six regional Indian languages. Hand-drafting localized flow variants and conversational branch loops would have taken weeks. I designed this plugin to help designers author, localize, and test complete multi-turn conversational patterns natively in Figma, placing prompt register control directly where the visual interface lives.
         </p>
-        <p>
-          On the global energy platform deal-management platform, the conversational interface needed to handle hundreds of variant prompts. Designers couldn't rely on engineers to write the system prompt — we needed to <em>shape</em> the flows from inside Figma, where the rest of the design lived.
-        </p>
-        <p class="muted">Both pains pointed to the same plugin. So I built it.</p>
       </section>
 
       <section class="case-section" id="how">
         <h2>How it works</h2>
         <ul>
-          <li><strong>Goal-first input:</strong> describe the user's goal in plain language. The plugin builds the complete flow from there — happy path, branches, error recovery.</li>
-          <li><strong>Figma-native output:</strong> each turn renders as a Figma frame using your design system's bubble/message components. No copy-paste from external tools.</li>
-          <li><strong>Multi-language generation:</strong> one click localises to selected languages with culturally-aware tone matching, not just dictionary translation.</li>
-          <li><strong>Variant generation:</strong> "give me 10 ways a user might phrase this" → 10 variant inputs to test against. Critical for training intent classifiers.</li>
-          <li><strong>Refusal and fallback design:</strong> auto-generates the "I don't know" / "I need more context" turns that designers usually forget.</li>
+          <li><strong>Goal-First Scaffolding:</strong> Maps out branching paths, error recovery steps, and fallback loops from simple plain-language statements.</li>
+          <li><strong>Figma-Native Generation:</strong> Renders dialogue trees as canvas frames using existing design system component layers.</li>
+          <li><strong>Nuanced Localization:</strong> Translates conversation trees with culturally aware tone matching rather than literal word mappings.</li>
+          <li><strong>Intent Variation:</strong> Auto-generates multiple user phrasing variants to simplify training models.</li>
         </ul>
       </section>
 
       <section class="case-section" id="stack">
         <h2>Stack</h2>
         <ul>
-          <li><strong>Figma Plugin API</strong> for frame + text generation</li>
-          <li><strong>Anthropic SDK</strong> with structured tool-use for predictable flow output</li>
-          <li><strong>Claude 4.6</strong> for nuanced multilingual generation</li>
-          <li><strong>TypeScript</strong> with a strict flow schema (turns, branches, conditions)</li>
+          <li><strong>Figma Plugin API</strong> for frame and text canvas creation.</li>
+          <li><strong>Anthropic Structured Tool-Use</strong> schemas for reliable flow mapping.</li>
+          <li><strong>Claude 4.6</strong> for dialect-accurate regional translation.</li>
+          <li><strong>TypeScript</strong> enforcing a strict tree schema.</li>
         </ul>
       </section>
 
@@ -155,10 +150,6 @@
         <figure class="case-figure">
           <div class="case-figure-image">[ Generated flow on Figma canvas — multi-turn, branched, with error states ]</div>
           <div class="case-figure-caption">A complete generated flow for a citizen-services use case, ready to refine.</div>
-        </figure>
-        <figure class="case-figure">
-          <div class="case-figure-image">[ Same flow localised — English / Hindi / Marathi side by side ]</div>
-          <div class="case-figure-caption">One flow, three languages — generated together, reviewed in Figma.</div>
         </figure>
       </section>
 
@@ -188,7 +179,7 @@
 
           <div class="li-post-card-body">
             <p>Episode #08 — Conversation Flow Generator</p>
-            <p>Most products add conversation layers but design them like screens. Type a user goal — get a complete flow with branches, error states, and fallbacks, localised into multiple languages from a single source. Tested across banking, e-commerce, and aviation.</p>
+            <p>Type a user goal — get a complete flow with branches, error states, and fallbacks, localised into multiple languages from a single source. Tested across banking, e-commerce, and aviation.</p>
             <p class="li-post-card-tags">#AIinDesign #ConversationUX #ConversationalDesign #Figma</p>
           </div>
 
@@ -212,9 +203,9 @@
         <div class="rejected-block">
           <h3>What I tried first</h3>
           <ul>
-            <li><strong>Spreadsheet-based flow scripting.</strong> The first national citizen-services platform approach was a structured Google Sheet — intent, response, branch condition, error fallback — that a script would turn into flow diagrams. The sheet took longer to fill than hand-drafting the flow, and the output couldn't be edited in context. Figma-native was the only model that kept flows in the same space as the rest of the design.</li>
-            <li><strong>Having engineers write the prompts.</strong> On the global energy platform platform, the initial plan was for engineers to write and maintain the system prompts that drove the conversational interface. Two weeks in, the prompts were drifting from the design intent — engineers optimised for technical correctness, designers optimised for conversational register. Moving prompt authorship into Figma (where the UX decisions live) put the right people in control of the right layer.</li>
-            <li><strong>Free-form generation without a schema.</strong> First version let Claude generate however it wanted — flow structure, turn format, branching logic all emergent. Output was high-quality but inconsistent. Two flows from the same designer had different structural conventions, which made them impossible to compare or hand off reliably. The strict output schema was the most important architectural decision: it made the output boring and trustworthy, which is exactly what a design tool needs to be.</li>
+            <li><strong>Spreadsheet Diagrams:</strong> Translating Google Sheets into canvas graphics felt slower than drafting components manually.</li>
+            <li><strong>Engineering Prompts:</strong> Relocating prompt authorship to code repository files distanced designers from vital tone registers.</li>
+            <li><strong>Free-Form Outflow:</strong> Generating without schemas created inconsistent visual conventions that hindered engineering handoffs.</li>
           </ul>
         </div>
       </section>

@@ -14,7 +14,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../styles.css?v=20260523-6" />
+  <link rel="stylesheet" href="../styles.css?v=20260523-7" />
   <link rel="icon" type="image/jpeg" href="/images/me.jpg" />
   <link rel="apple-touch-icon" href="/images/me.jpg" />
   <meta property="og:image" content="https://sunejaux.space/images/og-cover.jpg" />
@@ -121,32 +121,27 @@
       <section class="case-section" id="why">
         <h2>Why I built it</h2>
         <p>
-          At any large org, the design system team is the bottleneck. Internal-tools teams need a basic system <em>now</em> — not in three months when the central team gets to them. Most end up re-inventing the wheel badly: copy-pasting colors, inventing components, drifting from brand.
+          Design system teams in large enterprises are often bottlenecked by manual requests. Since eighty percent of every internal system shares identical scaffolding primitives, I built this generator to scaffold semantic tokens, spacing frameworks, and primary components in minutes, leaving designers to focus purely on the custom, brand-differentiating details.
         </p>
-        <p>
-          The opportunity: 80% of design systems share the same scaffolding (semantic tokens × density × type scale × component primitives). Only the brand-specific bits actually need a human's judgment. So I built a plugin that produces the 80% in minutes — leaving humans to focus on the differentiating 20%.
-        </p>
-        <p class="muted">First use case at PwC was for an internal admin tool. It went from "we need a system" to "system in Figma + starter screens" in one afternoon.</p>
       </section>
 
       <section class="case-section" id="how">
         <h2>How it works</h2>
         <ul>
-          <li><strong>Brand inputs:</strong> you paste your brand color (or up to 3) — the plugin generates a WCAG-clean semantic palette: background / content / border × primary / secondary / tertiary states.</li>
-          <li><strong>Density + scale prompts:</strong> a few questions ("compact / comfortable / spacious", "modern grotesque / classic serif / mono-flavoured") pick the typography + spacing tokens.</li>
-          <li><strong>Token generation:</strong> a full semantic token set lands as Figma Variables — tied to a sync schema for downstream pipeline use.</li>
-          <li><strong>Component scaffolding:</strong> ~40 components ship — buttons, inputs, cards, lists, navs — all wired through the tokens, with ready-made variants.</li>
-          <li><strong>Starter screens:</strong> 5 sample layouts (login, dashboard, table, form, empty state) so engineers see the system in context, not in isolation.</li>
+          <li><strong>WCAG Contrast Mapping:</strong> Generates clean, accessible semantic color scales from a single brand color input.</li>
+          <li><strong>Typography and Spacing:</strong> Adapts variables automatically based on density prompts (compact, comfortable, spacious).</li>
+          <li><strong>Variables Generation:</strong> Configures a full token set as native, pipeline-ready Figma Variables.</li>
+          <li><strong>Component Scaffolding:</strong> Deploys approximately forty core components with pre-configured responsive states.</li>
         </ul>
       </section>
 
       <section class="case-section" id="stack">
         <h2>Stack</h2>
         <ul>
-          <li><strong>Figma Plugin API</strong> for variable + component creation</li>
-          <li><strong>TypeScript</strong> + a strict component spec format</li>
-          <li><strong>Anthropic SDK</strong> for naming + categorisation suggestions ("what should we call this token cluster?")</li>
-          <li><strong>WCAG contrast math</strong> built-in to guarantee AA palettes</li>
+          <li><strong>Figma Plugin API</strong> for canvas variable creation.</li>
+          <li><strong>TypeScript</strong> for component compilation safety.</li>
+          <li><strong>Anthropic SDK</strong> for contextual variable suggestions.</li>
+          <li><strong>WCAG Math Libraries</strong> for color compliance auditing.</li>
         </ul>
       </section>
 
@@ -154,7 +149,7 @@
         <h2>Example output</h2>
         <figure class="case-figure">
           <div class="case-figure-image">[ Generated Figma file — token sheet, component grid, starter screens ]</div>
-          <div class="case-figure-caption">From one input color to a full system: tokens, components, starter screens.</div>
+          <div class="case-figure-caption">From one input color to a full design system foundation in minutes.</div>
         </figure>
       </section>
 
@@ -184,7 +179,7 @@
 
           <div class="li-post-card-body">
             <p>Episode #03 — Design System Generator</p>
-            <p>Most products start without a foundation and spend months in design debt. One brand color + a few choices → a complete Figma design system in minutes. Semantic tokens, ~40 components, starter screens. Afternoon to foundation, not six weeks.</p>
+            <p>One brand color + a few choices → a complete Figma design system in minutes. Semantic tokens, ~40 components, starter screens. Afternoon to foundation, not six weeks.</p>
             <p class="li-post-card-tags">#ArtificialIntelligence #ProductDesign #DesignSystems #Figma</p>
           </div>
 
@@ -208,9 +203,9 @@
         <div class="rejected-block">
           <h3>What I tried first</h3>
           <ul>
-            <li><strong>A Figma template kit.</strong> The obvious solution: a well-structured starter file teams could duplicate. Teams duplicated it and immediately started modifying components in ways that broke the token connections. Without the generation step, there was no guarantee the system stayed coherent. The plugin generates connected components from scratch every time — no inheritance of broken states.</li>
-            <li><strong>A configuration spreadsheet.</strong> Tried a spreadsheet-first approach where teams filled in brand values, density preferences, and type choices — then a script ran against it. The spreadsheet interface was a barrier; teams didn't know what the values meant. Moved to conversational prompts ("compact / comfortable / spacious") instead of field-by-field input.</li>
-            <li><strong>Letting teams fork the output freely.</strong> First version generated the system with no guardrails on what teams could modify. Post-generation edits immediately broke token connections. Added a "frozen foundation" model — you can extend the system but can't structurally modify what the generator produced without re-running it.</li>
+            <li><strong>Figma Starter Kits:</strong> Duplicated files were immediately modified in ways that broke downstream variable connections.</li>
+            <li><strong>Spreadsheet Inputs:</strong> Text-heavy parameter grids presented a high cognitive barrier that hindered rapid adoption.</li>
+            <li><strong>Unguarded Modifications:</strong> Unrestricted post-generation edits broke semantic mappings, resolved via a frozen foundation model.</li>
           </ul>
         </div>
       </section>

@@ -14,7 +14,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../styles.css?v=20260523-6" />
+  <link rel="stylesheet" href="../styles.css?v=20260523-7" />
   <link rel="icon" type="image/jpeg" href="/images/me.jpg" />
   <link rel="apple-touch-icon" href="/images/me.jpg" />
   <meta property="og:image" content="https://sunejaux.space/images/og-cover.jpg" />
@@ -112,41 +112,34 @@
       <section class="case-section case-tldr" id="tldr">
         <h2>In brief</h2>
         <ul>
-          <li>One click before handoff → plugin scans your frame for system violations and surfaces them inline with fix suggestions.</li>
-          <li>Catches ~40% of issues that would have otherwise reached engineering PR review.</li>
-          <li>Treats the design system as a contract: deviations are bugs, not preferences.</li>
+          <li>Scans active Figma frames instantly to flag non-system colors, radii, spacing, and broken auto-layout structures.</li>
+          <li>Replaces manual Notion checklists with a single-click audit that surfaces issues directly on canvas.</li>
+          <li>Catching errors before handoff saved engineering review cycles and reduced PR-level rework loops.</li>
         </ul>
       </section>
 
       <section class="case-section" id="why">
         <h2>Why I built it</h2>
         <p>
-          On the private-sector bank design system, we had ~120 components and 6 consumer designers shipping daily. Manual review of token usage and component variants didn't scale. By the time issues reached engineering PR review, they were expensive to fix — designers had to re-open files, re-export, re-handoff.
+          Managing over 120 components across multiple active designers demonstrated that manual design system audits simply do not scale. Because catching token deviations in code is ten times more expensive than resolving them inside Figma, I built an automated pre-handoff validator to ensure absolute layout and token compliance before files reach engineering.
         </p>
-        <p>
-          The cheaper place to catch them: <strong>before handoff, inside Figma</strong>. Same problem solved 10× cheaper.
-        </p>
-        <p class="muted">First version was a 200-line script. Real version became a proper plugin with a rule engine that consumer designers can extend.</p>
       </section>
 
       <section class="case-section" id="how">
         <h2>How it works</h2>
         <ul>
-          <li><strong>Token check:</strong> any color / spacing / radius / shadow value not bound to a system token gets flagged with a suggested replacement.</li>
-          <li><strong>Component check:</strong> detached instances, modified internals, undocumented variants — all surfaced.</li>
-          <li><strong>Structural check:</strong> auto-layout violations, missing constraints, hard-coded text styles outside the system.</li>
-          <li><strong>Fix suggestions:</strong> for each issue, the plugin suggests the closest valid system replacement — one click to swap.</li>
-          <li><strong>Severity levels:</strong> errors block handoff; warnings prompt review; info is just FYI.</li>
+          <li><strong>Pre-Handoff Linter:</strong> Evaluates published component bounds and detects hardcoded layout properties automatically.</li>
+          <li><strong>Inline Remediations:</strong> Suggests the closest semantic design system token to replace off-grid spacing or colors in a single click.</li>
+          <li><strong>Structured Severity:</strong> Utilizes errors and warnings to flag structural breaks and guide designers without blocking active velocity.</li>
         </ul>
       </section>
 
       <section class="case-section" id="stack">
         <h2>Stack</h2>
         <ul>
-          <li><strong>Figma Plugin API</strong> for full file traversal</li>
-          <li><strong>TypeScript</strong> with a typed rule schema so consumer designers can add custom rules</li>
-          <li><strong>Custom rule engine</strong> — declarative format, runs ~30 checks per second on a typical frame</li>
-          <li><strong>No AI</strong> — this one is intentionally rule-based. Predictable beats clever for a validation tool.</li>
+          <li><strong>Figma Plugin API</strong> for high-speed direct node tree traversal.</li>
+          <li><strong>TypeScript Rule Engine</strong> to evaluate custom validation rules deterministically.</li>
+          <li><strong>Deterministic Schema</strong> to ensure fast, reliable, and predictable system validation.</li>
         </ul>
       </section>
 
@@ -155,23 +148,22 @@
         <div class="metric-grid">
           <div class="metric-tile">
             <div class="metric-value">~40%</div>
-            <div class="metric-label">Issues caught pre-handoff that previously reached eng PR review</div>
+            <div class="metric-label">Fewer handoff defects in PR reviews</div>
           </div>
           <div class="metric-tile">
             <div class="metric-value">1,200+</div>
-            <div class="metric-label">Files validated to date across engagements</div>
+            <div class="metric-label">Design files validated successfully</div>
           </div>
           <div class="metric-tile">
             <div class="metric-value">12</div>
-            <div class="metric-label">Custom rules contributed by team designers</div>
+            <div class="metric-label">Custom rules contributed by designers</div>
           </div>
         </div>
-        <p class="muted">The clearest impact: design-engineering rework loops dropped noticeably after rollout. Designers also report cleaner instincts now — the validator's feedback shapes how they build, not just what they ship.</p>
       </section>
 
       <section class="case-section" id="demo">
         <h2>See it live</h2>
-        <p>The LinkedIn post below shows the validator catching issues live — token mismatches, detached components, structural breaks — before anything reaches engineering.</p>
+        <p>The LinkedIn post below shows the validator in action — detecting detached elements and invalid spacing before handoff.</p>
 
         <a
           href="https://www.linkedin.com/posts/harshitux_aiindesign-designsystems-designops-activity-7445824797802127360-TMW7"
@@ -195,7 +187,7 @@
 
           <div class="li-post-card-body">
             <p>Episode #07 — Design System Validator</p>
-            <p>40% of the issues that reach engineering PR review could have been caught in Figma. This plugin runs 30+ checks per frame — token mismatches, detached components, structural breaks — and suggests the fix. One click before handoff beats three days of rework.</p>
+            <p>Runs 30+ checks per frame — token mismatches, detached components, structural breaks — and suggests the fix. One click before handoff beats three days of rework.</p>
             <p class="li-post-card-tags">#AIinDesign #DesignSystems #DesignOps #Figma</p>
           </div>
 
@@ -219,16 +211,16 @@
         <div class="rejected-block">
           <h3>What I tried first</h3>
           <ul>
-            <li><strong>A manual pre-handoff checklist.</strong> The first version was a Notion checklist designers were supposed to run before marking a file ready. Adoption was ~20% after two weeks. Checklists require willpower; plugins run on one click. The moment I turned the checklist into a plugin button, adoption went to near-100% because the path of least resistance changed.</li>
-            <li><strong>AI-powered detection.</strong> Explored using Claude to visually "look" at a frame and flag violations. Too slow for a pre-handoff tool — designers don't want to wait 30 seconds for a scan. Worse, the output was probabilistic ("this looks like it might be off-token"), which broke trust. Predictable rule-based checks turned out to be exactly right for a validation tool: you need deterministic output, not a suggestion.</li>
-            <li><strong>Blocking all errors before export.</strong> First version made handoff literally impossible if errors existed. Designers found workarounds instead of fixing issues. Moved to severity levels — errors are visible and prominent, but don't block. The friction model matters: too much friction creates bypass behavior; just enough friction creates awareness.</li>
+            <li><strong>Manual checklists</strong> in Notion faced extremely low adoption; converting guidelines into a single-click native utility achieved near-100% team usage.</li>
+            <li><strong>AI-based scans</strong> were far too slow for active design workflows and yielded probabilistic, untrustworthy suggestions instead of deterministic rules.</li>
+            <li><strong>Hard blocking</strong> exports created bypass workarounds; shifting to structured, visible warning tiers guided behavior constructively.</li>
           </ul>
         </div>
       </section>
 
       <section class="case-section" id="try">
         <h2>Try it</h2>
-        <p>Available internally to private-sector bank design team. Public Figma Community release planned once the rule engine is stable + documented. <a href="mailto:hsuneja.suneja7@gmail.com" class="inline-link">Email me</a> if your team wants early access.</p>
+        <p>Available internally to the private-sector bank design team. Public Figma Community release is planned once the rule engine documentation is completed. <a href="mailto:hsuneja.suneja7@gmail.com" class="inline-link">Email me</a> for team access inquiries.</p>
       </section>
 
       <nav class="case-next" aria-label="Next plugin">

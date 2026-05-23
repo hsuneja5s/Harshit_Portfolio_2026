@@ -14,7 +14,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../styles.css?v=20260523-6" />
+  <link rel="stylesheet" href="../styles.css?v=20260523-7" />
   <link rel="icon" type="image/jpeg" href="/images/me.jpg" />
   <link rel="apple-touch-icon" href="/images/me.jpg" />
   <meta property="og:image" content="https://sunejaux.space/images/og-cover.jpg" />
@@ -121,34 +121,26 @@
       <section class="case-section" id="why">
         <h2>Why I built it</h2>
         <p>
-          On the private-sector bank design system, engineers started using Claude Code to scaffold prototypes. Great for velocity — terrible for system adherence. Claude generated components that <em>looked</em> right but used invented token names, off-grid spacing, and components that didn't match our library.
-        </p>
-        <p>
-          The fix would have been to give Claude a long system prompt with our tokens. But maintaining that prompt manually meant designers had to hand-curate it after every system change. Drift was inevitable.
-        </p>
-        <p class="muted">
-          So I built the bridge. The plugin reads our Figma library — tokens, components, naming conventions, do/don't rules — and exports it as a single <code>CLAUDE.md</code> that Claude Code reads automatically. Engineers get system-aligned output without designers babysitting the prompt.
+          During large bank integrations, developers using Claude Code frequently scaffolded components with invented token names and off-grid spacing. I built this plugin to compile raw Figma tokens, naming standards, and component boundaries into a unified system context file that Claude reads natively, closing the design-to-code gap without manual prompt curation.
         </p>
       </section>
 
       <section class="case-section" id="how">
         <h2>How it works</h2>
         <ul>
-          <li><strong>Reads Figma variables + styles:</strong> traverses your library file's variable collections and text/color styles, extracts the semantic-token tree.</li>
-          <li><strong>Reads component metadata:</strong> walks your published components, extracts names, descriptions, props, slot structure.</li>
-          <li><strong>Captures rules:</strong> pulls description text from your component pages — this becomes the "do/don't" guidance Claude follows.</li>
-          <li><strong>Optimises for context:</strong> the export is structured for Claude's token budget — prose where it helps comprehension, tables where they're denser.</li>
-          <li><strong>Outputs one Markdown file:</strong> ready to drop in your repo's root as <code>CLAUDE.md</code>, or anywhere Claude Code reads system context.</li>
+          <li><strong>Token Compilation:</strong> Traverses variable collections and styles to map a semantic token tree.</li>
+          <li><strong>Metadata Extraction:</strong> Extracts component specs, properties, and layout structures directly from page metadata.</li>
+          <li><strong>Rule Alignment:</strong> Translates designer guidelines into plain-language constraints for Claude Code.</li>
+          <li><strong>Context Optimization:</strong> Generates a clean, compact <code>CLAUDE.md</code> file tailored for LLM context windows.</li>
         </ul>
       </section>
 
       <section class="case-section" id="stack">
         <h2>Stack</h2>
         <ul>
-          <li><strong>Figma Plugin API</strong> for variable + component traversal</li>
-          <li><strong>TypeScript</strong> for safety across nested system structures</li>
-          <li><strong>Anthropic SDK</strong> (optional) for prose summarisation of component descriptions</li>
-          <li><strong>Markdown templating</strong> custom-tuned to Claude Code's preferred context format</li>
+          <li><strong>Figma Plugin API</strong> for variables and component traversal.</li>
+          <li><strong>TypeScript</strong> for layout compilation safety.</li>
+          <li><strong>Markdown Templates</strong> optimized for Claude's context window.</li>
         </ul>
       </section>
 
@@ -156,7 +148,7 @@
         <h2>Example output</h2>
         <figure class="case-figure">
           <div class="case-figure-image">[ Sample CLAUDE.md output — tokens table, component list, do/don'ts ]</div>
-          <div class="case-figure-caption">A trimmed example of what the plugin generates from a real Figma library.</div>
+          <div class="case-figure-caption">A trimmed example of the generated system documentation.</div>
         </figure>
       </section>
 
@@ -186,7 +178,7 @@
 
           <div class="li-post-card-body">
             <p>Episode #05 — CLAUDE.md Exporter</p>
-            <p>What if Claude Code already knew your design system before you wrote a single line of code? Export your Figma tokens, components, and rules as one file — drop it in your repo and Claude Code generates inside your system, not around it.</p>
+            <p>Export your Figma tokens, components, and rules as one file — drop it in your repo and Claude Code generates inside your system, not around it.</p>
             <p class="li-post-card-tags">#DesignSystems #FigmaPlugin #AIinDesign #ClaudeCode</p>
           </div>
 
@@ -210,9 +202,9 @@
         <div class="rejected-block">
           <h3>What I tried first</h3>
           <ul>
-            <li><strong>A hand-maintained system prompt.</strong> The first fix was simple: I wrote a system prompt by hand with our token names, component list, and naming rules, and engineers pasted it at the start of each Claude Code session. It worked — until the design system changed. Within two weeks the prompt was stale. Engineers didn't know it was stale. The drift came back silently.</li>
-            <li><strong>Exporting as JSON.</strong> Tried exporting the token tree as a JSON file engineers could reference. Claude Code doesn't read JSON natively as context — engineers would have to format it into a prompt manually. Same maintenance problem, different format.</li>
-            <li><strong>A separate design-tokens package.</strong> Explored syncing Figma tokens to a design-tokens package the codebase imported. Solved the code side, didn't solve the "Claude doesn't know the component rules" side. The plugin is the only approach that covers both tokens and human-language rules in a format Claude reads automatically.</li>
+            <li><strong>Hand-Maintained Prompts:</strong> Manual rules went out of sync within weeks as design patterns evolved.</li>
+            <li><strong>JSON Exports:</strong> Code assistants struggled to parse raw data trees without human-language context.</li>
+            <li><strong>Token Packages:</strong> Solved stylesheet sync but left natural-language design intent completely undocumented.</li>
           </ul>
         </div>
       </section>
