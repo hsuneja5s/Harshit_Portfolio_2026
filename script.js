@@ -398,3 +398,46 @@ document.addEventListener('click', (e) => {
   document.body.style.opacity = '0';
   setTimeout(() => { location.href = href; }, 250);
 });
+
+// ============================================
+// CASE STUDY CAROUSEL (Scroll Sync)
+// ============================================
+document.addEventListener("DOMContentLoaded", () => {
+  const carousels = document.querySelectorAll(".case-carousel");
+  
+  carousels.forEach(carousel => {
+    const viewport = carousel.querySelector(".carousel-viewport");
+    const slides = carousel.querySelectorAll(".carousel-slide");
+    const indicators = carousel.querySelectorAll(".carousel-indicator");
+    
+    if (!viewport || !slides.length || !indicators.length) return;
+    
+    // Smooth scroll to target slide when dot indicator is clicked
+    indicators.forEach((indicator, index) => {
+      indicator.addEventListener("click", () => {
+        const slideOffset = slides[index].offsetLeft;
+        const viewportOffset = viewport.offsetLeft;
+        viewport.scrollTo({
+          left: slideOffset - viewportOffset,
+          behavior: "smooth"
+        });
+      });
+    });
+    
+    // Sync indicator active state dynamically on scroll snap
+    viewport.addEventListener("scroll", () => {
+      const scrollPos = viewport.scrollLeft;
+      const width = viewport.clientWidth;
+      const activeIndex = Math.round(scrollPos / width);
+      
+      indicators.forEach((ind, index) => {
+        if (index === activeIndex) {
+          ind.classList.add("active");
+        } else {
+          ind.classList.remove("active");
+        }
+      });
+    });
+  });
+});
+

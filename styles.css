@@ -2246,3 +2246,86 @@ blockquote.voice-quote cite {
   }
 }
 
+/* ============================================
+   EDITORIAL MOCKUP CAROUSEL (Scroll Snapping)
+   ============================================ */
+.case-carousel {
+  position: relative;
+  width: 100%;
+  margin: 32px 0 40px;
+  background: var(--background-subtle);
+  border-radius: 12px;
+  border: 1px solid var(--border-subtle);
+  overflow: hidden;
+  padding: 16px;
+}
+
+.carousel-viewport {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  gap: 16px;
+}
+.carousel-viewport::-webkit-scrollbar {
+  display: none;
+}
+
+.carousel-slide {
+  flex: 0 0 100%;
+  scroll-snap-align: start;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.carousel-img {
+  width: 100%;
+  height: auto;
+  max-height: 480px;
+  object-fit: contain;
+  border-radius: 8px;
+}
+
+.carousel-caption {
+  display: block;
+  width: 100%;
+  margin-top: 14px;
+  font-size: 13px;
+  color: var(--text-secondary);
+  text-align: left;
+  line-height: 1.5;
+  border-top: 1px solid var(--border-subtle);
+  padding-top: 10px;
+}
+
+.carousel-nav {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.carousel-indicator {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--border-subtle);
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: background-color 0.25s ease, transform 0.25s ease;
+}
+
+.carousel-indicator:hover {
+  background: var(--text-tertiary);
+}
+
+.carousel-indicator.active {
+  background: var(--text-primary);
+  transform: scale(1.2);
+}
+
+
