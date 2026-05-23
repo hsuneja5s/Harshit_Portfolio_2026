@@ -1234,7 +1234,7 @@ img {
   line-height: 1.05;
 }
 
-#outcome .metric-value {
+#outcome .metric-value:not(.large-metric) {
   font-size: 16px;
   letter-spacing: -0.01em;
 }
