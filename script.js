@@ -440,5 +440,47 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     });
   });
+
+  // ============================================
+  // SIDEBAR SCROLL-SPY (Intersection Observer)
+  // ============================================
+  const sections = document.querySelectorAll(".case-section[id]");
+  const navLinks = document.querySelectorAll(".case-nav a:not(.case-nav-back)");
+
+  if (sections.length && navLinks.length) {
+    const activeSections = new Set();
+
+    const observerOptions = {
+      root: null,
+      rootMargin: "-20% 0px -60% 0px",
+      threshold: 0
+    };
+
+    const observerCallback = (entries) => {
+      entries.forEach(entry => {
+        const id = entry.target.getAttribute("id");
+        if (entry.isIntersecting) {
+          activeSections.add(id);
+        } else {
+          activeSections.delete(id);
+        }
+      });
+
+      if (activeSections.size > 0) {
+        for (const sec of sections) {
+          const id = sec.getAttribute("id");
+          if (activeSections.has(id)) {
+            navLinks.forEach(l => l.classList.remove("active"));
+            const activeLink = document.querySelector(`.case-nav a[href="#${id}"]`);
+            if (activeLink) activeLink.classList.add("active");
+            break;
+          }
+        }
+      }
+    };
+
+    const observer = new IntersectionObserver(observerCallback, observerOptions);
+    sections.forEach(sec => observer.observe(sec));
+  }
 });
 
