@@ -2328,4 +2328,53 @@ blockquote.voice-quote cite {
   transform: scale(1.2);
 }
 
+/* ============================================
+   INFINITE AUTO-SCROLLING SCREENSHOT TICKER
+   ============================================ */
+.misc-ticker-container {
+  overflow: hidden;
+  width: 100%;
+  position: relative;
+  margin: 28px 0 40px;
+  padding: 8px 0;
+  border-top: 1px solid var(--border-subtle);
+  border-bottom: 1px solid var(--border-subtle);
+  background: var(--background-subtle);
+}
+
+.misc-ticker-track {
+  display: inline-flex;
+  gap: 16px;
+  animation: scrollTicker 35s linear infinite;
+  width: max-content;
+}
+
+.misc-ticker-track:hover {
+  animation-play-state: paused;
+  cursor: grab;
+}
+
+.ticker-img {
+  height: 280px;
+  width: auto;
+  border-radius: 8px;
+  border: 1px solid var(--border-subtle);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+  transition: transform 0.3s ease;
+}
+
+.ticker-img:hover {
+  transform: scale(1.02);
+}
+
+@keyframes scrollTicker {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+
 
