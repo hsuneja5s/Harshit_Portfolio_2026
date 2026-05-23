@@ -131,7 +131,7 @@
         <div class="case-meta-row"><span class="case-meta-label">Source</span><span class="case-meta-value">Closed during PwC engagement · open-source release planned</span></div>
       </div>
 
-      <section class="case-section case-tldr" id="tldr">
+      <section class="case-section case-tldr reveal" id="tldr">
         <h2>In brief</h2>
         <ul>
           <li>Pick your design system file in Figma → click Export → get a complete <code>CLAUDE.md</code> with tokens, components, naming rules.</li>
@@ -140,14 +140,14 @@
         </ul>
       </section>
 
-      <section class="case-section" id="why">
+      <section class="case-section reveal" id="why">
         <h2>Why I built it</h2>
         <p>
           During large bank integrations, developers using Claude Code frequently scaffolded components with invented token names and off-grid spacing. I built this plugin to compile raw Figma tokens, naming standards, and component boundaries into a unified system context file that Claude reads natively, closing the design-to-code gap without manual prompt curation.
         </p>
       </section>
 
-      <section class="case-section" id="how">
+      <section class="case-section reveal" id="how">
         <h2>How it works</h2>
         <ul>
           <li><strong>Token Compilation:</strong> Traverses variable collections and styles to map a semantic token tree.</li>
@@ -157,7 +157,7 @@
         </ul>
       </section>
 
-      <section class="case-section" id="stack">
+      <section class="case-section reveal" id="stack">
         <h2>Stack</h2>
         <ul>
           <li><strong>Figma Plugin API</strong> for variables and component traversal.</li>
@@ -166,7 +166,7 @@
         </ul>
       </section>
 
-      <section class="case-section" id="example">
+      <section class="case-section reveal" id="example">
         <h2>Example output</h2>
         <figure class="case-figure">
           <div class="case-figure-image">[ Sample CLAUDE.md output — tokens table, component list, do/don'ts ]</div>
@@ -174,7 +174,7 @@
         </figure>
       </section>
 
-      <section class="case-section" id="demo">
+      <section class="case-section reveal" id="demo">
         <h2>See it live</h2>
         <p>The LinkedIn post below shows the plugin in action — exporting a live design system as a single <code>CLAUDE.md</code> file and watching Claude Code use it.</p>
 
@@ -220,7 +220,7 @@
         </a>
       </section>
 
-      <section class="case-section" id="rejected">
+      <section class="case-section reveal" id="rejected">
         <div class="rejected-block">
           <h3>What I tried first</h3>
           <ul>
@@ -231,7 +231,7 @@
         </div>
       </section>
 
-      <section class="case-section" id="try">
+      <section class="case-section reveal" id="try">
         <h2>Try it</h2>
         <p>Currently in private beta with selected design system teams. Reach out at <a href="mailto:hsuneja.suneja7@gmail.com" class="inline-link">hsuneja.suneja7@gmail.com</a> if you'd like early access for your team.</p>
         <p class="muted">Public Figma Community release planned for late 2026, alongside the open-source repository.</p>

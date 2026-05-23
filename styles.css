@@ -2650,17 +2650,7 @@ blockquote.voice-quote cite {
   transform: translateY(0);
 }
 
-/* Scroll Typewriter System */
-.scroll-typewriter {
-  border-right: 2px solid transparent;
-  display: inline-block;
-  will-change: content;
-}
 
-.scroll-typewriter.typing {
-  border-right: 2px solid var(--text-primary);
-  animation: typewriter-cursor 0.75s step-end infinite;
-}
 
 /* ============================================
    MOBILE PLACEHOLDER OVERLAY
