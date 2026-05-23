@@ -1,6 +1,14 @@
 {
   "cleanUrls": true,
   "trailingSlash": false,
+  "redirects": [
+    { "source": "/work/shell", "destination": "/work/energy-deal-operations", "permanent": true },
+    { "source": "/work/cctns", "destination": "/work/public-sector-citizen-services", "permanent": true },
+    { "source": "/work/central-union-bank", "destination": "/work/banking-ai-self-service", "permanent": true },
+    { "source": "/work/indusind", "destination": "/work/retail-banking-onboarding", "permanent": true },
+    { "source": "/work/torrent-patient-app", "destination": "/work/healthcare-patient-experience", "permanent": true },
+    { "source": "/work/nykaa-adtech", "destination": "/work/commerce-ad-operations", "permanent": true }
+  ],
   "headers": [
     {
       "source": "/(.*)",
