@@ -356,10 +356,6 @@ img {
   margin: 0 0.1em 0 0.1em;
 }
 
-/* Dark mode: invert the pwc letters so they read on dark bg, keep orange */
-[data-theme="dark"] .brand-logo {
-  filter: invert(1) hue-rotate(180deg);
-}
 
 .brand {
   display: inline-flex;
