@@ -66,6 +66,7 @@ const PORTFOLIO_DATA = {
       hint: 'guided, error-proof flows',
       href: '/work/retail-banking-onboarding',
       imageClass: 'work-image-retail-banking',
+      hidden: true,
     },
     {
       sector: 'Healthcare',
@@ -136,7 +137,7 @@ const PORTFOLIO_DATA = {
 };
 
 const SEARCH_ITEMS = [
-  ...PORTFOLIO_DATA.work.map(item => ({ tag: 'Work', label: item.label, hint: item.hint, href: item.href })),
+  ...PORTFOLIO_DATA.work.filter(item => !item.hidden).map(item => ({ tag: 'Work', label: item.label, hint: item.hint, href: item.href })),
   ...PORTFOLIO_DATA.plugins.map(item => ({ tag: 'Plugin', label: item.title, hint: item.hint, href: item.href })),
   ...PORTFOLIO_DATA.pages.map(item => ({ tag: 'Page', ...item })),
   ...PORTFOLIO_DATA.links.map(item => ({ tag: 'Link', ...item })),
@@ -148,7 +149,7 @@ const renderHomeCollections = () => {
   const pluginGrid = document.querySelector('[data-portfolio-plugins]');
 
   if (workGrid) {
-    workGrid.innerHTML = PORTFOLIO_DATA.work.map(item => `
+    workGrid.innerHTML = PORTFOLIO_DATA.work.filter(item => !item.hidden).map(item => `
       <a href="${item.href}" class="work-card">
         <div class="work-meta">
           <p class="work-tag">${escapeHtml(item.sector)}</p>
