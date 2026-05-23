@@ -490,9 +490,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const identityNameEl = document.querySelector('.identity-name');
     if (!identityNameEl) return;
 
-    // Wrap the first name "Harshit" in a span so we can typewriter-animate it.
-    // Keep " Suneja" static for visual balance.
-    identityNameEl.innerHTML = '<span class="typewriter-name">Harshit</span> Suneja';
+    // Render only the animated "Harshit" as requested.
+    identityNameEl.innerHTML = '<span class="typewriter-name">Harshit</span>';
     
     const target = identityNameEl.querySelector('.typewriter-name');
     if (!target) return;
