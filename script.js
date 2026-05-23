@@ -499,7 +499,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const words = ['Harshit', 'हर्षित', 'هارشيت', 'ಹರ್ಷಿತ್'];
     let wordIndex = 0;
     let charIndex = words[0].length;
-    let isDeleting = false;
+    let isDeleting = true; // Initialize to true so we start by deleting "Harshit" after the pause
     let typingSpeed = 150;
 
     function type() {
