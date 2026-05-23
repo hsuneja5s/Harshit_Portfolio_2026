@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="light">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="How a unified deal-management cockpit gave finance leaders a clear view of deals, resources, and budgets. Shifting effort from manual reconciliation to performance management." />
+  <meta name="description"
+    content="How a unified deal-management cockpit gave finance leaders a clear view of deals, resources, and budgets. Shifting effort from manual reconciliation to performance management." />
   <link rel="canonical" href="https://sunejaux.space/work/energy-deal-operations" />
   <meta property="og:title" content="One cockpit for the entire deal pipeline · Harshit Suneja" />
-  <meta property="og:description" content="Consolidating active deals from multiple trackers into a single, workflow-aligned control cockpit. Shifting effort from manual reconciliation to performance management." />
+  <meta property="og:description"
+    content="Consolidating active deals from multiple trackers into a single, workflow-aligned control cockpit. Shifting effort from manual reconciliation to performance management." />
   <meta property="og:type" content="article" />
   <meta property="og:url" content="https://sunejaux.space/work/energy-deal-operations" />
   <meta name="twitter:card" content="summary_large_image" />
@@ -14,7 +17,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../styles.css?v=20260523-5" />
+  <link rel="stylesheet" href="../styles.css?v=20260523-6" />
   <link rel="icon" type="image/jpeg" href="/images/me.jpg" />
   <link rel="apple-touch-icon" href="/images/me.jpg" />
   <meta property="og:image" content="https://sunejaux.space/images/og-cover.jpg" />
@@ -53,7 +56,23 @@
 }
 </script>
 </head>
+
 <body>
+  <!-- ============ MOBILE PLACEHOLDER (temporary — responsive design in progress) ============ -->
+  <div class="mobile-placeholder" aria-hidden="true">
+    <svg class="mobile-placeholder__icon" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect x="8" y="4" width="48" height="56" rx="6" stroke="currentColor" stroke-width="3"/>
+      <rect x="20" y="48" width="24" height="4" rx="2" fill="currentColor" opacity="0.4"/>
+      <path d="M22 20 L32 12 L42 20 L42 32 L22 32 Z" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"/>
+    </svg>
+    <p class="mobile-placeholder__title">Best viewed on desktop</p>
+    <p class="mobile-placeholder__sub">Responsive design is in progress. For the full experience, open this on a laptop or desktop.</p>
+    <span class="mobile-placeholder__badge">
+      <span class="mobile-placeholder__dot"></span>
+      In progress
+    </span>
+  </div>
+
 
   <header class="site-header">
     <div class="header-inner">
@@ -65,15 +84,33 @@
       </a>
       <div class="header-actions">
         <button class="kbd-search" id="openCmdK" aria-label="Open search (⌘K)">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"></circle>
+            <path d="m21 21-4.3-4.3"></path>
+          </svg>
           <span class="kbd-label">Search</span>
           <kbd class="kbd">⌘ K</kbd>
         </button>
         <button class="theme-toggle" id="themeLight" aria-label="Light mode" data-mode="light">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2"></path><path d="M12 20v2"></path><path d="m4.93 4.93 1.41 1.41"></path><path d="m17.66 17.66 1.41 1.41"></path><path d="M2 12h2"></path><path d="M20 12h2"></path><path d="m6.34 17.66-1.41 1.41"></path><path d="m19.07 4.93-1.41 1.41"></path></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="4"></circle>
+            <path d="M12 2v2"></path>
+            <path d="M12 20v2"></path>
+            <path d="m4.93 4.93 1.41 1.41"></path>
+            <path d="m17.66 17.66 1.41 1.41"></path>
+            <path d="M2 12h2"></path>
+            <path d="M20 12h2"></path>
+            <path d="m6.34 17.66-1.41 1.41"></path>
+            <path d="m19.07 4.93-1.41 1.41"></path>
+          </svg>
         </button>
         <button class="theme-toggle" id="themeDark" aria-label="Dark mode" data-mode="dark">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
         </button>
       </div>
     </div>
@@ -82,7 +119,11 @@
   <main class="case-layout">
     <aside class="case-nav">
       <a href="/" class="case-nav-back">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+          stroke-linecap="round" stroke-linejoin="round">
+          <path d="m12 19-7-7 7-7" />
+          <path d="M19 12H5" />
+        </svg>
         Back home
       </a>
       <a href="#tldr">In brief</a>
@@ -95,22 +136,29 @@
     </aside>
 
     <article class="case-content">
-      <img src="/images/work/energy-cover.png?v=20260523-4" alt="The Pacific Platform - Primary Deal Cockpit" class="case-mockup" style="margin-top: 0;" />
+      <img src="/images/work/energy-cover.png?v=20260523-4" alt="The Pacific Platform - Primary Deal Cockpit"
+        class="case-mockup" style="margin-top: 0;" />
       <div class="case-figure-caption" style="margin-top: 10px; margin-bottom: 24px;">Welcome workspace.</div>
 
       <h1 class="case-title">Deal intelligence for global energy operations</h1>
-      <p class="case-subtitle">A unified control hub—The Pacific Platform—that consolidated multiple separate trackers and hundreds of active regional deals into a single, workflow-aligned interface, shifting finance from manual reconciliation to active performance management.</p>
+      <p class="case-subtitle">A unified control hub—The Pacific Platform—that consolidated multiple separate trackers
+        and hundreds of active regional deals into a single, workflow-aligned interface, shifting finance from manual
+        reconciliation to active performance management.</p>
 
       <div class="case-meta">
-        <div class="case-meta-row"><span class="case-meta-label">Role</span><span class="case-meta-value">Senior Product Designer</span></div>
-        <div class="case-meta-row"><span class="case-meta-label">Client</span><span class="case-meta-value">Global energy enterprise</span></div>
-        <div class="case-meta-row"><span class="case-meta-label">Timeline</span><span class="case-meta-value">Jan 2025 — Jun 2025</span></div>
+        <div class="case-meta-row"><span class="case-meta-label">Role</span><span class="case-meta-value">Senior Product
+            Designer</span></div>
+        <div class="case-meta-row"><span class="case-meta-label">Client</span><span class="case-meta-value">Global
+            energy enterprise</span></div>
+        <div class="case-meta-row"><span class="case-meta-label">Timeline</span><span class="case-meta-value">Jan 2025 —
+            Jun 2025</span></div>
       </div>
 
       <section class="case-section" id="challenge-section">
         <h2>The challenge</h2>
         <p>
-          Stitch together fragmented active deal data, time bookings, and budget information out of multi-layered spreadsheets and offline slide packs into a single, workflow-aligned interface.
+          Stitch together fragmented active deal data, time bookings, and budget information out of multi-layered
+          spreadsheets and offline slide packs into a single, workflow-aligned interface.
         </p>
       </section>
 
@@ -125,12 +173,14 @@
           <div class="step-card">
             <span class="step-number">02 / THE BET</span>
             <h4>Unified Platform</h4>
-            <p>Build a workflow-aligned landing hub with metadata details, opportunity status cards, and live budgets.</p>
+            <p>Build a workflow-aligned landing hub with metadata details, opportunity status cards, and live budgets.
+            </p>
           </div>
           <div class="step-card">
             <span class="step-number">03 / THE SHIFT</span>
             <h4>In-Flight Checks</h4>
-            <p>Move from offline month-end review packs to active trajectory analysis, resolving risks weeks ahead of time.</p>
+            <p>Move from offline month-end review packs to active trajectory analysis, resolving risks weeks ahead of
+              time.</p>
           </div>
         </div>
       </section>
@@ -138,52 +188,69 @@
       <section class="case-section" id="problem">
         <h2>The story</h2>
         <p>
-          The finance function at a global energy enterprise oversees a highly complex portfolio of regional deals, but critical project records, resource capacity, and budgets lived in separate worksheets and disconnected software suites.
+          The finance function at a global energy enterprise oversees a highly complex portfolio of regional deals, but
+          critical project records, resource capacity, and budgets lived in separate worksheets and disconnected
+          software suites.
         </p>
         <p>
-          Answering fundamental questions—which opportunities are currently compliance-ready, where budgets stand, and whether capacity is constrained—demanded hours of manual data assembly, forcing month-end reviews to depend entirely on offline spreadsheets and slide decks.
+          Answering fundamental questions—which opportunities are currently compliance-ready, where budgets stand, and
+          whether capacity is constrained—demanded hours of manual data assembly, forcing month-end reviews to depend
+          entirely on offline spreadsheets and slide decks.
         </p>
-        <img src="/images/work/energy-budget.png?v=20260523-4" alt="The Pacific Platform - Primary Deal and Budget Cockpit Dashboard" class="case-mockup" />
+        <img src="/images/work/energy-budget.png?v=20260523-4"
+          alt="The Pacific Platform - Primary Deal and Budget Cockpit Dashboard" class="case-mockup" />
         <div class="case-figure-caption" style="margin-top: 10px; margin-bottom: 24px;">Deal and budget cockpit.</div>
       </section>
 
       <section class="case-section" id="bet">
         <h2>The bet</h2>
         <p>
-          We reframed the problem from "another dashboard" to a centralized landing cockpit called **The Pacific Platform**. We made one explicit call: **bring active deals, resources, and budget utilization together in a tabbed, high-density interface.** 
+          We reframed the problem from "another dashboard" to a centralized landing cockpit called **The Pacific
+          Platform**. We made one explicit call: **bring active deals, resources, and budget utilization together in a
+          tabbed, high-density interface.**
         </p>
         <p>
-          Instead of building heavy analytical scenario builders, we focused on legibility—putting the key metadata (Decision Executive, IM Advisor, Country) and opportunity status checklists directly on the deal card, so review teams could confirm compliance in one scan.
+          Instead of building heavy analytical scenario builders, we focused on legibility—putting the key metadata
+          (Decision Executive, IM Advisor, Country) and opportunity status checklists directly on the deal card, so
+          review teams could confirm compliance in one scan.
         </p>
       </section>
 
       <section class="case-section" id="build">
         <h2>The cockpit</h2>
         <p>
-          The dashboard cockpit organizes the highly complex deal pipeline into five workflow-aligned views, replacing fragmented regional files with a single interactive, high-density system.
+          The dashboard cockpit organizes the highly complex deal pipeline into five workflow-aligned views, replacing
+          fragmented regional files with a single interactive, high-density system.
         </p>
 
         <div class="case-carousel">
           <div class="carousel-viewport">
             <div class="carousel-slide">
               <img src="/images/work/energy-budget.png" alt="Deal Budget Cockpit View" class="carousel-img" />
-              <span class="carousel-caption"><strong>01 / Budget Cockpit</strong>: Live actual vs. planned cost tracking with active burn-rate risk forecasts directly inside the Deal card.</span>
+              <span class="carousel-caption"><strong>01 / Budget Cockpit</strong>: Live actual vs. planned cost tracking
+                with active burn-rate risk forecasts directly inside the Deal card.</span>
             </div>
             <div class="carousel-slide">
               <img src="/images/work/energy-detailed.png" alt="Deal Detailed View" class="carousel-img" />
-              <span class="carousel-caption"><strong>02 / Detailed View</strong>: Core opportunity details workspace displaying strategically aligned objectives, classifications, and project coordinators.</span>
+              <span class="carousel-caption"><strong>02 / Detailed View</strong>: Core opportunity details workspace
+                displaying strategically aligned objectives, classifications, and project coordinators.</span>
             </div>
             <div class="carousel-slide">
               <img src="/images/work/energy-historic.png" alt="Historic Deal Dashboard View" class="carousel-img" />
-              <span class="carousel-caption"><strong>03 / Historic Dashboard</strong>: Longitudinal dashboard tracking historical margins, active status compliance pipelines, and regional maps.</span>
+              <span class="carousel-caption"><strong>03 / Historic Dashboard</strong>: Longitudinal dashboard tracking
+                historical margins, active status compliance pipelines, and regional maps.</span>
             </div>
             <div class="carousel-slide">
-              <img src="/images/work/energy-activity-log.png" alt="Deal Contributors Activity Log" class="carousel-img" />
-              <span class="carousel-caption"><strong>04 / Activity Log</strong>: Real-time contributor logging and audit trails tracking modifications, review completions, and stage gate clearances.</span>
+              <img src="/images/work/energy-activity-log.png" alt="Deal Contributors Activity Log"
+                class="carousel-img" />
+              <span class="carousel-caption"><strong>04 / Activity Log</strong>: Real-time contributor logging and audit
+                trails tracking modifications, review completions, and stage gate clearances.</span>
             </div>
             <div class="carousel-slide">
               <img src="/images/work/energy-pfm.png" alt="Portfolio Manager Persona View" class="carousel-img" />
-              <span class="carousel-caption"><strong>05 / Portfolio Manager View</strong>: Director-level executive dashboard offering real-time burn analysis and compliance pipelines across all regional business lines.</span>
+              <span class="carousel-caption"><strong>05 / Portfolio Manager View</strong>: Director-level executive
+                dashboard offering real-time burn analysis and compliance pipelines across all regional business
+                lines.</span>
             </div>
           </div>
           <div class="carousel-nav">
@@ -199,19 +266,26 @@
       <section class="case-section" id="insight">
         <h2>Insight.AI</h2>
         <p>
-          The Budget tab embeds **Insight.AI**, an active risk layer designed to flag spend trajectory anomalies proactively where budget reviews occur.
+          The Budget tab embeds **Insight.AI**, an active risk layer designed to flag spend trajectory anomalies
+          proactively where budget reviews occur.
         </p>
 
         <div class="case-split-grid reverse">
           <div class="split-text">
             <ul>
-              <li style="margin-bottom: 12px;"><strong>Contextual AI Warnings:</strong> Restrained, high-visibility warning blocks alerting teams directly: <em>"Burn rate has increased by 18% this month. At this pace, budget exhaustion is projected 3 weeks before closure."</em></li>
-              <li style="margin-bottom: 12px;"><strong>Granular Category breakdown:</strong> Maps costs by category (FM Staff actual hours and costs) next to a clean monthly spend trend bar chart.</li>
-              <li style="margin-bottom: 12px;"><strong>Longitudinal spend trends:</strong> Displays multi-year trajectories at a glance, allowing immediate context checks against historical averages.</li>
+              <li style="margin-bottom: 12px;"><strong>Contextual AI Warnings:</strong> Restrained, high-visibility
+                warning blocks alerting teams directly: <em>"Burn rate has increased by 18% this month. At this pace,
+                  budget exhaustion is projected 3 weeks before closure."</em></li>
+              <li style="margin-bottom: 12px;"><strong>Granular Category breakdown:</strong> Maps costs by category (FM
+                Staff actual hours and costs) next to a clean monthly spend trend bar chart.</li>
+              <li style="margin-bottom: 12px;"><strong>Longitudinal spend trends:</strong> Displays multi-year
+                trajectories at a glance, allowing immediate context checks against historical averages.</li>
             </ul>
           </div>
           <div class="split-visual" style="display: flex; flex-direction: column; align-items: center;">
-            <img src="/images/work/energy-ai-modal.png?v=20260523-4" alt="The Pacific Platform - Insight.AI contextual floating intervention dialog" class="case-mockup" style="margin: 0; max-height: 380px; width: auto; object-fit: contain; border-radius: 8px;" />
+            <img src="/images/work/energy-ai-modal.png?v=20260523-4"
+              alt="The Pacific Platform - Insight.AI contextual floating intervention dialog" class="case-mockup"
+              style="margin: 0; max-height: 380px; width: auto; object-fit: contain; border-radius: 8px;" />
             <div class="case-figure-caption" style="margin-top: 10px;">Contextual AI burn-rate alerts.</div>
           </div>
         </div>
@@ -222,15 +296,18 @@
         <div class="metric-grid">
           <div class="metric-tile">
             <div class="metric-value">0 hrs</div>
-            <div class="metric-label">Manual spreadsheet assembly. Review prep collapsed from hours of stitching offline files to a single, trusted live cockpit.</div>
+            <div class="metric-label">Manual spreadsheet assembly. Review prep collapsed from hours of stitching offline
+              files to a single, trusted live cockpit.</div>
           </div>
           <div class="metric-tile">
             <div class="metric-value">Consolidated</div>
-            <div class="metric-label">Active deals managed in one shared system instead of multiple separate legacy trackers, aligning finance, business, and technology.</div>
+            <div class="metric-label">Active deals managed in one shared system instead of multiple separate legacy
+              trackers, aligning finance, business, and technology.</div>
           </div>
           <div class="metric-tile">
             <div class="metric-value">In-flight</div>
-            <div class="metric-label">Visibility of performance, budget, and capacity issues, enabling early intervention before month-end reviews.</div>
+            <div class="metric-label">Visibility of performance, budget, and capacity issues, enabling early
+              intervention before month-end reviews.</div>
           </div>
         </div>
       </section>
@@ -238,17 +315,26 @@
       <section class="case-section" id="states" style="margin-top: 0; padding-top: 0;">
         <div class="misc-ticker-container" style="margin-top: 0;">
           <div class="misc-ticker-track">
-            <img src="/images/work/misc-assurance-table.png?v=20260523-4" alt="Economic Assurance Table Setting" class="ticker-img" />
-            <img src="/images/work/misc-help-flow.png?v=20260523-4" alt="Dashboard Help Flow Overlay" class="ticker-img" />
+            <img src="/images/work/misc-assurance-table.png?v=20260523-4" alt="Economic Assurance Table Setting"
+              class="ticker-img" />
+            <img src="/images/work/misc-help-flow.png?v=20260523-4" alt="Dashboard Help Flow Overlay"
+              class="ticker-img" />
             <img src="/images/work/misc-404.png?v=20260523-4" alt="Custom 404 State" class="ticker-img" />
-            <img src="/images/work/misc-help-page.png?v=20260523-4" alt="Standardized Platform Help Page" class="ticker-img" />
-            <img src="/images/work/misc-no-deals.png?v=20260523-4" alt="No Deals Created Yet Empty State" class="ticker-img" />
+            <img src="/images/work/misc-help-page.png?v=20260523-4" alt="Standardized Platform Help Page"
+              class="ticker-img" />
+            <img src="/images/work/misc-no-deals.png?v=20260523-4" alt="No Deals Created Yet Empty State"
+              class="ticker-img" />
             <!-- Duplicate for infinite seamless scroll -->
-            <img src="/images/work/misc-assurance-table.png?v=20260523-4" alt="Economic Assurance Table Setting" class="ticker-img" aria-hidden="true" />
-            <img src="/images/work/misc-help-flow.png?v=20260523-4" alt="Dashboard Help Flow Overlay" class="ticker-img" aria-hidden="true" />
-            <img src="/images/work/misc-404.png?v=20260523-4" alt="Custom 404 State" class="ticker-img" aria-hidden="true" />
-            <img src="/images/work/misc-help-page.png?v=20260523-4" alt="Standardized Platform Help Page" class="ticker-img" aria-hidden="true" />
-            <img src="/images/work/misc-no-deals.png?v=20260523-4" alt="No Deals Created Yet Empty State" class="ticker-img" aria-hidden="true" />
+            <img src="/images/work/misc-assurance-table.png?v=20260523-4" alt="Economic Assurance Table Setting"
+              class="ticker-img" aria-hidden="true" />
+            <img src="/images/work/misc-help-flow.png?v=20260523-4" alt="Dashboard Help Flow Overlay" class="ticker-img"
+              aria-hidden="true" />
+            <img src="/images/work/misc-404.png?v=20260523-4" alt="Custom 404 State" class="ticker-img"
+              aria-hidden="true" />
+            <img src="/images/work/misc-help-page.png?v=20260523-4" alt="Standardized Platform Help Page"
+              class="ticker-img" aria-hidden="true" />
+            <img src="/images/work/misc-no-deals.png?v=20260523-4" alt="No Deals Created Yet Empty State"
+              class="ticker-img" aria-hidden="true" />
           </div>
         </div>
       </section>
@@ -257,12 +343,16 @@
         <h2>What we didn't ship</h2>
         <p class="case-thesis">Every deliberate cut bought the cockpit a better chance of actually being used.</p>
         <ul>
-          <li><strong>Complex scenario modeling.</strong> We avoided adding heavy simulation tools in v1 to prioritize platform legibility. Establishing a single source of truth for active deals took precedence.</li>
-          <li><strong>Granular custom report builders.</strong> Held the line on a standardized, shared vocabulary. Custom review views were deferred to v2 to prevent fragmentation of review standards.</li>
-          <li><strong>Full contributor writing permissions.</strong> The initial release prioritized the leader-out review cockpit, keeping data entry fields highly focused and lightweight.</li>
+          <li><strong>Complex scenario modeling.</strong> We avoided adding heavy simulation tools in v1 to prioritize
+            platform legibility. Establishing a single source of truth for active deals took precedence.</li>
+          <li><strong>Granular custom report builders.</strong> Held the line on a standardized, shared vocabulary.
+            Custom review views were deferred to v2 to prevent fragmentation of review standards.</li>
+          <li><strong>Full contributor writing permissions.</strong> The initial release prioritized the leader-out
+            review cockpit, keeping data entry fields highly focused and lightweight.</li>
         </ul>
         <p class="muted">
-          With structured deal data and workflows in one place, the platform serves as a solid foundation for future integrations, including trend projections across quarters and expanded AI-driven indicators of deal health.
+          With structured deal data and workflows in one place, the platform serves as a solid foundation for future
+          integrations, including trend projections across quarters and expanded AI-driven indicators of deal health.
         </p>
       </section>
 
@@ -298,7 +388,8 @@
 
       <nav class="case-next" aria-label="Next case study">
         <span class="case-next-label">Next →</span>
-        <a href="/work/public-sector-citizen-services" class="case-next-link">Designing citizen trust into a national platform</a>
+        <a href="/work/public-sector-citizen-services" class="case-next-link">Designing citizen trust into a national
+          platform</a>
       </nav>
 
     </article>
@@ -307,7 +398,11 @@
   <div class="cmdk-overlay" id="cmdkOverlay" aria-hidden="true">
     <div class="cmdk" role="dialog" aria-modal="true" aria-label="Search">
       <div class="cmdk-search">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+          stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="11" cy="11" r="8"></circle>
+          <path d="m21 21-4.3-4.3"></path>
+        </svg>
         <input type="text" id="cmdkInput" placeholder="Search work, plugins, links…" autocomplete="off" />
         <kbd class="kbd">esc</kbd>
       </div>
@@ -319,4 +414,5 @@
   <script defer src="/_vercel/insights/script.js"></script>
   <script defer src="/_vercel/speed-insights/script.js"></script>
 </body>
+
 </html>
