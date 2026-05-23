@@ -155,7 +155,7 @@ const renderHomeCollections = () => {
           <h3 class="work-title">${escapeHtml(item.title)}</h3>
         </div>
         <div class="work-image ${item.imageClass}" aria-hidden="true"></div>
-        <div class="work-card-overlay" aria-hidden="true"><span class="work-card-cta">In progress</span></div>
+        <div class="work-card-overlay" aria-hidden="true"><span class="work-card-cta">View case</span></div>
       </a>
     `).join('');
   }
