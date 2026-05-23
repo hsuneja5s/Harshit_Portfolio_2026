@@ -437,7 +437,7 @@ img {
 }
 
 .work-title {
-  font-size: var(--font-size-lg);
+  font-size: var(--font-size-base);
   font-weight: 700;
   letter-spacing: -0.02em;
   color: var(--text-primary);
@@ -448,7 +448,7 @@ img {
 }
 
 .work-tag {
-  font-size: var(--font-size-xs);
+  font-size: var(--font-size-xxs);
   font-weight: 500;
   color: var(--text-secondary);
   letter-spacing: 0.01em;
