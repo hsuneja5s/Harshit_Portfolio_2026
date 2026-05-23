@@ -482,5 +482,55 @@ document.addEventListener("DOMContentLoaded", () => {
     const observer = new IntersectionObserver(observerCallback, observerOptions);
     sections.forEach(sec => observer.observe(sec));
   }
+
+  // ============================================
+  // IDENTITY HEADER TYPEWRITER ANIMATION
+  // ============================================
+  function initHeaderTypewriter() {
+    const identityNameEl = document.querySelector('.identity-name');
+    if (!identityNameEl) return;
+
+    // Wrap the first name "Harshit" in a span so we can typewriter-animate it.
+    // Keep " Suneja" static for visual balance.
+    identityNameEl.innerHTML = '<span class="typewriter-name">Harshit</span> Suneja';
+    
+    const target = identityNameEl.querySelector('.typewriter-name');
+    if (!target) return;
+
+    const words = ['Harshit', 'हर्षित', 'هارشيت', 'ಹರ್ಷಿತ್'];
+    let wordIndex = 0;
+    let charIndex = words[0].length;
+    let isDeleting = false;
+    let typingSpeed = 150;
+
+    function type() {
+      const currentWord = words[wordIndex];
+      const chars = Array.from(currentWord);
+      
+      if (isDeleting) {
+        charIndex--;
+        typingSpeed = 80;
+      } else {
+        charIndex++;
+        typingSpeed = 150;
+      }
+
+      target.textContent = chars.slice(0, charIndex).join('');
+
+      if (!isDeleting && charIndex === chars.length) {
+        typingSpeed = 2000; // Pause on complete word
+        isDeleting = true;
+      } else if (isDeleting && charIndex === 0) {
+        isDeleting = false;
+        wordIndex = (wordIndex + 1) % words.length;
+        typingSpeed = 400; // Pause on empty state
+      }
+
+      setTimeout(type, typingSpeed);
+    }
+
+    setTimeout(type, 1500); // Start after initial delay
+  }
+  initHeaderTypewriter();
 });
 

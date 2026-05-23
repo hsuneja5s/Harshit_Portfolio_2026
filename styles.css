@@ -2623,6 +2623,20 @@ blockquote.voice-quote cite {
   }
 }
 
+/* Identity name typewriter animations */
+.typewriter-name {
+  position: relative;
+  display: inline-block;
+  border-right: 2px solid var(--text-primary);
+  padding-right: 2px;
+  animation: typewriter-cursor 0.75s step-end infinite;
+}
+
+@keyframes typewriter-cursor {
+  from, to { border-color: transparent }
+  50% { border-color: var(--text-primary) }
+}
+
 /* ============================================
    MOBILE PLACEHOLDER OVERLAY
    Shown on viewports < 768px.
