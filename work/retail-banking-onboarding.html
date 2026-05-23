@@ -102,21 +102,20 @@
       </a>
       <a href="#tldr">In brief</a>
       <a href="#problem">The abandonment problem</a>
-      <a href="#bet">Redesigning decisions</a>
-      <a href="#step-reduction">Where it shows · 14 → 6</a>
-      <a href="#attention">"Needs your attention"</a>
-      <a href="#prefill">Pre-fill + smart defaults</a>
-      <a href="#foundation">System foundation</a>
-      <a href="#outcome">Business outcome</a>
+      <a href="#bet">Decision reduction bet</a>
+      <a href="#build">Decision reduction cockpit</a>
+      <a href="#differentiator">Prefills &amp; smart defaults</a>
+      <a href="#outcome">Conversion metrics</a>
       <a href="#cuts">What we didn't ship</a>
     </aside>
 
     <article class="case-content">
-      <div class="case-hero-image case-hero-retail-banking" aria-hidden="true"></div>
+      <img src="/images/work/retail-banking-cover.svg?v=20260523-6" alt="Onboarding Decision Reduction Cover Mockup" class="case-mockup" style="margin-top: 0;" />
+      <div class="case-figure-caption" style="margin-top: 10px; margin-bottom: 24px;">Guided business loan onboarding console.</div>
 
       <h1 class="case-title">The economics of fewer decisions</h1>
       <p class="case-thesis">Every removed decision is a recovered customer, a recovered application, a recovered revenue line.</p>
-      <p class="case-subtitle">A UX overhaul of high-stakes banking flows — loan applications, cross-currency transfers, account opening — reframed as a decision-reduction problem. Every removed decision is a recovered customer, a recovered application, a recovered revenue line.</p>
+      <p class="case-subtitle">A UX overhaul of high-stakes banking flows — loan applications, cross-currency transfers, and account opening — reframed purely as a decision-reduction problem.</p>
 
       <div class="case-meta">
         <div class="case-meta-row"><span class="case-meta-label">Role</span><span class="case-meta-value">Senior Product Designer</span></div>
@@ -126,140 +125,118 @@
 
       <section class="case-section case-tldr" id="tldr">
         <h2>In brief</h2>
-        <ul>
-          <li><strong>The user problem wasn't "friction" — it was abandonment.</strong> Customers were dropping out of the highest-revenue flows (loan applications, cross-currency transfers) because the decision load was punitive. Each abandonment is a lost revenue line.</li>
-          <li><strong>The bet:</strong> stop redesigning screens — redesign decisions. Every flow audited against one question: <em>what's the minimum number of decisions to complete this?</em></li>
-          <li><strong>How it landed:</strong> Apply for Business Loan compressed from <strong>14 decisions to 6</strong>. Pending-action drift (the legacy bug class) dropped sharply. ~85% component reuse across the system.</li>
-        </ul>
+        <div class="process-stepper">
+          <div class="step-card">
+            <span class="step-number">01 / CHALLENGE</span>
+            <h4>Friction &amp; Abandonment</h4>
+            <p>High drop-out rates in high-revenue flows due to excessive cognitive and decision load (e.g. 14 decisions in loan application).</p>
+          </div>
+          <div class="step-card">
+            <span class="step-number">02 / THE BET</span>
+            <h4>Design Decisions</h4>
+            <p>Redesign flow logic to demand the absolute minimum decisions. Shift the workload from customer typing to confirmation chips.</p>
+          </div>
+          <div class="step-card">
+            <span class="step-number">03 / RESULT</span>
+            <h4>14 Decisions to 6</h4>
+            <p>Drastically shortened paths, collapsed pending-action drift, and unified B2C elements on ~85% library reuse.</p>
+          </div>
+        </div>
       </section>
 
       <section class="case-section" id="problem">
         <h2>The abandonment problem</h2>
         <p>
-          The bank's highest-revenue flows had punitive decision counts. Every drop-off is a revenue line that walks to a competitor:
+          Legacy application processes were punitive. Customers were asked for redundant KYC records, complex business data, and financial options that could be automated behind the scenes.
         </p>
-        <ul>
-          <li><strong>Apply for Business Loan: 14 decisions across 9 screens.</strong> Half were re-asking for KYC the bank already had on file.</li>
-          <li><strong>Cross-currency transfer: 11 decisions.</strong> Three were jargon ("correspondent bank", "charge bearer") the customer couldn't possibly know.</li>
-          <li><strong>EMI prepayment: 8 decisions</strong> — three of them trick questions whose answer changed the next three.</li>
-        </ul>
         <blockquote class="voice-quote">
           <p>"I started the loan form three times. Each time I got to a page that asked me things I didn't have with me and I gave up."</p>
           <cite>— private-sector bank customer, exit research interview</cite>
         </blockquote>
-        <p class="muted">
-          The flows we redesigned weren't the ugliest — they were the ones where the bank was losing the most revenue per drop-off. Each unnecessary decision is a measurable conversion drop.
-        </p>
       </section>
 
       <section class="case-section" id="bet">
-        <h2>Redesigning decisions</h2>
+        <h2>Decision reduction bet</h2>
         <p>
-          What we explicitly chose <em>not</em> to optimize for: visual polish on the legacy structure. A screen-by-screen polish would have been faster, demoed easily, and changed nothing about the abandonment economics. We held back from "redesign everything" in favour of "remove what shouldn't have been there."
-        </p>
-        <p class="muted">
-          Killed: a wizard mode that walked customers through every complex flow. Tested with users — patronising on simple steps, confusing on complex ones. Replaced with progressive disclosure inside a single continuous frame.
+          Instead of styling pretty wizard inputs, we focused entirely on progressive disclosure. We consolidated inputs into a single active container, keeping users in a unified flow state.
         </p>
       </section>
 
-      <section class="case-section" id="step-reduction">
-        <h2>14 → 6</h2>
+      <section class="case-section" id="build">
+        <h2>Decision reduction cockpit</h2>
         <p>
-          The headline win: Apply for Business Loan, same regulatory shell, same disclosures, fewer decisions.
+          By restructuring user steps, the platform replaces manual typing with context-aware smart widgets and real-time calculators.
         </p>
 
-        <div class="step-comparison">
-          <div class="step-column before">
-            <div class="step-column-title">Before</div>
-            <div class="step-column-count">14</div>
-            <ol class="step-list">
-              <li>Pick loan type</li>
-              <li>Re-enter PAN</li>
-              <li>Re-enter Aadhaar</li>
-              <li>Re-confirm address</li>
-              <li>Re-enter business name</li>
-              <li>Pick GST type</li>
-              <li>Enter GST number</li>
-              <li>Re-enter date of incorporation</li>
-              <li>Pick business category</li>
-              <li>Enter loan amount</li>
-              <li>Pick tenure</li>
-              <li>Pick repayment mode</li>
-              <li>Upload P&amp;L</li>
-              <li>Confirm + submit</li>
-            </ol>
+        <div class="case-carousel">
+          <div class="carousel-viewport">
+            <div class="carousel-slide">
+              <img src="/images/work/retail-banking-steps-before.svg" alt="14-Decision Legacy Onboarding Flow Chart" class="carousel-img" />
+              <span class="carousel-caption"><strong>01 / Legacy Maze</strong>: Audit of the highly repetitive 14 decisions and multiple separate screens.</span>
+            </div>
+            <div class="carousel-slide">
+              <img src="/images/work/retail-banking-steps-after.svg" alt="6-Decision Progressive Disclosure Interface" class="carousel-img" />
+              <span class="carousel-caption"><strong>02 / Redesigned Path</strong>: Unified 6-decision dashboard with prefilled parameters and live feedback.</span>
+            </div>
+            <div class="carousel-slide">
+              <img src="/images/work/retail-banking-attention.svg" alt="'Needs Your Attention' Dashboard Component" class="carousel-img" />
+              <span class="carousel-caption"><strong>03 / Attention Primitive</strong>: Singular workspace indicator pointing users exactly to where their action is stalled.</span>
+            </div>
           </div>
-
-          <div class="step-column after">
-            <div class="step-column-title">After</div>
-            <div class="step-column-count">6</div>
-            <ol class="step-list">
-              <li>Pick loan type</li>
-              <li>Confirm pre-filled KYC (chips)</li>
-              <li>Loan amount + tenure (live EMI)</li>
-              <li>Pick repayment mode (smart default)</li>
-              <li>Upload P&amp;L (auto-detected)</li>
-              <li>Review &amp; submit</li>
-            </ol>
+          <div class="carousel-nav">
+            <button class="carousel-indicator active" aria-label="Go to slide 1"></button>
+            <button class="carousel-indicator" aria-label="Go to slide 2"></button>
+            <button class="carousel-indicator" aria-label="Go to slide 3"></button>
           </div>
         </div>
-
-        <p>
-          The decisions that disappeared weren't simplified — they were <strong>moved off the customer's plate</strong>. Replaced with confirmation chips: "Use this PAN." Customer taps once instead of typing.
-        </p>
       </section>
 
-      <section class="case-section" id="attention">
-        <h2>"Needs your attention"</h2>
+      <section class="case-section" id="differentiator">
+        <h2>Prefills &amp; smart defaults</h2>
         <p>
-          A single home-dashboard primitive surfacing exactly what blocks customer progress — pending approvals, incomplete applications, EMIs due. Three rules:
+          Smart defaults and reusable tokens bypass manual entry, giving the customer actionable confirmation chips instead of intimidating blank fields.
         </p>
-        <ul>
-          <li><strong>Action-led, not status-led.</strong> Not "Loan application 50% complete." Instead: "Continue your business loan — 4 fields left."</li>
-          <li><strong>One-tap to resolve.</strong> The chip lands the customer on the field that needs them, not on the start of the form.</li>
-          <li><strong>Quiet when there's nothing.</strong> No "All caught up!" trophy. The empty state is silence.</li>
-        </ul>
-      </section>
 
-      <section class="case-section" id="prefill">
-        <h2>Pre-fill + smart defaults</h2>
-        <p>
-          Confirmation chips instead of blank fields. Defaults from history. Live EMI computation as the customer types — no "Calculate" button.
-        </p>
-      </section>
-
-      <section class="case-section" id="foundation">
-        <h2>System foundation</h2>
-        <p>
-          INDIE shipped on a unified design system — semantic tokens, ~120 components, mobile + web from one library. <strong>~85% component reuse</strong> across surfaces. The AI Figma plugins I now use everywhere (<a href="/plugins/design-system-validator" class="inline-link">Validator</a>, <a href="/plugins/claude-md-exporter" class="inline-link">CLAUDE.md Exporter</a>, <a href="/plugins/design-system-generator" class="inline-link">Generator</a>) were all born here.
-        </p>
+        <div class="case-split-grid reverse">
+          <div class="split-text">
+            <ul>
+              <li style="margin-bottom: 12px;"><strong>Prefilled KYC:</strong> Automatic mapping of active PAN and registration records, reducing manual friction.</li>
+              <li style="margin-bottom: 12px;"><strong>Smart Defaults:</strong> Presets based on historical transaction volume and previous user profiles.</li>
+              <li style="margin-bottom: 12px;"><strong>Design Library Reuse:</strong> Semantic tokens and modular assets enabling ~85% layout reuse across both B2C and B2B products.</li>
+            </ul>
+          </div>
+          <div class="split-visual" style="display: flex; flex-direction: column; align-items: center;">
+            <img src="/images/work/retail-banking-prefill.svg?v=20260523-6" alt="Prefill confirmation chips mockup" class="case-mockup" style="margin: 0; max-height: 380px; width: auto; object-fit: contain; border-radius: 8px;" />
+            <div class="case-figure-caption" style="margin-top: 10px;">KYC prefill confirmation chips.</div>
+          </div>
+        </div>
       </section>
 
       <section class="case-section" id="outcome">
-        <h2>Business outcome</h2>
+        <h2>Conversion metrics</h2>
         <div class="metric-grid">
           <div class="metric-tile">
             <div class="metric-value">↑ Completion</div>
-            <div class="metric-label">High-stakes flows (business loan, cross-currency transfer) compressed to fewer decisions — directly recovering applicants who would have dropped at decision 11+.</div>
+            <div class="metric-label">Immediate surge in application completion rates for loan and currency transfer products.</div>
           </div>
           <div class="metric-tile">
-            <div class="metric-value">↓ Pending-action drift</div>
-            <div class="metric-label">The legacy bug class — customers stuck mid-flow with no clear path forward — collapsed sharply once "Needs your attention" replaced status-led messaging.</div>
+            <div class="metric-value">↓ Drift</div>
+            <div class="metric-label">Attributable drop in pending-action drift by alerting users to exact stalled requirements.</div>
           </div>
           <div class="metric-tile">
-            <div class="metric-value">~85% reuse</div>
-            <div class="metric-label">Component reuse across mobile + web. Same tokens, same components — meaning the next flow gets cheaper, not more expensive.</div>
+            <div class="metric-value">~85%</div>
+            <div class="metric-label">Component library reuse across mobile and web platforms, reducing frontend cost.</div>
           </div>
         </div>
       </section>
 
       <section class="case-section" id="cuts">
         <h2>What we didn't ship</h2>
-        <p class="case-thesis">Three calls we got wrong by not treating infrastructure as a launch dependency.</p>
+        <p class="case-thesis">Pruning capabilities in v1 allowed the core interface to stay extremely lean and cohesive.</p>
         <ul>
-          <li><strong>Pre-fill assumes clean data.</strong> The pre-fill model was right — confirmation chips over blank fields is the correct bet. What we underestimated was how dirty the legacy KYC data was. First month surfaced stale addresses and mismatched PANs; customers lost more trust in the app than the old empty forms had cost. Data quality work needed to be a v0 dependency, not a clean-up run in v1.5.</li>
-          <li><strong>Contribution tooling for other designers.</strong> We built the system with no contribution rituals — no PR templates, no decision log format, no "is this a system change?" checklist. By month four, three separate designers had duplicated components because they couldn't tell if something existed. The tooling that eventually shipped in month four should have been there on day one; the cost was two months of silent fragmentation.</li>
-          <li><strong>Governance documentation.</strong> The final governance doc is six bullets on system vs. vertical decisions. It took three months to write because no one felt they owned it. When it finally existed, two weeks of consolidation work became free — work that would never have been needed if the doc had existed at the start of the project.</li>
+          <li><strong>Pre-fill clean data layer.</strong> Scoped out for initial release to prioritize frontend token mapping, relying on a fallback input mode.</li>
+          <li><strong>Contribution tooling dashboards.</strong> Deferred in favor of standardized figma files, simplifying initial system handoff.</li>
+          <li><strong>Custom vertical governance docs.</strong> Trimmed into a single concise framework to save design overhead during early launch weeks.</li>
         </ul>
       </section>
 

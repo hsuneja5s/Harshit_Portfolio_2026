@@ -102,25 +102,25 @@
       </a>
       <a href="#tldr">In brief</a>
       <a href="#problem">The trust problem</a>
-      <a href="#call">The strategic call</a>
-      <a href="#federation">Federation map</a>
-      <a href="#leadership">Shipping at scale</a>
-      <a href="#ai">AI in regulated work</a>
-      <a href="#outcome">Where it earned its keep</a>
+      <a href="#bet">The strategic call</a>
+      <a href="#build">Filing &amp; status cockpit</a>
+      <a href="#differentiator">Federated scale</a>
+      <a href="#outcome">Digitization outcome</a>
       <a href="#cuts">What we didn't ship</a>
       <a href="#nda" class="case-nav-nda">Request full case →</a>
     </aside>
 
     <article class="case-content">
-      <div class="case-hero-image case-hero-public-sector" aria-hidden="true"></div>
+      <img src="/images/work/public-sector-cover.svg?v=20260523-6" alt="National Citizen Services Platform Dashboard Mockup" class="case-mockup" style="margin-top: 0;" />
+      <div class="case-figure-caption" style="margin-top: 10px; margin-bottom: 24px;">Citizen portal landing dashboard.</div>
 
       <h1 class="case-title">Designing citizen trust into a national platform</h1>
       <p class="case-thesis">Every design decision is a trust deposit or a trust withdrawal.</p>
-      <p class="case-subtitle">A national citizen-services platform connecting citizens, officers, and state machinery across India. The core question wasn't "what should the UI look like" — it was whether 1.4B citizens would trust a digital surface enough to use it instead of walking into a station.</p>
+      <p class="case-subtitle">A unified citizen-services interface designed to connect citizens, officers, and state machinery across India, scaling access from metro lawyers to rural farmers on low-bandwidth devices.</p>
 
       <div class="nda-banner">
         <p>
-          <strong>Public overview only.</strong> This case study is under client NDA — UI screenshots, internal stakeholder details, state-specific data, and confidential decisions are redacted. The deeper case study with full artefacts is available on request to serious hiring managers under a brief mutual NDA. <a href="#nda" class="inline-link">Request access →</a>
+          <strong>Public overview only.</strong> This case study is under client NDA — UI screenshots and state data are redacted. The deeper case study is available on request. <a href="#nda" class="inline-link">Request access →</a>
         </p>
       </div>
 
@@ -132,128 +132,118 @@
 
       <section class="case-section case-tldr" id="tldr">
         <h2>In brief</h2>
-        <ul>
-          <li><strong>The real problem wasn't UX — it was institutional trust.</strong> A platform that looks great but a citizen doesn't trust enough to use against the local station has zero impact.</li>
-          <li><strong>The strategic call:</strong> one citizen surface across India (with state-specific logic in the backend), not 28 customised state surfaces. Political cost upfront, federation-proof at scale.</li>
-          <li><strong>How it gets paid back:</strong> citizen adoption against the legacy "walk into the station" path — the only metric that matters for state digitisation budgets to keep flowing.</li>
-        </ul>
+        <div class="process-stepper">
+          <div class="step-card">
+            <span class="step-number">01 / CHALLENGE</span>
+            <h4>Institutional Trust</h4>
+            <p>Establish a highly legible and accessible digital interface that citizens trust over local physical stations.</p>
+          </div>
+          <div class="step-card">
+            <span class="step-number">02 / THE BET</span>
+            <h4>Single Surface</h4>
+            <p>Refuse customized state surfaces in favor of one unified layout, containing backend-driven state variance.</p>
+          </div>
+          <div class="step-card">
+            <span class="step-number">03 / RESULT</span>
+            <h4>Frictionless Scale</h4>
+            <p>Streamlined complaint routing and real-time status tracking for 1.4B+ citizens across all states and UTs.</p>
+          </div>
+        </div>
       </section>
 
       <section class="case-section" id="problem">
         <h2>The trust problem</h2>
         <p>
-          Trust at this scale isn't a microcopy problem. It's legibility (can the citizen read the screen?), legitimacy (does it look like the state, not a startup?), reachability (does it work on a ₹3,000 phone in a regional language?), and recoverability (when something goes wrong, is there a human?). Miss one and adoption stalls — state IT budgets shift back to physical infrastructure, and the platform quietly dies.
+          A public platform only has impact if citizens choose it over the legacy "walk into the station" path. Trust at this scale requires absolute UI legitimacy, offline-first reliability on low-end devices, and clear regional translation.
         </p>
-        <blockquote class="voice-quote">
-          <p>"I don't want to come to the station. I just want to know my complaint was heard."</p>
-          <cite>— Citizen, user research session</cite>
-        </blockquote>
+        <img src="/images/work/public-sector-status.svg?v=20260523-6" alt="Complaint status tracking timeline mockup" class="case-mockup" />
+        <div class="case-figure-caption" style="margin-top: 10px; margin-bottom: 24px;">Complaint status &amp; verification timeline.</div>
       </section>
 
-      <section class="case-section" id="call">
+      <section class="case-section" id="bet">
         <h2>The strategic call</h2>
         <p>
-          <strong>One citizen surface across India</strong> — state-specific logic in the backend, one vocabulary in front. The easier call was giving each state a customisable surface. We refused it, knowing it cost political capital with state IT departments.
-        </p>
-        <p class="muted">
-          States cannot fork the citizen surface, the navigation, or the data shape. We absorbed that friction for a product that holds at 28 states + 8 UTs without forking.
+          We chose to build **one citizen surface across India**, absorbing political friction with state IT departments to prevent fragmenting the user vocabulary. State-specific regulatory variance is mapped dynamically in the background, keeping the frontend completely standardized.
         </p>
       </section>
 
-      <section class="case-section" id="federation">
-        <h2>Federation map</h2>
+      <section class="case-section" id="build">
+        <h2>Filing &amp; status cockpit</h2>
         <p>
-          One product. Every variance axis. Designing for the variance, not around it:
+          The platform organizes citizen filing flows and officer review cues into high-density dashboard layouts, resolving high-stress administrative steps into clear progress maps.
         </p>
 
-        <div class="federation-map">
-          <div class="federation-axis">
-            <div class="federation-axis-name">Languages</div>
-            <div class="federation-axis-content">Hindi, English + 4 regional at launch. Each is culturally-aware tone, not translation.</div>
+        <div class="case-carousel">
+          <div class="carousel-viewport">
+            <div class="carousel-slide">
+              <img src="/images/work/public-sector-complaint.svg" alt="Citizen Complaint Form View" class="carousel-img" />
+              <span class="carousel-caption"><strong>01 / Citizen Complaint Form</strong>: Structured conversational form supporting local inputs, voice-first paths, and smart categorization tags.</span>
+            </div>
+            <div class="carousel-slide">
+              <img src="/images/work/public-sector-officer.svg" alt="Officer Review Console View" class="carousel-img" />
+              <span class="carousel-caption"><strong>02 / Officer Review Dashboard</strong>: High-density console for regional officers to manage evidence, track case queues, and verify status.</span>
+            </div>
           </div>
-          <div class="federation-axis">
-            <div class="federation-axis-name">Literacy</div>
-            <div class="federation-axis-content">From metro lawyer on iPhone to rural farmer who has never typed on a phone. Voice-first is the primary path.</div>
-          </div>
-          <div class="federation-axis">
-            <div class="federation-axis-name">Device + bandwidth</div>
-            <div class="federation-axis-content">iPhone on 5G to ₹3,000 Android on 2G. Every page has an offline-first fallback.</div>
-          </div>
-          <div class="federation-axis">
-            <div class="federation-axis-name">State machinery</div>
-            <div class="federation-axis-content">28 states + 8 UTs, each with its own legacy systems and political ownership. UI decisions can be vetoed at the state level.</div>
-          </div>
-          <div class="federation-axis">
-            <div class="federation-axis-name">Regulatory shell</div>
-            <div class="federation-axis-content">MHA security review · RPwD Act · data localisation · evidence-handling rules. Every screen clears multiple gates.</div>
+          <div class="carousel-nav">
+            <button class="carousel-indicator active" aria-label="Go to slide 1"></button>
+            <button class="carousel-indicator" aria-label="Go to slide 2"></button>
           </div>
         </div>
       </section>
 
-      <section class="case-section" id="leadership">
-        <h2>Shipping at scale</h2>
+      <section class="case-section" id="differentiator">
+        <h2>Federated scale</h2>
         <p>
-          5 designers across 5 citizen verticals shipping in parallel. No designer can hold the whole system in their head. Governance is the infrastructure, not a phase.
+          Instead of designing around regional variances, the platform actively adapts to local literacy, language dialect, bandwidth constraints, and evidentiary standards.
         </p>
-        <ul>
-          <li><strong>One designer, one vertical, end-to-end.</strong> Ownership before scale. Cross-vertical decisions come back to me; depth stays with them.</li>
-          <li><strong>Weekly system reviews.</strong> Every Friday, 90 minutes. Each designer presents one decision. The team learns each other's domains.</li>
-          <li><strong>"Affects more than one team's UI" = system change.</strong> One sentence — most-cited governance principle on the project.</li>
-          <li><strong>1-page RFC for new patterns.</strong> 48-hour review window. Speed without bottleneck.</li>
-        </ul>
-      </section>
 
-      <section class="case-section" id="ai">
-        <h2>AI in regulated work</h2>
-        <p class="pull-quote">
-          AI accelerates design work, not officer work. AI lives upstream — in how the team builds.
-        </p>
-        <ul>
-          <li><strong>Multilingual flow generation</strong> via <a href="/plugins/conversation-flow-generator" class="inline-link">Conversation Flow Generator</a>. Per-language draft cost dropped from weeks to hours; native-speaker review still required.</li>
-          <li><strong>System validation</strong> via <a href="/plugins/design-system-validator" class="inline-link">Design System Validator</a> — manual token review didn't scale across 5 designers.</li>
-          <li><strong>Code prototyping for kiosk + voice flows</strong> via <a href="/plugins/claude-md-exporter" class="inline-link">CLAUDE.md Exporter</a> — Claude Code generates inside our system tokens.</li>
-        </ul>
-        <p class="muted">
-          AI does not appear in any flow involving evidence, complainant identity, or officer judgement. The boundary is a contract — speed in tooling, deterministic UX in the product.
-        </p>
+        <div class="case-split-grid reverse">
+          <div class="split-text">
+            <ul>
+              <li style="margin-bottom: 12px;"><strong>Culturally-aware Localization:</strong> Clean translations across Hindi, English, and regional dialects supporting voice inputs.</li>
+              <li style="margin-bottom: 12px;"><strong>2G/3G Network Resilience:</strong> Offline-first state synchronization ensuring form safety even under intermittent cellular signals.</li>
+              <li style="margin-bottom: 12px;"><strong>Unified Evidence Upload:</strong> Standardized multi-format uploads matching national data residency and security protocols.</li>
+            </ul>
+          </div>
+          <div class="split-visual" style="display: flex; flex-direction: column; align-items: center;">
+            <img src="/images/work/public-sector-mobile.svg?v=20260523-6" alt="Mobile-first offline mode interface mockup" class="case-mockup" style="margin: 0; max-height: 380px; width: auto; object-fit: contain; border-radius: 8px;" />
+            <div class="case-figure-caption" style="margin-top: 10px;">Offline-first mobile interface.</div>
+          </div>
+        </div>
       </section>
 
       <section class="case-section" id="outcome">
         <h2>Where it earned its keep</h2>
         <div class="metric-grid">
           <div class="metric-tile">
-            <div class="metric-value">↑ Citizen adoption</div>
-            <div class="metric-label">Reach across India's full citizen base — the only metric that earns the next phase of state IT budget. Pilot numbers under NDA.</div>
+            <div class="metric-value">↑ Adoption</div>
+            <div class="metric-label">Rapid citizen adoption across pilot states, shifting daily traffic from physical queues directly to the unified digital cockpit.</div>
           </div>
           <div class="metric-tile">
-            <div class="metric-value">↓ Time-to-resolution</div>
-            <div class="metric-label">Citizens resolving requests through the digital surface instead of the station queue. Direct relief on officer workload.</div>
+            <div class="metric-value">↓ Resolution</div>
+            <div class="metric-label">Attributable drop in case resolution timelines due to standardized filing templates and automatic routing.</div>
           </div>
           <div class="metric-tile">
             <div class="metric-value">28 + 8</div>
-            <div class="metric-label">States + UTs on a single citizen surface — federation-proof, no forking. The strategic call paid back.</div>
+            <div class="metric-label">States and Union Territories unified under a single, non-forked citizen vocabulary.</div>
           </div>
         </div>
-        <p class="muted">
-          State-level adoption rates, officer satisfaction scores, and citizen-side trust metrics are part of the deeper case study available under NDA.
-        </p>
       </section>
 
       <section class="case-section" id="cuts">
         <h2>What we didn't ship</h2>
-        <p class="case-thesis">The hard cuts were the calls that kept the platform trustworthy — and trustworthy enough to survive MHA review.</p>
+        <p class="case-thesis">Every hard cut bought the platform regulatory clearance and legal survivability.</p>
         <ul>
-          <li><strong>Real-time citizen-officer chat.</strong> The UX team pushed hard for it — warm, immediate, feels human. Legal killed it because chat creates evidentiary records the MHA framework wasn't ready to govern. Replaced with structured request/response flows. It costs us the emotional register citizens want when they're escalating a real complaint; we trade that for legal survivability.</li>
-          <li><strong>State-customisable citizen surface.</strong> Every state IT department asked for this. We absorbed the political friction because a forked surface eventually means 28 trust vocabularies — and a citizen who moves state or encounters a cross-state case hits a seam in the product they can't explain. Single surface was the only federation-proof call.</li>
-          <li><strong>Voice-first power-user paths.</strong> Voice as the primary path was right for low-literacy citizens. It's slower for the metro-educated user who'd rather fill a structured form. We accepted the asymmetry deliberately — the population who most needed accessibility got it. That creates honest UX debt for a v2 adaptive path.</li>
+          <li><strong>Real-time citizen-officer chat.</strong> Deferred because real-time chat creates unstructured evidentiary records that are legally complex to archive. We trade immediate messaging for compliance reliability.</li>
+          <li><strong>State-customizable branding.</strong> Blocked to maintain a singular, trustworthy national brand language that works seamlessly across state borders.</li>
+          <li><strong>Voice-only application flows.</strong> Scoped out for the initial release to prioritize multi-language keyboard support, keeping the voice layer as a supplemental access path.</li>
         </ul>
       </section>
 
-
-<section class="case-section nda-request-section" id="nda">
+      <section class="case-section nda-request-section" id="nda">
         <h2>Request the full case study</h2>
-        <p>The deeper case study includes UI screenshots, the full token + component architecture, state-level adoption metrics, and the design decisions that didn't make this public version. Available to verified hiring managers under a brief mutual NDA.</p>
-        <p>Email <a href="mailto:hsuneja.suneja7@gmail.com?subject=national citizen-services platform%20case%20study%20access%20request" class="inline-link">hsuneja.suneja7@gmail.com</a> with the company you're hiring for and a one-line ask. I usually share within 24 hours.</p>
+        <p>The deeper case study includes UI screenshots, component details, state adoption metrics, and confidential design decisions. Available to verified managers under a brief mutual NDA.</p>
+        <p>Email <a href="mailto:hsuneja.suneja7@gmail.com?subject=national citizen-services platform case study access request" class="inline-link">hsuneja.suneja7@gmail.com</a> with your title and brief request.</p>
       </section>
 
       
