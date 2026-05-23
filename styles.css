@@ -2637,6 +2637,31 @@ blockquote.voice-quote cite {
   50% { border-color: var(--text-primary) }
 }
 
+/* Scroll Reveal System (Fade-In & Slide-Up) */
+.reveal {
+  opacity: 0;
+  transform: translateY(16px);
+  will-change: opacity, transform;
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Scroll Typewriter System */
+.scroll-typewriter {
+  border-right: 2px solid transparent;
+  display: inline-block;
+  will-change: content;
+}
+
+.scroll-typewriter.typing {
+  border-right: 2px solid var(--text-primary);
+  animation: typewriter-cursor 0.75s step-end infinite;
+}
+
 /* ============================================
    MOBILE PLACEHOLDER OVERLAY
    Shown on viewports < 768px.

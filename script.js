@@ -540,5 +540,70 @@ document.addEventListener("DOMContentLoaded", () => {
     setTimeout(type, 1500); // Start after initial delay
   }
   initHeaderTypewriter();
+
+  // ============================================
+  // SCROLL REVEAL (Fade-In & Slide-Up)
+  // ============================================
+  const revealElements = document.querySelectorAll('.reveal');
+  if (revealElements.length) {
+    const revealObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('revealed');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, {
+      root: null,
+      rootMargin: '0px 0px -10% 0px',
+      threshold: 0.1
+    });
+    revealElements.forEach(el => revealObserver.observe(el));
+  }
+
+  // ============================================
+  // SCROLL TYPEWRITER EFFECT
+  // ============================================
+  const typewriterElements = document.querySelectorAll('.scroll-typewriter');
+  if (typewriterElements.length) {
+    const typewriterObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const el = entry.target;
+          observer.unobserve(el);
+          
+          const originalText = el.getAttribute('data-text') || el.textContent;
+          el.setAttribute('data-text', originalText);
+          el.textContent = '';
+          el.classList.add('typing');
+          
+          const chars = Array.from(originalText);
+          let charIndex = 0;
+          
+          function typeLetter() {
+            if (charIndex < chars.length) {
+              charIndex++;
+              el.textContent = chars.slice(0, charIndex).join('');
+              setTimeout(typeLetter, 25); // Very fast typing speed (25ms) for comfortable reading
+            } else {
+              el.classList.remove('typing');
+            }
+          }
+          // Small delay before typing starts to make it feel natural
+          setTimeout(typeLetter, 100);
+        }
+      });
+    }, {
+      root: null,
+      rootMargin: '0px 0px -5% 0px',
+      threshold: 0.1
+    });
+
+    typewriterElements.forEach(el => {
+      el.setAttribute('data-text', el.textContent.trim());
+      el.textContent = '';
+      typewriterObserver.observe(el);
+    });
+  }
 });
 
