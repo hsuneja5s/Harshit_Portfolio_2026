@@ -562,35 +562,50 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // ============================================
-  // SCROLL TYPEWRITER EFFECT
+  // ============================================
+  // SCROLL TYPEWRITER EFFECT (Sequential Queue)
   // ============================================
   const typewriterElements = document.querySelectorAll('.scroll-typewriter');
   if (typewriterElements.length) {
+    let typingQueue = [];
+    let isCurrentlyTyping = false;
+
+    function processTypingQueue() {
+      if (isCurrentlyTyping || typingQueue.length === 0) return;
+      
+      isCurrentlyTyping = true;
+      const nextEl = typingQueue.shift();
+      
+      const originalText = nextEl.getAttribute('data-text') || nextEl.textContent;
+      nextEl.textContent = '';
+      nextEl.classList.add('typing');
+      
+      const chars = Array.from(originalText);
+      let charIndex = 0;
+      
+      function typeLetter() {
+        if (charIndex < chars.length) {
+          charIndex++;
+          nextEl.textContent = chars.slice(0, charIndex).join('');
+          setTimeout(typeLetter, 30); // Slower pacing (30ms) for high-end legibility
+        } else {
+          nextEl.classList.remove('typing');
+          isCurrentlyTyping = false;
+          // Trigger next paragraph after a clear visual pause
+          setTimeout(processTypingQueue, 200);
+        }
+      }
+      setTimeout(typeLetter, 150);
+    }
+
     const typewriterObserver = new IntersectionObserver((entries, observer) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           const el = entry.target;
           observer.unobserve(el);
           
-          const originalText = el.getAttribute('data-text') || el.textContent;
-          el.setAttribute('data-text', originalText);
-          el.textContent = '';
-          el.classList.add('typing');
-          
-          const chars = Array.from(originalText);
-          let charIndex = 0;
-          
-          function typeLetter() {
-            if (charIndex < chars.length) {
-              charIndex++;
-              el.textContent = chars.slice(0, charIndex).join('');
-              setTimeout(typeLetter, 25); // Very fast typing speed (25ms) for comfortable reading
-            } else {
-              el.classList.remove('typing');
-            }
-          }
-          // Small delay before typing starts to make it feel natural
-          setTimeout(typeLetter, 100);
+          typingQueue.push(el);
+          processTypingQueue();
         }
       });
     }, {
