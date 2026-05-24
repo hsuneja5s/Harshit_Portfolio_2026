@@ -71,7 +71,7 @@ const PORTFOLIO_DATA = {
     {
       sector: 'Healthcare',
       label: 'Healthcare — Patient App',
-      title: 'Designing for return visits, not test bookings',
+      title: 'Designing AI Assisted Experiences for Preventive Healthcare',
       hint: 'live · accessible diagnostics',
       href: '/work/healthcare-patient-experience',
       imageClass: 'work-image-healthcare-patient',
