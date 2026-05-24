@@ -58,6 +58,7 @@ const PORTFOLIO_DATA = {
       hint: 'AI banking assistant · NPS 4.7 → 9.2',
       href: '/work/banking-ai-self-service',
       imageClass: 'work-image-banking-ai',
+      disabled: true,
     },
     {
       sector: 'Banking',
@@ -75,6 +76,7 @@ const PORTFOLIO_DATA = {
       hint: 'self-serve ads console · B2B',
       href: '/work/commerce-ad-operations',
       imageClass: 'work-image-commerce-ads',
+      disabled: true,
     },
     {
       sector: 'GovTech',
@@ -83,6 +85,7 @@ const PORTFOLIO_DATA = {
       hint: 'national citizen services · NDA-protected',
       href: '/work/public-sector-citizen-services',
       imageClass: 'work-image-public-sector',
+      disabled: true,
     },
   ],
   plugins: [
@@ -137,7 +140,7 @@ const PORTFOLIO_DATA = {
 };
 
 const SEARCH_ITEMS = [
-  ...PORTFOLIO_DATA.work.filter(item => !item.hidden).map(item => ({ tag: 'Work', label: item.label, hint: item.hint, href: item.href })),
+  ...PORTFOLIO_DATA.work.filter(item => !item.hidden && !item.disabled).map(item => ({ tag: 'Work', label: item.label, hint: item.hint, href: item.href })),
   ...PORTFOLIO_DATA.plugins.map(item => ({ tag: 'Plugin', label: item.title, hint: item.hint, href: item.href })),
   ...PORTFOLIO_DATA.pages.map(item => ({ tag: 'Page', ...item })),
   ...PORTFOLIO_DATA.links.map(item => ({ tag: 'Link', ...item })),
@@ -149,16 +152,30 @@ const renderHomeCollections = () => {
   const pluginGrid = document.querySelector('[data-portfolio-plugins]');
 
   if (workGrid) {
-    workGrid.innerHTML = PORTFOLIO_DATA.work.filter(item => !item.hidden).map(item => `
-      <a href="${item.href}" class="work-card">
-        <div class="work-meta">
-          <p class="work-tag">${escapeHtml(item.sector)}</p>
-          <h3 class="work-title">${escapeHtml(item.title)}</h3>
-        </div>
-        <div class="work-image ${item.imageClass}" aria-hidden="true"></div>
-        <div class="work-card-overlay" aria-hidden="true"><span class="work-card-cta">View case</span></div>
-      </a>
-    `).join('');
+    workGrid.innerHTML = PORTFOLIO_DATA.work.filter(item => !item.hidden).map(item => {
+      if (item.disabled) {
+        return `
+          <div class="work-card work-card--disabled">
+            <div class="work-meta">
+              <p class="work-tag">${escapeHtml(item.sector)}</p>
+              <h3 class="work-title">${escapeHtml(item.title)}</h3>
+            </div>
+            <div class="work-image ${item.imageClass}" aria-hidden="true"></div>
+            <div class="work-card-overlay" aria-hidden="true"><span class="work-card-cta">🏗️ Coming Soon</span></div>
+          </div>
+        `;
+      }
+      return `
+        <a href="${item.href}" class="work-card">
+          <div class="work-meta">
+            <p class="work-tag">${escapeHtml(item.sector)}</p>
+            <h3 class="work-title">${escapeHtml(item.title)}</h3>
+          </div>
+          <div class="work-image ${item.imageClass}" aria-hidden="true"></div>
+          <div class="work-card-overlay" aria-hidden="true"><span class="work-card-cta">View case</span></div>
+        </a>
+      `;
+    }).join('');
   }
 
   if (pluginGrid) {
