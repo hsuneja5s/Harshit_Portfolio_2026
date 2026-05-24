@@ -110,11 +110,6 @@
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg>
         Back home
       </a>
-      <a href="#why">Why I built it</a>
-      <a href="#how">How it works</a>
-      <a href="#stack">Stack</a>
-      <a href="#impact">Impact</a>
-      <a href="#try">Try it</a>
     </aside>
 
     <article class="case-content">
@@ -161,7 +156,7 @@
         </div>
       </a>
 
-      <h1 class="case-title">Design System Validator<span class="pseudo-tag">draft</span></h1>
+      <h1 class="case-title">Design System Validator</h1>
       <p class="case-subtitle">A Figma plugin that runs comprehensive system checks to catch token mismatches, off-grid spacing, undocumented variants, and structural layout breaks before handoff.</p>
 
       <div class="case-meta">
@@ -171,68 +166,11 @@
         <div class="case-meta-row"><span class="case-meta-label">Source</span><span class="case-meta-value">Closed during PwC engagement · open-source release on roadmap</span></div>
       </div>
 
-      <section class="case-section case-tldr reveal" id="tldr">
-        <h2>In brief</h2>
-        <ul>
-          <li>Scans active Figma frames instantly to flag non-system colors, radii, spacing, and broken auto-layout structures.</li>
-          <li>Replaces manual Notion checklists with a single-click audit that surfaces issues directly on canvas.</li>
-          <li>Catching errors before handoff saved engineering review cycles and reduced PR-level rework loops.</li>
-        </ul>
-      </section>
-
-      <section class="case-section reveal" id="why">
-        <h2>Why I built it</h2>
-        <p>
-          Managing over 120 components across multiple active designers demonstrated that manual design system audits simply do not scale. Because catching token deviations in code is ten times more expensive than resolving them inside Figma, I built an automated pre-handoff validator to ensure absolute layout and token compliance before files reach engineering.
+      <div class="case-single-para-content" style="margin-top: 32px; margin-bottom: 48px;">
+        <p style="font-size: var(--font-size-md); line-height: 1.6; color: var(--text-primary);">
+          As design files scale across multiple product teams, manual design system audits quickly become a bottleneck. I built this deterministic linter to automatically audit active Figma frames, flagging token mismatches, detached components, off-grid spacing, and auto-layout breaks directly on the canvas before the files are handed off to engineering. By suggesting inline, one-click remediations to swap deviations back to approved tokens, the plugin saved substantial engineering review cycles and cut handoff defects in PR reviews by roughly forty percent.
         </p>
-      </section>
-
-      <section class="case-section reveal" id="how">
-        <h2>How it works</h2>
-        <ul>
-          <li><strong>Pre-Handoff Linter:</strong> Evaluates published component bounds and detects hardcoded layout properties automatically.</li>
-          <li><strong>Inline Remediations:</strong> Suggests the closest semantic design system token to replace off-grid spacing or colors in a single click.</li>
-          <li><strong>Structured Severity:</strong> Utilizes errors and warnings to flag structural breaks and guide designers without blocking active velocity.</li>
-        </ul>
-      </section>
-
-      <section class="case-section reveal" id="stack">
-        <h2>Stack</h2>
-        <ul>
-          <li><strong>Figma Plugin API</strong> for high-speed direct node tree traversal.</li>
-          <li><strong>TypeScript Rule Engine</strong> to evaluate custom validation rules deterministically.</li>
-          <li><strong>Deterministic Schema</strong> to ensure fast, reliable, and predictable system validation.</li>
-        </ul>
-      </section>
-
-      <section class="case-section reveal" id="impact">
-        <h2>Impact</h2>
-        <div class="metric-grid">
-          <div class="metric-tile">
-            <div class="metric-value">~40%</div>
-            <div class="metric-label">Fewer handoff defects in PR reviews</div>
-          </div>
-          <div class="metric-tile">
-            <div class="metric-value">1,200+</div>
-            <div class="metric-label">Design files validated successfully</div>
-          </div>
-          <div class="metric-tile">
-            <div class="metric-value">12</div>
-            <div class="metric-label">Custom rules contributed by designers</div>
-          </div>
-        </div>
-      </section>
-
-      <section class="case-section reveal" id="rejected">
-        <div class="rejected-block">
-          <h3>What I tried first</h3>
-          <ul>
-            <li><strong>Manual checklists</strong> in Notion faced extremely low adoption; converting guidelines into a single-click native utility achieved near-100% team usage.</li>
-            <li><strong>AI-based scans</strong> were far too slow for active design workflows and yielded probabilistic, untrustworthy suggestions instead of deterministic rules.</li>
-            <li><strong>Hard blocking</strong> exports created bypass workarounds; shifting to structured, visible warning tiers guided behavior constructively.</li>
-          </ul>
-        </div>
-      </section>
+      </div>
 
       <section class="case-section reveal" id="try">
         <h2>Try it</h2>

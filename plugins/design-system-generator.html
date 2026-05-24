@@ -110,10 +110,6 @@
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg>
         Back home
       </a>
-      <a href="#why">Why I built it</a>
-      <a href="#how">How it works</a>
-      <a href="#stack">Stack</a>
-      <a href="#try">Try it</a>
     </aside>
 
     <article class="case-content">
@@ -160,7 +156,7 @@
         </div>
       </a>
 
-      <h1 class="case-title">Design System Generator<span class="pseudo-tag">draft</span></h1>
+      <h1 class="case-title">Design System Generator</h1>
       <p class="case-subtitle">A Figma plugin that scaffolds complete design system foundations — including semantic tokens, key core components, and starting frames — in minutes.</p>
 
       <div class="case-meta">
@@ -170,54 +166,11 @@
         <div class="case-meta-row"><span class="case-meta-label">Source</span><span class="case-meta-value">Closed during PwC engagement · public release planned</span></div>
       </div>
 
-      <section class="case-section case-tldr reveal" id="tldr">
-        <h2>In brief</h2>
-        <ul>
-          <li>Input one brand color + a few choices (typography scale, density, motion preference) → get a complete design system foundation in Figma.</li>
-          <li>Generates ~40 starter components, semantic token architecture, and 5 sample screens you can fork.</li>
-          <li>Built so internal-tools teams can spin up a system in a day instead of waiting six weeks for design system support.</li>
-        </ul>
-      </section>
-
-      <section class="case-section reveal" id="why">
-        <h2>Why I built it</h2>
-        <p>
-          Design system teams in large enterprises are often bottlenecked by manual requests. Since eighty percent of every internal system shares identical scaffolding primitives, I built this generator to scaffold semantic tokens, spacing frameworks, and primary components in minutes, leaving designers to focus purely on the custom, brand-differentiating details.
+      <div class="case-single-para-content" style="margin-top: 32px; margin-bottom: 48px;">
+        <p style="font-size: var(--font-size-md); line-height: 1.6; color: var(--text-primary);">
+          To resolve the long wait times internal-tools teams face when requesting design system support, I built this automated generator to spin up complete foundations in minutes. By inputting a single brand color and selecting a few layout options, the plugin instantly maps out accessible semantic color scales using WCAG math libraries, generates density-aware spacing systems, and scaffolds approximately forty core responsive components as native Figma variables. The result is a robust, pipeline-ready design system foundation and five working starter screens that teams can immediately fork and use.
         </p>
-      </section>
-
-      <section class="case-section reveal" id="how">
-        <h2>How it works</h2>
-        <ul>
-          <li><strong>WCAG Contrast Mapping:</strong> Generates clean, accessible semantic color scales from a single brand color input.</li>
-          <li><strong>Typography and Spacing:</strong> Adapts variables automatically based on density prompts (compact, comfortable, spacious).</li>
-          <li><strong>Variables Generation:</strong> Configures a full token set as native, pipeline-ready Figma Variables.</li>
-          <li><strong>Component Scaffolding:</strong> Deploys approximately forty core components with pre-configured responsive states.</li>
-        </ul>
-      </section>
-
-      <section class="case-section reveal" id="stack">
-        <h2>Stack</h2>
-        <ul>
-          <li><strong>Figma Plugin API</strong> for canvas variable creation.</li>
-          <li><strong>TypeScript</strong> for component compilation safety.</li>
-          <li><strong>Anthropic SDK</strong> for contextual variable suggestions.</li>
-          <li><strong>WCAG Math Libraries</strong> for color compliance auditing.</li>
-        </ul>
-      </section>
-
-
-
-      <section class="case-section reveal" id="rejected">
-        <div class="rejected-block">
-          <h3>What I tried first</h3>
-          <ul>
-            <li><strong>Figma Starter Kits:</strong> Duplicated files were immediately modified in ways that broke downstream variable connections.</li>
-            <li><strong>Spreadsheet Inputs:</strong> Text-heavy parameter grids presented a high cognitive barrier that hindered rapid adoption.</li>
-            <li><strong>Unguarded Modifications:</strong> Unrestricted post-generation edits broke semantic mappings, resolved via a frozen foundation model.</li>
-          </ul>
-        </div>
-      </section>
+      </div>
 
       <section class="case-section reveal" id="try">
         <h2>Try it</h2>

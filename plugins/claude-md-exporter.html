@@ -110,10 +110,6 @@
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg>
         Back home
       </a>
-      <a href="#why">Why I built it</a>
-      <a href="#how">How it works</a>
-      <a href="#stack">Stack</a>
-      <a href="#try">Try it</a>
     </aside>
 
     <article class="case-content">
@@ -160,7 +156,7 @@
         </div>
       </a>
 
-      <h1 class="case-title">CLAUDE.md Exporter<span class="pseudo-tag">draft</span></h1>
+      <h1 class="case-title">CLAUDE.md Exporter</h1>
       <p class="case-subtitle">A Figma plugin that exports your design system as a single <code>CLAUDE.md</code> file, ensuring Claude Code generates components inside your exact tokens, naming, and rules.</p>
 
       <div class="case-meta">
@@ -170,53 +166,11 @@
         <div class="case-meta-row"><span class="case-meta-label">Source</span><span class="case-meta-value">Closed during PwC engagement · open-source release planned</span></div>
       </div>
 
-      <section class="case-section case-tldr reveal" id="tldr">
-        <h2>In brief</h2>
-        <ul>
-          <li>Pick your design system file in Figma → click Export → get a complete <code>CLAUDE.md</code> with tokens, components, naming rules.</li>
-          <li>Drop the file into your repo, and Claude Code generates inside your system instead of inventing its own.</li>
-          <li>Closes the gap between Figma's design system and Claude Code's component generation.</li>
-        </ul>
-      </section>
-
-      <section class="case-section reveal" id="why">
-        <h2>Why I built it</h2>
-        <p>
-          During large bank integrations, developers using Claude Code frequently scaffolded components with invented token names and off-grid spacing. I built this plugin to compile raw Figma tokens, naming standards, and component boundaries into a unified system context file that Claude reads natively, closing the design-to-code gap without manual prompt curation.
+      <div class="case-single-para-content" style="margin-top: 32px; margin-bottom: 48px;">
+        <p style="font-size: var(--font-size-md); line-height: 1.6; color: var(--text-primary);">
+          Designed to bridge the gap between design systems and code generation, this plugin helps design teams feed their complete Figma libraries directly into developer AI environments like Claude Code. In a single click, it compiles design system variables, component naming conventions, typography parameters, and layout guidelines into a single optimized CLAUDE.md file. By dropping this file into the development repository, engineering code assistants gain complete, context-aware instructions to generate front-end code that strictly complies with the design system's exact rules, preventing manual rework and spacing deviations.
         </p>
-      </section>
-
-      <section class="case-section reveal" id="how">
-        <h2>How it works</h2>
-        <ul>
-          <li><strong>Token Compilation:</strong> Traverses variable collections and styles to map a semantic token tree.</li>
-          <li><strong>Metadata Extraction:</strong> Extracts component specs, properties, and layout structures directly from page metadata.</li>
-          <li><strong>Rule Alignment:</strong> Translates designer guidelines into plain-language constraints for Claude Code.</li>
-          <li><strong>Context Optimization:</strong> Generates a clean, compact <code>CLAUDE.md</code> file tailored for LLM context windows.</li>
-        </ul>
-      </section>
-
-      <section class="case-section reveal" id="stack">
-        <h2>Stack</h2>
-        <ul>
-          <li><strong>Figma Plugin API</strong> for variables and component traversal.</li>
-          <li><strong>TypeScript</strong> for layout compilation safety.</li>
-          <li><strong>Markdown Templates</strong> optimized for Claude's context window.</li>
-        </ul>
-      </section>
-
-
-
-      <section class="case-section reveal" id="rejected">
-        <div class="rejected-block">
-          <h3>What I tried first</h3>
-          <ul>
-            <li><strong>Hand-Maintained Prompts:</strong> Manual rules went out of sync within weeks as design patterns evolved.</li>
-            <li><strong>JSON Exports:</strong> Code assistants struggled to parse raw data trees without human-language context.</li>
-            <li><strong>Token Packages:</strong> Solved stylesheet sync but left natural-language design intent completely undocumented.</li>
-          </ul>
-        </div>
-      </section>
+      </div>
 
       <section class="case-section reveal" id="try">
         <h2>Try it</h2>

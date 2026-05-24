@@ -110,10 +110,6 @@
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg>
         Back home
       </a>
-      <a href="#why">Why I built it</a>
-      <a href="#how">How it works</a>
-      <a href="#stack">Stack</a>
-      <a href="#try">Try it</a>
     </aside>
 
     <article class="case-content">
@@ -170,52 +166,11 @@
         <div class="case-meta-row"><span class="case-meta-label">Source</span><span class="case-meta-value">Internal · PwC engagements</span></div>
       </div>
 
-      <section class="case-section case-tldr reveal" id="tldr">
-        <h2>In brief</h2>
-        <ul>
-          <li>Uploads product requirement documents directly to scaffold editable personas, flows, and canvas maps in minutes.</li>
-          <li>Transforms low-signal document reading into instant, fully editable Figma-native layout components.</li>
-          <li>Employs an adversarial review pass to surface hidden system gaps and contradictions before team reviews.</li>
-        </ul>
-      </section>
-
-      <section class="case-section reveal" id="why">
-        <h2>Why I built it</h2>
-        <p>
-          Kickstarting enterprise engagements typically demands days of reading dense PRDs and manual layout alignment before real design work begins. I built this assistant to automate low-signal synthesis, mapping raw product requirements directly into structured research and diagram layers on the canvas so designers can focus purely on strategic judgments.
+      <div class="case-single-para-content" style="margin-top: 32px; margin-bottom: 48px;">
+        <p style="font-size: var(--font-size-md); line-height: 1.6; color: var(--text-primary);">
+          I built this plugin during my engagement at PwC to solve the tedious translation loop between text documents and design assets. By dropping a raw Product Requirement Document (PRD) directly onto the canvas, the tool parses core user intents and functional scopes to instantly scaffold fully editable information architectures, persona cards, user journey maps, and wireframe starters in minutes. It also runs a built-in adversarial review pass ("Devil's Advocate Mode") that contextually flags hidden system gaps and contradictions on canvas, helping teams identify missing requirements before high-stakes reviews.
         </p>
-      </section>
-
-      <section class="case-section reveal" id="how">
-        <h2>How it works</h2>
-        <ul>
-          <li><strong>PRD Ingestion:</strong> Grounded parsing engine extracts core user intents, system boundaries, and functional scopes automatically.</li>
-          <li><strong>Canvas Scaffolding:</strong> Renders information architectures, detailed persona cards, and flow maps instantly as fully editable Figma elements.</li>
-          <li><strong>Devil's Advocate Mode:</strong> Performs a secondary adversarial pass to highlight hidden system gaps and design contradictions as prominent overlay notes.</li>
-        </ul>
-      </section>
-
-      <section class="case-section reveal" id="stack">
-        <h2>Stack</h2>
-        <ul>
-          <li><strong>Figma Plugin API</strong> to generate editable typography and vector-aligned frames directly on the canvas.</li>
-          <li><strong>Claude Opus via Anthropic SDK</strong> to handle complex narrative synthesis and adversarial review audits.</li>
-          <li><strong>Custom Layout Engine</strong> to organize generated outputs cleanly across a modular, structured spatial grid.</li>
-        </ul>
-      </section>
-
-
-
-      <section class="case-section reveal" id="rejected">
-        <div class="rejected-block">
-          <h3>What I tried first</h3>
-          <ul>
-            <li><strong>Interactive Wizards:</strong> Step-by-step interview flows placed excessive cognitive load on designers compared to simple, automated PRD ingestion.</li>
-            <li><strong>Slide Presentations:</strong> Generating static client decks proved redundant since designers still had to manually translate those slides into native Figma frames.</li>
-            <li><strong>Single-Output Engines:</strong> Restricting scope to simple information architectures fell short; the real speed gains required scaffolding the entire user research layer.</li>
-          </ul>
-        </div>
-      </section>
+      </div>
 
       <section class="case-section reveal" id="try">
         <h2>Try it</h2>

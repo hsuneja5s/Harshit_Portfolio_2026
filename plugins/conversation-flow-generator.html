@@ -110,10 +110,6 @@
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg>
         Back home
       </a>
-      <a href="#why">Why I built it</a>
-      <a href="#how">How it works</a>
-      <a href="#stack">Stack</a>
-      <a href="#try">Try it</a>
     </aside>
 
     <article class="case-content">
@@ -160,7 +156,7 @@
         </div>
       </a>
 
-      <h1 class="case-title">Conversation Flow Generator<span class="pseudo-tag">draft</span></h1>
+      <h1 class="case-title">Conversation Flow Generator</h1>
       <p class="case-subtitle">A Figma plugin that drafts conversational UX flows and branch variants inside Figma from plain-English prompts, powered by Anthropic's models.</p>
 
       <div class="case-meta">
@@ -170,54 +166,11 @@
         <div class="case-meta-row"><span class="case-meta-label">Source</span><span class="case-meta-value">Closed during PwC engagement · open-source release planned</span></div>
       </div>
 
-      <section class="case-section case-tldr reveal" id="tldr">
-        <h2>In brief</h2>
-        <ul>
-          <li>Type the user goal ("file an FIR for a missing person") → plugin generates a complete flow with branches, error states, and fallback paths.</li>
-          <li>Localises into multiple languages from a single source. Hindi, Marathi, English, more.</li>
-          <li>Uses Anthropic's models with strict output schemas — fast iteration on conversational design without hand-drafting hundreds of variants.</li>
-        </ul>
-      </section>
-
-      <section class="case-section reveal" id="why">
-        <h2>Why I built it</h2>
-        <p>
-          During large citizen-service launches, voice-first flows had to be deployed across six regional Indian languages. Hand-drafting localized flow variants and conversational branch loops would have taken weeks. I designed this plugin to help designers author, localize, and test complete multi-turn conversational patterns natively in Figma, placing prompt register control directly where the visual interface lives.
+      <div class="case-single-para-content" style="margin-top: 32px; margin-bottom: 48px;">
+        <p style="font-size: var(--font-size-md); line-height: 1.6; color: var(--text-primary);">
+          Designed to automate the painstaking process of drafting voice and conversational flows across multiple regional languages, this plugin generates complete dialogue trees from a simple plain-English goal statement. Powered by Anthropic's structured tool-use schemas, it instantly charts out branches, error states, and fallback loops directly on the canvas using your existing design system layers. The generator also features Nuanced Localization, translating conversation trees into multiple dialects with culturally aware tone matching rather than literal word-to-word translations.
         </p>
-      </section>
-
-      <section class="case-section reveal" id="how">
-        <h2>How it works</h2>
-        <ul>
-          <li><strong>Goal-First Scaffolding:</strong> Maps out branching paths, error recovery steps, and fallback loops from simple plain-language statements.</li>
-          <li><strong>Figma-Native Generation:</strong> Renders dialogue trees as canvas frames using existing design system component layers.</li>
-          <li><strong>Nuanced Localization:</strong> Translates conversation trees with culturally aware tone matching rather than literal word mappings.</li>
-          <li><strong>Intent Variation:</strong> Auto-generates multiple user phrasing variants to simplify training models.</li>
-        </ul>
-      </section>
-
-      <section class="case-section reveal" id="stack">
-        <h2>Stack</h2>
-        <ul>
-          <li><strong>Figma Plugin API</strong> for frame and text canvas creation.</li>
-          <li><strong>Anthropic Structured Tool-Use</strong> schemas for reliable flow mapping.</li>
-          <li><strong>Claude 4.6</strong> for dialect-accurate regional translation.</li>
-          <li><strong>TypeScript</strong> enforcing a strict tree schema.</li>
-        </ul>
-      </section>
-
-
-
-      <section class="case-section reveal" id="rejected">
-        <div class="rejected-block">
-          <h3>What I tried first</h3>
-          <ul>
-            <li><strong>Spreadsheet Diagrams:</strong> Translating Google Sheets into canvas graphics felt slower than drafting components manually.</li>
-            <li><strong>Engineering Prompts:</strong> Relocating prompt authorship to code repository files distanced designers from vital tone registers.</li>
-            <li><strong>Free-Form Outflow:</strong> Generating without schemas created inconsistent visual conventions that hindered engineering handoffs.</li>
-          </ul>
-        </div>
-      </section>
+      </div>
 
       <section class="case-section reveal" id="try">
         <h2>Try it</h2>
