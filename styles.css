@@ -1138,7 +1138,7 @@ img {
 }
 
 .case-section ul li::before {
-  content: "—";
+  content: "•";
   position: absolute;
   left: 0;
   color: var(--text-tertiary);
@@ -2024,7 +2024,7 @@ p.pull-quote {
 }
 
 .simple-page ul li::before {
-  content: "—";
+  content: "•";
   position: absolute;
   left: 0;
   color: var(--text-tertiary);
