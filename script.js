@@ -157,18 +157,22 @@ const renderHomeCollections = () => {
         return `
           <div class="work-card work-card--disabled">
             <div class="work-meta">
-              <p class="work-tag">${escapeHtml(item.sector)}</p>
+              <div class="work-header">
+                <span class="work-tag">${escapeHtml(item.sector)}</span>
+                <span class="work-tag-coming-soon">🏗️ Coming Soon</span>
+              </div>
               <h3 class="work-title">${escapeHtml(item.title)}</h3>
             </div>
             <div class="work-image ${item.imageClass}" aria-hidden="true"></div>
-            <div class="work-card-overlay" aria-hidden="true"><span class="work-card-cta">🏗️ Coming Soon</span></div>
           </div>
         `;
       }
       return `
         <a href="${item.href}" class="work-card">
           <div class="work-meta">
-            <p class="work-tag">${escapeHtml(item.sector)}</p>
+            <div class="work-header">
+              <span class="work-tag">${escapeHtml(item.sector)}</span>
+            </div>
             <h3 class="work-title">${escapeHtml(item.title)}</h3>
           </div>
           <div class="work-image ${item.imageClass}" aria-hidden="true"></div>

@@ -472,6 +472,34 @@ img {
   color: #909090;
 }
 
+.work-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 6px;
+}
+
+.work-header .work-tag {
+  margin-bottom: 0;
+}
+
+.work-tag-coming-soon {
+  font-size: var(--font-size-xxs);
+  font-weight: 500;
+  color: var(--text-secondary);
+  background: var(--background-subtle);
+  border: 1px solid var(--border-subtle);
+  padding: 3px 8px;
+  border-radius: 12px;
+  line-height: 1;
+  letter-spacing: -0.01em;
+}
+
+[data-theme="dark"] .work-tag-coming-soon {
+  background: #1e1e1e;
+  border-color: #333;
+}
+
 .work-meta {
   padding: 24px 24px 16px;
 }
