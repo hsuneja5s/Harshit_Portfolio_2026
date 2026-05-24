@@ -554,12 +554,15 @@ document.addEventListener("DOMContentLoaded", () => {
       setTimeout(type, 1500); // Start after initial delay
     }
 
+    // Temporarily hidden header typewriter animation per user request (avatar only)
+    /*
     const identityNameEl = document.querySelector('.identity-name');
     if (identityNameEl) {
       identityNameEl.innerHTML = '<span class="typewriter-name">Harshit</span>';
       const target = identityNameEl.querySelector('.typewriter-name');
       runTypewriter(target);
     }
+    */
 
     const heroNameEl = document.querySelector('.hero-name-animated');
     if (heroNameEl) {

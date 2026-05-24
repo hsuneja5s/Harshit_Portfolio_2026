@@ -185,6 +185,7 @@ img {
 }
 
 .identity-name {
+  display: none; /* Hidden temporarily per request — avatar only is shown at the top */
   font-weight: 600;
   font-size: 17px;
   letter-spacing: -0.015em;
