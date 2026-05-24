@@ -14,7 +14,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../styles.css?v=20260524-4" />
+  <link rel="stylesheet" href="../styles.css?v=20260524-5" />
   <link rel="icon" type="image/jpeg" href="/images/me.jpg" />
   <link rel="apple-touch-icon" href="/images/me.jpg" />
   <meta property="og:image" content="https://sunejaux.space/images/og-cover.jpg" />
@@ -124,13 +124,9 @@
         Back home
       </a>
       <a href="#challenge">The challenge</a>
-      <a href="#insights">Research insights</a>
       <a href="#goal">Design goal</a>
-      <a href="#exp1">Choosing the Right Tests</a>
-      <a href="#exp2">Experience 02</a>
-      <a href="#exp3">Experience 03</a>
-      <a href="#principles">AI principles</a>
-      <a href="#outcome">Outcomes</a>
+      <a href="#experiences">Experiences</a>
+      <a href="#outcome">Metrics</a>
       <a href="#reflection">Reflection</a>
     </aside>
 
@@ -151,44 +147,35 @@
 
       <!-- ─── CONTEXT ─── -->
       <section class="case-section reveal" id="challenge">
-        <h2>The Challenge</h2>
-        <p>
-          Diagnostic apps often provide large amounts of information but limited guidance.
-        </p>
-        <p>Users struggled to:</p>
-        <ul>
-          <li>Identify relevant tests</li>
-          <li>Understand reports</li>
-          <li>Know when action was needed</li>
-          <li>Trust recommendations that felt promotional</li>
-        </ul>
-        <p>The challenge was designing AI that informed users without overwhelming them.</p>
-      </section>
+        <h2>The Challenge &amp; Insights</h2>
+        <div class="case-split-grid" style="align-items: flex-start; gap: 48px; margin-top: 24px;">
+          <div class="split-text">
+            <p style="font-size: var(--font-size-sm); line-height: 1.7; color: var(--text-primary); margin-bottom: 20px;">
+              Diagnostic apps often provide large amounts of information but limited guidance. Users had to know what they needed before they arrived — which assumed a level of medical literacy most people don't have.
+            </p>
+            <p style="margin-bottom: 12px; font-weight: 500;">Key friction points:</p>
+            <ul style="margin-bottom: 20px; list-style: disc; padding-left: 20px;">
+              <li style="margin-bottom: 8px;"><strong>Context:</strong> Identifying relevant tests amidst hundreds of catalog entries.</li>
+              <li style="margin-bottom: 8px;"><strong>Interpretation:</strong> Understanding dense numerical PDF worksheets before visiting a doctor.</li>
+              <li style="margin-bottom: 8px;"><strong>Trust:</strong> Overcoming recommendations that felt purely promotional rather than clinical.</li>
+            </ul>
+            <p>The challenge was designing a thoughtful, clinical-grade AI experience that informs without causing alarm or cognitive overload.</p>
+          </div>
+          <div class="split-border-left" style="display: flex; flex-direction: column; gap: 28px; justify-content: flex-start; align-items: stretch;">
+            <div class="flying-quote">
+              <span class="flying-quote-label">Context &amp; Relevance</span>
+              <p class="flying-quote-text">"Tell me why this test matters to me, not just a list."</p>
+            </div>
 
-      <!-- ─── RESEARCH INSIGHTS ─── -->
-      <section class="case-section reveal" id="insights">
-        <h2>Research Insights</h2>
-        <div class="process-stepper">
-          <div class="step-card">
-            <span class="step-number">CONTEXT</span>
-            <h4>Users wanted context, not recommendations</h4>
-            <blockquote class="voice-quote" style="margin-top: 12px; border: none; padding: 0;">
-              <p>"Tell me why this test matters to me."</p>
-            </blockquote>
-          </div>
-          <div class="step-card">
-            <span class="step-number">CLARITY</span>
-            <h4>Reports felt difficult to interpret</h4>
-            <blockquote class="voice-quote" style="margin-top: 12px; border: none; padding: 0;">
-              <p>"I want simple understanding before visiting a doctor."</p>
-            </blockquote>
-          </div>
-          <div class="step-card">
-            <span class="step-number">PROACTIVE</span>
-            <h4>People wanted proactive guidance</h4>
-            <blockquote class="voice-quote" style="margin-top: 12px; border: none; padding: 0;">
-              <p>"Help me notice trends earlier."</p>
-            </blockquote>
+            <div class="flying-quote">
+              <span class="flying-quote-label">Interpretation</span>
+              <p class="flying-quote-text">"I want simple understanding before visiting a doctor."</p>
+            </div>
+
+            <div class="flying-quote">
+              <span class="flying-quote-label">Proactive Trends</span>
+              <p class="flying-quote-text">"Help me notice long-term trends earlier, rather than single data points."</p>
+            </div>
           </div>
         </div>
       </section>
@@ -219,135 +206,116 @@
         </div>
       </section>
 
-      <!-- ─── EXPERIENCE 01 ─── -->
-      <section class="case-section reveal" id="exp1">
-        <h2>Choosing the Right Tests</h2>
-        <p>
-          Most diagnostic apps present long catalogs of tests without context. Users had to know what they needed before they arrived — which assumed medical literacy most people don't have.
-        </p>
-        <p>
-          We designed a recommendation layer that surfaces relevant tests based on symptoms, age, past results, and health history. Each suggestion includes a brief, plain-language explanation of why it might matter — not a prescription, but a starting point for informed decisions.
+      <!-- ─── KEY EXPERIENCES CAROUSEL ─── -->
+      <section class="case-section reveal" id="experiences">
+        <h2>Key Experiences</h2>
+        <p style="margin-bottom: 24px;">
+          Rather than introducing a conversational chatbot that increases cognitive noise, we structured the AI assistance into three focused consumer touchpoints that prioritize clarity, guidance, and emotional support.
         </p>
 
-        <div class="case-split-grid">
-          <div class="split-text">
-            <h4>Key decisions</h4>
-            <ul>
-              <li style="margin-bottom: 12px;"><strong>Symptom-first entry:</strong> Users describe what they feel, not what test they need.</li>
-              <li style="margin-bottom: 12px;"><strong>Profile-aware packages:</strong> Recommendations adapt to age, gender, and health history.</li>
-              <li style="margin-bottom: 12px;"><strong>Plain-language rationale:</strong> Every suggestion explains <em>why</em> — building context, not just offering a catalog.</li>
-            </ul>
+        <div class="case-carousel">
+          <div class="carousel-viewport">
+            <!-- Slide 1: Choosing the Right Tests -->
+            <div class="carousel-slide">
+              <div class="case-split-grid" style="margin: 0; padding: 12px; width: 100%; gap: 32px; align-items: flex-start; text-align: left;">
+                <div class="split-text">
+                  <div class="principle-chips" style="display: flex; gap: 8px; margin-bottom: 12px; flex-wrap: wrap;">
+                    <span class="principle-chip">Confidence, Not Compliance</span>
+                    <span class="principle-chip">Explain, Don't Persuade</span>
+                  </div>
+                  <h3 style="font-size: var(--font-size-md); font-weight: 600; margin-bottom: 12px; color: var(--text-primary);">Choosing the Right Tests</h3>
+                  <p style="margin-bottom: 16px; font-size: var(--font-size-sm); color: var(--text-secondary); line-height: 1.6;">
+                    Most diagnostic apps present long catalogs of tests without context, assuming a high level of medical literacy. We designed a profile-aware recommendation layer that contextually suggests tests.
+                  </p>
+                  <h4 style="font-size: var(--font-size-xs); font-family: monospace; text-transform: uppercase; color: var(--text-tertiary); margin-bottom: 8px; letter-spacing: 0.05em;">Key Decisions</h4>
+                  <ul style="margin-bottom: 0; list-style: disc; padding-left: 20px; font-size: var(--font-size-sm); color: var(--text-secondary);">
+                    <li style="margin-bottom: 8px;"><strong>Symptom-first entry:</strong> Users describe symptoms, not test names.</li>
+                    <li style="margin-bottom: 8px;"><strong>Profile-aware:</strong> Suggestions adapt to age, past results, and history.</li>
+                    <li style="margin-bottom: 8px;"><strong>Plain-language:</strong> Explains <em>why</em> a test is relevant.</li>
+                  </ul>
+                </div>
+                <div class="split-visual" style="display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 380px; width: 100%;">
+                  <img src="/images/work/healthcare-voice-booking.svg?v=20260524-5" alt="Contextual test recommendation interface" class="carousel-img" style="max-height: 340px; width: auto; object-fit: contain;" />
+                  <span class="carousel-caption" style="border: none; padding-top: 8px; margin-top: 8px; text-align: center; color: var(--text-tertiary);">Contextual recommendations with clear rationale.</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Slide 2: Understandable Reports -->
+            <div class="carousel-slide">
+              <div class="case-split-grid" style="margin: 0; padding: 12px; width: 100%; gap: 32px; align-items: flex-start; text-align: left;">
+                <div class="split-text">
+                  <div class="principle-chips" style="display: flex; gap: 8px; margin-bottom: 12px; flex-wrap: wrap;">
+                    <span class="principle-chip">Clarity Over Intelligence</span>
+                  </div>
+                  <h3 style="font-size: var(--font-size-md); font-weight: 600; margin-bottom: 12px; color: var(--text-primary);">Understandable Reports</h3>
+                  <p style="margin-bottom: 16px; font-size: var(--font-size-sm); color: var(--text-secondary); line-height: 1.6;">
+                    Lab reports are traditionally structured as dense worksheets that prompt high user anxiety. We redesigned the report as a clean summary leading with natural-language interpretation, followed by trend visualizations.
+                  </p>
+                  <h4 style="font-size: var(--font-size-xs); font-family: monospace; text-transform: uppercase; color: var(--text-tertiary); margin-bottom: 8px; letter-spacing: 0.05em;">Key Decisions</h4>
+                  <ul style="margin-bottom: 0; list-style: disc; padding-left: 20px; font-size: var(--font-size-sm); color: var(--text-secondary);">
+                    <li style="margin-bottom: 8px;"><strong>Status-first summary:</strong> Raw numbers are abstracted behind a calm status card.</li>
+                    <li style="margin-bottom: 8px;"><strong>Longitudinal trends:</strong> Historical sparklines compare current results.</li>
+                    <li style="margin-bottom: 8px;"><strong>Progressive disclosure:</strong> Clinical details open only on-demand.</li>
+                  </ul>
+                </div>
+                <div class="split-visual" style="display: flex; flex-direction: column; gap: 12px; align-items: center; justify-content: center; min-height: 380px; width: 100%;">
+                  <img src="/images/work/healthcare-trend-view.svg?v=20260524-5" alt="Redesigned trend summary with sparklines" class="carousel-img" style="max-height: 280px; width: auto; object-fit: contain;" />
+                  <span class="carousel-caption" style="border: none; padding-top: 8px; margin-top: 8px; text-align: center; color: var(--text-tertiary);">Historical sparkline trends and natural language interpretation.</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Slide 3: Explainability & Trust -->
+            <div class="carousel-slide">
+              <div class="case-split-grid" style="margin: 0; padding: 12px; width: 100%; gap: 32px; align-items: flex-start; text-align: left;">
+                <div class="split-text">
+                  <div class="principle-chips" style="display: flex; gap: 8px; margin-bottom: 12px; flex-wrap: wrap;">
+                    <span class="principle-chip">Emotional Sensitivity</span>
+                    <span class="principle-chip">Explain, Don't Persuade</span>
+                  </div>
+                  <h3 style="font-size: var(--font-size-md); font-weight: 600; margin-bottom: 12px; color: var(--text-primary);">Explainability &amp; Trust</h3>
+                  <p style="margin-bottom: 16px; font-size: var(--font-size-sm); color: var(--text-secondary); line-height: 1.6;">
+                    Healthcare recommendations carry substantial emotional weight. If the rationale behind a recommendation is hidden, it creates distrust. We built an explainability layer explaining precisely why a decision was reached.
+                  </p>
+                  <h4 style="font-size: var(--font-size-xs); font-family: monospace; text-transform: uppercase; color: var(--text-tertiary); margin-bottom: 8px; letter-spacing: 0.05em;">Explainability Framework</h4>
+                  <ul style="margin-bottom: 0; list-style: disc; padding-left: 20px; font-size: var(--font-size-sm); color: var(--text-secondary);">
+                    <li style="margin-bottom: 8px;"><strong>Data-provable signals:</strong> Tracing suggestions back to specific data metrics.</li>
+                    <li style="margin-bottom: 8px;"><strong>Context:</strong> Grounding recommendations in personal medical history.</li>
+                    <li style="margin-bottom: 8px;"><strong>No persuasion:</strong> Presenting neutral clinical trace routes over promotional text.</li>
+                  </ul>
+                </div>
+                <div class="split-visual" style="display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 380px; width: 100%;">
+                  <img src="/images/work/healthcare-interpretation.svg?v=20260524-5" alt="AI explainability card showing reasoning" class="carousel-img" style="max-height: 340px; width: auto; object-fit: contain;" />
+                  <span class="carousel-caption" style="border: none; padding-top: 8px; margin-top: 8px; text-align: center; color: var(--text-tertiary);">Traceable and context-aware medical explanations.</span>
+                </div>
+              </div>
+            </div>
           </div>
-          <div class="split-visual" style="display: flex; flex-direction: column; align-items: center;">
-            <img src="/images/work/healthcare-voice-booking.svg?v=20260524-4" alt="Contextual test recommendation interface" class="case-mockup" style="margin: 0; max-height: 380px; width: auto; object-fit: contain; border-radius: 8px;" />
-            <div class="case-figure-caption" style="margin-top: 10px;">Contextual test recommendations with rationale.</div>
+
+          <div class="carousel-nav">
+            <button class="carousel-indicator active" aria-label="Go to slide 1"></button>
+            <button class="carousel-indicator" aria-label="Go to slide 2"></button>
+            <button class="carousel-indicator" aria-label="Go to slide 3"></button>
           </div>
         </div>
       </section>
 
-      <!-- ─── EXPERIENCE 02 ─── -->
-      <section class="case-section reveal" id="exp2">
-        <h2>Understandable Reports</h2>
-        <p>
-          Lab reports are one of the most common outputs of healthcare — and one of the least understood. Traditional diagnostic PDFs present dense numerical worksheets with no interpretation layer, forcing users to wait for a doctor visit to understand what their results mean.
-        </p>
-        <p>
-          We redesigned the report experience as a layered summary: a top-level status card with natural-language interpretation, followed by trend visualizations that compare current values against the user's own history. Users can drill into clinical detail when ready — but the default view prioritizes clarity.
-        </p>
-
-        <div class="case-split-grid reverse">
-          <div class="split-text">
-            <h4>Key decisions</h4>
-            <ul>
-              <li style="margin-bottom: 12px;"><strong>Status-first summaries:</strong> Lead with plain-language interpretation, not raw numbers.</li>
-              <li style="margin-bottom: 12px;"><strong>Longitudinal sparklines:</strong> Multi-quarter trend views help users see patterns across time.</li>
-              <li style="margin-bottom: 12px;"><strong>Progressive disclosure:</strong> Clinical detail is available on demand, not front-loaded.</li>
-            </ul>
-            <blockquote class="voice-quote" style="margin-top: 16px;">
-              <p>"Recent cholesterol levels are moving toward the upper range. Consider discussing dietary adjustments with your physician."</p>
-              <cite>— Example AI summary, contextual report view</cite>
-            </blockquote>
-          </div>
-          <div class="split-visual" style="display: flex; flex-direction: column; gap: 16px; align-items: center;">
-            <img src="/images/work/healthcare-pdf-report.svg?v=20260524-4" alt="Legacy PDF report versus redesigned summary" class="case-mockup" style="margin: 0; max-height: 280px; width: auto; object-fit: contain; border-radius: 8px;" />
-            <div class="case-figure-caption">Legacy worksheet — dense, clinical, inaccessible.</div>
-            <img src="/images/work/healthcare-trend-view.svg?v=20260524-4" alt="Redesigned trend summary with sparklines" class="case-mockup" style="margin: 0; max-height: 280px; width: auto; object-fit: contain; border-radius: 8px;" />
-            <div class="case-figure-caption">Redesigned trend summary — clear, contextual, personal.</div>
-          </div>
-        </div>
-      </section>
-
-      <!-- ─── EXPERIENCE 03 ─── -->
-      <section class="case-section reveal" id="exp3">
-        <h2>Explainability & Trust</h2>
-        <p>
-          Healthcare is an emotional environment. AI recommendations in this space carry a different weight than product suggestions — they directly affect how a person feels about their own body. If the reasoning behind a suggestion isn't transparent, it creates anxiety rather than reducing it.
-        </p>
-        <p>
-          We built an explainability layer into every AI-generated insight. Each recommendation answers four questions: <em>Why is this relevant? What signal triggered it? What has changed? How does it connect to my history?</em> The goal was not to make users trust the AI — but to give them enough information to trust their own judgment.
-        </p>
-
-        <div class="case-split-grid">
-          <div class="split-text">
-            <h4>Explainability framework</h4>
-            <ul>
-              <li style="margin-bottom: 12px;"><strong>Why?</strong> Contextual rationale tied to the user's health profile.</li>
-              <li style="margin-bottom: 12px;"><strong>What signal?</strong> The specific data point or trend that triggered the insight.</li>
-              <li style="margin-bottom: 12px;"><strong>What changed?</strong> Comparison against previous results to highlight movement.</li>
-              <li style="margin-bottom: 12px;"><strong>Relevance?</strong> How the insight connects to the user's broader health history.</li>
-            </ul>
-          </div>
-          <div class="split-visual" style="display: flex; flex-direction: column; align-items: center;">
-            <img src="/images/work/healthcare-interpretation.svg?v=20260524-4" alt="AI explainability card showing reasoning" class="case-mockup" style="margin: 0; max-height: 380px; width: auto; object-fit: contain; border-radius: 8px;" />
-            <div class="case-figure-caption" style="margin-top: 10px;">Explainability card — transparent AI reasoning.</div>
-          </div>
-        </div>
-      </section>
-
-      <!-- ─── AI DESIGN PRINCIPLES ─── -->
-      <section class="case-section reveal" id="principles">
-        <h2>AI Design Principles</h2>
-        <p>
-          These principles guided every AI-driven interaction across the product. They were established early in the process and referenced throughout design reviews.
-        </p>
-        <div class="metric-grid" style="margin-top: 24px;">
-          <div class="metric-tile">
-            <div class="metric-value" style="font-size: var(--font-size-base); font-weight: 600;">Clarity Over Intelligence</div>
-            <div class="metric-label">If the AI output can't be understood in one read, it shouldn't ship.</div>
-          </div>
-          <div class="metric-tile">
-            <div class="metric-value" style="font-size: var(--font-size-base); font-weight: 600;">Confidence, Not Compliance</div>
-            <div class="metric-label">The AI should increase the user's confidence in their own decisions, not replace them.</div>
-          </div>
-          <div class="metric-tile">
-            <div class="metric-value" style="font-size: var(--font-size-base); font-weight: 600;">Emotional Sensitivity</div>
-            <div class="metric-label">Health data is personal. Tone, framing, and timing all carry clinical weight.</div>
-          </div>
-          <div class="metric-tile">
-            <div class="metric-value" style="font-size: var(--font-size-base); font-weight: 600;">Explain, Don't Persuade</div>
-            <div class="metric-label">Every recommendation must be traceable, transparent, and opt-in.</div>
-          </div>
-        </div>
-      </section>
-
-      <!-- ─── OUTCOMES ─── -->
+      <!-- ─── OUTCOMES & METRICS ─── -->
       <section class="case-section reveal" id="outcome">
-        <h2>Outcomes</h2>
+        <h2>Clinical &amp; consumer metrics</h2>
         <div class="metric-grid">
           <div class="metric-tile">
-            <span class="metric-label" style="display: block; font-size: var(--font-size-xs); font-weight: 500; margin-bottom: 4px; color: var(--text-secondary);">Return Rate</span>
-            <div class="metric-value large-metric">+38%</div>
-            <div class="metric-label">repeat usage spike among chronic patients</div>
+            <div class="metric-value">+38%</div>
+            <div class="metric-label">Repeat diagnostic usage spike among chronic cohorts needing longitudinal care.</div>
           </div>
           <div class="metric-tile">
-            <span class="metric-label" style="display: block; font-size: var(--font-size-xs); font-weight: 500; margin-bottom: 4px; color: var(--text-secondary);">Turnaround Time</span>
-            <div class="metric-value large-metric">&lt; 6 hrs</div>
-            <div class="metric-label">for digital reports (down from 24h)</div>
+            <div class="metric-value">&lt; 6 hrs</div>
+            <div class="metric-label">Turnaround time for digital summaries, down from the legacy 24-hour cycle.</div>
           </div>
           <div class="metric-tile">
-            <span class="metric-label" style="display: block; font-size: var(--font-size-xs); font-weight: 500; margin-bottom: 4px; color: var(--text-secondary);">Accessibility Standards</span>
-            <div class="metric-value large-metric">1st</div>
-            <div class="metric-label">diagnostic app built around AAA/WCAG standards</div>
+            <div class="metric-value">AAA</div>
+            <div class="metric-label">Accessibility rating, making it the first diagnostic client optimized for all demographics.</div>
           </div>
         </div>
       </section>
@@ -412,7 +380,7 @@
     </div>
   </div>
 
-  <script src="../script.js?v=20260524-4"></script>
+  <script src="../script.js?v=20260524-5"></script>
   <script defer src="/_vercel/insights/script.js"></script>
   <script defer src="/_vercel/speed-insights/script.js"></script>
 </body>

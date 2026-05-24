@@ -2730,3 +2730,63 @@ blockquote.voice-quote cite {
     50% { opacity: 0.3; }
   }
 }
+
+/* ============================================
+   DESIGN QC REFINEMENTS (HEALTHCARE CASE STUDY)
+   ============================================ */
+.principle-chip {
+  display: inline-block;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  background: var(--background-subtle);
+  border: 1px solid var(--border-subtle);
+  padding: 4px 10px;
+  border-radius: 100px;
+  margin-right: 6px;
+  margin-bottom: 8px;
+}
+
+.flying-quote {
+  margin-bottom: 24px;
+}
+
+.flying-quote:last-child {
+  margin-bottom: 0;
+}
+
+.flying-quote-label {
+  font-size: 10px;
+  font-family: monospace;
+  text-transform: uppercase;
+  color: var(--text-tertiary);
+  display: block;
+  margin-bottom: 4px;
+  letter-spacing: 0.05em;
+}
+
+.flying-quote-text {
+  font-size: 15px;
+  font-style: italic;
+  color: var(--text-primary);
+  line-height: 1.5;
+  margin: 0;
+  font-family: Georgia, serif;
+}
+
+.split-border-left {
+  border-left: 1px solid var(--border-subtle);
+  padding-left: 32px;
+}
+
+@media (max-width: 768px) {
+  .split-border-left {
+    border-left: none;
+    padding-left: 0;
+    margin-top: 16px;
+    border-top: 1px solid var(--border-subtle);
+    padding-top: 24px;
+  }
+}
