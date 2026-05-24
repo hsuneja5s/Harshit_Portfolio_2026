@@ -505,60 +505,68 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // ============================================
-  // IDENTITY HEADER TYPEWRITER ANIMATION
+  // IDENTITY HEADER & HERO TYPEWRITER ANIMATION
   // ============================================
   function initHeaderTypewriter() {
-    const identityNameEl = document.querySelector('.identity-name');
-    if (!identityNameEl) return;
+    function runTypewriter(target) {
+      if (!target) return;
+      const words = ['Harshit', 'हर्षित', 'هارشيت', 'ಹರ್ಷಿತ್'];
+      let wordIndex = 0;
+      let charIndex = words[0].length;
+      let isDeleting = true; // Initialize to true so we start by deleting "Harshit" after the pause
+      let typingSpeed = 150;
+      let cycleCount = 0;
 
-    // Render only the animated "Harshit" as requested.
-    identityNameEl.innerHTML = '<span class="typewriter-name">Harshit</span>';
-    
-    const target = identityNameEl.querySelector('.typewriter-name');
-    if (!target) return;
+      function type() {
+        const currentWord = words[wordIndex];
+        const chars = Array.from(currentWord);
+        
+        if (isDeleting) {
+          charIndex--;
+          typingSpeed = 80;
+        } else {
+          charIndex++;
+          typingSpeed = 150;
+        }
 
-    const words = ['Harshit', 'हर्षित', 'هارشيت', 'ಹರ್ಷಿತ್'];
-    let wordIndex = 0;
-    let charIndex = words[0].length;
-    let isDeleting = true; // Initialize to true so we start by deleting "Harshit" after the pause
-    let typingSpeed = 150;
-    let cycleCount = 0;
+        target.textContent = chars.slice(0, charIndex).join('');
 
-    function type() {
-      const currentWord = words[wordIndex];
-      const chars = Array.from(currentWord);
-      
-      if (isDeleting) {
-        charIndex--;
-        typingSpeed = 80;
-      } else {
-        charIndex++;
-        typingSpeed = 150;
+        if (!isDeleting && charIndex === chars.length) {
+          if (wordIndex === 0 && cycleCount > 0) {
+            // Finished the cycle. Remove cursor caret and stop permanently.
+            target.classList.remove('typewriter-name');
+            return;
+          }
+          typingSpeed = 2000; // Pause on complete word
+          isDeleting = true;
+        } else if (isDeleting && charIndex === 0) {
+          isDeleting = false;
+          wordIndex = (wordIndex + 1) % words.length;
+          if (wordIndex === 0) {
+            cycleCount++;
+          }
+          typingSpeed = 400; // Pause on empty state
+        }
+
+        setTimeout(type, typingSpeed);
       }
 
-      target.textContent = chars.slice(0, charIndex).join('');
-
-      if (!isDeleting && charIndex === chars.length) {
-        if (wordIndex === 0 && cycleCount > 0) {
-          // Finished the cycle. Remove cursor caret and stop permanently.
-          target.classList.remove('typewriter-name');
-          return;
-        }
-        typingSpeed = 2000; // Pause on complete word
-        isDeleting = true;
-      } else if (isDeleting && charIndex === 0) {
-        isDeleting = false;
-        wordIndex = (wordIndex + 1) % words.length;
-        if (wordIndex === 0) {
-          cycleCount++;
-        }
-        typingSpeed = 400; // Pause on empty state
-      }
-
-      setTimeout(type, typingSpeed);
+      setTimeout(type, 1500); // Start after initial delay
     }
 
-    setTimeout(type, 1500); // Start after initial delay
+    const identityNameEl = document.querySelector('.identity-name');
+    if (identityNameEl) {
+      identityNameEl.innerHTML = '<span class="typewriter-name">Harshit</span>';
+      const target = identityNameEl.querySelector('.typewriter-name');
+      runTypewriter(target);
+    }
+
+    const heroNameEl = document.querySelector('.hero-name-animated');
+    if (heroNameEl) {
+      heroNameEl.innerHTML = '<span class="typewriter-name">Harshit</span>';
+      const target = heroNameEl.querySelector('.typewriter-name');
+      runTypewriter(target);
+    }
   }
   initHeaderTypewriter();
 

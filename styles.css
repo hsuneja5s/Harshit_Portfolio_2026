@@ -339,6 +339,20 @@ img {
   }
 }
 
+.hero-name {
+  font-size: 52px; /* Exactly 2x var(--font-size-2xl) (which is 26px) */
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  color: var(--text-primary);
+  line-height: 1.15;
+  margin-bottom: 12px;
+}
+
+.hero-name .typewriter-name {
+  border-right-width: 3.5px;
+  padding-right: 4px;
+}
+
 .hero-role {
   font-size: var(--font-size-2xl);
   font-weight: 600;
@@ -2146,6 +2160,16 @@ p.pull-quote {
 
   .main {
     padding: 0 20px 64px;
+  }
+
+  .hero-name {
+    font-size: 40px; /* Exactly 2x .hero-role mobile size (which is 20px) */
+    margin-bottom: 8px;
+  }
+
+  .hero-name .typewriter-name {
+    border-right-width: 2.5px;
+    padding-right: 2px;
   }
 
   .hero-role {
