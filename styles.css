@@ -482,9 +482,9 @@ img {
 }
 
 .work-image-banking-ai {
-  background:
-    radial-gradient(circle at 30% 70%, #bbf7d0 0%, transparent 60%),
-    linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%);
+  background-image: url("/images/work/AI-Banking-Chatbot-Cover.svg?v=20260525-1");
+  background-size: cover;
+  background-position: center;
 }
 
 .work-image-retail-banking {
@@ -506,8 +506,10 @@ img {
 }
 
 [data-theme="dark"] .work-image-banking-ai {
-  background: linear-gradient(135deg, #14532d 0%, #064e3b 100%);
-  opacity: 0.55;
+  background-image: url("/images/work/AI-Banking-Chatbot-Cover.svg?v=20260525-1");
+  background-size: cover;
+  background-position: center;
+  opacity: 0.85;
 }
 
 [data-theme="dark"] .work-image-retail-banking {
