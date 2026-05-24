@@ -496,7 +496,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const target = identityNameEl.querySelector('.typewriter-name');
     if (!target) return;
 
-    const words = ['Harshit', 'हर्षित', 'هارشيت', 'ಹರ್ಷಿತ್'];
+    const words = ['Harshit', 'हर्षित', 'هارشيت', 'हर्षित', 'ಹರ್ಷಿತ್'];
     let wordIndex = 0;
     let charIndex = words[0].length;
     let isDeleting = true; // Initialize to true so we start by deleting "Harshit" after the pause
