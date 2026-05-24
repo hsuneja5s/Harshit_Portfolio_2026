@@ -44,14 +44,6 @@ const PORTFOLIO_DATA = {
       imageClass: 'work-image-energy-deal',
     },
     {
-      sector: 'Public Sector',
-      label: 'Public Sector — Citizen Services',
-      title: 'Designing citizen trust into a national platform',
-      hint: 'national citizen services · NDA-protected',
-      href: '/work/public-sector-citizen-services',
-      imageClass: 'work-image-public-sector',
-    },
-    {
       sector: 'Banking',
       label: 'Banking — AI Assistant',
       title: 'AI banking assistant — turning AI hesitation into self-service',
@@ -83,6 +75,14 @@ const PORTFOLIO_DATA = {
       hint: 'self-serve ads console · B2B',
       href: '/work/commerce-ad-operations',
       imageClass: 'work-image-commerce-ads',
+    },
+    {
+      sector: 'Public Sector',
+      label: 'Public Sector — Citizen Services',
+      title: 'Designing citizen trust into a national platform',
+      hint: 'national citizen services · NDA-protected',
+      href: '/work/public-sector-citizen-services',
+      imageClass: 'work-image-public-sector',
     },
   ],
   plugins: [
