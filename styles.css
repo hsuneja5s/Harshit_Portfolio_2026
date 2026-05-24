@@ -516,9 +516,9 @@ img {
 }
 
 .work-image-healthcare-patient {
-  background:
-    radial-gradient(circle at 30% 30%, #c4b5fd 0%, transparent 60%),
-    linear-gradient(135deg, #ede9fe 0%, #ddd6fe 100%);
+  background-image: url("/images/work/Designing-AI-Assisted-Experiences-for-Preventive-Healthcare-Cover.svg?v=20260524-12");
+  background-size: cover;
+  background-position: center;
 }
 
 .work-image-commerce-ads {
@@ -528,8 +528,10 @@ img {
 }
 
 [data-theme="dark"] .work-image-healthcare-patient {
-  background: linear-gradient(135deg, #4c1d95 0%, #5b21b6 100%);
-  opacity: 0.55;
+  background-image: url("/images/work/Designing-AI-Assisted-Experiences-for-Preventive-Healthcare-Cover.svg?v=20260524-12");
+  background-size: cover;
+  background-position: center;
+  opacity: 0.85;
 }
 
 [data-theme="dark"] .work-image-commerce-ads {
