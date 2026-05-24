@@ -93,7 +93,7 @@ const PORTFOLIO_DATA = {
       title: 'PwC × Research Assistant',
       hint: 'PRD → IA, journeys, personas, wireframes',
       href: '/plugins/pwc-research-assistant',
-      image: '/images/plugins/Research%20Assistance.png',
+      image: '/images/plugins/Research%20Assistance.png?v=20260525-4',
       summary: "Drop in a PRD. Get IA, personas, user journeys, and wireframes on canvas — grounded in the source document. Devil's advocate mode surfaces the gaps before your review meeting does.",
       featured: true,
     },
@@ -101,7 +101,7 @@ const PORTFOLIO_DATA = {
       title: 'CLAUDE.md Exporter',
       hint: 'design system → Claude Code',
       href: '/plugins/claude-md-exporter',
-      image: '/images/plugins/Claude_md.png',
+      image: '/images/plugins/Claude_md.png?v=20260525-4',
       summary: 'Claude Code kept generating outside our design system. One exported file fixes it — every token, component, and rule.',
     },
     {
