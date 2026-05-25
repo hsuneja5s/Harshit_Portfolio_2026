@@ -518,9 +518,11 @@ img {
 
 /* Placeholder visual treatments — swap for real screenshots later */
 .work-image-public-sector {
-  background-image: url("/images/work/Designing-citizen-trust-into-a-national-platform.svg?v=20260525-8");
-  background-size: cover;
+  background-image: url("/images/work/Designing-citizen-trust-into-a-national-platform.svg?v=20260525-10");
+  background-size: contain;
+  background-repeat: no-repeat;
   background-position: center;
+  background-color: #ffffff;
 }
 
 .work-image-energy-deal {
@@ -544,9 +546,11 @@ img {
 }
 
 [data-theme="dark"] .work-image-public-sector {
-  background-image: url("/images/work/Designing-citizen-trust-into-a-national-platform.svg?v=20260525-8");
-  background-size: cover;
+  background-image: url("/images/work/Designing-citizen-trust-into-a-national-platform.svg?v=20260525-10");
+  background-size: contain;
+  background-repeat: no-repeat;
   background-position: center;
+  background-color: #ffffff;
   opacity: 0.85;
 }
 
