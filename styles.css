@@ -576,9 +576,11 @@ img {
 }
 
 .work-image-commerce-ads {
-  background-image: url("/images/work/From-approval-queues-to-self-serve-campaign-management.svg?v=20260525-6");
-  background-size: cover;
-  background-position: center;
+  background-image: url("/images/work/From-approval-queues-to-self-serve-campaign-management.svg?v=20260525-7"),
+    linear-gradient(135deg, #FBD6E8 0%, #D8E5F3 100%);
+  background-size: contain, cover;
+  background-repeat: no-repeat, no-repeat;
+  background-position: center, center;
 }
 
 [data-theme="dark"] .work-image-healthcare-patient {
@@ -589,9 +591,11 @@ img {
 }
 
 [data-theme="dark"] .work-image-commerce-ads {
-  background-image: url("/images/work/From-approval-queues-to-self-serve-campaign-management.svg?v=20260525-6");
-  background-size: cover;
-  background-position: center;
+  background-image: url("/images/work/From-approval-queues-to-self-serve-campaign-management.svg?v=20260525-7"),
+    linear-gradient(135deg, #FBD6E8 0%, #D8E5F3 100%);
+  background-size: contain, cover;
+  background-repeat: no-repeat, no-repeat;
+  background-position: center, center;
   opacity: 0.85;
 }
 
