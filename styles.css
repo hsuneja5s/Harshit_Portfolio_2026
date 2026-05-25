@@ -518,9 +518,9 @@ img {
 
 /* Placeholder visual treatments — swap for real screenshots later */
 .work-image-public-sector {
-  background:
-    radial-gradient(circle at 30% 30%, #fed7aa 0%, transparent 60%),
-    linear-gradient(135deg, #ffedd5 0%, #fef3c7 100%);
+  background-image: url("/images/work/Designing-citizen-trust-into-a-national-platform.svg?v=20260525-8");
+  background-size: cover;
+  background-position: center;
 }
 
 .work-image-energy-deal {
@@ -544,8 +544,10 @@ img {
 }
 
 [data-theme="dark"] .work-image-public-sector {
-  background: linear-gradient(135deg, #78350f 0%, #92400e 100%);
-  opacity: 0.55;
+  background-image: url("/images/work/Designing-citizen-trust-into-a-national-platform.svg?v=20260525-8");
+  background-size: cover;
+  background-position: center;
+  opacity: 0.85;
 }
 
 [data-theme="dark"] .work-image-energy-deal {
