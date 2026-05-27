@@ -58,7 +58,7 @@ const PORTFOLIO_DATA = {
       hint: 'AI banking assistant · NPS 4.7 → 9.2',
       href: '/work/banking-ai-self-service',
       imageClass: 'work-image-banking-ai',
-      disabled: true,
+      nda: true,
     },
     {
       sector: 'Banking',
@@ -76,7 +76,7 @@ const PORTFOLIO_DATA = {
       hint: 'self-serve ads console · B2B',
       href: '/work/commerce-ad-operations',
       imageClass: 'work-image-commerce-ads',
-      disabled: true,
+      nda: true,
     },
     {
       sector: 'GovTech',
@@ -85,7 +85,7 @@ const PORTFOLIO_DATA = {
       hint: 'national citizen services · NDA-protected',
       href: '/work/public-sector-citizen-services',
       imageClass: 'work-image-public-sector',
-      disabled: true,
+      nda: true,
     },
   ],
   plugins: [
@@ -153,30 +153,17 @@ const renderHomeCollections = () => {
 
   if (workGrid) {
     workGrid.innerHTML = PORTFOLIO_DATA.work.filter(item => !item.hidden).map(item => {
-      if (item.disabled) {
-        return `
-          <div class="work-card work-card--disabled">
-            <div class="work-meta">
-              <div class="work-header">
-                <span class="work-tag">${escapeHtml(item.sector)}</span>
-                <span class="work-tag-coming-soon">🏗️ Coming Soon</span>
-              </div>
-              <h3 class="work-title">${escapeHtml(item.title)}</h3>
-            </div>
-            <div class="work-image ${item.imageClass}" aria-hidden="true"></div>
-          </div>
-        `;
-      }
       return `
         <a href="${item.href}" class="work-card">
           <div class="work-meta">
             <div class="work-header">
               <span class="work-tag">${escapeHtml(item.sector)}</span>
+              ${item.nda ? `<span class="work-tag-coming-soon">🔒 NDA Redacted</span>` : ''}
             </div>
             <h3 class="work-title">${escapeHtml(item.title)}</h3>
           </div>
           <div class="work-image ${item.imageClass}" aria-hidden="true"></div>
-          <div class="work-card-overlay" aria-hidden="true"><span class="work-card-cta">View case</span></div>
+          <div class="work-card-overlay" aria-hidden="true"><span class="work-card-cta">${item.nda ? 'View redacted case' : 'View case'}</span></div>
         </a>
       `;
     }).join('');
