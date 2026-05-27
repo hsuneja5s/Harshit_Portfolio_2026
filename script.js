@@ -76,7 +76,6 @@ const PORTFOLIO_DATA = {
       hint: 'self-serve ads console · B2B',
       href: '/work/commerce-ad-operations',
       imageClass: 'work-image-commerce-ads',
-      nda: true,
     },
     {
       sector: 'GovTech',
