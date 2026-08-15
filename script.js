@@ -2,16 +2,21 @@
 // THEME TOGGLE
 // ============================================
 const root = document.documentElement;
+// Buttons are commented out in the header for now, so these resolve to null.
 const lightBtn = document.getElementById('themeLight');
 const darkBtn = document.getElementById('themeDark');
 
 const applyTheme = (mode) => {
   root.setAttribute('data-theme', mode);
   localStorage.setItem('theme', mode);
-  lightBtn.classList.toggle('active', mode === 'light');
-  darkBtn.classList.toggle('active', mode === 'dark');
+  lightBtn?.classList.toggle('active', mode === 'light');
+  darkBtn?.classList.toggle('active', mode === 'dark');
 };
 
+// DARK MODE DISABLED — force light mode only for now (logic kept, not deleted)
+applyTheme('light');
+
+/* Dark mode toggle — re-enable by uncommenting this block and the header buttons in index.html
 // initialize from saved preference, falling back to system
 const savedTheme = localStorage.getItem('theme');
 const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
@@ -19,6 +24,7 @@ applyTheme(savedTheme || (prefersDark ? 'dark' : 'light'));
 
 lightBtn.addEventListener('click', () => applyTheme('light'));
 darkBtn.addEventListener('click', () => applyTheme('dark'));
+*/
 
 // ============================================
 // HEADER SCROLL STATE
@@ -39,6 +45,7 @@ const PORTFOLIO_DATA = {
       sector: 'Energy',
       label: 'Energy — Deal Pipeline',
       title: 'Deal intelligence for global energy operations',
+      outcome: 'Cut deal review cycles across hundreds of live opportunities',
       hint: 'hundreds of deals · control cockpit',
       href: '/work/energy-deal-operations',
       imageClass: 'work-image-energy-deal',
@@ -47,6 +54,7 @@ const PORTFOLIO_DATA = {
       sector: 'Healthcare',
       label: 'Healthcare — Patient App',
       title: 'Designing AI Assisted Experiences for Preventive Healthcare',
+      outcome: 'Shipped accessible AI diagnostics live to patients',
       hint: 'live · accessible diagnostics',
       href: '/work/healthcare-patient-experience',
       imageClass: 'work-image-healthcare-patient',
@@ -55,6 +63,7 @@ const PORTFOLIO_DATA = {
       sector: 'Banking',
       label: 'Banking — AI Assistant',
       title: 'AI banking assistant — turning AI hesitation into self-service',
+      outcome: 'Lifted assistant satisfaction from 4.7 to 9.2 NPS',
       hint: 'AI banking assistant · NPS 4.7 → 9.2',
       href: '/work/banking-ai-self-service',
       imageClass: 'work-image-banking-ai',
@@ -64,6 +73,7 @@ const PORTFOLIO_DATA = {
       sector: 'Banking',
       label: 'Banking — Flow Redesign',
       title: 'The economics of fewer decisions',
+      outcome: 'Guided flows that cut onboarding errors',
       hint: 'guided, error-proof flows',
       href: '/work/retail-banking-onboarding',
       imageClass: 'work-image-retail-banking',
@@ -73,6 +83,7 @@ const PORTFOLIO_DATA = {
       sector: 'E-commerce',
       label: 'E-commerce — Ad Operations',
       title: 'From approval queues to self-serve campaign management',
+      outcome: 'Replaced approval queues with self serve campaign launches',
       hint: 'self-serve ads console · B2B',
       href: '/work/commerce-ad-operations',
       imageClass: 'work-image-commerce-ads',
@@ -81,6 +92,7 @@ const PORTFOLIO_DATA = {
       sector: 'GovTech',
       label: 'GovTech — Citizen Services',
       title: 'Designing citizen trust into a national platform',
+      outcome: 'Built citizen trust into a national scale platform',
       hint: 'national citizen services · NDA-protected',
       href: '/work/public-sector-citizen-services',
       imageClass: 'work-image-public-sector',
@@ -143,7 +155,8 @@ const SEARCH_ITEMS = [
   ...PORTFOLIO_DATA.plugins.map(item => ({ tag: 'Plugin', label: item.title, hint: item.hint, href: item.href })),
   ...PORTFOLIO_DATA.pages.map(item => ({ tag: 'Page', ...item })),
   ...PORTFOLIO_DATA.links.map(item => ({ tag: 'Link', ...item })),
-  { tag: 'Action', label: 'Toggle theme', hint: 'switch light / dark', action: 'toggleTheme' },
+  // DARK MODE DISABLED — hidden from command palette for now (not deleted)
+  // { tag: 'Action', label: 'Toggle theme', hint: 'switch light / dark', action: 'toggleTheme' },
 ];
 
 const renderHomeCollections = () => {
@@ -160,9 +173,13 @@ const renderHomeCollections = () => {
               ${item.nda ? `<span class="work-tag-coming-soon">🔒 NDA Redacted</span>` : ''}
             </div>
             <h3 class="work-title">${escapeHtml(item.title)}</h3>
+            ${item.outcome ? `<p class="work-outcome">${escapeHtml(item.outcome)}</p>` : ''}
           </div>
           <div class="work-image ${item.imageClass}" aria-hidden="true"></div>
-          <div class="work-card-overlay" aria-hidden="true"><span class="work-card-cta">${item.nda ? 'View redacted case' : 'View case'}</span></div>
+          <div class="work-cta">
+            <span class="work-cta-label">${item.nda ? 'View redacted case study' : 'View case study'}</span>
+            <span class="work-cta-arrow" aria-hidden="true">→</span>
+          </div>
         </a>
       `;
     }).join('');
