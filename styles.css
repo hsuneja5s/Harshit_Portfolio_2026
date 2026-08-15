@@ -338,6 +338,35 @@ img {
   line-height: 1.5;
 }
 
+.hero-impact {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 32px;
+  margin-top: 28px;
+  padding-top: 24px;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.hero-impact-item {
+  flex: 1 1 180px;
+  min-width: 160px;
+}
+
+.hero-impact-value {
+  font-size: var(--font-size-lg);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+  line-height: 1.2;
+}
+
+.hero-impact-label {
+  margin-top: 6px;
+  font-size: var(--font-size-xs);
+  color: var(--text-secondary);
+  line-height: 1.4;
+}
+
 /* ============================================
    SELECTED WORK
    ============================================ */
