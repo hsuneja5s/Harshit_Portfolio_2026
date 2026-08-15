@@ -199,6 +199,20 @@ const renderHomeCollections = () => {
       </a>
     `).join('');
   }
+
+  const logoTrack = document.querySelector('[data-logo-marquee]');
+  if (logoTrack) {
+    const logos = [
+      'CUB.png', 'IndusInd Bank.png', 'MF.png', 'MHA.png', 'Mobily Business.png',
+      'Nykaa.png', 'RBI.png', 'SBI.png', 'Torrent Diagnostics.png', 'shell_logo.svg.png',
+    ];
+    const group = logos.map(name => {
+      const alt = name.replace(/\.(png|svg)(\.png)?$/i, '').replace(/_/g, ' ');
+      return `<li class="logo-marquee-item"><img src="/images/Logoofbrands/${encodeURIComponent(name)}" alt="${escapeHtml(alt)}" /></li>`;
+    }).join('');
+    // Duplicate the group so the CSS translateX(-50%) loop is seamless
+    logoTrack.innerHTML = `<ul class="logo-marquee-group" aria-hidden="false">${group}</ul><ul class="logo-marquee-group" aria-hidden="true">${group}</ul>`;
+  }
 };
 
 renderHomeCollections();
