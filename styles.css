@@ -2391,6 +2391,25 @@ blockquote.voice-quote cite {
 /* ============================================
    PLUGIN BENTO GRID
    ============================================ */
+.accelerator-widget {
+  margin: 24px 0 48px;
+}
+
+.accelerator-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 14px;
+}
+
+.accelerator-caption {
+  margin-top: 14px;
+  text-align: center;
+  font-size: var(--font-size-sm);
+  font-weight: 500;
+  color: var(--text-secondary);
+}
+
 .plugin-bento {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
