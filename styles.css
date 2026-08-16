@@ -185,10 +185,21 @@ img {
 }
 
 .identity-name {
-  display: none; /* Hidden temporarily per request — avatar only is shown at the top */
   font-weight: 600;
   font-size: 17px;
   letter-spacing: -0.015em;
+  opacity: 0;
+  transform: translateX(-6px);
+  transition: opacity 0.25s ease, transform 0.25s ease;
+  pointer-events: none;
+  white-space: nowrap;
+}
+
+/* Reveal the name once the hero has scrolled past */
+.site-header.past-hero .identity-name {
+  opacity: 1;
+  transform: none;
+  pointer-events: auto;
 }
 
 .header-actions {

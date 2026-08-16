@@ -36,6 +36,15 @@ const onScroll = () => {
 onScroll();
 window.addEventListener('scroll', onScroll, { passive: true });
 
+// Reveal the name in the top nav once the hero has scrolled out of view
+const heroSection = document.querySelector('.hero');
+if (heroSection && 'IntersectionObserver' in window) {
+  const heroObserver = new IntersectionObserver(([entry]) => {
+    header.classList.toggle('past-hero', !entry.isIntersecting);
+  }, { rootMargin: '-72px 0px 0px 0px', threshold: 0 });
+  heroObserver.observe(heroSection);
+}
+
 // ============================================
 // PORTFOLIO CONTENT REGISTRY
 // ============================================
