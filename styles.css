@@ -2403,9 +2403,9 @@ blockquote.voice-quote cite {
 }
 
 .accelerator-caption {
-  margin-top: 10px;
+  margin-top: 4px;
   text-align: center;
-  font-size: var(--font-size-sm);
+  font-size: 10px;
   font-weight: 300;
   color: var(--text-secondary);
 }
