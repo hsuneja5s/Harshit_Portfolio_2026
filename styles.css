@@ -294,6 +294,14 @@ img {
   padding-top: 64px;
 }
 
+.hero-location {
+  font-size: var(--font-size-sm);
+  font-weight: 500;
+  color: var(--text-secondary);
+  letter-spacing: 0.01em;
+  margin-bottom: 16px;
+}
+
 .hero-name {
   font-size: 52px; /* Exactly 2x var(--font-size-2xl) (which is 26px) */
   font-weight: 700;
