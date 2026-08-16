@@ -2403,10 +2403,10 @@ blockquote.voice-quote cite {
 }
 
 .accelerator-caption {
-  margin-top: 14px;
+  margin-top: 10px;
   text-align: center;
   font-size: var(--font-size-sm);
-  font-weight: 500;
+  font-weight: 300;
   color: var(--text-secondary);
 }
 
