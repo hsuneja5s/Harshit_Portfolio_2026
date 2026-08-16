@@ -399,7 +399,7 @@ img {
 }
 
 .logo-marquee-item img {
-  height: 38px;
+  height: 48px;
   width: auto;
   object-fit: contain;
   filter: grayscale(100%);
@@ -549,7 +549,7 @@ img {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 6px;
+  margin-bottom: 16px;
 }
 
 .work-header .work-tag {
@@ -578,9 +578,10 @@ img {
 }
 
 .work-title {
-  font-size: var(--font-size-base);
+  font-size: var(--font-size-xl);
   font-weight: 700;
   letter-spacing: -0.02em;
+  line-height: 1.25;
   color: var(--text-primary);
   display: -webkit-box;
   -webkit-line-clamp: 2;
