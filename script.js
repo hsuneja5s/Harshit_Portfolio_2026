@@ -96,6 +96,7 @@ const PORTFOLIO_DATA = {
       hint: 'self-serve ads console · B2B',
       href: '/work/commerce-ad-operations',
       imageClass: 'work-image-commerce-ads',
+      hidden: true, // Hidden for now — content update pending
     },
     {
       sector: 'GovTech',
@@ -106,6 +107,7 @@ const PORTFOLIO_DATA = {
       href: '/work/public-sector-citizen-services',
       imageClass: 'work-image-public-sector',
       nda: true,
+      hidden: true, // Hidden for now — content update pending
     },
   ],
   plugins: [
