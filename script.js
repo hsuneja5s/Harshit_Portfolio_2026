@@ -1,4 +1,36 @@
 // ============================================
+// SITE HEADER (shared component)
+// Single source of truth for the top nav across every page.
+// Each page only needs: <header class="site-header" data-site-header></header>
+// Dark-mode toggle intentionally omitted — light mode only for now.
+// ============================================
+const SITE_HEADER_HTML = `
+  <div class="header-inner">
+    <a href="/" class="identity" aria-label="Home">
+      <span class="avatar" role="img" aria-label="Harshit Suneja avatar">
+        <img src="/images/me.jpg" alt="Harshit Suneja" />
+      </span>
+      <span class="identity-name">Harshit Suneja</span>
+    </a>
+    <div class="header-actions">
+      <button class="kbd-search" id="openCmdK" aria-label="Open search (⌘K)">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+          stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="11" cy="11" r="8"></circle>
+          <path d="m21 21-4.3-4.3"></path>
+        </svg>
+        <span class="kbd-label">Search</span>
+        <kbd class="kbd">⌘ K</kbd>
+      </button>
+    </div>
+  </div>
+`;
+const siteHeaderMount = document.querySelector('[data-site-header]');
+if (siteHeaderMount && !siteHeaderMount.innerHTML.trim()) {
+  siteHeaderMount.innerHTML = SITE_HEADER_HTML;
+}
+
+// ============================================
 // THEME TOGGLE
 // ============================================
 const root = document.documentElement;
@@ -43,6 +75,9 @@ if (heroSection && 'IntersectionObserver' in window) {
     header.classList.toggle('past-hero', !entry.isIntersecting);
   }, { rootMargin: '-72px 0px 0px 0px', threshold: 0 });
   heroObserver.observe(heroSection);
+} else {
+  // No hero on this page (e.g. case study) — show the name in the nav right away
+  header.classList.add('past-hero');
 }
 
 // ============================================
