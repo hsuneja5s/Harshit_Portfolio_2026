@@ -637,6 +637,67 @@ document.addEventListener("DOMContentLoaded", () => {
   initHeaderTypewriter();
 
   // ============================================
+  // WAVE HAND — cursor turns into 👋🏻 on hover, high-five burst on click
+  // ============================================
+  function initWaveHand() {
+    const hand = document.querySelector('.wave-hand');
+    if (!hand) return;
+
+    const cursor = document.createElement('div');
+    cursor.className = 'hand-cursor';
+    cursor.textContent = '👋🏻';
+    document.body.appendChild(cursor);
+
+    const move = (e) => {
+      cursor.style.transform = `translate(${e.clientX}px, ${e.clientY}px) translate(-50%, -50%)`;
+    };
+    hand.addEventListener('mouseenter', () => {
+      cursor.classList.add('is-visible');
+      hand.style.cursor = 'none';
+      window.addEventListener('mousemove', move);
+    });
+    hand.addEventListener('mouseleave', () => {
+      cursor.classList.remove('is-visible');
+      hand.style.cursor = '';
+      window.removeEventListener('mousemove', move);
+    });
+
+    const emojis = ['🙌', '✨', '👋', '🎉', '⭐', '💫'];
+    const burst = () => {
+      hand.classList.remove('is-waving');
+      void hand.offsetWidth; // restart the wiggle animation
+      hand.classList.add('is-waving');
+
+      const rect = hand.getBoundingClientRect();
+      const cx = rect.left + rect.width / 2;
+      const cy = rect.top + rect.height / 2;
+      const count = 9;
+      for (let i = 0; i < count; i++) {
+        const p = document.createElement('div');
+        p.className = 'hand-particle';
+        p.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+        p.style.transform = `translate(${cx}px, ${cy}px) translate(-50%, -50%)`;
+        document.body.appendChild(p);
+        const ang = (Math.PI * 2 * i) / count + (Math.random() - 0.5) * 0.6;
+        const dist = 55 + Math.random() * 55;
+        const dx = Math.cos(ang) * dist;
+        const dy = Math.sin(ang) * dist - 25;
+        p.animate([
+          { transform: `translate(${cx}px, ${cy}px) translate(-50%, -50%) scale(0.4)`, opacity: 1 },
+          { transform: `translate(${cx + dx}px, ${cy + dy}px) translate(-50%, -50%) scale(1.15)`, opacity: 0 },
+        ], { duration: 700 + Math.random() * 250, easing: 'cubic-bezier(0.2, 0.7, 0.3, 1)' })
+          .onfinish = () => p.remove();
+      }
+    };
+
+    hand.addEventListener('click', burst);
+    hand.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); burst(); }
+    });
+  }
+  initWaveHand();
+
+  // ============================================
   // SCROLL REVEAL (Fade-In & Slide-Up)
   // ============================================
   const revealElements = document.querySelectorAll('.reveal');

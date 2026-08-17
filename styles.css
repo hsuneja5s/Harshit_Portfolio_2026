@@ -358,6 +358,66 @@ img {
 }
 
 /* ============================================
+   WAVE HAND — playful hover cursor + click burst
+   ============================================ */
+.wave-hand {
+  display: inline-block;
+  transform-origin: 75% 80%;
+  transition: transform 0.2s ease;
+  cursor: pointer;
+  user-select: none;
+}
+
+.wave-hand:hover {
+  transform: scale(1.12) rotate(-8deg);
+}
+
+.wave-hand.is-waving {
+  animation: hand-wave 0.7s ease;
+}
+
+@keyframes hand-wave {
+  0%, 100% { transform: rotate(0); }
+  15% { transform: rotate(-20deg); }
+  30% { transform: rotate(16deg); }
+  45% { transform: rotate(-13deg); }
+  60% { transform: rotate(10deg); }
+  75% { transform: rotate(-6deg); }
+}
+
+.hand-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  font-size: 30px;
+  line-height: 1;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0;
+  transition: opacity 0.12s ease;
+  will-change: transform;
+}
+
+.hand-cursor.is-visible {
+  opacity: 1;
+}
+
+.hand-particle {
+  position: fixed;
+  top: 0;
+  left: 0;
+  font-size: 22px;
+  line-height: 1;
+  pointer-events: none;
+  z-index: 9998;
+  will-change: transform, opacity;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .wave-hand.is-waving { animation: none; }
+}
+
+/* ============================================
    BRAND MARQUEE
    ============================================ */
 .logo-marquee {
