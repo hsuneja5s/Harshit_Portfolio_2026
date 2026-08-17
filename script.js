@@ -111,7 +111,7 @@ const PORTFOLIO_DATA = {
       hint: 'AI banking assistant · NPS 7 → 9.2',
       href: '/work/banking-ai-self-service',
       imageClass: 'work-image-banking-ai',
-      nda: true,
+      comingSoon: true, // detail page hidden for now; card shows "Coming Soon"
     },
     {
       sector: 'Banking',
@@ -211,23 +211,28 @@ const renderHomeCollections = () => {
 
   if (workGrid) {
     workGrid.innerHTML = PORTFOLIO_DATA.work.filter(item => !item.hidden).map(item => {
-      return `
-        <a href="${item.href}" class="work-card">
+      const chip = item.nda ? `<span class="work-tag-coming-soon">🔒 NDA Redacted</span>` : '';
+      const ctaLabel = item.comingSoon
+        ? 'Coming Soon 🚧'
+        : (item.nda ? 'View redacted case study' : 'View case study');
+      const arrow = item.comingSoon ? '' : `<span class="work-cta-arrow" aria-hidden="true">→</span>`;
+      const inner = `
           <div class="work-meta">
             <div class="work-header">
               <span class="work-tag">${escapeHtml(item.sector)}</span>
-              ${item.nda ? `<span class="work-tag-coming-soon">🔒 NDA Redacted</span>` : ''}
+              ${chip}
             </div>
             <h3 class="work-title">${escapeHtml(item.title)}</h3>
             ${item.outcome ? `<p class="work-outcome">${escapeHtml(item.outcome)}</p>` : ''}
           </div>
           <div class="work-image ${item.imageClass}" aria-hidden="true"></div>
           <div class="work-cta">
-            <span class="work-cta-label">${item.nda ? 'View redacted case study' : 'View case study'}</span>
-            <span class="work-cta-arrow" aria-hidden="true">→</span>
-          </div>
-        </a>
-      `;
+            <span class="work-cta-label">${ctaLabel}</span>
+            ${arrow}
+          </div>`;
+      return item.comingSoon
+        ? `<div class="work-card work-card--disabled">${inner}</div>`
+        : `<a href="${item.href}" class="work-card">${inner}</a>`;
     }).join('');
   }
 

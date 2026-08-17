@@ -605,6 +605,18 @@ img {
   cursor: default;
 }
 
+/* Grey the mockup on Coming Soon / disabled cards */
+.work-card--disabled .work-image {
+  filter: grayscale(1);
+  opacity: 0.65;
+}
+
+.work-card--disabled:hover {
+  transform: none;
+  border-color: var(--border-subtle);
+  box-shadow: none;
+}
+
 .work-header {
   display: flex;
   justify-content: space-between;
