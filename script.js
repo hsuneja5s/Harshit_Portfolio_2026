@@ -86,7 +86,7 @@ if (heroSection && 'IntersectionObserver' in window) {
 const PORTFOLIO_DATA = {
   work: [
     {
-      sector: 'Energy',
+      sector: 'Energy • Web Platform',
       label: 'Energy — Deal Pipeline',
       title: 'Deal intelligence for global energy operations',
       outcome: 'Cut deal review cycles across hundreds of live opportunities',
@@ -95,7 +95,7 @@ const PORTFOLIO_DATA = {
       imageClass: 'work-image-energy-deal',
     },
     {
-      sector: 'Healthcare',
+      sector: 'Healthcare • Product Design • Design System',
       label: 'Healthcare — Patient App',
       title: 'Designing AI Assisted Experiences for Preventive Healthcare',
       outcome: 'Shipped accessible AI diagnostics live to patients',
@@ -104,7 +104,7 @@ const PORTFOLIO_DATA = {
       imageClass: 'work-image-healthcare-patient',
     },
     {
-      sector: 'Banking',
+      sector: 'Banking • Conversational UX',
       label: 'Banking — AI Assistant',
       title: 'Astha.ai: turning AI hesitation into banking self-service',
       outcome: 'Lifted assistant satisfaction from 7 to 9.2 NPS',
