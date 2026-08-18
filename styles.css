@@ -323,8 +323,8 @@ img {
 .hero-place-polaroid {
   position: absolute;
   left: calc(100% + 20px);
-  top: -70px;
-  width: 120px;
+  top: -20px;
+  width: 190px;
   max-width: none;
   height: auto;
   border-radius: 10px;
