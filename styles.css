@@ -346,6 +346,20 @@ img {
   transform: translateY(0) rotate(-5deg) scale(1);
 }
 
+/* Delhi opens to the left of the text so it doesn't overflow the right edge */
+.hero-place--left .hero-place-polaroid {
+  left: auto;
+  right: calc(100% + 20px);
+  transform-origin: right center;
+  transform: translateY(-8px) rotate(4deg) scale(0.9);
+}
+
+.hero-place--left:hover .hero-place-polaroid,
+.hero-place--left:focus .hero-place-polaroid,
+.hero-place--left:focus-within .hero-place-polaroid {
+  transform: translateY(0) rotate(4deg) scale(1);
+}
+
 .hero-name {
   font-size: 52px; /* Exactly 2x var(--font-size-2xl) (which is 26px) */
   font-weight: 700;
