@@ -106,9 +106,9 @@ const PORTFOLIO_DATA = {
     {
       sector: 'Banking',
       label: 'Banking — AI Assistant',
-      title: 'AI banking assistant — turning AI hesitation into self-service',
+      title: 'Astha.ai: turning AI hesitation into banking self-service',
       outcome: 'Lifted assistant satisfaction from 7 to 9.2 NPS',
-      hint: 'AI banking assistant · NPS 7 → 9.2',
+      hint: 'Astha.ai · NPS 7 → 9.2',
       href: '/work/banking-ai-self-service',
       imageClass: 'work-image-banking-ai',
       comingSoon: true, // detail page hidden for now; card shows "Coming Soon"
