@@ -324,7 +324,7 @@ img {
   position: absolute;
   left: calc(100% + 20px);
   top: -70px;
-  width: 230px;
+  width: 120px;
   max-width: none;
   height: auto;
   border-radius: 10px;
