@@ -129,45 +129,51 @@ img {
 /* ============================================
    HEADER
    ============================================ */
+/* Floating pill nav — roomy on the hero, collapses to a capsule on scroll */
 .site-header {
   position: sticky;
   top: 0;
   z-index: 50;
-  background: color-mix(in srgb, var(--background-primary) 92%, transparent);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border-bottom: 1px solid transparent;
-  transition: border-color 0.2s ease;
+  display: flex;
+  justify-content: center;
+  padding: 18px 16px 0;
+  pointer-events: none; /* only the pill itself is interactive */
 }
 
-.site-header.scrolled {
-  border-bottom-color: var(--border-subtle);
-}
-
-.header-inner {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 16px 24px;
+.nav-pill {
+  pointer-events: auto;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 16px;
+  max-width: 92vw;
+  padding: 9px 10px 9px 9px;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--background-elevated) 78%, transparent);
+  backdrop-filter: blur(18px) saturate(1.5);
+  -webkit-backdrop-filter: blur(18px) saturate(1.5);
+  border: 1px solid var(--border-subtle);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.10), 0 1px 2px rgba(0, 0, 0, 0.04);
+  transition: box-shadow 0.3s ease;
 }
 
-.identity {
+.site-header.scrolled .nav-pill {
+  box-shadow: 0 10px 34px rgba(0, 0, 0, 0.15), 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.nav-identity {
   display: flex;
   align-items: center;
-  gap: 14px;
-  transition: opacity 0.15s ease;
+  gap: 12px;
+  margin-right: 22px;
+  transition: opacity 0.15s ease, margin 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.identity:hover {
-  opacity: 0.7;
+.nav-identity:hover {
+  opacity: 0.75;
 }
 
 .avatar {
-  width: 44px;
-  height: 44px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
   overflow: hidden;
   display: flex;
@@ -184,28 +190,78 @@ img {
   object-fit: cover;
 }
 
-.identity-name {
-  font-weight: 600;
-  font-size: 17px;
-  letter-spacing: -0.015em;
-  opacity: 0;
-  transform: translateX(-6px);
-  transition: opacity 0.25s ease, transform 0.25s ease;
-  pointer-events: none;
+.nav-name {
+  font-weight: 700;
+  font-size: 18px;
+  letter-spacing: -0.01em;
   white-space: nowrap;
+  color: var(--text-primary);
 }
 
-/* Reveal the name once the hero has scrolled past */
-.site-header.past-hero .identity-name {
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  max-width: 420px;
+  overflow: hidden;
+  white-space: nowrap;
+  transition: max-width 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.28s ease;
+}
+
+.nav-link {
+  font-weight: 600;
+  font-size: 16px;
+  color: var(--text-secondary);
+  transition: color 0.15s ease;
+}
+
+.nav-link:hover {
+  color: var(--text-primary);
+}
+
+.nav-more {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 0;
+  opacity: 0;
+  overflow: hidden;
+  flex-shrink: 0;
+  color: var(--text-primary);
+  border-radius: 999px;
+  transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.25s ease;
+}
+
+/* Collapsed once the hero scrolls away → avatar + name + ••• */
+.site-header.past-hero .nav-links {
+  max-width: 0;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.site-header.past-hero .nav-identity {
+  margin-right: 14px;
+}
+
+.site-header.past-hero .nav-more {
+  width: 30px;
   opacity: 1;
-  transform: none;
+}
+
+/* Hover the collapsed pill → expand the links back out */
+.site-header.past-hero .nav-pill:hover .nav-links {
+  max-width: 420px;
+  opacity: 1;
   pointer-events: auto;
 }
 
-.header-actions {
-  display: flex;
-  align-items: center;
-  gap: 8px;
+.site-header.past-hero .nav-pill:hover .nav-identity {
+  margin-right: 22px;
+}
+
+.site-header.past-hero .nav-pill:hover .nav-more {
+  width: 0;
+  opacity: 0;
 }
 
 .kbd-search {

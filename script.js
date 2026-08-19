@@ -5,24 +5,25 @@
 // Dark-mode toggle intentionally omitted — light mode only for now.
 // ============================================
 const SITE_HEADER_HTML = `
-  <div class="header-inner">
-    <a href="/" class="identity" aria-label="Home">
-      <span class="avatar" role="img" aria-label="Harshit Suneja avatar">
-        <img src="/images/me.jpg" alt="Harshit Suneja" />
+  <div class="nav-pill" data-nav-pill>
+    <a href="/" class="nav-identity" aria-label="Home">
+      <span class="avatar" role="img" aria-label="Harshit avatar">
+        <img src="/images/me.jpg" alt="Harshit" />
       </span>
-      <span class="identity-name">Harshit Suneja</span>
+      <span class="nav-name">Harshit</span>
     </a>
-    <div class="header-actions">
-      <button class="kbd-search" id="openCmdK" aria-label="Open search (⌘K)">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-          stroke-linecap="round" stroke-linejoin="round">
-          <circle cx="11" cy="11" r="8"></circle>
-          <path d="m21 21-4.3-4.3"></path>
-        </svg>
-        <span class="kbd-label">Search</span>
-        <kbd class="kbd">⌘ K</kbd>
-      </button>
-    </div>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="/#work" class="nav-link">Work</a>
+      <a href="/about" class="nav-link">About</a>
+      <a href="/HarshitSuneja_ProductDesigner_Resume.pdf" download class="nav-link">Resume</a>
+    </nav>
+    <button class="nav-more" type="button" aria-label="Expand menu">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+        <circle cx="5" cy="12" r="1.9" />
+        <circle cx="12" cy="12" r="1.9" />
+        <circle cx="19" cy="12" r="1.9" />
+      </svg>
+    </button>
   </div>
 `;
 const siteHeaderMount = document.querySelector('[data-site-header]');
@@ -355,7 +356,7 @@ const closePalette = () => {
   input.blur();
 };
 
-openBtn.addEventListener('click', openPalette);
+openBtn?.addEventListener('click', openPalette);
 
 input.addEventListener('input', () => {
   activeIndex = 0;
