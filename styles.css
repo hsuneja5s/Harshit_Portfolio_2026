@@ -360,6 +360,68 @@ img {
   transform: translateY(0) rotate(4deg) scale(1);
 }
 
+/* ============================================
+   HANGING ID BADGE (drops in + drag to swing)
+   ============================================ */
+.id-badge {
+  position: absolute;
+  top: -8px;
+  right: 64px;
+  width: 190px;
+  z-index: 55;
+  pointer-events: none; /* only the swing captures input */
+  animation: idDrop 1.05s cubic-bezier(0.22, 0.9, 0.28, 1.05) both;
+}
+
+.id-badge-swing {
+  transform-origin: 50% 0%; /* pivot at top of the lanyard */
+  will-change: transform;
+  pointer-events: auto;
+  cursor: grab;
+  -webkit-user-select: none;
+  user-select: none;
+  touch-action: none;
+}
+
+.id-badge.is-grabbing .id-badge-swing {
+  cursor: grabbing;
+}
+
+.id-badge-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  pointer-events: none;
+  -webkit-user-drag: none;
+  user-drag: none;
+  filter: drop-shadow(0 20px 26px rgba(0, 0, 0, 0.24));
+}
+
+@keyframes idDrop {
+  0% {
+    transform: translateY(-118%);
+  }
+  70% {
+    transform: translateY(6px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+/* Avoid overlapping the search box on narrower desktops */
+@media (max-width: 1120px) {
+  .id-badge {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .id-badge {
+    animation: none;
+  }
+}
+
 .hero-name {
   font-size: 52px; /* Exactly 2x var(--font-size-2xl) (which is 26px) */
   font-weight: 700;

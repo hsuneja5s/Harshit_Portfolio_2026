@@ -703,6 +703,92 @@ document.addEventListener("DOMContentLoaded", () => {
   initWaveHand();
 
   // ============================================
+  // HANGING ID BADGE — drag to swing (pendulum)
+  // ============================================
+  function initIdBadge() {
+    const badge = document.querySelector('[data-id-badge]');
+    if (!badge) return;
+    const swing = badge.querySelector('.id-badge-swing');
+    if (!swing) return;
+
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      swing.style.transform = 'rotate(0deg)';
+      return;
+    }
+
+    let angle = 0;   // degrees, 0 = hanging straight down
+    let vel = 0;     // deg / frame
+    let dragging = false;
+    let pivotX = 0, pivotY = 0;
+    let lastAngle = 0, lastT = 0;
+
+    const K = 0.055;    // restoring stiffness
+    const DAMP = 0.985; // velocity damping
+    const MAX = 72;     // swing clamp
+
+    const render = () => { swing.style.transform = `rotate(${angle}deg)`; };
+
+    // A gentle initial swing once the drop-in settles
+    setTimeout(() => { if (!dragging) vel = 4.2; }, 1000);
+
+    const tick = () => {
+      if (!dragging) {
+        vel = (vel - K * angle) * DAMP;
+        angle += vel;
+        if (angle > MAX) { angle = MAX; vel *= -0.4; }
+        else if (angle < -MAX) { angle = -MAX; vel *= -0.4; }
+        render();
+      }
+      requestAnimationFrame(tick);
+    };
+    requestAnimationFrame(tick);
+
+    const setPivot = () => {
+      const r = badge.getBoundingClientRect();
+      pivotX = r.left + r.width / 2;
+      pivotY = r.top; // transform-origin is top center
+    };
+
+    const angleFrom = (x, y) => {
+      const a = Math.atan2(x - pivotX, Math.max(y - pivotY, 1)) * 180 / Math.PI;
+      return Math.max(-MAX, Math.min(MAX, a));
+    };
+
+    const onMove = (e) => {
+      if (!dragging) return;
+      const na = angleFrom(e.clientX, e.clientY);
+      const now = performance.now();
+      const dt = Math.max(now - lastT, 1);
+      vel = (na - lastAngle) * (16 / dt); // carry momentum on release
+      lastAngle = na;
+      lastT = now;
+      angle = na;
+      render();
+    };
+
+    const onUp = () => {
+      dragging = false;
+      badge.classList.remove('is-grabbing');
+      window.removeEventListener('pointermove', onMove);
+      window.removeEventListener('pointerup', onUp);
+    };
+
+    swing.addEventListener('pointerdown', (e) => {
+      dragging = true;
+      badge.classList.add('is-grabbing');
+      setPivot();
+      lastAngle = angle = angleFrom(e.clientX, e.clientY);
+      lastT = performance.now();
+      vel = 0;
+      render();
+      window.addEventListener('pointermove', onMove);
+      window.addEventListener('pointerup', onUp);
+    });
+    swing.addEventListener('dragstart', (e) => e.preventDefault());
+  }
+  initIdBadge();
+
+  // ============================================
   // SCROLL REVEAL (Fade-In & Slide-Up)
   // ============================================
   const revealElements = document.querySelectorAll('.reveal');
