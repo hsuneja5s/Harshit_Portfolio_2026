@@ -102,6 +102,8 @@ body {
   font-feature-settings: "cv11", "ss01";
   transition: background-color 0.4s cubic-bezier(0.16, 1, 0.3, 1), color 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.25s ease;
   animation: pageFadeIn 0.35s ease both;
+  /* Custom "You" cursor (matches the Figma multiplayer theme) */
+  cursor: url("/images/YouCursor.png?v=20260819-2") 5 4, auto;
 }
 
 a {
@@ -475,6 +477,31 @@ img {
   .id-badge {
     animation: none;
   }
+}
+
+/* ============================================
+   LIVE PRESENCE — Figma-style multiplayer cursors
+   Occasionally drift across the page like other visitors.
+   ============================================ */
+.presence-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 64px;
+  z-index: 45;
+  pointer-events: none;
+  opacity: 0;
+  will-change: transform, opacity;
+  filter: drop-shadow(0 6px 14px rgba(0, 0, 0, 0.18));
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+.presence-cursor img {
+  width: 100%;
+  height: auto;
+  display: block;
+  pointer-events: none;
 }
 
 .hero-name {
@@ -949,6 +976,165 @@ img {
   background-position: center, center;
   opacity: 0.85;
 }
+
+/* ============================================
+   SPLIT-EDITORIAL CARDS + 3D TILT  (reverted from Selected work)
+   KEPT (commented) for future reuse — candidate: the "Building AI
+   Design Accelator" cards. To reuse: change the `.selected-work`
+   scope below to the plugins section and restore the render markup
+   (work-panel / work-visual / work-badge / work-arrow) in script.js.
+   ============================================ */
+/*
+.selected-work .work-grid {
+  gap: 28px;
+  perspective: 1500px;
+}
+
+.selected-work .work-card {
+  display: grid;
+  grid-template-columns: 1.02fr 1fr;
+  min-height: 372px;
+  border-radius: 24px;
+  overflow: hidden;
+  border: 1px solid var(--border-subtle);
+  background: #0f1115;
+  box-shadow: 0 12px 34px rgba(0, 0, 0, 0.08);
+  transform: none;
+  transition: transform 0.45s cubic-bezier(0.22, 0.8, 0.3, 1), box-shadow 0.35s ease;
+  transform-origin: center;
+}
+
+.selected-work .work-card:hover {
+  box-shadow: 0 26px 56px rgba(0, 0, 0, 0.18);
+  border-color: var(--border-inverse);
+}
+
+-- Left dark text panel
+.selected-work .work-panel {
+  position: relative;
+  z-index: 2;
+  background: #0f1115;
+  color: #fff;
+  padding: 40px 38px;
+  display: flex;
+  flex-direction: column;
+}
+
+.selected-work .work-badge {
+  align-self: flex-start;
+  font-size: 13px;
+  font-weight: 600;
+  color: #d4d4d8;
+  background: rgba(255, 255, 255, 0.10);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  padding: 7px 14px;
+  border-radius: 100px;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+}
+
+.selected-work .work-badge--soon {
+  color: #fde68a;
+  background: rgba(253, 230, 138, 0.12);
+  border-color: rgba(253, 230, 138, 0.30);
+}
+
+.selected-work .work-title {
+  margin-top: 26px;
+  font-size: 33px;
+  font-weight: 700;
+  line-height: 1.14;
+  letter-spacing: -0.02em;
+  color: #fff;
+  max-width: 15ch;
+  display: block;
+  -webkit-line-clamp: none;
+  overflow: visible;
+}
+
+.selected-work .work-outcome {
+  margin-top: 16px;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #a1a1aa;
+  max-width: 32ch;
+  display: block;
+  -webkit-line-clamp: none;
+  overflow: visible;
+}
+
+.selected-work .work-arrow {
+  margin-top: auto;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.10);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  transition: transform 0.25s ease, background 0.2s ease;
+}
+
+.selected-work .work-card:hover .work-arrow {
+  transform: translateX(6px);
+  background: rgba(255, 255, 255, 0.20);
+}
+
+-- Right mockup panel
+.selected-work .work-visual {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(140deg, #cbbeff 0%, #b3a1f5 46%, #f3d7c2 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.selected-work .work-visual .work-image {
+  position: absolute;
+  inset: 0;
+  margin: 0;
+  aspect-ratio: auto;
+  border-radius: 0;
+  background-color: transparent;
+  transform-origin: center;
+  transition: transform 0.45s cubic-bezier(0.22, 0.8, 0.3, 1);
+  will-change: transform;
+}
+
+-- Coming soon: greyed + calm, no tilt
+.selected-work .work-card--disabled {
+  cursor: default;
+}
+
+.selected-work .work-card--disabled .work-visual {
+  filter: grayscale(0.9);
+  opacity: 0.75;
+}
+
+.selected-work .work-card--disabled:hover {
+  transform: none;
+  box-shadow: 0 12px 34px rgba(0, 0, 0, 0.08);
+  border-color: var(--border-subtle);
+}
+
+.selected-work .work-card--disabled:hover .work-arrow {
+  transform: none;
+}
+
+@media (max-width: 620px) {
+  .selected-work .work-card {
+    grid-template-columns: 1fr;
+  }
+  .selected-work .work-visual {
+    min-height: 220px;
+    order: -1;
+  }
+}
+*/
 
 /* ============================================
    SAY HELLO

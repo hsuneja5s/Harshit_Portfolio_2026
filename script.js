@@ -785,6 +785,156 @@ document.addEventListener("DOMContentLoaded", () => {
   initIdBadge();
 
   // ============================================
+  // 3D TILT + mockup parallax on hover
+  // Built for the split-editorial cards (reverted from Selected work).
+  // KEPT for future reuse — likely on the "Building AI Design Accelator" cards.
+  // To use: give each card [data-tilt] and rescope the querySelector below.
+  // ============================================
+  function initWorkTilt() {
+    const cards = document.querySelectorAll('.selected-work [data-tilt]');
+    if (!cards.length) return;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    if (window.matchMedia('(hover: none)').matches) return;
+
+    const MAXX = 4.5, MAXY = 6.5; // max tilt degrees
+
+    cards.forEach((card) => {
+      const img = card.querySelector('.work-image');
+      let raf = 0;
+
+      const onMove = (e) => {
+        const r = card.getBoundingClientRect();
+        const px = (e.clientX - r.left) / r.width - 0.5;
+        const py = (e.clientY - r.top) / r.height - 0.5;
+        cancelAnimationFrame(raf);
+        raf = requestAnimationFrame(() => {
+          card.style.transition = 'none';
+          card.style.transform = `rotateX(${(-py * MAXX).toFixed(2)}deg) rotateY(${(px * MAXY).toFixed(2)}deg)`;
+          if (img) {
+            img.style.transition = 'none';
+            img.style.transform = `scale(1.06) translate(${(-px * 16).toFixed(1)}px, ${(-py * 16).toFixed(1)}px)`;
+          }
+        });
+      };
+
+      const reset = () => {
+        cancelAnimationFrame(raf);
+        card.style.transition = '';   // fall back to the CSS ease-out for a smooth settle
+        card.style.transform = '';
+        if (img) { img.style.transition = ''; img.style.transform = ''; }
+      };
+
+      card.addEventListener('pointermove', onMove);
+      card.addEventListener('pointerleave', reset);
+    });
+  }
+  // initWorkTilt(); // disabled — re-enable when reused on the plugins section
+
+  // ============================================
+  // LIVE PRESENCE — Figma-style multiplayer cursors
+  // Rarely spawns 1 (sometimes 2, very rarely 3) roaming cursors that
+  // glide across the page and fade out, like other visitors browsing.
+  // ============================================
+  function initPresence() {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    if (window.matchMedia('(hover: none)').matches) return; // skip touch devices
+
+    const DIR = '/images/Figma%20Arrows/';
+    const FILES = ['Multiplayer.png'];
+    for (let i = 1; i <= 15; i++) FILES.push(`Multiplayer-${i}.png`);
+
+    let active = 0;
+    let spawned = 0;
+
+    // Per-session budget: usually 1–2 cursors total, at most 3. Once the
+    // budget is spent, no more appear for the rest of the session.
+    const budget = (() => {
+      const r = Math.random();
+      if (r < 0.15) return 3;
+      if (r < 0.55) return 2;
+      return 1;
+    })();
+
+    const spawnPoint = () => {
+      const vw = window.innerWidth;
+      const vh = window.innerHeight;
+      const x = (0.08 + Math.random() * 0.80) * vw;
+      // Avoid the hero (top of the homepage) ~90% of the time.
+      const heroInView = document.querySelector('.hero') && window.scrollY < vh * 0.55;
+      const avoidHero = Math.random() < 0.9;
+      let y;
+      if (heroInView && avoidHero) {
+        y = (0.44 + Math.random() * 0.42) * vh; // lower band
+      } else {
+        y = (0.16 + Math.random() * 0.68) * vh;
+      }
+      return { x, y: Math.max(y, vh * 0.12) }; // never under the nav
+    };
+
+    const spawn = () => {
+      active++;
+      spawned++;
+      const el = document.createElement('div');
+      el.className = 'presence-cursor';
+      const img = document.createElement('img');
+      img.src = DIR + FILES[Math.floor(Math.random() * FILES.length)];
+      img.alt = '';
+      el.appendChild(img);
+
+      const { x, y } = spawnPoint();
+      el.style.left = `${x}px`;
+      el.style.top = `${y}px`;
+
+      // Wander across several waypoints, like someone scrolling around,
+      // then quietly fade out. Stays on screen ~10–15s.
+      const life = 10000 + Math.random() * 5000;
+      const legs = 4 + Math.floor(Math.random() * 3); // 4–6 legs
+      let rx = 0, ry = 0;
+      const pts = [{ x: rx, y: ry }];
+      for (let i = 0; i < legs; i++) {
+        rx += (Math.random() - 0.5) * 110;
+        ry += (Math.random() - 0.5) * 90;
+        pts.push({ x: rx, y: ry });
+      }
+
+      const frames = [
+        { opacity: 0, transform: 'translate(0px, 0px) scale(0.9)', offset: 0 },
+        { opacity: 1, transform: `translate(${pts[1].x}px, ${pts[1].y}px) scale(1)`, offset: 0.06 },
+      ];
+      for (let i = 2; i < pts.length; i++) {
+        const offset = Math.min(0.06 + ((i - 1) / (pts.length - 1)) * 0.82, 0.9);
+        frames.push({ opacity: 1, transform: `translate(${pts[i].x}px, ${pts[i].y}px) scale(1)`, offset });
+      }
+      frames.push({ opacity: 0, transform: `translate(${rx}px, ${ry}px) scale(0.97)`, offset: 1 });
+
+      document.body.appendChild(el);
+      const anim = el.animate(frames, { duration: life, easing: 'ease-in-out' });
+
+      anim.onfinish = () => { el.remove(); active--; };
+      anim.oncancel = () => { el.remove(); active--; };
+    };
+
+    const schedule = () => {
+      if (spawned >= budget) return; // budget spent — stop for this session
+      const delay = 8000 + Math.random() * 16000; // 8–24s between cursors
+      setTimeout(() => {
+        // one at a time; only while the user is actually on the tab
+        if (document.visibilityState === 'visible' && active === 0 && spawned < budget) {
+          spawn();
+        }
+        schedule();
+      }, delay);
+    };
+
+    // First cursor a few seconds in, then maybe one or two more, then done.
+    setTimeout(() => {
+      if (document.visibilityState === 'visible') spawn();
+      schedule();
+    }, 3000 + Math.random() * 3500);
+  }
+  initPresence();
+
+  // ============================================
   // SCROLL REVEAL (Fade-In & Slide-Up)
   // ============================================
   const revealElements = document.querySelectorAll('.reveal');
