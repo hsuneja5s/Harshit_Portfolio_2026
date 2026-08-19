@@ -370,7 +370,7 @@ img {
   width: 190px;
   z-index: 55;
   pointer-events: none; /* only the swing captures input */
-  animation: idDrop 1.05s cubic-bezier(0.22, 0.9, 0.28, 1.05) both;
+  animation: idDrop 1s cubic-bezier(0.22, 0.7, 0.24, 1) both;
 }
 
 .id-badge-swing {
@@ -400,12 +400,11 @@ img {
 @keyframes idDrop {
   0% {
     transform: translateY(-118%);
-  }
-  70% {
-    transform: translateY(6px);
+    opacity: 0.35;
   }
   100% {
     transform: translateY(0);
+    opacity: 1;
   }
 }
 

@@ -716,29 +716,37 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
-    let angle = 0;   // degrees, 0 = hanging straight down
-    let vel = 0;     // deg / frame
+    let angle = 0;    // degrees, 0 = hanging straight down
+    let vel = 0;      // deg / frame
+    let target = 0;   // where the cursor wants the card while dragging
     let dragging = false;
     let pivotX = 0, pivotY = 0;
-    let lastAngle = 0, lastT = 0;
 
-    const K = 0.055;    // restoring stiffness
-    const DAMP = 0.985; // velocity damping
-    const MAX = 72;     // swing clamp
+    const K = 0.008;     // soft spring → slow, floaty swing
+    const DAMP = 0.965;  // settles in ~2–3 swings
+    const FOLLOW = 0.14; // eased drag follow (smooth, not snappy)
+    const MAXVEL = 2.6;  // cap so releases stay gentle
+    const MAX = 66;      // swing clamp
 
     const render = () => { swing.style.transform = `rotate(${angle}deg)`; };
 
-    // A gentle initial swing once the drop-in settles
-    setTimeout(() => { if (!dragging) vel = 4.2; }, 1000);
+    // One soft nudge once the drop-in settles → a couple of gentle swings
+    setTimeout(() => { if (!dragging) vel = 1.4; }, 950);
 
     const tick = () => {
-      if (!dragging) {
+      if (dragging) {
+        const prev = angle;
+        angle += (target - angle) * FOLLOW; // smooth follow
+        vel = angle - prev;                 // momentum for release
+      } else {
         vel = (vel - K * angle) * DAMP;
+        if (vel > MAXVEL) vel = MAXVEL;
+        else if (vel < -MAXVEL) vel = -MAXVEL;
         angle += vel;
-        if (angle > MAX) { angle = MAX; vel *= -0.4; }
-        else if (angle < -MAX) { angle = -MAX; vel *= -0.4; }
-        render();
+        if (angle > MAX) { angle = MAX; vel *= -0.35; }
+        else if (angle < -MAX) { angle = -MAX; vel *= -0.35; }
       }
+      render();
       requestAnimationFrame(tick);
     };
     requestAnimationFrame(tick);
@@ -754,17 +762,7 @@ document.addEventListener("DOMContentLoaded", () => {
       return Math.max(-MAX, Math.min(MAX, a));
     };
 
-    const onMove = (e) => {
-      if (!dragging) return;
-      const na = angleFrom(e.clientX, e.clientY);
-      const now = performance.now();
-      const dt = Math.max(now - lastT, 1);
-      vel = (na - lastAngle) * (16 / dt); // carry momentum on release
-      lastAngle = na;
-      lastT = now;
-      angle = na;
-      render();
-    };
+    const onMove = (e) => { if (dragging) target = angleFrom(e.clientX, e.clientY); };
 
     const onUp = () => {
       dragging = false;
@@ -777,10 +775,7 @@ document.addEventListener("DOMContentLoaded", () => {
       dragging = true;
       badge.classList.add('is-grabbing');
       setPivot();
-      lastAngle = angle = angleFrom(e.clientX, e.clientY);
-      lastT = performance.now();
-      vel = 0;
-      render();
+      target = angleFrom(e.clientX, e.clientY);
       window.addEventListener('pointermove', onMove);
       window.addEventListener('pointerup', onUp);
     });
