@@ -504,6 +504,14 @@ img {
   pointer-events: none;
 }
 
+/* "View" badge cursor over clickable case study + plugin cards */
+a.work-card,
+a.work-card *,
+.plugin-bento-card,
+.plugin-bento-card * {
+  cursor: url("/images/HoverCasestudy.png?v=20260819-1") 44 44, pointer;
+}
+
 .hero-name {
   font-size: 52px; /* Exactly 2x var(--font-size-2xl) (which is 26px) */
   font-weight: 700;
