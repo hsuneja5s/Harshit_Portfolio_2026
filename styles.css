@@ -684,16 +684,11 @@ a.work-card *,
   animation: vibgyorIntro 2.8s 0.5s ease both;
 }
 
-.hero-role .vibgyor:hover,
-.hero-role .vibgyor:focus-visible {
+.hero-role .vibgyor:hover {
   -webkit-text-fill-color: transparent;
   color: transparent;
   outline: none;
-  animation: vibgyorFlow 8s linear infinite;
-}
-
-@keyframes vibgyorFlow {
-  to { background-position: 300% 50%; }
+  background-position: 50% 50%; /* steady rainbow, no continuous loop */
 }
 
 /* One-time intro: solid -> reveal gradient -> flow once -> settle solid */
@@ -723,9 +718,7 @@ a.work-card *,
   .hero-role .vibgyor {
     animation: none;
   }
-  .hero-role .vibgyor:hover,
-  .hero-role .vibgyor:focus-visible {
-    animation: none;
+  .hero-role .vibgyor:hover {
     background-position: 50% 50%;
   }
 }
