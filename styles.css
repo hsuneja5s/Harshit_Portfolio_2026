@@ -658,7 +658,7 @@ a.work-card *,
 }
 
 .hero-role {
-  font-size: var(--font-size-2xl);
+  font-size: var(--font-size-xl);
   font-weight: 600;
   letter-spacing: -0.02em;
   color: var(--text-primary);
