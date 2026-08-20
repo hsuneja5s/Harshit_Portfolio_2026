@@ -688,7 +688,11 @@ a.work-card *,
   -webkit-text-fill-color: transparent;
   color: transparent;
   outline: none;
-  background-position: 50% 50%; /* steady rainbow, no continuous loop */
+  animation: vibgyorFlow 8s linear infinite; /* flows only while hovered, stops on mouse-out */
+}
+
+@keyframes vibgyorFlow {
+  to { background-position: 300% 50%; }
 }
 
 /* One-time intro: solid -> reveal gradient -> flow once -> settle solid */
@@ -719,6 +723,7 @@ a.work-card *,
     animation: none;
   }
   .hero-role .vibgyor:hover {
+    animation: none;
     background-position: 50% 50%;
   }
 }
