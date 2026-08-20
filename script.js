@@ -202,10 +202,10 @@ const PORTFOLIO_DATA = {
     { label: 'Now', hint: 'what I am working on', href: '/now' },
   ],
   links: [
-    { label: 'Email', hint: 'hsuneja.suneja7@gmail.com', href: 'mailto:hsuneja.suneja7@gmail.com' },
+    { label: 'Email', hint: 'harshit.experiencedesign@gmail.com', href: 'mailto:harshit.experiencedesign@gmail.com' },
     { label: 'GitHub', hint: 'github.com/hsuneja5s', href: 'https://github.com/hsuneja5s' },
     { label: 'LinkedIn', hint: 'linkedin.com/in/harshitux', href: 'https://linkedin.com/in/harshitux' },
-    { label: 'Resume', hint: 'email me for the latest PDF', href: 'mailto:hsuneja.suneja7@gmail.com?subject=Resume%20request' },
+    { label: 'Resume', hint: 'email me for the latest PDF', href: 'mailto:harshit.experiencedesign@gmail.com?subject=Resume%20request' },
   ],
 };
 
