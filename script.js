@@ -942,6 +942,8 @@ document.addEventListener("DOMContentLoaded", () => {
     if (window.matchMedia('(hover: none)').matches) return; // skip touch
 
     const EYE = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>';
+    const COPY = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>';
+    const CHECK = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>';
 
     const pill = document.createElement('div');
     pill.className = 'hover-cursor';
@@ -957,14 +959,17 @@ document.addEventListener("DOMContentLoaded", () => {
       if (!raf) raf = requestAnimationFrame(() => { place(); raf = 0; });
     };
 
-    const show = (variant) => {
-      if (variant === 'soon') {
-        pill.classList.add('is-soon'); pill.classList.remove('is-view');
-        icon.textContent = '🚧'; label.textContent = 'COMING SOON';
+    // kind: 'view' | 'soon' | 'copy'
+    const show = (kind, text) => {
+      pill.classList.remove('is-view', 'is-soon');
+      if (kind === 'soon') {
+        pill.classList.add('is-soon');
+        icon.textContent = '🚧';
       } else {
-        pill.classList.add('is-view'); pill.classList.remove('is-soon');
-        icon.innerHTML = EYE; label.textContent = 'VIEW CASE STUDY';
+        pill.classList.add('is-view');
+        icon.innerHTML = kind === 'copy' ? COPY : EYE;
       }
+      label.textContent = text;
       pill.style.transition = 'none';
       place();
       void pill.offsetWidth; // reflow so it doesn't fly in from the last spot
@@ -978,16 +983,39 @@ document.addEventListener("DOMContentLoaded", () => {
       window.removeEventListener('mousemove', move);
     };
 
-    const bind = (selector, variant) => {
+    const bind = (selector, kind, text) => {
       document.querySelectorAll(selector).forEach((el) => {
-        el.addEventListener('pointerenter', (e) => { mx = e.clientX; my = e.clientY; show(variant); });
+        el.addEventListener('pointerenter', (e) => { mx = e.clientX; my = e.clientY; show(kind, text); });
         el.addEventListener('pointerleave', hide);
       });
     };
 
-    bind('a.work-card', 'view');
-    bind('.plugin-bento-card', 'view');
-    bind('.work-card--disabled', 'soon');
+    bind('a.work-card', 'view', 'VIEW CASE STUDY');
+    bind('.plugin-bento-card', 'view', 'VIEW CASE STUDY');
+    bind('.work-card--disabled', 'soon', 'COMING SOON');
+
+    // Email: hover shows a "COPY EMAIL" pill; click copies + confirms.
+    const emailLink = document.querySelector('[data-copy-email]');
+    if (emailLink) {
+      const email = emailLink.getAttribute('data-copy-email');
+      emailLink.addEventListener('pointerenter', (e) => { mx = e.clientX; my = e.clientY; show('copy', 'COPY EMAIL'); });
+      emailLink.addEventListener('pointerleave', hide);
+      emailLink.addEventListener('click', (e) => {
+        e.preventDefault();
+        const done = () => {
+          icon.innerHTML = CHECK;
+          label.textContent = 'COPIED!';
+          setTimeout(() => {
+            if (pill.classList.contains('is-visible')) { icon.innerHTML = COPY; label.textContent = 'COPY EMAIL'; }
+          }, 1400);
+        };
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(email).then(done).catch(() => { window.location.href = 'mailto:' + email; });
+        } else {
+          window.location.href = 'mailto:' + email;
+        }
+      });
+    }
   }
   initHoverCursor();
 

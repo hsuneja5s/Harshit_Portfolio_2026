@@ -1256,6 +1256,37 @@ a.work-card *,
   transform: translateY(-1px);
 }
 
+/* Mono text social row */
+.social-mono {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  margin-top: 22px;
+  font-family: 'JetBrains Mono', ui-monospace, 'SF Mono', Consolas, monospace;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+}
+
+.social-mono-link {
+  color: var(--text-secondary);
+  transition: color 0.15s ease;
+}
+
+.social-mono-link:hover {
+  color: var(--text-primary);
+}
+
+.social-mono-link[data-copy-email] {
+  cursor: none; /* the "Copy email" follower pill takes over */
+}
+
+.social-mono-sep {
+  color: var(--text-tertiary);
+  user-select: none;
+}
+
 /* ============================================
    FOOTER
    ============================================ */
