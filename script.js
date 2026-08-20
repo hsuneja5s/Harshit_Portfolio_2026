@@ -215,7 +215,7 @@ const renderHomeCollections = () => {
       const chip = item.nda ? `<span class="work-tag-coming-soon">🔒 NDA Redacted</span>` : '';
       const ctaLabel = item.comingSoon
         ? 'Coming Soon 🚧'
-        : (item.nda ? 'View redacted case study' : 'View case study');
+        : (item.nda ? 'View redacted case study' : 'VIEW CASE STUDY');
       const arrow = item.comingSoon ? '' : `<span class="work-cta-arrow" aria-hidden="true">→</span>`;
       const inner = `
           <div class="work-meta">
@@ -960,10 +960,10 @@ document.addEventListener("DOMContentLoaded", () => {
     const show = (variant) => {
       if (variant === 'soon') {
         pill.classList.add('is-soon'); pill.classList.remove('is-view');
-        icon.textContent = '🚧'; label.textContent = 'Coming soon';
+        icon.textContent = '🚧'; label.textContent = 'COMING SOON';
       } else {
         pill.classList.add('is-view'); pill.classList.remove('is-soon');
-        icon.innerHTML = EYE; label.textContent = 'View case study';
+        icon.innerHTML = EYE; label.textContent = 'VIEW CASE STUDY';
       }
       pill.style.transition = 'none';
       place();
