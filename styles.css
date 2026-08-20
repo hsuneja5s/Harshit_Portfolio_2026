@@ -1202,6 +1202,106 @@ a.work-card *,
 */
 
 /* ============================================
+   SELECTED WORK — card v3 (heading · sub · chips · mockup)
+   Scoped to the homepage so case-study cards stay untouched.
+   ============================================ */
+.selected-work .work-grid {
+  gap: 28px;
+}
+
+.selected-work .work-card {
+  position: relative;
+  display: block;
+  background: var(--background-elevated);
+  border: 1px solid var(--border-subtle);
+  border-radius: 24px;
+  padding: 34px 34px 0;
+  overflow: hidden;
+  transition: transform 0.32s cubic-bezier(0.22, 0.8, 0.3, 1), box-shadow 0.32s ease;
+}
+
+.selected-work .work-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 34px 60px rgba(0, 0, 0, 0.16), 0 10px 22px rgba(0, 0, 0, 0.08);
+  border-color: var(--border-inverse);
+}
+
+.selected-work .work-info {
+  max-width: 660px;
+}
+
+.selected-work .work-heading {
+  font-size: 26px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  color: var(--text-primary);
+  display: block;
+  -webkit-line-clamp: none;
+  overflow: visible;
+}
+
+.selected-work .work-sub {
+  margin-top: 7px;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.45;
+  color: var(--text-secondary);
+  display: block;
+  -webkit-line-clamp: none;
+  overflow: visible;
+}
+
+.selected-work .work-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 18px;
+}
+
+.selected-work .work-chip {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  background: var(--background-subtle);
+  border: 1px solid var(--border-subtle);
+  padding: 6px 13px;
+  border-radius: 100px;
+  line-height: 1;
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+}
+
+.selected-work .work-visual {
+  margin: 28px -34px 0; /* bleed the mockup to the card edges */
+  height: 320px;
+  position: relative;
+  overflow: hidden;
+}
+
+.selected-work .work-visual .work-image {
+  position: absolute;
+  inset: 0;
+  margin: 0;
+  aspect-ratio: auto;
+  border-radius: 0;
+  background-color: transparent;
+  background-size: contain;
+  background-position: bottom center;
+}
+
+/* Coming soon — non-clickable, no lift (state shown via hover pill) */
+.selected-work .work-card--disabled {
+  cursor: default;
+}
+
+.selected-work .work-card--disabled:hover {
+  transform: none;
+  box-shadow: none;
+  border-color: var(--border-subtle);
+}
+
+/* ============================================
    SAY HELLO
    ============================================ */
 .link-row {

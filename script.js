@@ -90,6 +90,10 @@ const PORTFOLIO_DATA = {
       sector: 'Energy • Web Platform',
       label: 'Energy — Deal Pipeline',
       title: 'Deal intelligence for global energy operations',
+      heading: 'Deal Intelligence',
+      sub: 'Control cockpit for global energy operations',
+      chips: ['Energy', 'Web Platform', 'B2B'],
+      status: 'shipped',
       outcome: 'Cut deal review cycles across hundreds of live opportunities',
       hint: 'hundreds of deals · control cockpit',
       href: '/work/energy-deal-operations',
@@ -99,6 +103,10 @@ const PORTFOLIO_DATA = {
       sector: 'Healthcare • Product Design • Design System',
       label: 'Healthcare — Patient App',
       title: 'Designing AI Assisted Experiences for Preventive Healthcare',
+      heading: 'Preventive Care',
+      sub: 'AI assisted experiences for preventive healthcare',
+      chips: ['Healthcare', 'Product Design', 'Design System'],
+      status: 'shipped',
       outcome: 'Shipped accessible AI diagnostics live to patients',
       hint: 'live · accessible diagnostics',
       href: '/work/healthcare-patient-experience',
@@ -108,6 +116,10 @@ const PORTFOLIO_DATA = {
       sector: 'Banking • Conversational UX',
       label: 'Banking — AI Assistant',
       title: 'Astha.ai: turning AI hesitation into banking self-service',
+      heading: 'Astha.ai',
+      sub: 'Turning AI hesitation into banking self-service',
+      chips: ['Banking', 'Conversational UX', 'AI'],
+      status: 'soon',
       outcome: 'Lifted assistant satisfaction from 7 to 9.2 NPS',
       hint: 'Astha.ai · NPS 7 → 9.2',
       href: '/work/banking-ai-self-service',
@@ -212,24 +224,16 @@ const renderHomeCollections = () => {
 
   if (workGrid) {
     workGrid.innerHTML = PORTFOLIO_DATA.work.filter(item => !item.hidden).map(item => {
-      const chip = item.nda ? `<span class="work-tag-coming-soon">🔒 NDA Redacted</span>` : '';
-      const ctaLabel = item.comingSoon
-        ? 'Coming Soon 🚧'
-        : (item.nda ? 'View redacted case study' : 'VIEW CASE STUDY');
-      const arrow = item.comingSoon ? '' : `<span class="work-cta-arrow" aria-hidden="true">→</span>`;
+      const chips = (item.chips || []).slice(0, 3)
+        .map(c => `<span class="work-chip">${escapeHtml(c)}</span>`).join('');
       const inner = `
-          <div class="work-meta">
-            <div class="work-header">
-              <span class="work-tag">${escapeHtml(item.sector)}</span>
-              ${chip}
-            </div>
-            <h3 class="work-title">${escapeHtml(item.title)}</h3>
-            ${item.outcome ? `<p class="work-outcome">${escapeHtml(item.outcome)}</p>` : ''}
+          <div class="work-info">
+            <h3 class="work-heading">${escapeHtml(item.heading || item.title)}</h3>
+            <p class="work-sub">${escapeHtml(item.sub || item.outcome || '')}</p>
+            <div class="work-chips">${chips}</div>
           </div>
-          <div class="work-image ${item.imageClass}" aria-hidden="true"></div>
-          <div class="work-cta">
-            <span class="work-cta-label">${ctaLabel}</span>
-            ${arrow}
+          <div class="work-visual">
+            <div class="work-image ${item.imageClass}" aria-hidden="true"></div>
           </div>`;
       return item.comingSoon
         ? `<div class="work-card work-card--disabled">${inner}</div>`
