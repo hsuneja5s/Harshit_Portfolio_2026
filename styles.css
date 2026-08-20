@@ -565,6 +565,8 @@ a.work-card *,
 
 .hover-cursor-label {
   line-height: 1;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
 }
 
 .hero-name {
@@ -1981,6 +1983,16 @@ a.work-card *,
   font-size: var(--font-size-sm);
   line-height: 1.35;
   letter-spacing: -0.015em;
+}
+
+/* Only two case studies are live (Energy, Healthcare). On every detail
+   page, hide related / next-case cards that point anywhere else. */
+.case-related .work-card:not([href*="energy-deal-operations"]):not([href*="healthcare-patient-experience"]) {
+  display: none;
+}
+
+.case-next:has(.case-next-link[href*="/work/"]):not(:has(.case-next-link[href*="energy-deal-operations"])):not(:has(.case-next-link[href*="healthcare-patient-experience"])) {
+  display: none;
 }
 
 /* ============================================
