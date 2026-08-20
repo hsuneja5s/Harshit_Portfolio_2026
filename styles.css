@@ -605,7 +605,7 @@ a.work-card *,
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: currentColor;
-  transition: -webkit-text-fill-color 0.35s ease, color 0.35s ease;
+  transition: -webkit-text-fill-color 0.55s ease, color 0.55s ease;
 }
 
 .hero-role .vibgyor:hover,
@@ -613,7 +613,7 @@ a.work-card *,
   -webkit-text-fill-color: transparent;
   color: transparent;
   outline: none;
-  animation: vibgyorFlow 4s linear infinite;
+  animation: vibgyorFlow 8s linear infinite;
 }
 
 @keyframes vibgyorFlow {
