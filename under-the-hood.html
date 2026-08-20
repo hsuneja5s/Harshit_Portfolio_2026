@@ -10,7 +10,7 @@
   <meta property="og:type" content="article" />
   <meta property="og:url" content="https://sunejaux.space/under-the-hood" />
   <meta name="twitter:card" content="summary" />
-  <title>Under the hood — Harshit Suneja</title>
+  <title>Under the hood Harshit Suneja</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -66,7 +66,7 @@
     </a>
 
     <h1 class="simple-page-title">Under the hood</h1>
-    <p class="simple-page-sub">How this site is built. The decisions, the stack, the trade-offs. Source is public on GitHub — fork freely.</p>
+    <p class="simple-page-sub">How this site is built. The decisions, the stack, the trade offs. Source is public on GitHub fork freely.</p>
 
     <h2>Stack</h2>
     <div class="kv-grid">
@@ -75,50 +75,50 @@
       <span class="kv-label">Type system</span>
       <span class="kv-value">None. Vanilla JS for the small surface area we need.</span>
       <span class="kv-label">Styling</span>
-      <span class="kv-value">Hand-written CSS with custom properties for theming.</span>
+      <span class="kv-value">Hand written CSS with custom properties for theming.</span>
       <span class="kv-label">Typography</span>
-      <span class="kv-value">Inter (Google Fonts), system-ui fallback.</span>
+      <span class="kv-value">Inter (Google Fonts), system ui fallback.</span>
       <span class="kv-label">Hosting</span>
-      <span class="kv-value">Vercel (static), CDN-backed, served from the Bombay edge.</span>
+      <span class="kv-value">Vercel (static), CDN backed, served from the Bombay edge.</span>
       <span class="kv-label">Domain</span>
       <span class="kv-value">sunejaux.space ($1.99 promo on .space TLD).</span>
       <span class="kv-label">Source control</span>
       <span class="kv-value"><a href="https://github.com/hsuneja5s/Harshit_Portfolio_2026" class="inline-link">github.com/hsuneja5s/Harshit_Portfolio_2026</a></span>
       <span class="kv-label">Deploy</span>
-      <span class="kv-value">Auto-deploy on push to <code>main</code> via Vercel-GitHub integration.</span>
+      <span class="kv-value">Auto deploy on push to <code>main</code> via Vercel GitHub integration.</span>
       <span class="kv-label">Analytics</span>
-      <span class="kv-value">Vercel Web Analytics + Speed Insights (script-tag, no SDK).</span>
+      <span class="kv-value">Vercel Web Analytics + Speed Insights (script tag, no SDK).</span>
       <span class="kv-label">Search</span>
       <span class="kv-value">Submitted to Google Search Console with sitemap.xml.</span>
       <span class="kv-label">Built with</span>
-      <span class="kv-value">Antigravity — in pair-programming mode, not autopilot.</span>
+      <span class="kv-value">Antigravity in pair programming mode, not autopilot.</span>
     </div>
 
     <h2>Decisions</h2>
 
-    <p><strong>Why no framework?</strong> A senior PD's portfolio is one page plus a handful of deep pages. React, Next.js, even Astro — all overkill. The "no build step" decision means I can edit any HTML file in any editor, push to <code>main</code>, and have it live in 20 seconds. The framework I'd need to learn would cost more time than I'd ever save.</p>
+    <p><strong>Why no framework?</strong> A senior PD's portfolio is one page plus a handful of deep pages. React, Next.js, even Astro all overkill. The "no build step" decision means I can edit any HTML file in any editor, push to <code>main</code>, and have it live in 20 seconds. The framework I'd need to learn would cost more time than I'd ever save.</p>
 
-    <p><strong>Why Vercel over Framer / Webflow / Squarespace?</strong> Static hosting + per-push deploys + Edge CDN, all free. I considered Framer (visual builder + hosting) but the static-HTML route gives me full control over the spine of every case study. For a Design Engineer angle, the medium <em>is</em> the message.</p>
+    <p><strong>Why Vercel over Framer / Webflow / Squarespace?</strong> Static hosting + per push deploys + Edge CDN, all free. I considered Framer (visual builder + hosting) but the static HTML route gives me full control over the spine of every case study. For a Design Engineer angle, the medium <em>is</em> the message.</p>
 
-    <p><strong>Why CSS variables instead of a CSS-in-JS solution?</strong> Theming with <code>data-theme="dark"</code> + variable swap is one line per token. CSS-in-JS would require a build step and a runtime. Custom properties have been browser-native since Chrome 49 (2016).</p>
+    <p><strong>Why CSS variables instead of a CSS in JS solution?</strong> Theming with <code>data-theme="dark"</code> + variable swap is one line per token. CSS in JS would require a build step and a runtime. Custom properties have been browser native since Chrome 49 (2016).</p>
 
-    <p><strong>Why Antigravity as the build partner?</strong> Pair-programming with Antigravity is faster than solo for the boring parts (HTML scaffolding, repeating layouts) and equally fast for the interesting parts (deciding what content goes on a page). I write the strategy; Antigravity writes the boilerplate. Reviewing diffs is the new typing.</p>
+    <p><strong>Why Antigravity as the build partner?</strong> Pair programming with Antigravity is faster than solo for the boring parts (HTML scaffolding, repeating layouts) and equally fast for the interesting parts (deciding what content goes on a page). I write the strategy; Antigravity writes the boilerplate. Reviewing diffs is the new typing.</p>
 
     <h2>Performance budget</h2>
     <ul>
       <li>No external JavaScript bundles beyond two analytics scripts (each <code>defer</code>-ed)</li>
       <li>One Google Font request for Inter (subset, <code>display=swap</code>)</li>
       <li>Each page ships in &lt; 15KB of HTML</li>
-      <li>Aggressive caching of static assets (CSS, JS, images) via vercel.json — 1 year immutable</li>
-      <li>Target: full first-paint &lt; 1s on 4G in India</li>
+      <li>Aggressive caching of static assets (CSS, JS, images) via vercel.json 1 year immutable</li>
+      <li>Target: full first paint &lt; 1s on 4G in India</li>
     </ul>
 
     <h2>What I'd add next</h2>
     <ul>
       <li>A real Open Graph image (1200×630, generated programmatically from page metadata)</li>
-      <li>Deep-pages for each AI plugin with embedded demo videos</li>
+      <li>Deep pages for each AI plugin with embedded demo videos</li>
       <li>A writing/notes section once I have 3-5 pieces drafted</li>
-      <li>Webmentions-style guestbook (if I want one — undecided)</li>
+      <li>Webmentions style guestbook (if I want one undecided)</li>
     </ul>
 
     <h2>Fork it</h2>
