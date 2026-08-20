@@ -1264,14 +1264,36 @@ a.work-card *,
   padding-top: 24px;
   border-top: 1px solid var(--border-subtle);
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  flex-direction: column;
+  gap: 18px;
   font-size: 13.5px;
   color: var(--text-tertiary);
 }
 
+.site-footer-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .motto {
   font-style: italic;
+}
+
+.footer-credit {
+  text-align: center;
+  color: var(--text-tertiary);
+  letter-spacing: 0.01em;
+}
+
+.footer-credit .heart {
+  font-style: normal;
+  display: inline-block;
+  transition: transform 0.2s ease;
+}
+
+.footer-credit:hover .heart {
+  transform: scale(1.25);
 }
 
 /* ============================================
