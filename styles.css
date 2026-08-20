@@ -680,6 +680,8 @@ a.work-card *,
   -webkit-background-clip: text;
   -webkit-text-fill-color: currentColor;
   transition: -webkit-text-fill-color 0.55s ease, color 0.55s ease;
+  /* Play the rainbow once on load, then settle back to solid */
+  animation: vibgyorIntro 2.8s 0.5s ease both;
 }
 
 .hero-role .vibgyor:hover,
@@ -694,7 +696,33 @@ a.work-card *,
   to { background-position: 300% 50%; }
 }
 
+/* One-time intro: solid -> reveal gradient -> flow once -> settle solid */
+@keyframes vibgyorIntro {
+  0% {
+    -webkit-text-fill-color: currentColor;
+    color: inherit;
+    background-position: 0% 50%;
+  }
+  12% {
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+  }
+  85% {
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    background-position: 300% 50%;
+  }
+  100% {
+    -webkit-text-fill-color: currentColor;
+    color: inherit;
+    background-position: 300% 50%;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
+  .hero-role .vibgyor {
+    animation: none;
+  }
   .hero-role .vibgyor:hover,
   .hero-role .vibgyor:focus-visible {
     animation: none;
