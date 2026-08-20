@@ -453,6 +453,12 @@ img {
   -webkit-user-drag: none;
   user-drag: none;
   filter: drop-shadow(0 20px 26px rgba(0, 0, 0, 0.24));
+  transition: filter 0.3s ease;
+}
+
+/* Hover: subtle lift + brighten (rotation stays JS-driven) */
+.id-badge-swing:hover .id-badge-img {
+  filter: drop-shadow(0 28px 38px rgba(0, 0, 0, 0.32)) brightness(1.05);
 }
 
 @keyframes idDrop {

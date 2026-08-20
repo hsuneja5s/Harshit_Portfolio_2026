@@ -785,6 +785,17 @@ document.addEventListener("DOMContentLoaded", () => {
       window.addEventListener('pointerup', onUp);
     });
     swing.addEventListener('dragstart', (e) => e.preventDefault());
+
+    // Hover: give the card a gentle sway (alternating side each time),
+    // only when it's mostly settled so it stays soft — pairs with the drag.
+    let hoverDir = 1;
+    swing.addEventListener('pointerenter', () => {
+      if (dragging) return;
+      if (Math.abs(vel) < 0.6) {
+        vel += 0.9 * hoverDir;
+        hoverDir *= -1;
+      }
+    });
   }
   initIdBadge();
 
