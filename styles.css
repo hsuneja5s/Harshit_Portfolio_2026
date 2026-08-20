@@ -1215,13 +1215,13 @@ a.work-card *,
   background: var(--background-elevated);
   border: 1px solid var(--border-subtle);
   border-radius: 24px;
-  padding: 34px 34px 0;
+  padding: 32px;
   overflow: hidden;
   transition: transform 0.32s cubic-bezier(0.22, 0.8, 0.3, 1), box-shadow 0.32s ease;
 }
 
 .selected-work .work-card:hover {
-  transform: translateY(-6px);
+  transform: translateY(-8px);
   box-shadow: 0 34px 60px rgba(0, 0, 0, 0.16), 0 10px 22px rgba(0, 0, 0, 0.08);
   border-color: var(--border-inverse);
 }
@@ -1242,7 +1242,7 @@ a.work-card *,
 }
 
 .selected-work .work-sub {
-  margin-top: 7px;
+  margin-top: 8px;
   font-size: 16px;
   font-weight: 400;
   line-height: 1.45;
@@ -1256,7 +1256,7 @@ a.work-card *,
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
-  margin-top: 18px;
+  margin-top: 16px;
 }
 
 .selected-work .work-chip {
@@ -1265,7 +1265,7 @@ a.work-card *,
   color: var(--text-secondary);
   background: var(--background-subtle);
   border: 1px solid var(--border-subtle);
-  padding: 6px 13px;
+  padding: 8px 12px;
   border-radius: 100px;
   line-height: 1;
   letter-spacing: -0.01em;
@@ -1273,7 +1273,7 @@ a.work-card *,
 }
 
 .selected-work .work-visual {
-  margin: 28px -34px 0; /* bleed the mockup to the card edges */
+  margin: 28px 0 0; /* equal padding around the mockup (card padding handles the rest) */
   height: 320px;
   position: relative;
   overflow: hidden;
