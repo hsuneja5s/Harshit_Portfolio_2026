@@ -935,6 +935,63 @@ document.addEventListener("DOMContentLoaded", () => {
   initPresence();
 
   // ============================================
+  // HOVER CURSOR — "View case study" / "Coming soon" follower pill
+  // Vector (real text + SVG) so it never pixelates like an image cursor.
+  // ============================================
+  function initHoverCursor() {
+    if (window.matchMedia('(hover: none)').matches) return; // skip touch
+
+    const EYE = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>';
+
+    const pill = document.createElement('div');
+    pill.className = 'hover-cursor';
+    pill.innerHTML = '<span class="hover-cursor-icon"></span><span class="hover-cursor-label"></span>';
+    document.body.appendChild(pill);
+    const icon = pill.querySelector('.hover-cursor-icon');
+    const label = pill.querySelector('.hover-cursor-label');
+
+    let mx = -200, my = -200, raf = 0;
+    const place = () => { pill.style.transform = `translate(${mx}px, ${my}px) translate(-50%, -50%) scale(1)`; };
+    const move = (e) => {
+      mx = e.clientX; my = e.clientY;
+      if (!raf) raf = requestAnimationFrame(() => { place(); raf = 0; });
+    };
+
+    const show = (variant) => {
+      if (variant === 'soon') {
+        pill.classList.add('is-soon'); pill.classList.remove('is-view');
+        icon.textContent = '🚧'; label.textContent = 'Coming soon';
+      } else {
+        pill.classList.add('is-view'); pill.classList.remove('is-soon');
+        icon.innerHTML = EYE; label.textContent = 'View case study';
+      }
+      pill.style.transition = 'none';
+      place();
+      void pill.offsetWidth; // reflow so it doesn't fly in from the last spot
+      pill.style.transition = '';
+      pill.classList.add('is-visible');
+      window.addEventListener('mousemove', move);
+    };
+
+    const hide = () => {
+      pill.classList.remove('is-visible');
+      window.removeEventListener('mousemove', move);
+    };
+
+    const bind = (selector, variant) => {
+      document.querySelectorAll(selector).forEach((el) => {
+        el.addEventListener('pointerenter', (e) => { mx = e.clientX; my = e.clientY; show(variant); });
+        el.addEventListener('pointerleave', hide);
+      });
+    };
+
+    bind('a.work-card', 'view');
+    bind('.plugin-bento-card', 'view');
+    bind('.work-card--disabled', 'soon');
+  }
+  initHoverCursor();
+
+  // ============================================
   // SCROLL REVEAL (Fade-In & Slide-Up)
   // ============================================
   const revealElements = document.querySelectorAll('.reveal');
