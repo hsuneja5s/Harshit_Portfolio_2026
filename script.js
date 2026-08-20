@@ -10,7 +10,10 @@ const SITE_HEADER_HTML = `
       <span class="avatar" role="img" aria-label="Harshit avatar">
         <img src="/images/me.jpg" alt="Harshit" />
       </span>
-      <span class="nav-name">Harshit</span>
+      <span class="nav-identity-text">
+        <span class="nav-name">Harshit</span>
+        <span class="nav-role">Product Designer + Engineer</span>
+      </span>
     </a>
     <nav class="nav-links" aria-label="Primary">
       <a href="/#work" class="nav-link">Work</a>

@@ -449,12 +449,50 @@ img {
   object-fit: cover;
 }
 
+.nav-identity-text {
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+  overflow: hidden;
+}
+
 .nav-name {
   font-weight: 700;
   font-size: var(--text-16);
   letter-spacing: var(--tracking-n001em);
   white-space: nowrap;
   color: var(--text-primary);
+}
+
+/* Mono role line — adjacent to the name, only in the expanded pill */
+.nav-role {
+  margin-left: var(--space-8);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: var(--text-8);
+  font-weight: 500;
+  letter-spacing: var(--tracking-008em);
+  text-transform: uppercase;
+  white-space: nowrap;
+  color: var(--text-secondary);
+  max-width: var(--size-200);
+  opacity: 1;
+  transition: max-width var(--duration-400) var(--ease-standard),
+              margin-left var(--duration-400) var(--ease-standard),
+              opacity var(--duration-250) ease;
+}
+
+/* Collapsed capsule → hide the role, returning to the original width */
+.site-header.past-hero .nav-role {
+  max-width: 0;
+  margin-left: 0;
+  opacity: 0;
+}
+
+/* Hover re-expands the pill → bring it back */
+.site-header.past-hero .nav-pill:hover .nav-role {
+  max-width: var(--size-200);
+  margin-left: var(--space-8);
+  opacity: 1;
 }
 
 .nav-links {
