@@ -1264,16 +1264,10 @@ a.work-card *,
   padding-top: 24px;
   border-top: 1px solid var(--border-subtle);
   display: flex;
-  flex-direction: column;
-  gap: 18px;
-  font-size: 13.5px;
-  color: var(--text-tertiary);
-}
-
-.site-footer-row {
-  display: flex;
   justify-content: space-between;
   align-items: center;
+  font-size: 13.5px;
+  color: var(--text-tertiary);
 }
 
 .motto {
@@ -1281,7 +1275,6 @@ a.work-card *,
 }
 
 .footer-credit {
-  text-align: center;
   color: var(--text-tertiary);
   letter-spacing: 0.01em;
 }
