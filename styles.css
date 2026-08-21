@@ -4331,6 +4331,7 @@ blockquote.voice-quote cite {
   --text-40: 40px;
   --text-44: 44px;
   --size-128: 128px;
+  --size-256: 256px;
 }
 
 /* ── Hero: eyebrow + serif display title + lede ── */
@@ -4362,7 +4363,7 @@ blockquote.voice-quote cite {
 
 /* ── Section rhythm: big air between acts ── */
 .case-editorial .case-section {
-  margin-bottom: var(--size-128);
+  margin-bottom: var(--size-256);
 }
 
 .case-editorial .case-section h2 {
