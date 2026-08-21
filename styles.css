@@ -4349,10 +4349,32 @@ blockquote.voice-quote cite {
 }
 
 .case-editorial .case-subtitle {
-  font-size: var(--text-20);
-  line-height: 1.55;
+  font-size: var(--text-16);
+  line-height: 1.7;
   color: var(--text-secondary);
   max-width: var(--size-680, 680px);
+}
+
+/* Hero metadata row — clean 4-up, generous gap before first section */
+.case-hero-meta {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-32);
+  margin: var(--space-48) 0 var(--size-128);
+}
+
+.case-hero-meta-value {
+  font-size: var(--text-14);
+  color: var(--text-primary);
+  line-height: 1.5;
+}
+
+@media (max-width: 640px) {
+  .case-hero-meta {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-24);
+    margin-bottom: var(--space-64);
+  }
 }
 
 @media (max-width: 640px) {
@@ -4395,8 +4417,8 @@ blockquote.voice-quote cite {
 
 /* ── Lede: larger intro paragraph under a heading ── */
 .case-editorial .case-lede {
-  font-size: var(--text-20);
-  line-height: 1.6;
+  font-size: var(--text-16);
+  line-height: 1.7;
   color: var(--text-secondary);
   margin-bottom: var(--space-40);
   max-width: var(--size-680, 680px);
