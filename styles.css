@@ -4385,7 +4385,7 @@ blockquote.voice-quote cite {
 
 /* ── Section rhythm: big air between acts ── */
 .case-editorial .case-section {
-  margin-bottom: var(--size-256);
+  margin-bottom: var(--size-128);
 }
 
 .case-editorial .case-section h2 {
