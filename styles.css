@@ -3469,7 +3469,7 @@ p.pull-quote {
   }
 
   .hero-name {
-    font-size: var(--text-40); /* Exactly 2x .hero-role mobile size (which is 20px) */
+    font-size: var(--text-36);
     margin-bottom: var(--space-8);
   }
 
