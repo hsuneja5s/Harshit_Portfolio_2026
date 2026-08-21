@@ -568,6 +568,52 @@ img {
   opacity: 0;
 }
 
+/* Mobile → top nav starts collapsed by default (avatar + name + •••),
+   regardless of scroll position. Tap/hover the pill to expand the links. */
+@media (max-width: 600px) {
+  .nav-links {
+    max-width: 0;
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .nav-role {
+    max-width: 0;
+    margin-left: 0;
+    opacity: 0;
+  }
+
+  .nav-identity {
+    margin-right: var(--space-16);
+  }
+
+  .nav-more {
+    width: var(--space-32);
+    opacity: 1;
+  }
+
+  .nav-pill:hover .nav-links {
+    max-width: var(--size-420);
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .nav-pill:hover .nav-role {
+    max-width: var(--size-200);
+    margin-left: var(--space-8);
+    opacity: 1;
+  }
+
+  .nav-pill:hover .nav-identity {
+    margin-right: var(--space-24);
+  }
+
+  .nav-pill:hover .nav-more {
+    width: 0;
+    opacity: 0;
+  }
+}
+
 .kbd-search {
   display: flex;
   align-items: center;
