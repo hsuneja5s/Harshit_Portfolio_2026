@@ -365,8 +365,21 @@ body {
 }
 
 @media (max-width: 600px) {
+  /* Mobile browsers ignore background-attachment: fixed and fall back to
+     scroll, which makes `cover` size the image to the whole (very tall) page
+     instead of the screen — blowing the pattern up huge. Lock it to the
+     viewport with a position: fixed layer so `cover` sizes to the screen. */
   body {
-    background-image: url("/images/MobileBackground.png?v=20260821-1");
+    background-image: none;
+  }
+
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    background: url("/images/MobileBackground.png?v=20260821-1") center / cover no-repeat;
+    pointer-events: none;
   }
 }
 
