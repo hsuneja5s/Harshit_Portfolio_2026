@@ -16,8 +16,8 @@
   <title>One cockpit for the entire deal pipeline · Harshit Suneja</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../styles.css?v=20260821-8" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css?v=20260821-9" />
   <link rel="icon" type="image/jpeg" href="/images/me.jpg" />
   <link rel="apple-touch-icon" href="/images/me.jpg" />
   <meta property="og:image" content="https://sunejaux.space/images/og-cover.jpg" />
@@ -109,60 +109,181 @@
         </svg>
         Back home
       </a>
-      <a href="#tldr">In brief</a>
-      <a href="#context">01 · Who, why &amp; what</a>
-      <a href="#foundation">02 · Flow &amp; IA</a>
-      <a href="#evolution">03 · Design evolution</a>
+      <a href="#overview">Overview</a>
+      <a href="#solution">Solution</a>
+      <a href="#flows">Core Flows</a>
+      <a href="#research">Research</a>
+      <a href="#decisions">Design Decisions</a>
       <a href="#insight">Insight.AI</a>
-      <a href="#outcome">04 · Outcome</a>
-      <a href="#cuts">What we didn't ship</a>
+      <a href="#outcome">Outcome</a>
+      <a href="#reflection">Reflection</a>
     </aside>
 
-    <article class="case-content">
-      <img src="/images/work/energy-cover.png?v=20260523-4" alt="The Pacific Platform — welcome workspace and primary deal cockpit"
-        class="case-mockup" style="margin-top: 0;" />
-      <div class="case-figure-caption" style="margin-top: var(--space-12); margin-bottom: var(--space-24);">Welcome workspace. One entry point for every regional deal.</div>
+    <article class="case-content case-editorial">
 
+      <!-- ─────────── HERO ─────────── -->
+      <span class="case-eyebrow case-eyebrow--hero">Energy · Deal operations · 2025</span>
       <h1 class="case-title">Deal intelligence for global energy operations</h1>
-      <p class="case-subtitle">Hundreds of active regional deals lived across separate spreadsheets and trackers, so every review began with hours of manual stitching. I led the design of The Pacific Platform, a single control cockpit that consolidated them into one workflow aligned interface and shifted finance from reconciliation to real time performance management.</p>
 
-      <div class="case-meta">
-        <div class="case-meta-row"><span class="case-meta-label">Role</span><span class="case-meta-value">Senior Product Designer · Design lead</span></div>
-        <div class="case-meta-row"><span class="case-meta-label">Client</span><span class="case-meta-value">Global energy enterprise (PwC engagement)</span></div>
-        <div class="case-meta-row"><span class="case-meta-label">Timeline</span><span class="case-meta-value">Jun 2025 to Dec 2025</span></div>
-        <div class="case-meta-row"><span class="case-meta-label">Team</span><span class="case-meta-value">Product, Engineering, Finance stakeholders</span></div>
-        <div class="case-meta-row"><span class="case-meta-label">Focus</span><span class="case-meta-value">Enterprise UX, Data density, Conversational AI</span></div>
+      <div class="case-showcase">
+        <img src="/images/work/energy-cover.png?v=20260523-4" alt="The Pacific Platform welcome workspace and primary deal cockpit" />
       </div>
 
-      <!-- ─────────────── IN BRIEF ─────────────── -->
-      <section class="case-section case-tldr reveal" id="tldr">
-        <p class="case-thesis">The work was not adding features. It was collapsing a fragmented reconciliation ritual into a single source of truth that finance leaders could read in one glance.</p>
-        <div class="process-stepper">
-          <div class="step-card">
-            <span class="step-number">01 / CONSOLIDATE</span>
-            <h4>Spreadsheet chaos</h4>
-            <p>Pull regional time bookings, live opportunity budgets, and compliance status out of scattered trackers into one pipeline.</p>
+      <p class="case-subtitle">Hundreds of active regional deals lived across separate spreadsheets and trackers, so every review began with hours of manual stitching. I led the design of The Pacific Platform, a single control cockpit that consolidated them into one workflow aligned interface and shifted finance from reconciliation to real time performance management.</p>
+
+      <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--space-32); margin: var(--space-40) 0 0;">
+        <div>
+          <span class="case-eyebrow">Role</span>
+          <div class="case-col-text" style="color: var(--text-primary);">Senior Product Designer · Design lead</div>
+        </div>
+        <div>
+          <span class="case-eyebrow">Timeline</span>
+          <div class="case-col-text" style="color: var(--text-primary);">Jun to Dec 2025</div>
+        </div>
+        <div>
+          <span class="case-eyebrow">Team</span>
+          <div class="case-col-text" style="color: var(--text-primary);">Product, Engineering, Finance</div>
+        </div>
+        <div>
+          <span class="case-eyebrow">Focus</span>
+          <div class="case-col-text" style="color: var(--text-primary);">Enterprise UX, Data density, Conversational AI</div>
+        </div>
+      </div>
+
+      <!-- ─────────── OVERVIEW ─────────── -->
+      <section class="case-section reveal" id="overview">
+        <span class="case-eyebrow">Overview</span>
+        <h2>What if finance could stop reconciling and start managing?</h2>
+        <p class="case-lede">Over [ NN ] interviews with regional deal leads, finance controllers, and portfolio managers, one truth kept surfacing: the data existed, but never in one place at one time. Nobody trusted a number until it had been stitched together by hand.</p>
+
+        <div class="case-columns">
+          <div>
+            <div class="case-col-title">Consolidate the trackers</div>
+            <div class="case-col-text">Pull regional time bookings, live opportunity budgets, and compliance status out of scattered spreadsheets into one pipeline.</div>
           </div>
-          <div class="step-card">
-            <span class="step-number">02 / THE BET</span>
-            <h4>One unified cockpit</h4>
-            <p>Design a high density, workflow aligned workspace that puts deal metadata and compliance checks on the primary cards.</p>
+          <div>
+            <div class="case-col-title">Design one cockpit</div>
+            <div class="case-col-text">A high density, workflow aligned workspace that puts deal metadata and compliance checks on the primary cards.</div>
           </div>
-          <div class="step-card">
-            <span class="step-number">03 / THE SHIFT</span>
-            <h4>In flight, not hindsight</h4>
-            <p>Move finance from retrospective slide decks to live burn rate analysis and early risk resolution.</p>
+          <div>
+            <div class="case-col-title">Shift to performance</div>
+            <div class="case-col-text">Move finance from retrospective slide decks to live burn rate analysis and early risk resolution.</div>
+          </div>
+        </div>
+
+        <!-- PROBLEM -->
+        <span class="case-eyebrow" style="margin-top: var(--space-64);">Problem</span>
+        <h2>By the time a number reached a slide, it was already a week old.</h2>
+        <p>Regional deals each lived in their own tracker. Preparing a single review meant exporting every one, stitching them into a master sheet, chasing owners for missing updates, and recomputing burn by hand before anything could be presented. The pipeline was real, but it was never current.</p>
+
+        <div class="case-panel">
+          <span class="case-panel-label">The reconciliation tax</span>
+          <div class="case-stack">
+            <div class="case-stack-row">
+              <span class="case-box">Region A tracker</span>
+              <span class="case-box">Region B tracker</span>
+              <span class="case-box">Region C tracker</span>
+              <span class="case-box">Region D tracker</span>
+            </div>
+            <span class="case-stack-arrow">↓</span>
+            <div class="case-stack-row">
+              <span class="case-box">Manual master spreadsheet</span>
+            </div>
+            <span class="case-stack-arrow">↓</span>
+            <div class="case-stack-row">
+              <span class="case-box">Retrospective slide deck, already stale</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- OPPORTUNITY -->
+        <span class="case-eyebrow" style="margin-top: var(--space-64);">Opportunity</span>
+        <h2>One source of truth, read in a glance.</h2>
+        <p class="case-lede">If the pipeline consolidated itself, the job could change entirely: from assembling the numbers to acting on them.</p>
+        <div class="case-columns">
+          <div>
+            <div class="case-col-title">Live, not retrospective</div>
+            <div class="case-col-text">Burn and budget update as work happens, so risk is visible while there is still time to act.</div>
+          </div>
+          <div>
+            <div class="case-col-title">One shared pipeline</div>
+            <div class="case-col-text">Every region reconciled into a single view that leaders can trust without rebuilding it.</div>
+          </div>
+          <div>
+            <div class="case-col-title">Risk in flight</div>
+            <div class="case-col-text">Compliance gates and overruns surface early, not at quarter close.</div>
           </div>
         </div>
       </section>
 
-      <!-- ═══════════════ ACT 01 ═══════════════ -->
-      <section class="case-section reveal" id="context">
-        <h2>01 · Who, why &amp; what</h2>
-        <p>Before designing a single screen, I sat with the people who lived in the spreadsheets. Across [ NN ] interviews with regional deal leads, finance controllers, and portfolio managers, the same story surfaced: the data existed, but it was never in one place at one time, so nobody trusted it until it had been manually reconciled.</p>
+      <!-- ─────────── SOLUTION ─────────── -->
+      <section class="case-section reveal" id="solution">
+        <span class="case-eyebrow">Solution</span>
+        <h2>The Pacific Platform: a deal cockpit finance can trust.</h2>
+        <p class="case-lede">One control hub that consolidates hundreds of regional deals into a single, workflow aligned interface, with budget, status, and compliance living on the same card.</p>
 
-        <p style="margin-top: var(--space-16); margin-bottom: var(--space-8); font-weight: 500;">What we heard, in their words:</p>
-        <div class="case-split-grid" style="align-items: flex-start; gap: var(--space-48); margin-top: var(--space-16);">
+        <div class="case-showcase">
+          <img src="/images/work/energy-budget.png?v=20260523-4" alt="The Pacific Platform primary deal and budget cockpit dashboard" />
+        </div>
+
+        <p class="case-beat">The measure of success was not a feature list. It was a finance leader opening one screen and, for the first time, trusting the number they saw.</p>
+      </section>
+
+      <!-- ─────────── CORE FLOWS ─────────── -->
+      <section class="case-section reveal" id="flows">
+        <span class="case-eyebrow">Core Flows</span>
+        <h2>Five views, each answering one question a leader actually asks.</h2>
+        <p class="case-lede">The navigation mirrors the job, not the database. Every view resolves a single question, so scanning replaces searching.</p>
+
+        <div class="case-media">
+          <div class="case-media-visual">
+            <img src="/images/work/energy-budget.png" alt="Budget cockpit view" />
+          </div>
+          <div class="case-media-body">
+            <div class="case-media-title">Budget Cockpit</div>
+            <div class="case-media-text">Live actual versus planned cost, with burn rate alerts on the card. Answers: are we on track, right now?</div>
+          </div>
+        </div>
+
+        <div class="case-media reverse">
+          <div class="case-media-visual">
+            <img src="/images/work/energy-detailed.png" alt="Detailed deal view" />
+          </div>
+          <div class="case-media-body">
+            <div class="case-media-title">Detailed View</div>
+            <div class="case-media-text">Core opportunity details and metadata in one place. Answers: what exactly is this deal, and where is it stuck?</div>
+          </div>
+        </div>
+
+        <div class="case-media">
+          <div class="case-media-visual">
+            <img src="/images/work/energy-pfm.png" alt="Portfolio manager executive view" />
+          </div>
+          <div class="case-media-body">
+            <div class="case-media-title">Portfolio Manager View</div>
+            <div class="case-media-text">Executive dashboard with burn and compliance trends across regions. Answers: which deal is quietly slipping?</div>
+          </div>
+        </div>
+
+        <div class="case-gallery">
+          <figure>
+            <img src="/images/work/energy-historic.png" alt="Historic deal dashboard" />
+            <figcaption>Historic Dashboard · margins and compliance over time</figcaption>
+          </figure>
+          <figure>
+            <img src="/images/work/energy-activity-log.png" alt="Deal contributors activity log" />
+            <figcaption>Activity Log · audit trail of every gate clearance</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <!-- ─────────── RESEARCH ─────────── -->
+      <section class="case-section reveal" id="research">
+        <span class="case-eyebrow">Research</span>
+        <h2>We sat with the people who lived in the spreadsheets.</h2>
+        <p class="case-lede">Before designing a single screen, I mapped how deal management actually happened. The friction was consistent across every region.</p>
+
+        <div class="case-split-grid" style="align-items: flex-start; gap: var(--space-48); margin-top: var(--space-24);">
           <div style="display: flex; flex-direction: column; gap: var(--space-24); width: 100%;">
             <div class="flying-quote" style="align-self: flex-start; max-width: 88%;">
               <span class="flying-quote-label">Fragmentation</span>
@@ -179,66 +300,66 @@
           </div>
         </div>
 
-        <!-- PERSONAS -->
-        <p style="margin-top: var(--space-16); margin-bottom: var(--space-4); font-weight: 500;">Three people, three jobs, one shared pipeline:</p>
+        <span class="case-eyebrow" style="margin-top: var(--space-64);">Who we designed for</span>
         <div class="persona-grid">
           <div class="persona-card">
             <div class="persona-name">The Deal Lead</div>
             <div class="persona-tagline">Regional, owns the opportunity</div>
-            <div class="persona-block"><p class="persona-text"><strong>Needs</strong> to log time and budget against a deal without spreadsheet gymnastics, and to know exactly which compliance gate is blocking progress.</p></div>
-            <div class="persona-block"><p class="persona-text"><strong>Frustration</strong> Status lives in their head and three tabs. Updates are a chore, so they slip.</p></div>
+            <div class="persona-block"><p class="persona-text"><strong>Needs</strong> to log time and budget without spreadsheet gymnastics, and to know which compliance gate is blocking progress.</p></div>
+            <div class="persona-block"><p class="persona-text"><strong>Frustration</strong> Status lives in their head and three tabs, so updates slip.</p></div>
           </div>
           <div class="persona-card">
             <div class="persona-name">The Finance Controller</div>
             <div class="persona-tagline">Reconciles budget against actuals</div>
-            <div class="persona-block"><p class="persona-text"><strong>Needs</strong> a single source of truth for planned versus actual cost across every region, with burn visible as it happens.</p></div>
+            <div class="persona-block"><p class="persona-text"><strong>Needs</strong> a single source of truth for planned versus actual cost, with burn visible as it happens.</p></div>
             <div class="persona-block"><p class="persona-text"><strong>Frustration</strong> Spends more time stitching data than interpreting it.</p></div>
           </div>
           <div class="persona-card">
             <div class="persona-name">The Portfolio Manager</div>
             <div class="persona-tagline">Executive, reads the whole book</div>
-            <div class="persona-block"><p class="persona-text"><strong>Needs</strong> burn and compliance trends across all regions at a glance, and a way to spot the deal that is quietly slipping.</p></div>
+            <div class="persona-block"><p class="persona-text"><strong>Needs</strong> burn and compliance trends across all regions at a glance.</p></div>
             <div class="persona-block"><p class="persona-text"><strong>Frustration</strong> Sees a curated snapshot, never the live pipeline.</p></div>
           </div>
         </div>
 
-        <!-- JTBD -->
-        <p style="margin-top: var(--space-16); margin-bottom: var(--space-4); font-weight: 500;">We organised every user story into six jobs to be done, which became the spine of the console:</p>
-        <div class="metric-grid">
-          <div class="metric-tile">
-            <div style="font-size: var(--text-12); font-weight: 600; margin-bottom: var(--space-8); color: var(--text-primary);">Create</div>
-            <div class="metric-label">Open a new deal and frame the opportunity in minutes.</div>
+        <span class="case-eyebrow" style="margin-top: var(--space-64);">Jobs to be done</span>
+        <div class="case-columns">
+          <div>
+            <div class="case-col-title">Create</div>
+            <div class="case-col-text">Open a new deal and frame the opportunity in minutes.</div>
           </div>
-          <div class="metric-tile">
-            <div style="font-size: var(--text-12); font-weight: 600; margin-bottom: var(--space-8); color: var(--text-primary);">Track</div>
-            <div class="metric-label">Log time and budget against a live deal as work happens.</div>
+          <div>
+            <div class="case-col-title">Track</div>
+            <div class="case-col-text">Log time and budget against a live deal as work happens.</div>
           </div>
-          <div class="metric-tile">
-            <div style="font-size: var(--text-12); font-weight: 600; margin-bottom: var(--space-8); color: var(--text-primary);">Reconcile</div>
-            <div class="metric-label">See planned versus actual cost in one place, no stitching.</div>
-          </div>
-          <div class="metric-tile">
-            <div style="font-size: var(--text-12); font-weight: 600; margin-bottom: var(--space-8); color: var(--text-primary);">Forecast</div>
-            <div class="metric-label">Read burn rate and project the runway before it bites.</div>
-          </div>
-          <div class="metric-tile">
-            <div style="font-size: var(--text-12); font-weight: 600; margin-bottom: var(--space-8); color: var(--text-primary);">Audit</div>
-            <div class="metric-label">Trace every gate clearance and edit through the activity log.</div>
-          </div>
-          <div class="metric-tile">
-            <div style="font-size: var(--text-12); font-weight: 600; margin-bottom: var(--space-8); color: var(--text-primary);">Report</div>
-            <div class="metric-label">Surface portfolio trends without rebuilding a slide.</div>
+          <div>
+            <div class="case-col-title">Reconcile</div>
+            <div class="case-col-text">See planned versus actual in one place, no stitching.</div>
           </div>
         </div>
-
-        <p style="margin-top: var(--space-16);"><strong>The scope we committed to:</strong> consolidate the regional trackers into one pipeline, put compliance and budget on the primary deal cards, and give leaders a live read of burn instead of a retrospective one. Everything that did not serve that single source of truth was deferred.</p>
+        <div class="case-columns">
+          <div>
+            <div class="case-col-title">Forecast</div>
+            <div class="case-col-text">Read burn rate and project the runway before it bites.</div>
+          </div>
+          <div>
+            <div class="case-col-title">Audit</div>
+            <div class="case-col-text">Trace every gate clearance and edit through the activity log.</div>
+          </div>
+          <div>
+            <div class="case-col-title">Report</div>
+            <div class="case-col-text">Surface portfolio trends without rebuilding a slide.</div>
+          </div>
+        </div>
       </section>
 
-      <!-- ═══════════════ ACT 02 ═══════════════ -->
-      <section class="case-section reveal" id="foundation">
-        <h2>02 · The foundational flow &amp; IA</h2>
-        <p>The old process was not a workflow, it was a reconciliation ritual repeated every cycle. The design goal for the flow was blunt: remove every step a system could do for a human.</p>
+      <!-- ─────────── DESIGN DECISIONS ─────────── -->
+      <section class="case-section reveal" id="decisions">
+        <span class="case-eyebrow">Design Decisions</span>
+        <h2>We identified the most legible way to bring the pipeline to life.</h2>
+        <p class="case-lede">The old process was not a workflow, it was a reconciliation ritual repeated every cycle. The design goal was blunt: remove every step a system could do for a human.</p>
 
+        <span class="case-eyebrow" style="margin-top: var(--space-40);">Before / After</span>
         <div class="step-comparison">
           <div class="step-column before">
             <div class="step-column-title">Before</div>
@@ -263,80 +384,63 @@
           </div>
         </div>
 
-        <p>Information architecture came out of a stakeholder workshop that mapped the deal lifecycle end to end. The pipeline resolved into five workflow aligned views, each answering one question a finance leader actually asks, so the navigation mirrored the job rather than the database.</p>
-
-        <img src="/images/work/energy-budget.png?v=20260523-4" alt="The Pacific Platform — primary deal and budget cockpit dashboard" class="case-mockup" />
-        <div class="case-figure-caption" style="margin-top: var(--space-12); margin-bottom: var(--space-24);">The budget cockpit. Planned versus actual, live, with burn rate alerts on the card.</div>
-
-        <p class="pull-quote">Testing an early split layout, users kept losing the thread between a deal and its money. The fix was not more screens, it was fewer: budget, status, and compliance had to live on the same card.</p>
-      </section>
-
-      <!-- ═══════════════ ACT 03 ═══════════════ -->
-      <section class="case-section reveal" id="evolution">
-        <h2>03 · Design evolution</h2>
-        <p>We explored three models for the cockpit: a lightweight summary view, a deep single deal workspace, and a high density pipeline where metadata and compliance sit directly on the primary cards. We bet on the third. In an enterprise finance context, the cost of a second click is a lost thread, so legibility and scanning beat minimalism.</p>
-
-        <p>That bet only worked if the components could carry the density without becoming noise. Status indicators, buttons, and tables were rebuilt for scannability, then contributed back into the platform's design system so every future view inherited the same clarity.</p>
-
-        <p style="margin-top: var(--space-8);">The pipeline organised into five workflow aligned views:</p>
-        <div class="case-carousel">
-          <div class="carousel-viewport">
-            <div class="carousel-slide">
-              <img src="/images/work/energy-budget.png" alt="Deal budget cockpit view" class="carousel-img" />
-              <span class="carousel-caption"><strong>01 / Budget Cockpit</strong>: Live actual versus planned cost tracking with burn rate alerts.</span>
-            </div>
-            <div class="carousel-slide">
-              <img src="/images/work/energy-detailed.png" alt="Deal detailed view" class="carousel-img" />
-              <span class="carousel-caption"><strong>02 / Detailed View</strong>: Core opportunity details and metadata in one place.</span>
-            </div>
-            <div class="carousel-slide">
-              <img src="/images/work/energy-historic.png" alt="Historic deal dashboard view" class="carousel-img" />
-              <span class="carousel-caption"><strong>03 / Historic Dashboard</strong>: Historical margins and status compliance pipelines.</span>
-            </div>
-            <div class="carousel-slide">
-              <img src="/images/work/energy-activity-log.png" alt="Deal contributors activity log" class="carousel-img" />
-              <span class="carousel-caption"><strong>04 / Activity Log</strong>: Audit trails tracking every gate clearance and edit.</span>
-            </div>
-            <div class="carousel-slide">
-              <img src="/images/work/energy-pfm.png" alt="Portfolio manager persona view" class="carousel-img" />
-              <span class="carousel-caption"><strong>05 / Portfolio Manager View</strong>: Executive dashboard with burn and compliance trends.</span>
-            </div>
-          </div>
-          <div class="carousel-nav">
-            <button class="carousel-indicator active" aria-label="Go to slide 1"></button>
-            <button class="carousel-indicator" aria-label="Go to slide 2"></button>
-            <button class="carousel-indicator" aria-label="Go to slide 3"></button>
-            <button class="carousel-indicator" aria-label="Go to slide 4"></button>
-            <button class="carousel-indicator" aria-label="Go to slide 5"></button>
-          </div>
+        <span class="case-eyebrow" style="margin-top: var(--space-64);">Systems thinking</span>
+        <div class="case-panel">
+          <span class="case-panel-label">Information architecture</span>
+          <img src="/images/work/energy-phase-status.png?v=20260523-4" alt="Deal lifecycle phases and status mapped across the console" style="width: 100%; height: auto; display: block; border-radius: var(--radius-md, 8px);" />
         </div>
+        <p>Information architecture came out of a stakeholder workshop that mapped the deal lifecycle end to end. We explored three cockpit models: a lightweight summary, a deep single deal workspace, and a high density pipeline with metadata and compliance on the primary cards. We bet on the third. In enterprise finance, the cost of a second click is a lost thread, so legibility beats minimalism.</p>
+
+        <p class="case-beat">Testing an early split layout, users kept losing the thread between a deal and its money. The fix was not more screens, it was fewer: budget, status, and compliance had to live on the same card.</p>
       </section>
 
-      <!-- INSIGHT.AI -->
+      <!-- ─────────── INSIGHT.AI ─────────── -->
       <section class="case-section reveal" id="insight">
-        <h2>Insight.AI</h2>
-        <p>A live cockpit answers "what is happening." Finance leaders also ask "what should I do about it." So we built Insight.AI directly into the platform, a conversational layer that turns the dashboard into a dialogue.</p>
+        <span class="case-eyebrow">Insight.AI</span>
+        <h2>A live cockpit answers what is happening. Leaders also ask what to do about it.</h2>
 
-        <div class="case-split-grid reverse">
-          <div class="split-text">
-            <ul>
-              <li style="margin-bottom: var(--space-12);"><strong>Conversational guidance:</strong> leaders query burn rates, budgets, and forecasts in plain language, no pivot table required.</li>
-              <li style="margin-bottom: var(--space-12);"><strong>Proactive risk checks:</strong> the assistant flags anomalies and surfaces the deal at risk before it reaches quarter close.</li>
-              <li style="margin-bottom: var(--space-12);"><strong>Grounded, not guessing:</strong> every answer traces back to a real number in the pipeline, so trust is earned, not assumed.</li>
-            </ul>
+        <div class="case-media reverse">
+          <div class="case-media-visual">
+            <img src="/images/work/energy-ai-modal.png?v=20260523-4" alt="Insight.AI conversational finance intelligence assistant" />
           </div>
-          <div class="split-visual" style="display: flex; flex-direction: column; align-items: center;">
-            <img src="/images/work/energy-ai-modal.png?v=20260523-4" alt="Insight.AI conversational finance intelligence assistant" class="case-mockup" style="margin: 0; max-height: var(--size-520); width: auto; object-fit: contain; border-radius: var(--radius-md);" />
-            <div class="case-figure-caption" style="margin-top: var(--space-12);">Insight.AI. Deal performance and prediction, in plain language.</div>
+          <div class="case-media-body">
+            <div class="case-media-title">Conversation, grounded in the pipeline</div>
+            <div class="case-media-text">
+              <strong>Conversational guidance</strong> lets leaders query burn rates, budgets, and forecasts in plain language, no pivot table required.<br><br>
+              <strong>Proactive risk checks</strong> flag anomalies and surface the deal at risk before it reaches quarter close.<br><br>
+              <strong>Grounded, not guessing</strong> means every answer traces back to a real number in the pipeline, so trust is earned.
+            </div>
           </div>
         </div>
       </section>
 
-      <!-- ═══════════════ ACT 04 ═══════════════ -->
+      <!-- ─────────── SUPPORTING STATES ─────────── -->
+      <section class="case-section reveal" id="states">
+        <span class="case-eyebrow">Edge states</span>
+        <h2>The unglamorous work that makes a cockpit trustworthy.</h2>
+        <p class="case-lede">Empty states, help flows, and error pages were standardised so the platform stayed calm and legible at every edge.</p>
+        <div class="misc-ticker-container" style="margin-top: var(--space-24);">
+          <div class="misc-ticker-track">
+            <img src="/images/work/misc-assurance-table.png?v=20260523-4" alt="Economic assurance table setting" class="ticker-img" />
+            <img src="/images/work/misc-help-flow.png?v=20260523-4" alt="Dashboard help flow overlay" class="ticker-img" />
+            <img src="/images/work/misc-404.png?v=20260523-4" alt="Custom 404 state" class="ticker-img" />
+            <img src="/images/work/misc-help-page.png?v=20260523-4" alt="Standardized platform help page" class="ticker-img" />
+            <img src="/images/work/misc-no-deals.png?v=20260523-4" alt="No deals created yet empty state" class="ticker-img" />
+            <img src="/images/work/misc-assurance-table.png?v=20260523-4" alt="Economic assurance table setting" class="ticker-img" aria-hidden="true" />
+            <img src="/images/work/misc-help-flow.png?v=20260523-4" alt="Dashboard help flow overlay" class="ticker-img" aria-hidden="true" />
+            <img src="/images/work/misc-404.png?v=20260523-4" alt="Custom 404 state" class="ticker-img" aria-hidden="true" />
+            <img src="/images/work/misc-help-page.png?v=20260523-4" alt="Standardized platform help page" class="ticker-img" aria-hidden="true" />
+            <img src="/images/work/misc-no-deals.png?v=20260523-4" alt="No deals created yet empty state" class="ticker-img" aria-hidden="true" />
+          </div>
+        </div>
+      </section>
+
+      <!-- ─────────── OUTCOME ─────────── -->
       <section class="case-section reveal" id="outcome">
-        <h2>04 · The outcome</h2>
+        <span class="case-eyebrow">Outcome</span>
+        <h2>From reconciliation to performance management.</h2>
         <!-- TODO(Harshit): replace the bracketed [ XX ] placeholders below with real figures -->
-        <div class="metric-grid">
+        <div class="metric-grid" style="margin-top: var(--space-24);">
           <div class="metric-tile">
             <div class="metric-value">[ XX ] hrs</div>
             <div class="metric-label">Review prep collapsed from a multi hour reconciliation ritual to a live dashboard read in minutes.</div>
@@ -354,31 +458,24 @@
             <div class="metric-label">Faster risk detection, with burn and compliance flags surfaced early instead of at quarter close.</div>
           </div>
         </div>
-
-        <p class="pull-quote">The measure of success was not a feature list. It was a finance leader opening one screen and, for the first time, trusting the number they saw.</p>
       </section>
 
-      <!-- SUPPORTING STATES -->
-      <section class="case-section reveal" id="states" style="margin-top: 0; padding-top: 0;">
-        <div class="misc-ticker-container" style="margin-top: 0;">
-          <div class="misc-ticker-track">
-            <img src="/images/work/misc-assurance-table.png?v=20260523-4" alt="Economic assurance table setting" class="ticker-img" />
-            <img src="/images/work/misc-help-flow.png?v=20260523-4" alt="Dashboard help flow overlay" class="ticker-img" />
-            <img src="/images/work/misc-404.png?v=20260523-4" alt="Custom 404 state" class="ticker-img" />
-            <img src="/images/work/misc-help-page.png?v=20260523-4" alt="Standardized platform help page" class="ticker-img" />
-            <img src="/images/work/misc-no-deals.png?v=20260523-4" alt="No deals created yet empty state" class="ticker-img" />
-            <!-- Duplicate for infinite seamless scroll -->
-            <img src="/images/work/misc-assurance-table.png?v=20260523-4" alt="Economic assurance table setting" class="ticker-img" aria-hidden="true" />
-            <img src="/images/work/misc-help-flow.png?v=20260523-4" alt="Dashboard help flow overlay" class="ticker-img" aria-hidden="true" />
-            <img src="/images/work/misc-404.png?v=20260523-4" alt="Custom 404 state" class="ticker-img" aria-hidden="true" />
-            <img src="/images/work/misc-help-page.png?v=20260523-4" alt="Standardized platform help page" class="ticker-img" aria-hidden="true" />
-            <img src="/images/work/misc-no-deals.png?v=20260523-4" alt="No deals created yet empty state" class="ticker-img" aria-hidden="true" />
+      <!-- ─────────── REFLECTION ─────────── -->
+      <section class="case-section reveal" id="reflection">
+        <span class="case-eyebrow">Reflection</span>
+        <h2>What I learned.</h2>
+        <div class="case-columns cols-2">
+          <div>
+            <div class="case-col-title">Density is a feature.</div>
+            <div class="case-col-text">In enterprise finance, a well organised dense view beats a minimal one. Users came to scan, not to explore, and the layout had to respect that.</div>
+          </div>
+          <div>
+            <div class="case-col-title">Trust is the real deliverable.</div>
+            <div class="case-col-text">The platform did not win because it had more features. It won because a leader could open one screen and believe the number without reconciling it first.</div>
           </div>
         </div>
-      </section>
 
-      <section class="case-section reveal" id="cuts">
-        <h2>What we didn't ship</h2>
+        <span class="case-eyebrow" style="margin-top: var(--space-48);">What we didn't ship</span>
         <ul>
           <li><strong>Complex scenario modeling.</strong> Deferred so phase one could nail a single source of truth first.</li>
           <li><strong>Custom report builders.</strong> Standardised the review taxonomy to keep every dashboard reading the same way.</li>
