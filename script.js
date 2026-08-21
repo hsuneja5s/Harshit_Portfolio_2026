@@ -5,6 +5,7 @@
 // Dark-mode toggle intentionally omitted — light mode only for now.
 // ============================================
 const SITE_HEADER_HTML = `
+  <div class="nav-scrim" data-nav-scrim aria-hidden="true"></div>
   <div class="nav-pill" data-nav-pill>
     <a href="/" class="nav-identity" aria-label="Home">
       <span class="avatar" role="img" aria-label="Harshit avatar">
@@ -20,14 +21,23 @@ const SITE_HEADER_HTML = `
       <a href="/about" class="nav-link">About</a>
       <a href="/HarshitSuneja_ProductDesigner_Resume.pdf" download class="nav-link">Resume</a>
     </nav>
-    <button class="nav-more" type="button" aria-label="Expand menu">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+    <button class="nav-more" type="button" aria-label="Open menu" aria-expanded="false" data-nav-toggle>
+      <svg class="nav-more-dots" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
         <circle cx="5" cy="12" r="1.9" />
         <circle cx="12" cy="12" r="1.9" />
         <circle cx="19" cy="12" r="1.9" />
       </svg>
+      <svg class="nav-more-close" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true">
+        <line x1="6" y1="6" x2="18" y2="18" />
+        <line x1="18" y1="6" x2="6" y2="18" />
+      </svg>
     </button>
   </div>
+  <nav class="nav-sheet" data-nav-sheet aria-label="Mobile menu">
+    <a href="/#work" class="nav-chip">Work</a>
+    <a href="/about" class="nav-chip">About</a>
+    <a href="/HarshitSuneja_ProductDesigner_Resume.pdf" download class="nav-chip">Resume</a>
+  </nav>
 `;
 const siteHeaderMount = document.querySelector('[data-site-header]');
 if (siteHeaderMount && !siteHeaderMount.innerHTML.trim()) {
@@ -82,6 +92,30 @@ if (heroSection && 'IntersectionObserver' in window) {
 } else {
   // No hero on this page (e.g. case study) — show the name in the nav right away
   header.classList.add('past-hero');
+}
+
+// Mobile nav — tap ••• to open (dots → X), reveal Work/About/Resume chips + scrim
+const navToggle = header?.querySelector('[data-nav-toggle]');
+const navScrim = header?.querySelector('[data-nav-scrim]');
+if (navToggle && header) {
+  const closeNav = () => {
+    header.classList.remove('nav-open');
+    navToggle.setAttribute('aria-expanded', 'false');
+    navToggle.setAttribute('aria-label', 'Open menu');
+  };
+  navToggle.addEventListener('click', (e) => {
+    e.stopPropagation();
+    const open = header.classList.toggle('nav-open');
+    navToggle.setAttribute('aria-expanded', String(open));
+    navToggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+  });
+  navScrim?.addEventListener('click', closeNav);
+  header.querySelectorAll('.nav-sheet .nav-chip').forEach((chip) => {
+    chip.addEventListener('click', closeNav);
+  });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeNav();
+  });
 }
 
 // ============================================

@@ -581,9 +581,21 @@ img {
   opacity: 0;
 }
 
-/* Mobile → top nav starts collapsed by default (avatar + name + •••),
-   regardless of scroll position. Tap/hover the pill to expand the links. */
+/* Mobile nav sheet + scrim — hidden on desktop */
+.nav-scrim { display: none; }
+.nav-sheet { display: none; }
+.nav-more-close { display: none; }
+
+/* Mobile → top nav starts collapsed by default (avatar + name + •••).
+   Tap ••• to open: dots become an X, Work/About/Resume chips drop below,
+   and a very light scrim sits behind. */
 @media (max-width: 600px) {
+  /* Stack the chip sheet below the pill */
+  .site-header {
+    flex-direction: column;
+    align-items: center;
+  }
+
   .nav-links {
     max-width: 0;
     opacity: 0;
@@ -602,28 +614,65 @@ img {
 
   .nav-more {
     width: var(--space-32);
+    height: var(--space-32);
     opacity: 1;
   }
 
-  .nav-pill:hover .nav-links {
-    max-width: var(--size-420);
+  /* Very light scrim behind the open menu; tap it to close */
+  .nav-scrim {
+    display: block;
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    background: color-mix(in srgb, var(--text-primary) 8%, transparent);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity var(--duration-250) ease;
+  }
+
+  .site-header.nav-open .nav-scrim {
     opacity: 1;
     pointer-events: auto;
   }
 
-  .nav-pill:hover .nav-role {
-    max-width: var(--size-200);
-    margin-left: var(--space-8);
-    opacity: 1;
+  /* ••• → X, circular button when open */
+  .site-header.nav-open .nav-more-dots { display: none; }
+  .site-header.nav-open .nav-more-close { display: flex; }
+
+  .site-header.nav-open .nav-more {
+    background: color-mix(in srgb, var(--text-primary) 8%, transparent);
+    border-radius: var(--radius-circle);
   }
 
-  .nav-pill:hover .nav-identity {
-    margin-right: var(--space-24);
-  }
-
-  .nav-pill:hover .nav-more {
-    width: 0;
+  /* Chip menu below the pill */
+  .nav-sheet {
+    display: flex;
+    gap: var(--space-8);
+    margin-top: var(--space-8);
     opacity: 0;
+    transform: translateY(calc(-1 * var(--space-8)));
+    pointer-events: none;
+    transition: opacity var(--duration-250) ease,
+                transform var(--duration-250) var(--ease-standard);
+  }
+
+  .site-header.nav-open .nav-sheet {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+
+  .nav-chip {
+    padding: var(--space-8) var(--space-16);
+    border-radius: var(--radius-pill);
+    background: color-mix(in srgb, var(--background-elevated) 78%, transparent);
+    -webkit-backdrop-filter: blur(var(--space-20)) saturate(1.5);
+    backdrop-filter: blur(var(--space-20)) saturate(1.5);
+    border: var(--border-1) solid var(--border-subtle);
+    box-shadow: var(--shadow-e1);
+    font-weight: 600;
+    font-size: var(--text-12);
+    color: var(--text-primary);
   }
 }
 
