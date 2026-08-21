@@ -3468,6 +3468,10 @@ p.pull-quote {
     padding: 0 var(--space-20) var(--space-64);
   }
 
+  .hero-location {
+    font-size: var(--text-12);
+  }
+
   .hero-name {
     font-size: var(--text-36);
     margin-bottom: var(--space-8);
