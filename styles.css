@@ -4650,3 +4650,24 @@ blockquote.voice-quote cite {
   margin: var(--space-40) 0;
   max-width: var(--size-680, 680px);
 }
+
+/* Before / After comparison — editorial overrides.
+   Cards hug their own content (no stretched empty space) and the
+   titles switch to the serif display face to match the page. */
+.case-editorial .step-comparison {
+  align-items: start;
+  gap: var(--space-20);
+  margin: var(--space-24) 0 var(--space-40);
+}
+
+.case-editorial .step-column {
+  padding: var(--space-24) var(--space-24) var(--space-28);
+}
+
+.case-editorial .step-column-count {
+  font-family: var(--font-serif);
+  font-weight: 500;
+  font-size: var(--text-24);
+  letter-spacing: var(--tracking-n001em);
+  line-height: 1.25;
+}
