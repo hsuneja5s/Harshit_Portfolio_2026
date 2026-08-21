@@ -4656,14 +4656,25 @@ blockquote.voice-quote cite {
    titles switch to the serif display face to match the page. */
 .case-editorial .step-comparison {
   align-items: start;
-  gap: var(--space-20);
-  margin: var(--space-24) 0 var(--space-40);
+  gap: var(--space-48);
+  margin: var(--space-8) 0 var(--space-40);
 }
 
+/* Rule hugs its title: tight top padding, no floating line */
 .case-editorial .step-column {
   background: transparent;
   border-radius: 0;
-  padding: var(--space-24) 0 0;
+  padding: var(--space-16) 0 0;
+}
+
+/* Redundant per-column BEFORE/AFTER caption removed — the eyebrow and
+   the gray/green rule already carry the direction */
+.case-editorial .step-column-title {
+  display: none;
+}
+
+.case-editorial .step-column-count {
+  margin-bottom: var(--space-20);
 }
 
 .case-editorial .step-column-count {
