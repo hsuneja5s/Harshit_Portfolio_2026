@@ -1267,6 +1267,19 @@ a.work-card *,
   }
 }
 
+/* Mobile → "Trusted by →" on its own row, logos below */
+@media (max-width: 600px) {
+  .logo-marquee-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-16);
+  }
+
+  .logo-marquee-viewport {
+    width: 100%;
+  }
+}
+
 .hero-impact {
   display: flex;
   flex-wrap: wrap;
