@@ -596,10 +596,28 @@ img {
     align-items: center;
   }
 
-  .nav-links {
+  /* Kill the desktop hover-to-expand entirely on touch — the pill stays
+     collapsed (avatar + name + •••); the ••• menu is the only way to expand. */
+  .nav-links,
+  .site-header.past-hero .nav-pill:hover .nav-links {
     max-width: 0;
     opacity: 0;
     pointer-events: none;
+  }
+
+  .site-header.past-hero .nav-pill:hover .nav-more {
+    width: var(--space-32);
+    opacity: 1;
+  }
+
+  .site-header.past-hero .nav-pill:hover .nav-identity {
+    margin-right: var(--space-16);
+  }
+
+  .site-header.past-hero .nav-pill:hover .nav-role {
+    max-width: 0;
+    margin-left: 0;
+    opacity: 0;
   }
 
   .nav-role {
@@ -644,11 +662,13 @@ img {
     border-radius: var(--radius-circle);
   }
 
-  /* Chip menu below the pill */
+  /* Chip menu below the pill — stacked vertically */
   .nav-sheet {
     display: flex;
+    flex-direction: column;
+    align-items: center;
     gap: var(--space-8);
-    margin-top: var(--space-8);
+    margin-top: var(--space-12);
     opacity: 0;
     transform: translateY(calc(-1 * var(--space-8)));
     pointer-events: none;
