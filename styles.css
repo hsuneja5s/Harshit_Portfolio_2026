@@ -364,6 +364,12 @@ body {
   cursor: url("/images/YouCursor.png?v=20260819-2") 5 4, auto;
 }
 
+@media (max-width: 600px) {
+  body {
+    background-image: url("/images/MobileBackground.png?v=20260821-1");
+  }
+}
+
 a {
   color: inherit;
   text-decoration: none;
