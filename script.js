@@ -640,12 +640,15 @@ document.addEventListener("DOMContentLoaded", () => {
     }
     */
 
+    // Hero name typewriter animation hidden per user request — keeping it simple "Harshit"
+    /*
     const heroNameEl = document.querySelector('.hero-name-animated');
     if (heroNameEl) {
       heroNameEl.innerHTML = '<span class="typewriter-name">Harshit</span>';
       const target = heroNameEl.querySelector('.typewriter-name');
       runTypewriter(target);
     }
+    */
   }
   initHeaderTypewriter();
 
@@ -707,6 +710,13 @@ document.addEventListener("DOMContentLoaded", () => {
     hand.addEventListener('keydown', (e) => {
       if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); burst(); }
     });
+
+    // Wave once by default when the session loads (a little hello)
+    setTimeout(() => {
+      hand.classList.remove('is-waving');
+      void hand.offsetWidth; // restart the wiggle animation
+      hand.classList.add('is-waving');
+    }, 600);
   }
   initWaveHand();
 
