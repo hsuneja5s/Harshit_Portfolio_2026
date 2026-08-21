@@ -4661,7 +4661,9 @@ blockquote.voice-quote cite {
 }
 
 .case-editorial .step-column {
-  padding: var(--space-24) var(--space-24) var(--space-28);
+  background: transparent;
+  border-radius: 0;
+  padding: var(--space-24) 0 0;
 }
 
 .case-editorial .step-column-count {
@@ -4670,4 +4672,40 @@ blockquote.voice-quote cite {
   font-size: var(--text-24);
   letter-spacing: var(--tracking-n001em);
   line-height: 1.25;
+}
+
+/* ── No grey fills: open, borderless blocks on white ── */
+.case-editorial .case-panel {
+  background: transparent;
+  padding: 0;
+}
+
+.case-editorial .persona-card,
+.case-editorial .metric-tile {
+  background: transparent;
+  border-radius: 0;
+  padding: var(--space-16) 0 0;
+  border-top: var(--border-1) solid var(--border-subtle);
+}
+
+/* Metric numbers stand on their own without the grey tile */
+.case-editorial #outcome .metric-value:not(.large-metric),
+.case-editorial .metric-value {
+  font-family: var(--font-serif);
+  font-size: var(--text-32);
+  font-weight: 500;
+  letter-spacing: var(--tracking-n002em);
+}
+
+/* ── Full-width images: drop framing, span the column edge to edge ── */
+.case-editorial .case-panel img,
+.case-editorial .case-showcase img,
+.case-editorial .case-media-visual img,
+.case-editorial .case-pair img,
+.case-editorial .case-gallery img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border: none;
+  border-radius: var(--radius-md, 8px);
 }
