@@ -771,6 +771,77 @@ img {
   padding-top: var(--space-96);
 }
 
+/* Section separator frame — dashed cross-rules + side rails with corner
+   handles. Web only (>=1024px); hidden on tablet/mobile to keep spacing.
+   The frame runs 64px beyond the content column on each side, so the
+   horizontal rules span (column width + 64 + 64) and their end handles
+   land exactly on the vertical side rails. */
+.section-sep {
+  display: none;
+}
+
+@media (min-width: 1024px) {
+  /* Vertical side rails — 64px beyond the .main column, full height. */
+  .main {
+    position: relative;
+  }
+
+  .main::before,
+  .main::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 0;
+    border-left: var(--border-1) dashed var(--border-inverse);
+    pointer-events: none;
+  }
+
+  .main::before {
+    left: calc(-1 * var(--space-64));
+  }
+
+  .main::after {
+    right: calc(-1 * var(--space-64));
+  }
+
+  /* Horizontal cross-rule. Negative inline margins break it out of the
+     column (24px padding) and extend it 64px past each edge. */
+  .section-sep {
+    display: block;
+    position: relative;
+    height: 0;
+    margin: var(--space-64) calc(-1 * (var(--space-64) + var(--space-24)));
+    border-top: var(--border-1) dashed var(--border-inverse);
+  }
+
+  /* Small square handles where the rule meets each side rail */
+  .section-sep::before,
+  .section-sep::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: var(--space-8);
+    height: var(--space-8);
+    background: var(--background-primary);
+    border: var(--border-1) solid var(--border-inverse);
+    transform: translate(-50%, -50%);
+  }
+
+  .section-sep::after {
+    left: auto;
+    right: 0;
+    transform: translate(50%, -50%);
+  }
+
+  /* Separator owns the breathing space — drop the following
+     section's top padding so the line sits centered in the gap. */
+  .section-sep + .section {
+    padding-top: 0;
+  }
+}
+
 .section-title {
   font-size: var(--text-28);
   font-weight: 600;
