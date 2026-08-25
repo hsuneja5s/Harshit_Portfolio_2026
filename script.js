@@ -13,7 +13,6 @@ const SITE_HEADER_HTML = `
       </span>
       <span class="nav-identity-text">
         <span class="nav-name">Harshit</span>
-        <span class="nav-role">Designer + Builder</span>
       </span>
     </a>
     <nav class="nav-links" aria-label="Primary">
