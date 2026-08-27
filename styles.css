@@ -364,7 +364,7 @@ body {
   cursor: url("/images/YouCursor.png?v=20260819-2") 5 4, auto;
 }
 
-@media (max-width: 720px) {
+@media (max-width: 600px) {
   /* Mobile browsers ignore background-attachment: fixed and fall back to
      scroll, which makes `cover` size the image to the whole (very tall) page
      instead of the screen — blowing the pattern up huge. Lock it to the
