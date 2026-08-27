@@ -295,8 +295,7 @@ const renderHomeCollections = () => {
   const logoTrack = document.querySelector('[data-logo-marquee]');
   if (logoTrack) {
     const logos = [
-      'CUB.png', 'IndusInd Bank.png', 'MF.png', 'MHA.png', 'Mobily Business.png',
-      'Nykaa.png', 'PwC Logo.png', 'RBI.png', 'SBI.png', 'Torrent Diagnostics.png', 'shell_logo.svg.png',
+      'MF.png', 'MHA.png','Nykaa.png', 'PwC Logo.png', 'Torrent Diagnostics.png', 'shell_logo.svg.png',
     ];
     const group = logos.map(name => {
       const alt = name.replace(/\.(png|svg)(\.png)?$/i, '').replace(/_/g, ' ');
