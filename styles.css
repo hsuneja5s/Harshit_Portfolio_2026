@@ -881,8 +881,8 @@ img {
 .connect-grid {
   flex: 1 1 var(--size-520);
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: var(--space-48) var(--space-64);
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-48);
 }
 
 .connect-item {
