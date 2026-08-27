@@ -761,7 +761,7 @@ img {
    MAIN LAYOUT
    ============================================ */
 .main {
-  max-width: var(--size-800);
+  max-width: var(--size-864);
   margin: 0 auto;
   padding: 0 var(--space-24) var(--space-80);
   animation: contentSlideIn var(--duration-350) ease both;
@@ -4332,6 +4332,7 @@ blockquote.voice-quote cite {
   --text-44: 44px;
   --size-128: 128px;
   --size-256: 256px;
+  --size-864: 864px;
 }
 
 /* ── Hero: eyebrow + serif display title + lede ── */
