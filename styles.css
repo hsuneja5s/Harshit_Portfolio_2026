@@ -915,7 +915,7 @@ img {
 }
 
 .connect-value {
-  font-size: var(--text-16);
+  font-size: var(--text-14);
   color: var(--text-secondary);
   transition: color var(--duration-200) ease;
   word-break: break-word;
