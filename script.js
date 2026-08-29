@@ -278,18 +278,66 @@ const renderHomeCollections = () => {
   }
 
   if (pluginGrid) {
-    pluginGrid.innerHTML = PORTFOLIO_DATA.plugins.map(item => `
-      <a href="${item.href}" class="plugin-bento-card${item.featured ? ' plugin-bento-card--featured' : ''}">
-        <img src="${item.image}" alt="" class="plugin-bento-img" />
-        <div class="plugin-bento-content">
-          <h3 class="plugin-bento-title">${escapeHtml(item.title)}</h3>
-          <p class="plugin-bento-sub">${escapeHtml(item.summary)}</p>
-          <div class="plugin-bento-footer">
-            <span class="plugin-bento-arrow" aria-hidden="true">↗</span>
-          </div>
+    const items = PORTFOLIO_DATA.plugins;
+    const first = items[0];
+    pluginGrid.classList.add('accel-showcase');
+    pluginGrid.innerHTML = `
+      <div class="accel-list" role="tablist" aria-label="AI Design Accelerator plugins">
+        ${items.map((item, i) => `
+          <button type="button" class="accel-item${i === 0 ? ' is-active' : ''}" role="tab" aria-selected="${i === 0 ? 'true' : 'false'}" data-index="${i}">
+            <span class="accel-item-title">${escapeHtml(item.title)}</span>
+            <span class="accel-item-hint">${escapeHtml(item.hint || '')}</span>
+          </button>
+        `).join('')}
+      </div>
+      <div class="accel-preview">
+        <a class="accel-preview-media" href="${first.href}" data-accel-link aria-label="Open ${escapeHtml(first.title)}">
+          <img class="accel-preview-img" src="${first.image}" alt="${escapeHtml(first.title)} preview" data-accel-img />
+        </a>
+        <div class="accel-preview-body">
+          <h3 class="accel-preview-title" data-accel-title>${escapeHtml(first.title)}</h3>
+          <p class="accel-preview-sub" data-accel-sub>${escapeHtml(first.summary)}</p>
+          <a class="accel-preview-cta" href="${first.href}" data-accel-cta>Explore plugin <span aria-hidden="true">↗</span></a>
         </div>
-      </a>
-    `).join('');
+      </div>
+    `;
+
+    const buttons = pluginGrid.querySelectorAll('.accel-item');
+    const imgEl = pluginGrid.querySelector('[data-accel-img]');
+    const linkEl = pluginGrid.querySelector('[data-accel-link]');
+    const titleEl = pluginGrid.querySelector('[data-accel-title]');
+    const subEl = pluginGrid.querySelector('[data-accel-sub]');
+    const ctaEl = pluginGrid.querySelector('[data-accel-cta]');
+    let activeIndex = 0;
+
+    const selectPlugin = (i) => {
+      const item = items[i];
+      if (!item || i === activeIndex) return;
+      activeIndex = i;
+      buttons.forEach((b, bi) => {
+        const on = bi === i;
+        b.classList.toggle('is-active', on);
+        b.setAttribute('aria-selected', on ? 'true' : 'false');
+      });
+      if (imgEl) {
+        imgEl.style.opacity = '0';
+        setTimeout(() => {
+          imgEl.src = item.image;
+          imgEl.alt = `${item.title} preview`;
+          imgEl.style.opacity = '1';
+        }, 150);
+      }
+      if (linkEl) { linkEl.href = item.href; linkEl.setAttribute('aria-label', `Open ${item.title}`); }
+      if (titleEl) titleEl.textContent = item.title;
+      if (subEl) subEl.textContent = item.summary;
+      if (ctaEl) ctaEl.href = item.href;
+    };
+
+    buttons.forEach((b) => {
+      const idx = parseInt(b.dataset.index, 10);
+      b.addEventListener('click', () => selectPlugin(idx));
+      b.addEventListener('mouseenter', () => selectPlugin(idx));
+    });
   }
 
   const logoTrack = document.querySelector('[data-logo-marquee]');
