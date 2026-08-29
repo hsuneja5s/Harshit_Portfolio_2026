@@ -2137,7 +2137,8 @@ a.work-card *,
 }
 
 .motto {
-  font-style: italic;
+  font-style: normal;
+  font-weight: 600;
 }
 
 .footer-credit {
