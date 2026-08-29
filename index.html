@@ -22,7 +22,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=20260821-14" />
+  <link rel="stylesheet" href="styles.css?v=20260821-15" />
   <link rel="icon" type="image/jpeg" href="/images/me.jpg" />
   <link rel="apple-touch-icon" href="/images/me.jpg" />
   <meta property="og:image" content="https://sunejaux.space/images/og-cover.jpg" />
@@ -158,10 +158,6 @@ our own AI Design Accelerator​</p>
         <h2 class="section-title connect-title">Let's get in touch!</h2>
 
         <div class="connect-grid">
-          <a class="connect-item" href="https://linkedin.com/in/harshitux" target="_blank" rel="noopener">
-            <span class="connect-label">LinkedIn</span>
-            <span class="connect-value">/in/harshitux</span>
-          </a>
           <a class="connect-item" href="/HarshitSuneja_ProductDesigner_Resume.pdf" download>
             <span class="connect-label">Resume</span>
             <span class="connect-value">Download Now</span>
@@ -170,6 +166,18 @@ our own AI Design Accelerator​</p>
             <span class="connect-label">Email</span>
             <span class="connect-value">harshit.experiencedesign@gmail.com</span>
           </a>
+          <div class="connect-item connect-item--phone">
+            <span class="connect-label">WhatsApp</span>
+            <span class="connect-value connect-reveal" data-number="+91 9354193751"
+              data-wa="https://wa.me/919354193751" role="button" tabindex="0" aria-label="Show phone number">
+              <span class="connect-reveal-text">+91 ••••• •••••</span>
+              <span class="connect-reveal-tip" aria-hidden="true">Show number</span>
+            </span>
+          </div>
+          <a class="connect-item" href="https://linkedin.com/in/harshitux" target="_blank" rel="noopener">
+            <span class="connect-label">LinkedIn</span>
+            <span class="connect-value">/in/harshitux</span>
+          </a>
           <a class="connect-item" href="https://github.com/hsuneja5s" target="_blank" rel="noopener">
             <span class="connect-label">Github</span>
             <span class="connect-value">github.com/hsuneja5s</span>
@@ -177,10 +185,6 @@ our own AI Design Accelerator​</p>
           <a class="connect-item" href="https://x.com/hsuneja5s" target="_blank" rel="noopener">
             <span class="connect-label">X</span>
             <span class="connect-value">x.com/hsuneja5s</span>
-          </a>
-          <a class="connect-item" href="https://wa.me/919354193751" target="_blank" rel="noopener">
-            <span class="connect-label">WhatsApp</span>
-            <span class="connect-value">+91 9354193751</span>
           </a>
         </div>
       </div>
@@ -219,6 +223,40 @@ our own AI Design Accelerator​</p>
   </div>
 
   <script src="script.js?v=20260821-5"></script>
+
+  <!-- Click-to-reveal masked phone number -->
+  <script>
+    document.querySelectorAll('.connect-reveal').forEach(function (el) {
+      var textEl = el.querySelector('.connect-reveal-text');
+      function reveal() {
+        if (el.classList.contains('is-revealed')) return;
+        var num = el.getAttribute('data-number');
+        if (textEl && num) textEl.textContent = num;
+        el.classList.add('is-revealed');
+        el.setAttribute('aria-label', num + ', open in WhatsApp');
+      }
+      el.addEventListener('click', function (e) {
+        if (!el.classList.contains('is-revealed')) {
+          e.preventDefault();
+          reveal();
+        } else {
+          var wa = el.getAttribute('data-wa');
+          if (wa) window.open(wa, '_blank', 'noopener');
+        }
+      });
+      el.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          if (!el.classList.contains('is-revealed')) {
+            reveal();
+          } else {
+            var wa = el.getAttribute('data-wa');
+            if (wa) window.open(wa, '_blank', 'noopener');
+          }
+        }
+      });
+    });
+  </script>
 
   <!-- Vercel Web Analytics + Speed Insights (static-site script tags) -->
   <script defer src="/_vercel/insights/script.js"></script>

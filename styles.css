@@ -925,6 +925,60 @@ img {
   color: var(--text-primary);
 }
 
+/* Click-to-reveal masked phone number */
+.connect-reveal {
+  position: relative;
+  display: inline-block;
+  width: fit-content;
+  cursor: pointer;
+  padding-bottom: var(--space-4);
+  border-bottom: var(--border-1) dashed var(--text-tertiary);
+  transition: color var(--duration-200) ease, border-color var(--duration-200) ease;
+}
+
+.connect-reveal:hover,
+.connect-reveal:focus-visible {
+  color: var(--text-primary);
+  border-bottom-color: var(--text-primary);
+  outline: none;
+}
+
+.connect-reveal.is-revealed {
+  border-bottom-style: solid;
+  color: var(--text-primary);
+}
+
+/* Floating "Show number" bar on hover / focus */
+.connect-reveal-tip {
+  position: absolute;
+  bottom: calc(100% + var(--space-8));
+  left: 0;
+  z-index: 2;
+  background: var(--text-primary);
+  color: var(--background-primary);
+  font-size: var(--text-12);
+  font-weight: 500;
+  letter-spacing: var(--tracking-001em);
+  padding: var(--space-4) var(--space-8);
+  border-radius: var(--radius-md, 8px);
+  white-space: nowrap;
+  box-shadow: var(--shadow-md);
+  opacity: 0;
+  transform: translateY(var(--space-4));
+  pointer-events: none;
+  transition: opacity var(--duration-150) ease, transform var(--duration-150) ease;
+}
+
+.connect-reveal:hover .connect-reveal-tip,
+.connect-reveal:focus-visible .connect-reveal-tip {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.connect-reveal.is-revealed .connect-reveal-tip {
+  display: none;
+}
+
 /* ============================================
    HERO
    ============================================ */
