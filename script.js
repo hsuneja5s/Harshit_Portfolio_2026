@@ -126,7 +126,7 @@ const PORTFOLIO_DATA = {
       sector: 'Energy • Web Platform',
       label: 'Energy — Deal Pipeline',
       title: 'Deal intelligence for global energy operations',
-      heading: 'Deal Intelligence',
+      heading: 'Deal intelligence for global energy operations',
       sub: 'Control cockpit for global energy operations',
       chips: ['Energy', 'Web Platform', 'B2B'],
       status: 'shipped',
