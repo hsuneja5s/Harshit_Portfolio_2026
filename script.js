@@ -196,7 +196,7 @@ const PORTFOLIO_DATA = {
   ],
   plugins: [
     {
-      title: 'PwC × Research Assistant',
+      title: 'Research Copilot',
       hint: 'PRD → IA, journeys, personas, wireframes',
       href: '/plugins/pwc-research-assistant',
       image: '/images/plugins/Research%20Assistance.png?v=20260525-4',
@@ -286,7 +286,6 @@ const renderHomeCollections = () => {
         ${items.map((item, i) => `
           <button type="button" class="accel-item${i === 0 ? ' is-active' : ''}" role="tab" aria-selected="${i === 0 ? 'true' : 'false'}" data-index="${i}">
             <span class="accel-item-title">${escapeHtml(item.title)}</span>
-            <span class="accel-item-hint">${escapeHtml(item.hint || '')}</span>
           </button>
         `).join('')}
       </div>
