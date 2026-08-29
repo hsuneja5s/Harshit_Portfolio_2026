@@ -3053,7 +3053,7 @@ a.work-card *,
   padding: var(--space-4) 0 var(--space-4) var(--space-24) !important;
   position: relative;
   counter-increment: step-counter;
-  margin-bottom: 0 !important;
+  margin-bottom: var(--space-8) ;
 }
 
 .step-list li::before {
