@@ -4740,6 +4740,16 @@ blockquote.voice-quote cite {
   line-height: 1.25;
 }
 
+/* Roomier spacing between bullet points (8px token top/bottom) */
+.case-editorial .step-list li {
+  padding-top: var(--space-8) !important;
+  padding-bottom: var(--space-8) !important;
+}
+
+.case-editorial .step-list li::before {
+  top: var(--space-8);
+}
+
 /* ── No grey fills: open, borderless blocks on white ── */
 .case-editorial .case-panel {
   background: transparent;
