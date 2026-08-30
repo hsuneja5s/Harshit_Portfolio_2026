@@ -144,7 +144,7 @@ const PORTFOLIO_DATA = {
       sector: 'Healthcare • Product Design • Design System',
       label: 'Healthcare — Patient App',
       title: 'Designing AI Assisted Experiences for Preventive Healthcare',
-      heading: 'Preventive Care',
+      heading: 'Designing AI assisted experiences for preventive healthcare',
       sub: 'AI assisted experiences for preventive healthcare',
       chips: ['Healthcare', 'Product Design', 'Design System'],
       status: 'shipped',
