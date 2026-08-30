@@ -1789,7 +1789,7 @@ a.work-card *,
 }
 
 .work-image-healthcare-patient {
-  background-image: url("/images/work/Designing-AI-Assisted-Experiences-for-Preventive-Healthcare-Cover.svg?v=20260524-12");
+  background-image: url("/images/work/PreventiveHealthCare-Cover.png?v=20260830-1");
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
@@ -1805,7 +1805,7 @@ a.work-card *,
 }
 
 [data-theme="dark"] .work-image-healthcare-patient {
-  background-image: url("/images/work/Designing-AI-Assisted-Experiences-for-Preventive-Healthcare-Cover.svg?v=20260524-12");
+  background-image: url("/images/work/PreventiveHealthCare-Cover.png?v=20260830-1");
   background-size: cover;
   background-position: center;
   opacity: 0.85;
