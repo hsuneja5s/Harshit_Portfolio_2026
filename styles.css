@@ -1988,6 +1988,17 @@ a.work-card *,
 
 .selected-work .work-card {
   display: block;
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  overflow: visible;
+}
+
+/* No fill, no stroke, no lift, no shadow on the homepage cards */
+.selected-work .work-card:hover {
+  transform: none;
+  border-color: transparent;
+  box-shadow: none;
 }
 
 /* Full mockup image — no radius, no border, no fill */
