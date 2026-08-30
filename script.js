@@ -168,6 +168,7 @@ const PORTFOLIO_DATA = {
       imageClass: 'work-image-banking-ai',
       accent: 'var(--blue-100-c)',
       comingSoon: true, // detail page hidden for now; card shows "Coming Soon"
+      hidden: true, // hidden from Home screen for now
     },
     {
       sector: 'Banking',
