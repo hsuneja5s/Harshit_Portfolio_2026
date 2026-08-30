@@ -138,6 +138,7 @@ const PORTFOLIO_DATA = {
       hint: 'hundreds of deals · control cockpit',
       href: '/work/energy-deal-operations',
       imageClass: 'work-image-energy-deal',
+      accent: 'var(--yellow-400)',
     },
     {
       sector: 'Healthcare • Product Design • Design System',
@@ -151,6 +152,7 @@ const PORTFOLIO_DATA = {
       hint: 'live · accessible diagnostics',
       href: '/work/healthcare-patient-experience',
       imageClass: 'work-image-healthcare-patient',
+      accent: 'var(--green-200)',
     },
     {
       sector: 'Banking • Conversational UX',
@@ -164,6 +166,7 @@ const PORTFOLIO_DATA = {
       hint: 'Astha.ai · NPS 7 → 9.2',
       href: '/work/banking-ai-self-service',
       imageClass: 'work-image-banking-ai',
+      accent: 'var(--blue-100-c)',
       comingSoon: true, // detail page hidden for now; card shows "Coming Soon"
     },
     {
@@ -264,17 +267,14 @@ const renderHomeCollections = () => {
 
   if (workGrid) {
     workGrid.innerHTML = PORTFOLIO_DATA.work.filter(item => !item.hidden).map(item => {
-      const chips = (item.chips || []).slice(0, 3)
-        .map(c => `<span class="work-chip">${escapeHtml(c)}</span>`).join('');
+      const readCta = item.comingSoon
+        ? `<span class="work-readcta work-readcta--soon">Coming soon</span>`
+        : `<span class="work-readcta">Read case study <span class="work-readcta-arrow" aria-hidden="true">→</span></span>`;
       const inner = `
-          <div class="work-info">
-            <h3 class="work-heading">${escapeHtml(item.heading || item.title)}</h3>
-            <p class="work-sub">${escapeHtml(item.sub || item.outcome || '')}</p>
-            <div class="work-chips">${chips}</div>
-          </div>
-          <div class="work-visual">
-            <div class="work-image ${item.imageClass}" aria-hidden="true"></div>
-          </div>`;
+          <div class="work-image ${item.imageClass}" aria-hidden="true"></div>
+          <h3 class="work-heading">${escapeHtml(item.heading || item.title)}</h3>
+          <p class="work-sub">${escapeHtml(item.sub || item.outcome || '')}</p>
+          ${readCta}`;
       return item.comingSoon
         ? `<div class="work-card work-card--disabled">${inner}</div>`
         : `<a href="${item.href}" class="work-card">${inner}</a>`;
@@ -1101,7 +1101,7 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     };
 
-    bind('a.work-card', 'view', 'VIEW CASE STUDY');
+    bind('a.work-card', 'view', 'View Case Study');
     bind('.plugin-bento-card', 'view', 'VIEW CASE STUDY');
     bind('.work-card--disabled', 'soon', 'COMING SOON');
 
