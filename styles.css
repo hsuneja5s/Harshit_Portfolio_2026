@@ -2207,14 +2207,8 @@ a.work-card *,
    ============================================ */
 .dog-float {
   position: fixed;
-  left: 0;
-  right: 0;
-  bottom: var(--space-16);
-  max-width: var(--size-864);
-  margin: 0 auto;
-  padding: 0 var(--space-24);
-  display: flex;
-  justify-content: flex-end;
+  right: var(--space-48);
+  bottom: 0;
   z-index: 50;
   pointer-events: none;
 }
@@ -2242,19 +2236,13 @@ a.work-card *,
    ============================================ */
 .tools-zone {
   position: relative;
-}
-
-.tools-zone-inner {
-  position: relative;
-  max-width: var(--size-864);
   min-height: var(--size-260);
-  margin: 0 auto;
-  padding: 0 var(--space-24);
 }
 
+/* Pile hugs the viewport's right edge — no content-width margin (matches Figma) */
 .tool-pile {
   position: absolute;
-  right: var(--space-24);
+  right: 0;
   bottom: var(--space-40);
   width: 0;
   height: 0;
