@@ -889,8 +889,8 @@ img {
 .xp-item {
   position: relative;
   display: grid;
-  grid-template-columns: var(--size-200) 1fr;
-  gap: var(--space-40);
+  grid-template-columns: var(--size-140) 1fr;
+  gap: var(--space-24);
   align-items: start;
 }
 
@@ -899,7 +899,7 @@ img {
   content: "";
   position: absolute;
   left: var(--space-16);
-  top: var(--space-40);
+  top: var(--space-56);
   bottom: calc(-1 * var(--space-72));
   border-left: var(--border-1) dashed var(--border-inverse);
   pointer-events: none;
@@ -908,11 +908,11 @@ img {
 .xp-logo {
   display: flex;
   align-items: center;
-  min-height: var(--space-32);
+  min-height: var(--space-48);
 }
 
 .xp-logo img {
-  max-height: var(--space-32);
+  max-height: var(--space-48);
   width: auto;
   object-fit: contain;
 }
