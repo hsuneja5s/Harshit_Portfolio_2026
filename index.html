@@ -22,7 +22,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=20260821-16" />
+  <link rel="stylesheet" href="styles.css?v=20260821-18" />
   <link rel="icon" type="image/jpeg" href="/images/me.jpg" />
   <link rel="apple-touch-icon" href="/images/me.jpg" />
   <meta property="og:image" content="https://sunejaux.space/images/og-cover.jpg" />
@@ -103,21 +103,25 @@
             src="/images/DelhiIndia.png?v=20260818-47" alt="Delhi, India" loading="lazy" /></span></p>
       -->
       <!-- <p class="hero-location">📍 Exploring Opportunities across the 🌍</p> -->
-      <p class="hero-location">📍 <span class="hero-place hero-place--left" tabindex="0">Delhi, India 🇮🇳<img
-            class="hero-place-polaroid" src="/images/DelhiIndia.png?v=20260818-47" alt="Delhi, India" loading="lazy" /></span></p>
-      <h1 class="hero-name">
-        <span class="wave-hand" role="img" aria-label="waving hand, click to say hi" tabindex="0">👋🏻</span> Hello
-        I'm <span class="hero-name-animated">Harshit</span>
-        <!-- Name animation hidden per user request — keeping it simple "Harshit"
-        I'm <span class="hero-name-animated"><span class="typewriter-name">Harshit</span></span>
-        -->
+      <!-- OLD HERO — commented while trying the new meta-row layout (restore to revert)
+      <p class="hero-location">📍 Delhi, India 🇮🇳</p>
+      <h1 class="hero-name"><span class="wave-hand">👋🏻</span> Hello I'm Harshit</h1>
+      <p class="hero-role"><span class="vibgyor">Experience Designer</span> | Building for AI and Humans</p>
+      <p class="hero-tagline">Building AI native interfaces for banks, healthcare platforms, and the frontier of intelligence.</p>
+      -->
+
+      <!-- NEW HERO — small greeting + location pill on one meta row, value headline below -->
+      <div class="hero-meta">
+        <span class="hero-greet"><span class="wave-hand" role="img" aria-label="waving hand, click to say hi" tabindex="0">👋🏻</span> Hello, I'm Harshit</span>
+        <p class="hero-location">📍 <span class="hero-place hero-place--left" tabindex="0">Delhi, India 🇮🇳<img
+              class="hero-place-polaroid" src="/images/DelhiIndia.png?v=20260818-47" alt="Delhi, India" loading="lazy" /></span></p>
+      </div>
+      <h1 class="hero-name hero-headline">
+        <span class="vibgyor">Experience Designer</span> building for <br> AI and humans
       </h1>
-      <p class="hero-role">
-        <span class="vibgyor">Experience Designer</span> | Building for AI and Humans
-      </p>
-      <p class="hero-tagline">
-        Building AI native interfaces for banks, healthcare platforms, and the frontier of intelligence.
-      </p>
+      <!--<p class="hero-tagline">
+        Crafting AI native interfaces for banks, healthcare, and the frontier of intelligence.
+      </p> -->
     </section>
 
     <!-- BRAND MARQUEE -->
