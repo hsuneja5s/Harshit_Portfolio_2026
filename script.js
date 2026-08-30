@@ -17,7 +17,9 @@ const SITE_HEADER_HTML = `
     </a>
     <nav class="nav-links" aria-label="Primary">
       <a href="/#work" class="nav-link">Work</a>
+      <!-- About hidden for now — section moving to Home after the AI Design Accelerator. Restore to bring back.
       <a href="/about" class="nav-link">About</a>
+      -->
       <a href="/HarshitSuneja_ProductDesigner_Resume.pdf" download class="nav-link">Resume</a>
     </nav>
     <button class="nav-more" type="button" aria-label="Open menu" aria-expanded="false" data-nav-toggle>
@@ -34,7 +36,9 @@ const SITE_HEADER_HTML = `
   </div>
   <nav class="nav-sheet" data-nav-sheet aria-label="Mobile menu">
     <a href="/#work" class="nav-chip">Work</a>
+    <!-- About hidden for now — section moving to Home after the AI Design Accelerator. Restore to bring back.
     <a href="/about" class="nav-chip">About</a>
+    -->
     <a href="/HarshitSuneja_ProductDesigner_Resume.pdf" download class="nav-chip">Resume</a>
   </nav>
 `;
