@@ -20,7 +20,7 @@ const SITE_HEADER_HTML = `
       <!-- About hidden for now — section moving to Home after the AI Design Accelerator. Restore to bring back.
       <a href="/about" class="nav-link">About</a>
       -->
-      <a href="/HarshitSuneja_ProductDesigner_Resume.pdf" download class="nav-link">Resume</a>
+      <a href="/HarshitSuneja_ProductDesigner_2026.pdf" target="_blank" rel="noopener" class="nav-link">Resume</a>
     </nav>
     <button class="nav-more" type="button" aria-label="Open menu" aria-expanded="false" data-nav-toggle>
       <svg class="nav-more-dots" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
@@ -39,7 +39,7 @@ const SITE_HEADER_HTML = `
     <!-- About hidden for now — section moving to Home after the AI Design Accelerator. Restore to bring back.
     <a href="/about" class="nav-chip">About</a>
     -->
-    <a href="/HarshitSuneja_ProductDesigner_Resume.pdf" download class="nav-chip">Resume</a>
+    <a href="/HarshitSuneja_ProductDesigner_2026.pdf" target="_blank" rel="noopener" class="nav-chip">Resume</a>
   </nav>
 `;
 const siteHeaderMount = document.querySelector('[data-site-header]');
