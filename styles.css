@@ -5127,3 +5127,23 @@ blockquote.voice-quote cite {
   border: none;
   border-radius: var(--radius-md, 8px);
 }
+
+/* Tall portrait mockups otherwise tower over the layout (800px+ on web,
+   full-screen on mobile). Cap their height and center them so they stay
+   glanceable. Landscape images (covers, dashboards) fall under the cap and
+   are untouched. */
+.case-editorial .case-media-visual img,
+.case-editorial .case-gallery img {
+  width: auto;
+  max-width: 100%;
+  max-height: var(--size-520);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (max-width: 760px) {
+  .case-editorial .case-media-visual img,
+  .case-editorial .case-gallery img {
+    max-height: var(--size-440);
+  }
+}
