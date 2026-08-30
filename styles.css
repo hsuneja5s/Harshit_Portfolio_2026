@@ -2200,27 +2200,77 @@ a.work-card *,
 }
 
 /* ============================================
-   TOOLS BALL-PILE
-   Logos piled in the bottom-right corner. Hover to roll, tap to jump.
-   Sizes are baked into each SVG (52–80px); positions match the Figma pile.
+   FLOATING MASCOT
+   Fixed at the viewport bottom while scrolling, aligned to the content's
+   right edge. JS adds .is-parked near the page bottom so the dog stops
+   just above the separator instead of floating over the tools section.
    ============================================ */
-.tool-pile {
+.dog-float {
   position: fixed;
-  right: var(--space-16);
-  bottom: 0;
+  left: 0;
+  right: 0;
+  bottom: var(--space-16);
+  max-width: var(--size-864);
+  margin: 0 auto;
+  padding: 0 var(--space-24);
+  display: flex;
+  justify-content: flex-end;
+  z-index: 50;
+  pointer-events: none;
+}
+
+.dog-float.is-parked {
+  position: absolute;
+  bottom: auto;
+  /* top is set inline by JS to rest the dog above the separator */
+}
+
+.dog-float .claude-gif-wrap {
+  pointer-events: auto;
+}
+
+.footer-separator {
+  width: 100%;
+  border-top: var(--border-1) solid var(--border-subtle);
+}
+
+/* ============================================
+   TOOLS BALL-PILE
+   Section below the footer. Logos piled in the bottom-right corner.
+   Hover to nudge, tap to jump. Sizes are baked into each SVG (52–80px);
+   positions match the Figma pile.
+   ============================================ */
+.tools-zone {
+  position: relative;
+}
+
+.tools-zone-inner {
+  position: relative;
+  max-width: var(--size-864);
+  min-height: var(--size-260);
+  margin: 0 auto;
+  padding: 0 var(--space-24);
+}
+
+.tool-pile {
+  position: absolute;
+  right: var(--space-24);
+  bottom: var(--space-40);
   width: 0;
   height: 0;
-  z-index: 50;
+  z-index: 10;
   pointer-events: none;
 }
 
 .tool-ball {
   position: absolute;
+  max-width: none;
+  max-height: none;
   object-fit: contain;
   cursor: pointer;
   pointer-events: auto;
   transform-origin: center center;
-  transition: transform var(--duration-200) ease;
+  transition: transform var(--duration-250) var(--ease-out-soft);
   will-change: transform;
   user-select: none;
   -webkit-user-drag: none;
@@ -2236,15 +2286,16 @@ a.work-card *,
 .tool-ball--figma   { right: 0;                                          bottom: calc(var(--space-80) + var(--space-32));    z-index: 1; }
 .tool-ball--replit  { right: calc(var(--space-72) + var(--space-4));     bottom: calc(var(--space-80) + var(--space-32));    z-index: 2; }
 
-/* Roll like a ball while hovered */
-@keyframes tool-ball-roll {
-  from { transform: rotate(0deg); }
-  to   { transform: rotate(360deg); }
+/* Nudge on hover — the ball lifts and gently bobs in place (no spin) */
+@keyframes tool-ball-bob {
+  0%   { transform: translateY(calc(-1 * var(--space-8))); }
+  50%  { transform: translateY(calc(-1 * var(--space-16))); }
+  100% { transform: translateY(calc(-1 * var(--space-8))); }
 }
 
 .tool-ball:hover {
   z-index: 10;
-  animation: tool-ball-roll var(--duration-700) linear infinite;
+  animation: tool-ball-bob var(--duration-1000) ease-in-out infinite;
 }
 
 /* Jump like a basketball on tap — squash, launch, land, small rebound */
@@ -2258,14 +2309,15 @@ a.work-card *,
   100% { transform: translateY(0) scale(1, 1); }
 }
 
-/* Placed after :hover so a tap overrides the roll while it plays */
+/* Placed after :hover so a tap overrides the bob while it plays */
 .tool-ball.is-jumping {
   z-index: 11;
   animation: tool-ball-jump var(--duration-700) cubic-bezier(0.3, 0.7, 0.4, 1);
 }
 
 @media (max-width: 639px) {
-  .tool-pile { display: none; }
+  .tools-zone,
+  .dog-float { display: none; }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -2274,7 +2326,7 @@ a.work-card *,
     animation: none;
   }
   .tool-ball:hover {
-    transform: scale(1.08);
+    transform: translateY(calc(-1 * var(--space-8)));
   }
 }
 
@@ -2282,9 +2334,7 @@ a.work-card *,
    CLAUDE FLOATING GIF
    ============================================ */
 .claude-gif-wrap {
-  position: fixed;
-  bottom: 0;
-  right: var(--space-24);
+  position: relative;
   z-index: 50;
   cursor: default;
   width: var(--space-72);

@@ -1166,5 +1166,37 @@ document.addEventListener("DOMContentLoaded", () => {
       if (e.animationName === 'tool-ball-jump') ball.classList.remove('is-jumping');
     });
   });
+
+  // ============================================
+  // FLOATING MASCOT — fixed to the viewport bottom while scrolling,
+  // then parks just above the separator so it never covers the tools pile.
+  // ============================================
+  const dogFloat = document.querySelector('[data-dog-float]');
+  const dogWrap = dogFloat && dogFloat.querySelector('.claude-gif-wrap');
+  const dogSeparator = document.querySelector('.footer-separator');
+  if (dogFloat && dogWrap && dogSeparator) {
+    const PARK_GAP = 8;      // px of breathing room above the separator
+    const FLOAT_BOTTOM = 16; // must match .dog-float bottom (--space-16)
+    let ticking = false;
+    const updateDog = () => {
+      ticking = false;
+      const dogHeight = dogWrap.offsetHeight;
+      const sepDocTop = dogSeparator.getBoundingClientRect().top + window.scrollY;
+      const floatBottomDoc = window.scrollY + window.innerHeight - FLOAT_BOTTOM;
+      if (floatBottomDoc >= sepDocTop - PARK_GAP) {
+        dogFloat.classList.add('is-parked');
+        dogFloat.style.top = (sepDocTop - PARK_GAP - dogHeight) + 'px';
+      } else {
+        dogFloat.classList.remove('is-parked');
+        dogFloat.style.top = '';
+      }
+    };
+    const onScrollOrResize = () => {
+      if (!ticking) { ticking = true; requestAnimationFrame(updateDog); }
+    };
+    window.addEventListener('scroll', onScrollOrResize, { passive: true });
+    window.addEventListener('resize', onScrollOrResize);
+    updateDog();
+  }
 });
 
