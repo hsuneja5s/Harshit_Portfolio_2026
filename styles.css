@@ -212,6 +212,7 @@
   --text-8: 8px;
   --text-10: 10px;
   --text-12: 12px;
+  --text-14: 14px;
   --text-16: 16px;
   --text-20: 20px;
   --text-24: 24px;
@@ -862,6 +863,110 @@ img {
 .play > .section-title,
 .sayhello .section-title {
   font-size: var(--text-28);
+}
+
+/* ============================================
+   EXPERIENCE — Journey so far (timeline)
+   ============================================ */
+.xp-eyebrow {
+  font-size: var(--text-12);
+  font-weight: 600;
+  letter-spacing: var(--tracking-012em);
+  text-transform: uppercase;
+  color: var(--text-tertiary);
+  margin-bottom: var(--space-12);
+}
+
+.xp-list {
+  list-style: none;
+  margin: var(--space-40) 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-72);
+}
+
+.xp-item {
+  position: relative;
+  display: grid;
+  grid-template-columns: var(--size-200) 1fr;
+  gap: var(--space-40);
+  align-items: start;
+}
+
+/* Vertical connector running from below one logo to the next */
+.xp-item:not(:last-child)::before {
+  content: "";
+  position: absolute;
+  left: var(--space-16);
+  top: var(--space-40);
+  bottom: calc(-1 * var(--space-72));
+  border-left: var(--border-1) dashed var(--border-inverse);
+  pointer-events: none;
+}
+
+.xp-logo {
+  display: flex;
+  align-items: center;
+  min-height: var(--space-32);
+}
+
+.xp-logo img {
+  max-height: var(--space-32);
+  width: auto;
+  object-fit: contain;
+}
+
+.xp-wordmark {
+  font-size: var(--text-20);
+  font-weight: 700;
+  letter-spacing: var(--tracking-n001em);
+  color: var(--text-primary);
+}
+
+.xp-role {
+  font-size: var(--text-20);
+  font-weight: 700;
+  letter-spacing: var(--tracking-n001em);
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.xp-org {
+  font-size: var(--text-16);
+  font-weight: 500;
+  color: var(--text-primary);
+  margin: var(--space-4) 0 0;
+}
+
+.xp-meta {
+  font-size: var(--text-14);
+  color: var(--text-tertiary);
+  margin: var(--space-4) 0 0;
+}
+
+.xp-note {
+  font-size: var(--text-14);
+  font-style: italic;
+  color: var(--text-tertiary);
+  margin: var(--space-8) 0 0;
+}
+
+.xp-desc {
+  font-size: var(--text-16);
+  color: var(--text-secondary);
+  line-height: 1.55;
+  margin: var(--space-16) 0 0;
+}
+
+@media (max-width: 639px) {
+  .xp-item {
+    grid-template-columns: 1fr;
+    gap: var(--space-16);
+  }
+  .xp-item:not(:last-child)::before {
+    display: none;
+  }
 }
 
 /* Let's get in touch — heading left, contact grid right */
