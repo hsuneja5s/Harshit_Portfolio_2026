@@ -1151,21 +1151,175 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // ============================================
-  // TOOLS BALL-PILE — tap a logo to make it jump like a basketball
-  // (hover roll is handled purely in CSS)
+  // TOOLS BALL-PILE — lightweight 2D physics.
+  // Balls fall, collide, and pile up. Move the cursor through them to shove
+  // them around (faster cursor = harder shove); tap one to make it bounce.
+  // No external library — a small Verlet-ish integrator over ~7 circles.
   // ============================================
-  const toolBalls = document.querySelectorAll('[data-tool-pile] .tool-ball');
-  toolBalls.forEach(ball => {
-    ball.addEventListener('click', () => {
-      // Restart the animation cleanly on repeat taps
-      ball.classList.remove('is-jumping');
-      void ball.offsetWidth;
-      ball.classList.add('is-jumping');
+  (() => {
+    const pile = document.querySelector('[data-tool-pile]');
+    const arena = document.querySelector('.tools-zone');
+    if (!pile || !arena) return;
+
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const els = Array.from(pile.querySelectorAll('.tool-ball'));
+    if (!els.length) return;
+
+    // Tuning
+    const G = 0.7;            // gravity per frame
+    const WALL_E = 0.55;      // wall bounciness
+    const BALL_E = 0.72;      // ball-ball bounciness
+    const AIR = 0.992;        // air drag
+    const FLOOR_FRICTION = 0.9;
+    const REST_V = 1.2;       // below this, a floored ball is considered resting
+    const MAX_V = 46;
+    const CURSOR_REACH = 26;  // extra px around a ball the cursor can touch
+    const CURSOR_PUSH = 5;    // proximity shove strength
+    const CURSOR_TRANSFER = 0.5; // how much cursor speed is imparted
+
+    const balls = els.map((el) => {
+      const r = (parseFloat(el.getAttribute('width')) || el.offsetWidth || 64) / 2;
+      return { el, r, m: r * r, x: 0, y: 0, vx: 0, vy: 0, angle: 0 };
     });
-    ball.addEventListener('animationend', (e) => {
-      if (e.animationName === 'tool-ball-jump') ball.classList.remove('is-jumping');
+
+    let W = 0, H = 0;
+    const measure = () => {
+      const rect = arena.getBoundingClientRect();
+      W = rect.width; H = rect.height;
+    };
+
+    // Start as a loose pile hard against the bottom-right corner.
+    const initPile = () => {
+      let edge = W; // walk leftward from the right wall
+      let row = 0, rowRightStart = W;
+      balls.forEach((b, i) => {
+        if (edge - b.r * 2 < W - 240) { row++; edge = rowRightStart; } // wrap into a new row after ~240px
+        b.x = Math.max(b.r, edge - b.r);
+        b.y = H - b.r - row * 70;
+        edge -= b.r * 2 + 4;
+        b.vx = 0; b.vy = 0;
+      });
+    };
+
+    const clampInside = () => balls.forEach((b) => {
+      b.x = Math.min(Math.max(b.r, b.x), Math.max(b.r, W - b.r));
+      b.y = Math.min(Math.max(b.r, b.y), Math.max(b.r, H - b.r));
     });
-  });
+
+    const render = () => balls.forEach((b) => {
+      b.el.style.transform =
+        `translate(${(b.x - b.r).toFixed(2)}px, ${(b.y - b.r).toFixed(2)}px) rotate(${b.angle.toFixed(2)}deg)`;
+    });
+
+    // Cursor tracking (arena-relative)
+    let cx = -9999, cy = -9999, pcx = -9999, pcy = -9999, cvx = 0, cvy = 0, cursorInside = false;
+    window.addEventListener('pointermove', (e) => {
+      const rect = arena.getBoundingClientRect();
+      cx = e.clientX - rect.left; cy = e.clientY - rect.top;
+      cursorInside = cx >= -CURSOR_REACH && cx <= W + CURSOR_REACH && cy >= -CURSOR_REACH && cy <= H + CURSOR_REACH;
+      wake();
+    }, { passive: true });
+    window.addEventListener('pointerleave', () => { cursorInside = false; });
+
+    // Tap = bounce
+    els.forEach((el, i) => el.addEventListener('click', () => {
+      const b = balls[i];
+      b.vy = -Math.max(20, Math.abs(b.vy) + 20);
+      b.vx += (Math.random() - 0.5) * 8;
+      wake();
+    }));
+
+    let visible = false, running = false, sleep = 0;
+    const wake = () => {
+      if (!running && visible && !reduceMotion) { running = true; sleep = 0; requestAnimationFrame(step); }
+    };
+
+    const step = () => {
+      cvx = cx - pcx; cvy = cy - pcy; pcx = cx; pcy = cy;
+      if (Math.abs(cvx) > 200) cvx = 0;   // ignore teleport-sized jumps
+      if (Math.abs(cvy) > 200) cvy = 0;
+
+      // Forces + integrate
+      for (const b of balls) {
+        b.vy += G;
+        if (cursorInside) {
+          const dx = b.x - cx, dy = b.y - cy, d = Math.hypot(dx, dy), reach = b.r + CURSOR_REACH;
+          if (d < reach) {
+            const nx = d > 0 ? dx / d : Math.random() - 0.5;
+            const ny = d > 0 ? dy / d : Math.random() - 0.5;
+            const push = (reach - d) / reach;
+            b.vx += nx * push * CURSOR_PUSH + cvx * CURSOR_TRANSFER;
+            b.vy += ny * push * CURSOR_PUSH + cvy * CURSOR_TRANSFER;
+          }
+        }
+        b.vx *= AIR; b.vy *= AIR;
+        b.vx = Math.max(-MAX_V, Math.min(MAX_V, b.vx));
+        b.vy = Math.max(-MAX_V, Math.min(MAX_V, b.vy));
+        b.x += b.vx; b.y += b.vy;
+        b.angle += (b.vx / b.r) * 57.2958; // roll without slipping
+      }
+
+      // Ball-ball collisions (a couple of passes for stability)
+      for (let pass = 0; pass < 2; pass++) {
+        for (let i = 0; i < balls.length; i++) {
+          for (let j = i + 1; j < balls.length; j++) {
+            const a = balls[i], c = balls[j];
+            let dx = c.x - a.x, dy = c.y - a.y, dist = Math.hypot(dx, dy);
+            const min = a.r + c.r;
+            if (dist === 0) { dx = Math.random() - 0.5; dy = Math.random() - 0.5; dist = Math.hypot(dx, dy) || 1; }
+            if (dist < min) {
+              const nx = dx / dist, ny = dy / dist, overlap = min - dist, tot = a.m + c.m;
+              a.x -= nx * overlap * (c.m / tot); a.y -= ny * overlap * (c.m / tot);
+              c.x += nx * overlap * (a.m / tot); c.y += ny * overlap * (a.m / tot);
+              const vn = (c.vx - a.vx) * nx + (c.vy - a.vy) * ny;
+              if (vn < 0) {
+                const imp = -(1 + BALL_E) * vn / (1 / a.m + 1 / c.m);
+                a.vx -= (imp * nx) / a.m; a.vy -= (imp * ny) / a.m;
+                c.vx += (imp * nx) / c.m; c.vy += (imp * ny) / c.m;
+              }
+            }
+          }
+        }
+      }
+
+      // Walls / floor
+      for (const b of balls) {
+        if (b.x - b.r < 0) { b.x = b.r; b.vx = -b.vx * WALL_E; }
+        else if (b.x + b.r > W) { b.x = W - b.r; b.vx = -b.vx * WALL_E; }
+        if (b.y - b.r < 0) { b.y = b.r; b.vy = -b.vy * WALL_E; }
+        else if (b.y + b.r > H) {
+          b.y = H - b.r;
+          b.vy = Math.abs(b.vy) < REST_V ? 0 : -b.vy * WALL_E;
+          b.vx *= FLOOR_FRICTION;
+          if (Math.abs(b.vx) < 0.08) b.vx = 0;
+        }
+      }
+
+      render();
+
+      // Sleep when everything has settled and the cursor is away
+      let energy = 0;
+      for (const b of balls) energy += b.vx * b.vx + b.vy * b.vy;
+      sleep = (energy < 0.05 && !cursorInside) ? sleep + 1 : 0;
+      if (sleep > 24 || !visible) { running = false; return; }
+      requestAnimationFrame(step);
+    };
+
+    const io = new IntersectionObserver((entries) => {
+      visible = entries[0].isIntersecting;
+      if (visible) wake();
+    }, { threshold: 0 });
+    io.observe(arena);
+
+    window.addEventListener('resize', () => { measure(); clampInside(); render(); wake(); });
+
+    // Boot
+    measure();
+    initPile();
+    clampInside();
+    render();
+    wake();
+  })();
 
   // ============================================
   // FLOATING MASCOT — fixed to the viewport bottom while scrolling,
@@ -1176,7 +1330,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const dogSeparator = document.querySelector('.footer-separator');
   if (dogFloat && dogWrap && dogSeparator) {
     const PARK_GAP = 8;      // px of breathing room above the separator
-    const FLOAT_BOTTOM = 16; // must match .dog-float bottom (--space-16)
+    const FLOAT_BOTTOM = 0; // must match .dog-float bottom
     let ticking = false;
     const updateDog = () => {
       ticking = false;

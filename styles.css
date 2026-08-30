@@ -2229,93 +2229,44 @@ a.work-card *,
 }
 
 /* ============================================
-   TOOLS BALL-PILE
-   Section below the footer. Logos piled in the bottom-right corner.
-   Hover to nudge, tap to jump. Sizes are baked into each SVG (52–80px);
-   positions match the Figma pile.
+   TOOLS BALL-PILE — physics playground
+   The whole section is an arena. Balls fall, collide, and pile up against
+   the floor/right edge. Move the cursor through them to shove them around
+   (faster cursor = harder shove); tap one to make it bounce. All positions
+   are driven by JS (transform) — see script.js.
    ============================================ */
 .tools-zone {
   position: relative;
-  min-height: var(--size-260);
+  min-height: var(--size-420);
 }
 
-/* Pile hugs the viewport's right edge — no content-width margin (matches Figma) */
+/* Arena — fills the section; balls are positioned inside it via transform */
 .tool-pile {
   position: absolute;
-  right: 0;
-  bottom: var(--space-40);
-  width: 0;
-  height: 0;
+  inset: 0;
   z-index: 10;
   pointer-events: none;
 }
 
 .tool-ball {
   position: absolute;
+  left: 0;
+  top: 0;
   max-width: none;
   max-height: none;
   object-fit: contain;
   cursor: pointer;
   pointer-events: auto;
   transform-origin: center center;
-  transition: transform var(--duration-250) var(--ease-out-soft);
   will-change: transform;
   user-select: none;
   -webkit-user-drag: none;
   filter: drop-shadow(0 var(--space-4) var(--space-8) rgba(var(--black-rgb), 0.16));
 }
 
-/* Pile layout — right/bottom offsets from the corner anchor (mirrors Figma) */
-.tool-ball--framer  { right: 0;                                          bottom: 0;                                          z-index: 3; }
-.tool-ball--lovable { right: var(--space-72);                            bottom: 0;                                          z-index: 6; }
-.tool-ball--claude  { right: var(--size-152);                            bottom: 0;                                          z-index: 5; }
-.tool-ball--vercel  { right: var(--space-36);                            bottom: var(--space-64);                            z-index: 4; }
-.tool-ball--chatgpt { right: var(--size-120);                            bottom: calc(var(--space-64) + var(--space-4));     z-index: 2; }
-.tool-ball--figma   { right: 0;                                          bottom: calc(var(--space-80) + var(--space-32));    z-index: 1; }
-.tool-ball--replit  { right: calc(var(--space-72) + var(--space-4));     bottom: calc(var(--space-80) + var(--space-32));    z-index: 2; }
-
-/* Nudge on hover — the ball lifts and gently bobs in place (no spin) */
-@keyframes tool-ball-bob {
-  0%   { transform: translateY(calc(-1 * var(--space-8))); }
-  50%  { transform: translateY(calc(-1 * var(--space-16))); }
-  100% { transform: translateY(calc(-1 * var(--space-8))); }
-}
-
-.tool-ball:hover {
-  z-index: 10;
-  animation: tool-ball-bob var(--duration-1000) ease-in-out infinite;
-}
-
-/* Jump like a basketball on tap — squash, launch, land, small rebound */
-@keyframes tool-ball-jump {
-  0%   { transform: translateY(0) scale(1, 1); }
-  12%  { transform: translateY(0) scale(1.14, 0.86); }
-  32%  { transform: translateY(calc(-1 * var(--space-40))) scale(0.94, 1.08); }
-  52%  { transform: translateY(0) scale(1.12, 0.88); }
-  68%  { transform: translateY(calc(-1 * var(--space-16))) scale(0.98, 1.02); }
-  84%  { transform: translateY(0) scale(1.05, 0.95); }
-  100% { transform: translateY(0) scale(1, 1); }
-}
-
-/* Placed after :hover so a tap overrides the bob while it plays */
-.tool-ball.is-jumping {
-  z-index: 11;
-  animation: tool-ball-jump var(--duration-700) cubic-bezier(0.3, 0.7, 0.4, 1);
-}
-
 @media (max-width: 639px) {
   .tools-zone,
   .dog-float { display: none; }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .tool-ball:hover,
-  .tool-ball.is-jumping {
-    animation: none;
-  }
-  .tool-ball:hover {
-    transform: translateY(calc(-1 * var(--space-8)));
-  }
 }
 
 /* ============================================
