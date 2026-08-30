@@ -2200,6 +2200,85 @@ a.work-card *,
 }
 
 /* ============================================
+   TOOLS BALL-PILE
+   Logos piled in the bottom-right corner. Hover to roll, tap to jump.
+   Sizes are baked into each SVG (52–80px); positions match the Figma pile.
+   ============================================ */
+.tool-pile {
+  position: fixed;
+  right: var(--space-16);
+  bottom: 0;
+  width: 0;
+  height: 0;
+  z-index: 50;
+  pointer-events: none;
+}
+
+.tool-ball {
+  position: absolute;
+  object-fit: contain;
+  cursor: pointer;
+  pointer-events: auto;
+  transform-origin: center center;
+  transition: transform var(--duration-200) ease;
+  will-change: transform;
+  user-select: none;
+  -webkit-user-drag: none;
+  filter: drop-shadow(0 var(--space-4) var(--space-8) rgba(var(--black-rgb), 0.16));
+}
+
+/* Pile layout — right/bottom offsets from the corner anchor (mirrors Figma) */
+.tool-ball--framer  { right: 0;                                          bottom: 0;                                          z-index: 3; }
+.tool-ball--lovable { right: var(--space-72);                            bottom: 0;                                          z-index: 6; }
+.tool-ball--claude  { right: var(--size-152);                            bottom: 0;                                          z-index: 5; }
+.tool-ball--vercel  { right: var(--space-36);                            bottom: var(--space-64);                            z-index: 4; }
+.tool-ball--chatgpt { right: var(--size-120);                            bottom: calc(var(--space-64) + var(--space-4));     z-index: 2; }
+.tool-ball--figma   { right: 0;                                          bottom: calc(var(--space-80) + var(--space-32));    z-index: 1; }
+.tool-ball--replit  { right: calc(var(--space-72) + var(--space-4));     bottom: calc(var(--space-80) + var(--space-32));    z-index: 2; }
+
+/* Roll like a ball while hovered */
+@keyframes tool-ball-roll {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+.tool-ball:hover {
+  z-index: 10;
+  animation: tool-ball-roll var(--duration-700) linear infinite;
+}
+
+/* Jump like a basketball on tap — squash, launch, land, small rebound */
+@keyframes tool-ball-jump {
+  0%   { transform: translateY(0) scale(1, 1); }
+  12%  { transform: translateY(0) scale(1.14, 0.86); }
+  32%  { transform: translateY(calc(-1 * var(--space-40))) scale(0.94, 1.08); }
+  52%  { transform: translateY(0) scale(1.12, 0.88); }
+  68%  { transform: translateY(calc(-1 * var(--space-16))) scale(0.98, 1.02); }
+  84%  { transform: translateY(0) scale(1.05, 0.95); }
+  100% { transform: translateY(0) scale(1, 1); }
+}
+
+/* Placed after :hover so a tap overrides the roll while it plays */
+.tool-ball.is-jumping {
+  z-index: 11;
+  animation: tool-ball-jump var(--duration-700) cubic-bezier(0.3, 0.7, 0.4, 1);
+}
+
+@media (max-width: 639px) {
+  .tool-pile { display: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tool-ball:hover,
+  .tool-ball.is-jumping {
+    animation: none;
+  }
+  .tool-ball:hover {
+    transform: scale(1.08);
+  }
+}
+
+/* ============================================
    CLAUDE FLOATING GIF
    ============================================ */
 .claude-gif-wrap {

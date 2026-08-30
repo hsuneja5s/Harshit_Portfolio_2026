@@ -22,7 +22,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=20260821-18" />
+  <link rel="stylesheet" href="styles.css?v=20260830-3" />
   <link rel="icon" type="image/jpeg" href="/images/me.jpg" />
   <link rel="apple-touch-icon" href="/images/me.jpg" />
   <meta property="og:image" content="https://sunejaux.space/images/og-cover.jpg" />
@@ -224,15 +224,27 @@
     </div>
   </div>
 
-  <!-- FLOATING GIF -->
+  <!-- FLOATING GIF — mascot hidden while the tools ball-pile lives in this corner. Restore to bring the dog back.
   <div class="claude-gif-wrap" role="img" aria-label="Antigravity building this portfolio">
     <video src="/images/mascot-light.mp4" class="claude-gif claude-gif-light" autoplay loop muted playsinline></video>
     <video src="/images/mascot-dark.mp4" class="claude-gif claude-gif-dark" autoplay loop muted playsinline></video>
     <div class="claude-gif-tooltip">Design + Code 🚀
     </div>
   </div>
+  -->
 
-  <script src="script.js?v=20260830-1"></script>
+  <!-- TOOLS BALL-PILE — logos piled in the corner; hover to roll, tap to jump -->
+  <div class="tool-pile" data-tool-pile aria-label="Tools I build with">
+    <img class="tool-ball tool-ball--framer"  src="/images/ToolsLogo/Framer.svg?v=20260830-1"  alt="Framer"  width="72" height="72" draggable="false" loading="lazy" />
+    <img class="tool-ball tool-ball--vercel"  src="/images/ToolsLogo/Vercel.svg?v=20260830-1"  alt="Vercel"  width="60" height="60" draggable="false" loading="lazy" />
+    <img class="tool-ball tool-ball--chatgpt" src="/images/ToolsLogo/ChatGPT.svg?v=20260830-1" alt="ChatGPT" width="72" height="72" draggable="false" loading="lazy" />
+    <img class="tool-ball tool-ball--figma"   src="/images/ToolsLogo/Figma.svg?v=20260830-1"   alt="Figma"   width="60" height="60" draggable="false" loading="lazy" />
+    <img class="tool-ball tool-ball--replit"  src="/images/ToolsLogo/Replit.svg?v=20260830-1"  alt="Replit"  width="52" height="52" draggable="false" loading="lazy" />
+    <img class="tool-ball tool-ball--claude"  src="/images/ToolsLogo/Claude.svg?v=20260830-1"  alt="Claude"  width="68" height="68" draggable="false" loading="lazy" />
+    <img class="tool-ball tool-ball--lovable" src="/images/ToolsLogo/Lovable.svg?v=20260830-1" alt="Lovable" width="80" height="80" draggable="false" loading="lazy" />
+  </div>
+
+  <script src="script.js?v=20260830-3"></script>
 
   <!-- Click-to-reveal masked phone number -->
   <script>

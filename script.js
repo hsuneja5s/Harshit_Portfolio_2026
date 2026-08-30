@@ -1149,5 +1149,22 @@ document.addEventListener("DOMContentLoaded", () => {
     });
     revealElements.forEach(el => revealObserver.observe(el));
   }
+
+  // ============================================
+  // TOOLS BALL-PILE — tap a logo to make it jump like a basketball
+  // (hover roll is handled purely in CSS)
+  // ============================================
+  const toolBalls = document.querySelectorAll('[data-tool-pile] .tool-ball');
+  toolBalls.forEach(ball => {
+    ball.addEventListener('click', () => {
+      // Restart the animation cleanly on repeat taps
+      ball.classList.remove('is-jumping');
+      void ball.offsetWidth;
+      ball.classList.add('is-jumping');
+    });
+    ball.addEventListener('animationend', (e) => {
+      if (e.animationName === 'tool-ball-jump') ball.classList.remove('is-jumping');
+    });
+  });
 });
 
