@@ -13,8 +13,8 @@
   <title>Design System Generator — Harshit Suneja</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../styles.css?v=20260818-47" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css?v=20260902-1" />
   <link rel="icon" type="image/jpeg" href="/images/me.jpg" />
   <link rel="apple-touch-icon" href="/images/me.jpg" />
   <meta property="og:image" content="https://sunejaux.space/images/og-cover.jpg" />
@@ -88,9 +88,13 @@
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg>
         Back home
       </a>
+      <a href="#overview">Overview</a>
+      <a href="#problem">Problem</a>
+      <a href="#outcome">Outcome</a>
+      <a href="#try">Try it</a>
     </aside>
 
-    <article class="case-content">
+    <article class="case-content case-editorial">
       <a
         href="https://www.linkedin.com/posts/harshitux_artificialintelligence-productdesign-designsystems-activity-7438943219675000832-s1iI"
         target="_blank"
@@ -138,11 +142,36 @@
       <p class="case-subtitle">A Figma plugin that scaffolds complete design system foundations — including semantic tokens, key core components, and starting frames — in minutes.</p>
 
 
-      <div class="case-single-para-content" style="margin-top: var(--space-32); margin-bottom: var(--space-48);">
-        <p style="font-size: var(--text-20); line-height: 1.6; color: var(--text-primary);">
-          To resolve the long wait times internal-tools teams face when requesting design system support, I built this automated generator to spin up complete foundations in minutes. By inputting a single brand color and selecting a few layout options, the plugin instantly maps out accessible semantic color scales using WCAG math libraries, generates density-aware spacing systems, and scaffolds approximately forty core responsive components as native Figma variables. The result is a robust, pipeline-ready design system foundation and five working starter screens that teams can immediately fork and use.
-        </p>
-      </div>
+      <section class="case-section reveal" id="overview">
+        <span class="case-eyebrow">Overview</span>
+        <h2>A complete design system foundation, generated in an afternoon.</h2>
+        <p class="case-lede">Input one brand color and a few layout choices. The plugin maps accessible semantic color scales with WCAG math, density aware spacing, roughly forty core responsive components as native Figma variables, and five working starter screens.</p>
+      </section>
+
+      <section class="case-section reveal" id="problem">
+        <span class="case-eyebrow">Problem</span>
+        <h2>Design system support was a six week queue.</h2>
+        <p>Internal tools teams waited weeks for foundational tokens and components before they could even start designing, so simple projects stalled at the very beginning.</p>
+      </section>
+
+      <section class="case-section reveal" id="outcome">
+        <span class="case-eyebrow">Outcome</span>
+        <h2>From a multi week wait to a pipeline ready foundation.</h2>
+        <div class="metric-grid" style="margin-top: var(--space-24);">
+          <div class="metric-tile">
+            <div class="metric-value">6 wks &rarr; 1 day</div>
+            <div class="metric-label">A multi week support queue collapsed to a foundation generated in a single session.</div>
+          </div>
+          <div class="metric-tile">
+            <div class="metric-value">~40</div>
+            <div class="metric-label">Core responsive components scaffolded as native Figma variables.</div>
+          </div>
+          <div class="metric-tile">
+            <div class="metric-value">5</div>
+            <div class="metric-label">Working starter screens teams can fork and build on immediately.</div>
+          </div>
+        </div>
+      </section>
 
       <section class="case-section reveal" id="try">
         <h2>Try it</h2>

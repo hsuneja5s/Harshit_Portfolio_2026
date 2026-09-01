@@ -13,8 +13,8 @@
   <title>CLAUDE.md Exporter — Harshit Suneja</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../styles.css?v=20260818-47" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css?v=20260902-1" />
   <link rel="icon" type="image/jpeg" href="/images/me.jpg" />
   <link rel="apple-touch-icon" href="/images/me.jpg" />
   <meta property="og:image" content="https://sunejaux.space/images/og-cover.jpg" />
@@ -88,9 +88,13 @@
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg>
         Back home
       </a>
+      <a href="#overview">Overview</a>
+      <a href="#problem">Problem</a>
+      <a href="#outcome">Outcome</a>
+      <a href="#try">Try it</a>
     </aside>
 
-    <article class="case-content">
+    <article class="case-content case-editorial">
       <a
         href="https://www.linkedin.com/posts/harshitux_what-is-claudemd-activity-7442093967627751425-uo8D"
         target="_blank"
@@ -138,11 +142,23 @@
       <p class="case-subtitle">A Figma plugin that exports your design system as a single <code>CLAUDE.md</code> file, ensuring Claude Code generates components inside your exact tokens, naming, and rules.</p>
 
 
-      <div class="case-single-para-content" style="margin-top: var(--space-32); margin-bottom: var(--space-48);">
-        <p style="font-size: var(--text-20); line-height: 1.6; color: var(--text-primary);">
-          Designed to bridge the gap between design systems and code generation, this plugin helps design teams feed their complete Figma libraries directly into developer AI environments like Claude Code. In a single click, it compiles design system variables, component naming conventions, typography parameters, and layout guidelines into a single optimized CLAUDE.md file. By dropping this file into the development repository, engineering code assistants gain complete, context-aware instructions to generate front-end code that strictly complies with the design system's exact rules, preventing manual rework and spacing deviations.
-        </p>
-      </div>
+      <section class="case-section reveal" id="overview">
+        <span class="case-eyebrow">Overview</span>
+        <h2>Your design system, exported as one file Claude Code obeys.</h2>
+        <p class="case-lede">One click compiles your Figma library, its variables, component naming, typography, and layout rules, into a single optimized <code>CLAUDE.md</code> file you drop into the development repository.</p>
+      </section>
+
+      <section class="case-section reveal" id="problem">
+        <span class="case-eyebrow">Problem</span>
+        <h2>Claude Code kept generating outside the design system.</h2>
+        <p>Without the system's tokens and rules in context, AI code assistants produced components with off token colors and spacing deviations, forcing manual rework on every generation.</p>
+      </section>
+
+      <section class="case-section reveal" id="outcome">
+        <span class="case-eyebrow">Outcome</span>
+        <h2>Context aware code that complies with the system by default.</h2>
+        <p>With the exported file in the repository, generated front end code follows the exact tokens, naming, and layout rules, so drift and rework drop to near zero.</p>
+      </section>
 
       <section class="case-section reveal" id="try">
         <h2>Try it</h2>
