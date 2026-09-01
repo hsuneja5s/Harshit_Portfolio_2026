@@ -1842,7 +1842,7 @@ a.work-card *,
 }
 
 .work-image-energy-deal {
-  background-image: url("/images/work/energy-cover.png?v=20260830-1");
+  background-image: url("/images/work/energy-cover.webp?v=20260901-1");
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
@@ -1873,7 +1873,7 @@ a.work-card *,
 }
 
 [data-theme="dark"] .work-image-energy-deal {
-  background-image: url("/images/work/energy-cover.png?v=20260830-1");
+  background-image: url("/images/work/energy-cover.webp?v=20260901-1");
   background-size: cover;
   background-position: center;
   opacity: 0.8;
@@ -1894,7 +1894,7 @@ a.work-card *,
 }
 
 .work-image-healthcare-patient {
-  background-image: url("/images/work/PreventiveHealthCare-Cover.png?v=20260830-2");
+  background-image: url("/images/work/PreventiveHealthCare-Cover.webp?v=20260901-1");
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
@@ -1910,7 +1910,7 @@ a.work-card *,
 }
 
 [data-theme="dark"] .work-image-healthcare-patient {
-  background-image: url("/images/work/PreventiveHealthCare-Cover.png?v=20260830-2");
+  background-image: url("/images/work/PreventiveHealthCare-Cover.webp?v=20260901-1");
   background-size: cover;
   background-position: center;
   opacity: 0.85;
