@@ -4804,7 +4804,7 @@ blockquote.voice-quote cite {
 /* Plugin pages are short (heading + one paragraph per section), so the
    editorial section gap is halved to keep them tight. */
 .case-plugin.case-editorial .case-section {
-  margin-bottom: var(--space-64);
+  margin-bottom: var(--space-32);
 }
 
 .case-editorial .case-section h2 {
