@@ -877,6 +877,46 @@ img {
   margin-bottom: var(--space-12);
 }
 
+/* About block — large intro, primary text with a muted closing line
+   and an inline company logo (reference: big color-split statement) */
+.xp-about-label {
+  font-size: var(--text-14);
+  color: var(--text-tertiary);
+  margin: 0 0 var(--space-24);
+}
+
+.xp-about {
+  font-size: var(--text-28);
+  font-weight: 600;
+  line-height: 1.4;
+  letter-spacing: var(--tracking-n001em);
+  color: var(--text-primary);
+  max-width: var(--size-840);
+  margin: 0;
+}
+
+.xp-about-muted {
+  color: var(--text-secondary);
+}
+
+.xp-about-logo {
+  height: var(--space-24);
+  width: auto;
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0 var(--space-4);
+}
+
+.xp-journey-title {
+  margin-top: var(--space-64);
+}
+
+@media (max-width: 639px) {
+  .xp-about {
+    font-size: var(--text-24);
+  }
+}
+
 .xp-list {
   list-style: none;
   margin: var(--space-40) 0 0;
