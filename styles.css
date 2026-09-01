@@ -1823,6 +1823,22 @@ a.work-card *,
   text-overflow: ellipsis;
 }
 
+/* How to Build for AI — 16:9 image placeholder (swap for real asset later) */
+.build-ai-media {
+  aspect-ratio: 16 / 9;
+  width: 100%;
+  margin-top: var(--space-24);
+  border-radius: var(--radius-xl);
+  background: var(--background-subtle);
+  border: var(--border-1) dashed var(--border-inverse);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-tertiary);
+  font-size: var(--text-14);
+  letter-spacing: var(--tracking-004em);
+}
+
 .work-image {
   margin: 0 var(--space-20) var(--space-20);
   aspect-ratio: 16 / 9;
