@@ -1368,7 +1368,8 @@ a.work-card *,
 
 /* VIBGYOR hover on hero role phrase (also used in the hero headline) */
 .hero-role .vibgyor,
-.hero-headline .vibgyor {
+.hero-headline .vibgyor,
+.xp-about .vibgyor {
   position: relative;
   cursor: pointer;
   background-image: linear-gradient(
@@ -1386,7 +1387,8 @@ a.work-card *,
 }
 
 .hero-role .vibgyor:hover,
-.hero-headline .vibgyor:hover {
+.hero-headline .vibgyor:hover,
+.xp-about .vibgyor:hover {
   -webkit-text-fill-color: transparent;
   color: transparent;
   outline: none;
@@ -1422,11 +1424,13 @@ a.work-card *,
 
 @media (prefers-reduced-motion: reduce) {
   .hero-role .vibgyor,
-  .hero-headline .vibgyor {
+  .hero-headline .vibgyor,
+  .xp-about .vibgyor {
     animation: none;
   }
   .hero-role .vibgyor:hover,
-  .hero-headline .vibgyor:hover {
+  .hero-headline .vibgyor:hover,
+  .xp-about .vibgyor:hover {
     animation: none;
     background-position: 50% 50%;
   }
